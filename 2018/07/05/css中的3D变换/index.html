@@ -101,13 +101,19 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="CSS的3D效果首先，我们来了解一下3d的坐标系，x轴在屏幕上为水平方向，y轴为垂直方向，而z轴为垂直于屏幕的方向。  但是在二维屏幕上如何看到三维效果呢？这就需要在父元素上添加  透视属性 perspective:像素值 3D空间transform-style: preserve-3d;  下面来写一个正方体12345678910111213141516171819202122232425262">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/css中的3D变换/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CSS的3D效果首先，我们来了解一下3d的坐标系，x轴在屏幕上为水平方向，y轴为垂直方向，而z轴为垂直于屏幕的方向。  但是在二维屏幕上如何看到三维效果呢？这就需要在父元素上添加  透视属性 perspective:像素值 3D空间transform-style: preserve-3d;  下面来写一个正方体12345678910111213141516171819202122232425262">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/Jin/AppData/Local/Temp/1530769679970.png">
+<meta property="og:updated_time" content="2018-07-05T05:48:10.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="CSS的3D效果首先，我们来了解一下3d的坐标系，x轴在屏幕上为水平方向，y轴为垂直方向，而z轴为垂直于屏幕的方向。  但是在二维屏幕上如何看到三维效果呢？这就需要在父元素上添加  透视属性 perspective:像素值 3D空间transform-style: preserve-3d;  下面来写一个正方体12345678910111213141516171819202122232425262">
+<meta name="twitter:image" content="c:/Users/Jin/AppData/Local/Temp/1530769679970.png">
 
 
 
@@ -137,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/05/css中的3D变换/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -167,8 +173,7 @@
     
   
   <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,9 +286,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -313,9 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/css中的3D变换/" itemprop="url">Untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -365,9 +368,7 @@
       
 
       
-        
-          
-            <h2 id="CSS的3D效果"><a href="#CSS的3D效果" class="headerlink" title="CSS的3D效果"></a>CSS的3D效果</h2><p>首先，我们来了解一下3d的坐标系，x轴在屏幕上为水平方向，y轴为垂直方向，而z轴为垂直于屏幕的方向。 </p>
+        <h2 id="CSS的3D效果"><a href="#CSS的3D效果" class="headerlink" title="CSS的3D效果"></a>CSS的3D效果</h2><p>首先，我们来了解一下3d的坐标系，x轴在屏幕上为水平方向，y轴为垂直方向，而z轴为垂直于屏幕的方向。 </p>
 <h3 id="但是在二维屏幕上如何看到三维效果呢？"><a href="#但是在二维屏幕上如何看到三维效果呢？" class="headerlink" title="但是在二维屏幕上如何看到三维效果呢？"></a>但是在二维屏幕上如何看到三维效果呢？</h3><p>这就需要在父元素上添加</p>
 <ol>
 <li>透视属性 <code>perspective:像素值</code></li>
@@ -376,8 +377,6 @@
 <h3 id="下面来写一个正方体"><a href="#下面来写一个正方体" class="headerlink" title="下面来写一个正方体"></a>下面来写一个正方体</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">style</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     .bigbox&#123;</span></span><br><span class="line"><span class="undefined">       position: relative;</span></span><br><span class="line"><span class="undefined">       margin: 100px auto;</span></span><br><span class="line"><span class="undefined">       width: 200px;</span></span><br><span class="line"><span class="undefined">       height: 200px;</span></span><br><span class="line"><span class="undefined">       transform-style: preserve-3d; /*立体空间*/</span></span><br><span class="line"><span class="undefined">       perspective: 400px; /*视距*/</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box&#123;</span></span><br><span class="line"><span class="undefined">       position:absolute;</span></span><br><span class="line"><span class="undefined">       width: 200px;</span></span><br><span class="line"><span class="undefined">       height: 200px;</span></span><br><span class="line"><span class="undefined">       border: 1px #6fc solid;</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(1)&#123;</span></span><br><span class="line"><span class="undefined">       /*前面的面向前平移100px*/</span></span><br><span class="line"><span class="undefined">       transform: translateZ(100px); </span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(2)&#123;</span></span><br><span class="line"><span class="undefined">       /*后面的面向前平移100px*/</span></span><br><span class="line"><span class="undefined">       transform: translateZ(-100px); </span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(3)&#123;</span></span><br><span class="line"><span class="undefined">        /*左面的面先顺时针绕Y轴旋转90°，再向该平面的z轴移动-100px*/</span></span><br><span class="line"><span class="undefined">       transform: rotateY(90deg) translateZ(-100px);</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(4)&#123;</span></span><br><span class="line"><span class="undefined">        /*左面的面先逆时针绕Y轴旋转90°，再向该平面的z轴移动-100px*/</span></span><br><span class="line"><span class="undefined">       transform: rotateY(-90deg) translateZ(-100px);</span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(5)&#123;</span></span><br><span class="line"><span class="undefined">       /*上面的面先顺时针绕X轴旋转90°，再向该平面的z轴移动100px*/</span></span><br><span class="line"><span class="undefined">       transform: rotateX(90deg) translateZ(100px); </span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">     .box:nth-child(6)&#123;</span></span><br><span class="line"><span class="undefined">       /*下面的面先逆时针绕X轴旋转90°，再向该平面的z轴移动100px*/</span></span><br><span class="line"><span class="undefined">       transform: rotateX(-90deg) translateZ(100px); </span></span><br><span class="line"><span class="undefined">     &#125;</span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bigbox"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>前<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>后<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>左<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>右<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>上<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>下<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="我们来看一下效果图"><a href="#我们来看一下效果图" class="headerlink" title="我们来看一下效果图"></a>我们来看一下效果图</h3><p><img src="C:\Users\Jin\AppData\Local\Temp\1530769679970.png" alt="1530769679970"></p>
 
-          
-        
       
     </div>
     
@@ -394,132 +393,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/我的第一篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/12/我的第一篇博客/" itemprop="url">我的第一篇博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T10:51:54+08:00">
-                2018-05-12
-              </time>
+              <a href="/2018/05/12/我的第一篇博客/" rel="next" title="我的第一篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>我是金靖轩<br>hello my blog</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -529,10 +424,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -540,6 +436,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -560,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -603,6 +512,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS的3D效果"><span class="nav-number">1.</span> <span class="nav-text">CSS的3D效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#但是在二维屏幕上如何看到三维效果呢？"><span class="nav-number">1.1.</span> <span class="nav-text">但是在二维屏幕上如何看到三维效果呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面来写一个正方体"><span class="nav-number">1.2.</span> <span class="nav-text">下面来写一个正方体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们来看一下效果图"><span class="nav-number">1.3.</span> <span class="nav-text">我们来看一下效果图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -750,6 +675,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
