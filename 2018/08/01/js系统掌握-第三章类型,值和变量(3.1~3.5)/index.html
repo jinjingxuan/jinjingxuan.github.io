@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第三章类型,值和变量3.1数字和C，Java不同，JS不区分整数值和浮点数值。JS所有数字均用浮点数值表示。 当一个数字直接出现在JS程序中，我们称之为数字直接量。 3.1.1整形直接量十进制整数：0 ，3 十六进制：以 “0x” 或 ‘’0X‘’ 为前缀，如 0xff ，0xCAFE911。 八进制：有些支持，有些不支持，尽量不使用 3.1.2浮点型直接量例如： ​    3.14，.333，6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js系统掌握-第三章类型,值和变量(3.1~3.5)">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/js系统掌握-第三章类型,值和变量(3.1~3.5)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章类型,值和变量3.1数字和C，Java不同，JS不区分整数值和浮点数值。JS所有数字均用浮点数值表示。 当一个数字直接出现在JS程序中，我们称之为数字直接量。 3.1.1整形直接量十进制整数：0 ，3 十六进制：以 “0x” 或 ‘’0X‘’ 为前缀，如 0xff ，0xCAFE911。 八进制：有些支持，有些不支持，尽量不使用 3.1.2浮点型直接量例如： ​    3.14，.333，6">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-05T01:02:24.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js系统掌握-第三章类型,值和变量(3.1~3.5)">
+<meta name="twitter:description" content="第三章类型,值和变量3.1数字和C，Java不同，JS不区分整数值和浮点数值。JS所有数字均用浮点数值表示。 当一个数字直接出现在JS程序中，我们称之为数字直接量。 3.1.1整形直接量十进制整数：0 ，3 十六进制：以 “0x” 或 ‘’0X‘’ 为前缀，如 0xff ，0xCAFE911。 八进制：有些支持，有些不支持，尽量不使用 3.1.2浮点型直接量例如： ​    3.14，.333，6">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/01/js系统掌握-第三章类型,值和变量(3.1~3.5)/"/>
+
+
+
+
+
+  <title>js系统掌握-第三章类型,值和变量(3.1~3.5) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/js系统掌握-第三章类型,值和变量(3.1~3.5)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js系统掌握-第三章类型,值和变量(3.1~3.5)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T11:00:54+08:00">
+                2018-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第三章类型-值和变量"><a href="#第三章类型-值和变量" class="headerlink" title="第三章类型,值和变量"></a>第三章类型,值和变量</h1><h2 id="3-1数字"><a href="#3-1数字" class="headerlink" title="3.1数字"></a>3.1数字</h2><p>和C，Java不同，JS不区分整数值和浮点数值。JS所有数字均用浮点数值表示。</p>
+<p>当一个数字直接出现在JS程序中，我们称之为数字直接量。</p>
+<h3 id="3-1-1整形直接量"><a href="#3-1-1整形直接量" class="headerlink" title="3.1.1整形直接量"></a>3.1.1整形直接量</h3><p>十进制整数：0 ，3</p>
+<p>十六进制：以 “0x” 或 ‘’0X‘’ 为前缀，如 0xff ，0xCAFE911。</p>
+<p>八进制：有些支持，有些不支持，尽量不使用</p>
+<h3 id="3-1-2浮点型直接量"><a href="#3-1-2浮点型直接量" class="headerlink" title="3.1.2浮点型直接量"></a>3.1.2浮点型直接量</h3><p>例如：</p>
+<p>​    3.14，.333，6.02e23，1.24523E-32</p>
+<h3 id="3-1-3JS中的算术运算"><a href="#3-1-3JS中的算术运算" class="headerlink" title="3.1.3JS中的算术运算"></a>3.1.3JS中的算术运算</h3><ol>
+<li>本身算术运算符</li>
+<li>Math对象的属性定义的函数,如Math.pow(2,53)</li>
+</ol>
+<h4 id="js中的算术运算在溢出-overflow-，下溢-underflow-或被零整除时不会报错。"><a href="#js中的算术运算在溢出-overflow-，下溢-underflow-或被零整除时不会报错。" class="headerlink" title="js中的算术运算在溢出(overflow)，下溢(underflow)或被零整除时不会报错。"></a>js中的算术运算在溢出(overflow)，下溢(underflow)或被零整除时不会报错。</h4><p>溢出：数字运算结果超出了js所能表示的数字上限，结果为infinity。</p>
+<p>下溢：当运算结果无限接近于0并比js能表示的最小值还小的时候发生的情形，js会返回0.</p>
+<p>​        例如：-1 / Infinity 返回负零</p>
+<p>被零整除：返回NaN。</p>
+<p>​            但是有一个例外，0/0是没有意义的，返回NaN(not-a-number)</p>
+<p><strong>NaN有一点特殊，它和任何值都不相等，包括自身，那么如何判断x是否为NaN？</strong></p>
+<ol>
+<li>不能用 X==NaN判断</li>
+<li>使用x!=x判断，当且仅当x为NaN的时候，表达式结果为true</li>
+<li>isNaN() 参数是NaN或者一个非数字值，则返回true</li>
+<li><strong>类似的 isFinite() ,参数不是NaN,Infinity的时候返回true</strong></li>
+</ol>
+<h3 id="3-1-4-二进制浮点数和四舍五入错误"><a href="#3-1-4-二进制浮点数和四舍五入错误" class="headerlink" title="3.1.4 二进制浮点数和四舍五入错误"></a>3.1.4 二进制浮点数和四舍五入错误</h3><p>实数有无数个，但JS通过浮点数的形式只能表示有限的个数。</p>
+<p>JS的数字具有足够的精度，可以及其近似于0.1,但是还是会存在问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">.3</span><span class="number">-.2</span>;</span><br><span class="line"><span class="keyword">var</span> y = <span class="number">.2</span><span class="number">-.1</span>;</span><br><span class="line">x == y;<span class="comment">//返回false，在真实运行的环境中，</span></span><br><span class="line">	   <span class="comment">//0.3-0.2 = 0.099 999 999 999 999 98</span></span><br></pre></td></tr></table></figure>
+<p>这个计算结果可以胜任大多数的计算任务，上述问题也只有在比较两个值是否相等的时候才会出现。</p>
+<h3 id="3-1-5-日期和时间"><a href="#3-1-5-日期和时间" class="headerlink" title="3.1.5 日期和时间"></a>3.1.5 日期和时间</h3><p>Date() 构造函数，用来表示日期和时间的对象。这些日期对象的方法为日期计算提供了简单的API。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> then = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2011</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> later = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2011</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">17</span>,<span class="number">10</span>,<span class="number">30</span>); <span class="comment">//2011.1.1 17:10:30</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//当前日期和时间</span></span><br><span class="line"><span class="keyword">var</span> elapsed = now - then;<span class="comment">//日期减法，计算时间间隔的毫秒数</span></span><br><span class="line">later.getFullYear(); <span class="comment">//2011;</span></span><br><span class="line">later.getFullMonth(); <span class="comment">//0:从0开始计数的月份</span></span><br><span class="line">later.getFullDate(); <span class="comment">//1：从1开始计数的天数</span></span><br><span class="line">later.getFullDay(); <span class="comment">//5：得到星期几，0代表星期日，5代表星期一</span></span><br><span class="line">later.getFullHours(); <span class="comment">//时间 17</span></span><br><span class="line">later.getFullUTCHours(); <span class="comment">//使用UTC表示小时的时间，基于时区;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-2文本"><a href="#3-2文本" class="headerlink" title="3.2文本"></a>3.2文本</h2><p>JS定义的各式字符串操作方法均作用于16位值，而非字符。</p>
+<h3 id="3-2-1-字符串直接量"><a href="#3-2-1-字符串直接量" class="headerlink" title="3.2.1 字符串直接量"></a>3.2.1 字符串直接量</h3><p>字符串直接量是由单引号或双引号括起来的字符序列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;</span><br><span class="line">&apos;name=&quot;myform&quot;&apos;</span><br><span class="line">&quot;Wouldn&apos;t you prefer 0&apos;Reilly&apos;s book?&quot;</span><br></pre></td></tr></table></figure>
+<p>ECMAScript 3中，字符串直接量必须写在一行中</p>
+<p>ECMAScript 5中，字符串可以拆分成数行，每行必须以反斜杠（\）结束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;two\nlines&quot;//定义了一个显示为两行的字符串</span><br></pre></td></tr></table></figure>
+<p><strong>JS和Html代码混杂在一起的时候，最好有各自的引号风格</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick = &quot;alert(&apos;Thank you&apos;)&quot;&gt;Click Me&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-2-转义字符"><a href="#3-2-2-转义字符" class="headerlink" title="3.2.2 转义字符"></a>3.2.2 转义字符</h3><p>JS字符串中，\有着特殊的用途，\加上一个字符就是一个转义字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;You\&apos;re right, it can\&apos;t be a quote&apos;//反斜线可以比避免使用常规方式解释单引号</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-3字符串的使用"><a href="#3-2-3字符串的使用" class="headerlink" title="3.2.3字符串的使用"></a>3.2.3字符串的使用</h3><p>JS的内置功能之一就是字符串连接。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msg = <span class="string">"Hello,"</span> + <span class="string">"world"</span>;<span class="comment">//生成字符串Hello， world</span></span><br></pre></td></tr></table></figure>
+<p>要确定一个字符串的长度，可以使用length属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.length</span><br></pre></td></tr></table></figure>
+<p>除了length属性，字符串还提供许多可以调用的方法（先放这些）</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>substr(start,length)</td>
+<td>表示从start位置开始，截取length长度的字符串。</td>
+</tr>
+<tr>
+<td>substring(start,end)</td>
+<td>从start到end之间的字符串，包括start位置的字符但是不包括end位置的字符。</td>
+</tr>
+<tr>
+<td>split()</td>
+<td>使用一个指定的分隔符把一个字符串分割存储到数组</td>
+</tr>
+<tr>
+<td>indexOf()</td>
+<td>返回字符串中匹配子串的第一个字符的下标</td>
+</tr>
+<tr>
+<td>charAt()</td>
+<td>选中当前位置的字符</td>
+</tr>
+</tbody>
+</table>
+<p>ES5中，字符串可以当作只读数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s[0],s[s.length-1]</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-4模式匹配"><a href="#3-2-4模式匹配" class="headerlink" title="3.2.4模式匹配"></a>3.2.4模式匹配</h3><h2 id="3-3布尔值"><a href="#3-3布尔值" class="headerlink" title="3.3布尔值"></a>3.3布尔值</h2><p>任意JS的值都可以转换为布尔值。下面这些值会被转换为false：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">undefined,null,0,-0,NaN,&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>布尔值包含toString()方法，可以将字符串转换为’true’或‘false’</p>
+<h2 id="3-4null和undefined"><a href="#3-4null和undefined" class="headerlink" title="3.4null和undefined"></a>3.4null和undefined</h2><p>null常用来描述空值，对null执行typeof预算，结果返回字符串object，可以将null认为是一个特殊的对象值。</p>
+<p>undefined，未定义的值表示更深层次的“空值”，表明变量没有初始化。，typeof返回undefined</p>
+<h2 id="3-5全局对象（gloabl-object）"><a href="#3-5全局对象（gloabl-object）" class="headerlink" title="3.5全局对象（gloabl object）"></a>3.5全局对象（gloabl object）</h2><p>全局对象的属性是全局定义的符号，JS程序可以直接使用。当JS解释器启动时（或者任何Web浏览器加载页面的时候），他将创建一个新的全局对象，并给他一组定义的初始属性。</p>
+<table>
+<thead>
+<tr>
+<th>全局</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局属性</td>
+<td>undefined,Infinity,NaN</td>
+</tr>
+<tr>
+<td>全局函数</td>
+<td>isNaN(),parseInt()</td>
+</tr>
+<tr>
+<td>构造函数</td>
+<td>Date(),RegExp(),String(),Object(),Array()</td>
+</tr>
+<tr>
+<td>全局对象</td>
+<td>Math和JSON</td>
+</tr>
+</tbody>
+</table>
+<p>在代码的最顶级，不在任何函数内的JS代码，可以使用关键字this引用全局对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gloabl = <span class="keyword">this</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/01/js系统掌握-第二章词法结构/" rel="next" title="js系统掌握-第二章词法结构">
+                <i class="fa fa-chevron-left"></i> js系统掌握-第二章词法结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/01/js学习-for循环中一个易错点/" rel="prev" title="for循环中一个易错点">
+                for循环中一个易错点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章类型-值和变量"><span class="nav-number">1.</span> <span class="nav-text">第三章类型,值和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1数字"><span class="nav-number">1.1.</span> <span class="nav-text">3.1数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1整形直接量"><span class="nav-number">1.1.1.</span> <span class="nav-text">3.1.1整形直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2浮点型直接量"><span class="nav-number">1.1.2.</span> <span class="nav-text">3.1.2浮点型直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3JS中的算术运算"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.1.3JS中的算术运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js中的算术运算在溢出-overflow-，下溢-underflow-或被零整除时不会报错。"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">js中的算术运算在溢出(overflow)，下溢(underflow)或被零整除时不会报错。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-二进制浮点数和四舍五入错误"><span class="nav-number">1.1.4.</span> <span class="nav-text">3.1.4 二进制浮点数和四舍五入错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-5-日期和时间"><span class="nav-number">1.1.5.</span> <span class="nav-text">3.1.5 日期和时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2文本"><span class="nav-number">1.2.</span> <span class="nav-text">3.2文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-字符串直接量"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.2.1 字符串直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-转义字符"><span class="nav-number">1.2.2.</span> <span class="nav-text">3.2.2 转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3字符串的使用"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.2.3字符串的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4模式匹配"><span class="nav-number">1.2.4.</span> <span class="nav-text">3.2.4模式匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3布尔值"><span class="nav-number">1.3.</span> <span class="nav-text">3.3布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4null和undefined"><span class="nav-number">1.4.</span> <span class="nav-text">3.4null和undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5全局对象（gloabl-object）"><span class="nav-number">1.5.</span> <span class="nav-text">3.5全局对象（gloabl object）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

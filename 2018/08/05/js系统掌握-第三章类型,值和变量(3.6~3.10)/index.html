@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="3.6包装对象JS对象是一种复合值：他是属性或已命名值的集合。 可以使用 . 来引用属性。 但是为什么字符串不是对象，也可以使用 . 来引用属性呢？ 只要引用了字符串的属性，JS就自动通过 new String()的方式将其转换为对象 数字和布尔值也是一样。看下面一段代码 123var s = &quot;test&quot;;s.len = 4;     //创建临时字符串对象，赋值之后随机销毁var t = s.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js系统掌握-第三章类型,值和变量(3.6~3.10)">
+<meta property="og:url" content="http://yoursite.com/2018/08/05/js系统掌握-第三章类型,值和变量(3.6~3.10)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="3.6包装对象JS对象是一种复合值：他是属性或已命名值的集合。 可以使用 . 来引用属性。 但是为什么字符串不是对象，也可以使用 . 来引用属性呢？ 只要引用了字符串的属性，JS就自动通过 new String()的方式将其转换为对象 数字和布尔值也是一样。看下面一段代码 123var s = &quot;test&quot;;s.len = 4;     //创建临时字符串对象，赋值之后随机销毁var t = s.">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-07T03:23:46.962Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js系统掌握-第三章类型,值和变量(3.6~3.10)">
+<meta name="twitter:description" content="3.6包装对象JS对象是一种复合值：他是属性或已命名值的集合。 可以使用 . 来引用属性。 但是为什么字符串不是对象，也可以使用 . 来引用属性呢？ 只要引用了字符串的属性，JS就自动通过 new String()的方式将其转换为对象 数字和布尔值也是一样。看下面一段代码 123var s = &quot;test&quot;;s.len = 4;     //创建临时字符串对象，赋值之后随机销毁var t = s.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/05/js系统掌握-第三章类型,值和变量(3.6~3.10)/"/>
+
+
+
+
+
+  <title>js系统掌握-第三章类型,值和变量(3.6~3.10) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/js系统掌握-第三章类型,值和变量(3.6~3.10)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js系统掌握-第三章类型,值和变量(3.6~3.10)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T09:00:54+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="3-6包装对象"><a href="#3-6包装对象" class="headerlink" title="3.6包装对象"></a>3.6包装对象</h2><p>JS对象是一种复合值：他是属性或已命名值的集合。</p>
+<p>可以使用 . 来引用属性。</p>
+<p>但是为什么字符串不是对象，也可以使用 . 来引用属性呢？</p>
+<p><strong>只要引用了字符串的属性，JS就自动通过 new String()的方式将其转换为对象</strong></p>
+<p>数字和布尔值也是一样。看下面一段代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"test"</span>;</span><br><span class="line">s.len = <span class="number">4</span>;     <span class="comment">//创建临时字符串对象，赋值之后随机销毁</span></span><br><span class="line"><span class="keyword">var</span> t = s.len; <span class="comment">//输出t的值为undefined</span></span><br></pre></td></tr></table></figure>
+<p>这个创建的临时对象称为包装对象。</p>
+<p>“==”将原始值和包装对象视为相等。“===”视为不等。</p>
+<h2 id="3-7-不可变的原始值和可变的对象引用"><a href="#3-7-不可变的原始值和可变的对象引用" class="headerlink" title="3.7 不可变的原始值和可变的对象引用"></a>3.7 不可变的原始值和可变的对象引用</h2><p>原始值（undefined,null,布尔值，数字和字符串）与对象（数组和函数）有着根本区别</p>
+<p>原始值不可更改。（字符串中的方法也只是返回一个新的字符串）</p>
+<p>对象的值可以更改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o =&#123; <span class="attr">x</span>:<span class="number">1</span> &#125;;</span><br><span class="line">o.x = <span class="number">2</span>;<span class="comment">//修改对象属性值</span></span><br><span class="line">o.y = <span class="number">3</span>;<span class="comment">//增加一个新属性</span></span><br></pre></td></tr></table></figure>
+<p>原始值的比较是值的比较。</p>
+<p>对象的比较并非值的比较：即使两个对象包含同样的属性及相同的值，他们也是不相等的。</p>
+<p><strong>两个单独的对象永不相等，两个单独的数组也永不相等</strong></p>
+<p>我们通常将对象称为引用类型。对象值都是引用。</p>
+<p>对象的比较均是引用的比较，当且仅当他们引用同一个基对象时，他们才相等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];<span class="comment">//定义一个引用空数组的变量a</span></span><br><span class="line"><span class="keyword">var</span> b = a;<span class="comment">//变量b引用同一个数组</span></span><br><span class="line">b[<span class="number">0</span>] = <span class="number">1</span>;<span class="comment">//通过变量b来修改引用的数组</span></span><br><span class="line">a[<span class="number">0</span>]；<span class="comment">//变量a也会修改</span></span><br><span class="line">a===b;<span class="comment">//a,b引用同一个数组，他们相等</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-8类型转换"><a href="#3-8类型转换" class="headerlink" title="3.8类型转换"></a>3.8类型转换</h2><h3 id="1-原始值之间的转换（p49）"><a href="#1-原始值之间的转换（p49）" class="headerlink" title="1.原始值之间的转换（p49）"></a>1.原始值之间的转换（p49）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10+&quot;objects&quot;  //=&gt;&quot;10 objects&quot;,数字10转化为字符串&quot;</span><br><span class="line">&quot;7&quot;*&quot;4&quot;       //=&gt;28,字符串转换为数字</span><br><span class="line">var n = 1-&quot;x&quot; //=&gt;NaN,&quot;x&quot;无法转换为数字</span><br></pre></td></tr></table></figure>
+<p>以数字表示的字符串可以直接转换为数字，也允许在开始和结尾处带有空格，但是不能带有非空格字符。</p>
+<h3 id="2-原始值到对象的转换"><a href="#2-原始值到对象的转换" class="headerlink" title="2.原始值到对象的转换"></a>2.原始值到对象的转换</h3><p>通过调用String（），Number（），Boolean（），转换为他们各自的包装对象</p>
+<h3 id="3-对象转换为原始值"><a href="#3-对象转换为原始值" class="headerlink" title="3. 对象转换为原始值"></a>3. 对象转换为原始值</h3><ul>
+<li><p>对象到布尔值：所有的对象（包括数组和函数）都转换为true，包装对象也是,如<code>new Boolean(false)</code></p>
+</li>
+<li><p>对象到字符串和对象到数字：调用待转换对象的一个方法来完成。</p>
+<p>接下来讨论的规则只用于本地对象，宿主对象（浏览器定义的对象）有自己的转换规则</p>
+<ol>
+<li>toString（）</li>
+</ol>
+<p>数组类：将每个数组元素转换为一个字符串。</p>
+<p>函数类：返回这个函数的实现定义的表示方法。</p>
+<p>日期类：返回可读的日期和时间字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].toString() //&quot;1,2,3&quot;</span><br><span class="line">(function(X)&#123; f(x); &#125;).toString() //function(X)&#123;\n f(x);\n &#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>valueOf（）</li>
+</ol>
+<p>如果存在原始值，他就默认把对象转换为原始值。</p>
+<p>否则会简单的返回对象本身。</p>
+</li>
+</ul>
+<p>对象到字符串（总结）：</p>
+<ol>
+<li>如果对象有toString()方法，则调用这个方法。如果返回一个原始值（不是字符串），则JS将这个值转换为字符串。</li>
+<li>如果对象没有toString()方法，或者这个方法并不返回一个原始值，那么则调用valueOf（）。如果存在这个方法，则调用他，如果返回值是原始值，JS会将这个值转换为字符串。</li>
+<li>否则，JS无法从toString（)和valueOf（）获得一个原始值，此时将抛出一个类型错误异常。</li>
+</ol>
+<p>对象到数字（总结）：</p>
+<p>​    JS做了同样的事情，只是他会首先尝试valueOf方法。</p>
+<p>​    例如数组转换为数字：首先尝试了valueOf，返回了对象而不是原始值，则调用toString（）转换为字符串，再转换为数字。</p>
+<p>“+”和“==”运算符如果其中一个操作数是对象，则JS将使用特殊的方法将对象转换为原始值，基本上都是对象到数字的转换，首先调用valueOf，然后调用toString()，但是日期对象使用对象到字符串的转换模式。</p>
+<h2 id="3-8-1转换和相等性"><a href="#3-8-1转换和相等性" class="headerlink" title="3.8.1转换和相等性"></a>3.8.1转换和相等性</h2><p>JS可以做灵活的类型转换,以下表达式均返回true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">null == undefined</span><br><span class="line">&quot;0&quot; == 0</span><br><span class="line">0 == false</span><br><span class="line">&quot;0&quot; == false</span><br></pre></td></tr></table></figure>
+<h2 id="3-8-2显式类型转换"><a href="#3-8-2显式类型转换" class="headerlink" title="3.8.2显式类型转换"></a>3.8.2显式类型转换</h2><p>做显式类型转换最简单的方法就是使用Boolean(),Number(),String(),Object()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number(&quot;3&quot;)      //3</span><br><span class="line">String(false)    //&quot;false&quot;</span><br><span class="line">Boolean([])      //true</span><br><span class="line">Object(3)        //new Number(3)</span><br></pre></td></tr></table></figure>
+<p>某些隐式类型转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x+&quot;&quot;    //等价于String(x)</span><br><span class="line">+x      //等价于Number(x)</span><br><span class="line">!!x     //等价于Boolean(X)</span><br></pre></td></tr></table></figure>
+<p>Number类定义的toString()方法可以接收表示转换基数（radix）的可选参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var n = 17;</span><br><span class="line">binary_string = n.toString(2)  //转换为&quot;10001&quot;</span><br></pre></td></tr></table></figure>
+<p>toFixed()根据小数点后指定位数将数字转换为字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var n = 123456.789;</span><br><span class="line">n.toFixed(0);    //&quot;123457&quot;</span><br><span class="line">n.toFixed(2);    //&quot;123456.79&quot;</span><br><span class="line">n.toFixed(5);    //&quot;123456.78900&quot;</span><br></pre></td></tr></table></figure>
+<p>还有其他的一些方法</p>
+<p>toPrecision()根据指定的有效数字位数将数字转换为字符串</p>
+<p>toExponential()使用指数计数法将数字转换为指数形式的字符串</p>
+<h3 id="parseInt-与parseFloat"><a href="#parseInt-与parseFloat" class="headerlink" title="parseInt()与parseFloat()"></a>parseInt()与parseFloat()</h3><ol>
+<li>parseInt()方法首先查看位置0处的 字符，判断它是否是个有效数字；如果不是，该方法将返回NaN，不再继续执行其他操作。但如果该字符是有效数字，该方法将查看位置1处的字符，进行同样的 测试。这一过程将持续到发现非有效数字的字符为止，此时parseInt()将把该字符之前的字符串转换成数字 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&quot;3 blind mice&quot;) //=&gt;3</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>parseFloat()与parseInt()方法的处理方式相似，从位置0开始查看每个字符，直到找到第一个非有效的字符为止，然后把该字 符之前的字符串转换成数字。  不过，对于这个方法来说，第一个出现的小数点是有效字符。如果有两个小数点，第二个小数点将被看作无效的</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parseFloat  (&quot;22.34.5 &quot;) //=&gt;22.34</span><br></pre></td></tr></table></figure>
+<h2 id="3-9变量声明"><a href="#3-9变量声明" class="headerlink" title="3.9变量声明"></a>3.9变量声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var i,sum;//虽然声明了这个变量，但初始值是undefined</span><br></pre></td></tr></table></figure>
+<p>JS变量可以是任意数据类型，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var i = 10;</span><br><span class="line">i = &quot;ten&quot;//合法</span><br></pre></td></tr></table></figure>
+<p>编程语言分为动态语言与静态语言，动态语言是指在运行期间才去做数据类型检查的语言，如Python,JS,Ruby.</p>
+<p>而静态语言的数据类型是在编译期间检查的，也就是在写程序时要声明所有变量的数据类型，如c,java。</p>
+<h2 id="3-10变量作用域"><a href="#3-10变量作用域" class="headerlink" title="3.10变量作用域"></a>3.10变量作用域</h2><p>一个变量的作用域（scope）是程序源代码中定义这个变量的区域。</p>
+<p><strong>在函数体内，局部变量的优先级高于同名的全局变量。</strong></p>
+<p><strong>全局作用域编写代码时可以不写var语句，但声明局部变量时必须使用var</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope = &quot;gloabl&quot;</span><br><span class="line">function checkscope()&#123;</span><br><span class="line">    scope = &quot;local&quot;;       //修改了全局变量</span><br><span class="line">    myscope = &quot;local&quot;;     //显式的声明了一个新的全局变量</span><br><span class="line">    return[scope.myscope]; //返回两个值</span><br><span class="line">&#125;</span><br><span class="line">checkscope() //[&quot;local&quot;,&quot;local&quot;]:全局变量修改了，全局命名空间搞乱了</span><br></pre></td></tr></table></figure>
+<h3 id="3-10-1函数作用域和声明提前"><a href="#3-10-1函数作用域和声明提前" class="headerlink" title="3.10.1函数作用域和声明提前"></a>3.10.1函数作用域和声明提前</h3><p>类似C语言的编程语言中，花括号每一段代码都有各自的作用域，而且变量在声明他们的代码段之外是不可见的，</p>
+<p>我们称为块级作用域，JS取而代之的是函数作用域：<strong>变量在声明他们的函数体内以及这个函数体嵌套的任意函数体内都是有定义的</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function test(o)&#123;</span><br><span class="line">    var i = 0;                             //i在整个函数体内均是有定义的</span><br><span class="line">    if(typeof o == &quot;object&quot;)&#123;              </span><br><span class="line">        var j = 0;						 //j在函数均是有定义的，不仅仅是在这个代码段内</span><br><span class="line">        for(var k = 0; k &lt; 10; k++ )&#123;      //k在函数均是有定义的，不仅仅是在这个代码段内</span><br><span class="line">            console.log(k);</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(k);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>JS的函数作用域是指在函数内声明的所有变量在函数体内始终是可见的，变量在声明之前甚至已经可用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = gloabl;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(scope);   <span class="comment">//输出undefined，不是gloabl</span></span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">"local"</span>;  <span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">console</span>.log(scope);	  <span class="comment">//输出local</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编码时可以将变量声明放在函数顶部，而不是放在使用变量附近，可以清晰的反应真实的变量作用域。</p>
+<h3 id="3-10-2作为属性的变量"><a href="#3-10-2作为属性的变量" class="headerlink" title="3.10.2作为属性的变量"></a>3.10.2作为属性的变量</h3><p>JS全局变量式全局对象的属性.</p>
+<p>当使用var声明一个变量时，创建的这个属性是不可配置的，无法通过delete运算符删除。</p>
+<p>如果没有使用严格模式并给一个未声明的变量赋值的话，JS会自动创建一个全局变量。以这种方式创建的变量是全局对象的正常的可配置属性，并可以删除他们。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var truevar = 1;     //声明一个不可删除的全局变量</span><br><span class="line">fakevar = 2;         //创建全局对象的一个可删除属性</span><br><span class="line">this.fakevar2 = 3;   //同上</span><br><span class="line">delete truevar;		 //false</span><br><span class="line">delete fakevar;       //true</span><br><span class="line">delete this.fakevar2; //true</span><br></pre></td></tr></table></figure>
+<h3 id="3-10-3作用域链"><a href="#3-10-3作用域链" class="headerlink" title="3.10.3作用域链"></a>3.10.3作用域链</h3><p>要理解变量的作用域范围就得先理解作用域链<br>用var关键字声明一个变量时，就是为该变量所在的对象添加了一个属性。<br>作用域链：由于js的变量都是对象的属性，而该对象可能又是其它对象的属性，而所有的对象都是window对象的属性，所以这些对象的关系可以看作是一条链<br>链头就是变量所处的对象，链尾就是window对象</p>
+<p>看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function t() &#123; </span><br><span class="line">    var a; </span><br><span class="line">    function t2() &#123; </span><br><span class="line">        var b; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>js中函数也是对象，所以变量a所在的对象是t，t又在window对象中，所以a的作用域链如下<br>t–window<br>那么b所以在的对象即t2，t2又包含在t中，t又在window对象，所以b的作用域链如下<br>t2–t–window </p>
+<p>了解了作用域链 反过来看函数作用域就清楚多了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/java学习-Shape类/" rel="next" title="java学习-Shape类">
+                <i class="fa fa-chevron-left"></i> java学习-Shape类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/05/js学习-获取元素之动态获取与静态获取/" rel="prev" title="js学习-获取元素之动态获取与静态获取">
+                js学习-获取元素之动态获取与静态获取 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6包装对象"><span class="nav-number">1.</span> <span class="nav-text">3.6包装对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-不可变的原始值和可变的对象引用"><span class="nav-number">2.</span> <span class="nav-text">3.7 不可变的原始值和可变的对象引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8类型转换"><span class="nav-number">3.</span> <span class="nav-text">3.8类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原始值之间的转换（p49）"><span class="nav-number">3.1.</span> <span class="nav-text">1.原始值之间的转换（p49）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-原始值到对象的转换"><span class="nav-number">3.2.</span> <span class="nav-text">2.原始值到对象的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-对象转换为原始值"><span class="nav-number">3.3.</span> <span class="nav-text">3. 对象转换为原始值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-1转换和相等性"><span class="nav-number">4.</span> <span class="nav-text">3.8.1转换和相等性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-2显式类型转换"><span class="nav-number">5.</span> <span class="nav-text">3.8.2显式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parseInt-与parseFloat"><span class="nav-number">5.1.</span> <span class="nav-text">parseInt()与parseFloat()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9变量声明"><span class="nav-number">6.</span> <span class="nav-text">3.9变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10变量作用域"><span class="nav-number">7.</span> <span class="nav-text">3.10变量作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-1函数作用域和声明提前"><span class="nav-number">7.1.</span> <span class="nav-text">3.10.1函数作用域和声明提前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-2作为属性的变量"><span class="nav-number">7.2.</span> <span class="nav-text">3.10.2作为属性的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-3作用域链"><span class="nav-number">7.3.</span> <span class="nav-text">3.10.3作用域链</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
