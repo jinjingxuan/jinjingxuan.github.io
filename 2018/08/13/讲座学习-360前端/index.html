@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天暑期讲座邀请到了360奇舞团团长（360最大前端团队）月影来分享js学习。在这里记录一下。 1. js的历史js是作者在十天之内开发出来的一门语言。 目前ecmascript是js的标准，es3和es5是最重要的两个版本，其中es3到es5的开发用了十年， 其中产生的es4被废弃掉了，因为它违背了js的初衷，太过于复杂化。 2. js的不断改进1234567//调用构造函数Array创建数组的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="讲座学习-360前端">
+<meta property="og:url" content="http://yoursite.com/2018/08/13/讲座学习-360前端/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天暑期讲座邀请到了360奇舞团团长（360最大前端团队）月影来分享js学习。在这里记录一下。 1. js的历史js是作者在十天之内开发出来的一门语言。 目前ecmascript是js的标准，es3和es5是最重要的两个版本，其中es3到es5的开发用了十年， 其中产生的es4被废弃掉了，因为它违背了js的初衷，太过于复杂化。 2. js的不断改进1234567//调用构造函数Array创建数组的">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.tzr.me/images/2018/08/16/QQ20180816113908.png">
+<meta property="og:updated_time" content="2018-08-16T03:44:21.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="讲座学习-360前端">
+<meta name="twitter:description" content="今天暑期讲座邀请到了360奇舞团团长（360最大前端团队）月影来分享js学习。在这里记录一下。 1. js的历史js是作者在十天之内开发出来的一门语言。 目前ecmascript是js的标准，es3和es5是最重要的两个版本，其中es3到es5的开发用了十年， 其中产生的es4被废弃掉了，因为它违背了js的初衷，太过于复杂化。 2. js的不断改进1234567//调用构造函数Array创建数组的">
+<meta name="twitter:image" content="http://www.tzr.me/images/2018/08/16/QQ20180816113908.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/13/讲座学习-360前端/"/>
+
+
+
+
+
+  <title>讲座学习-360前端 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/13/讲座学习-360前端/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">讲座学习-360前端</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-13T11:00:54+08:00">
+                2018-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天暑期讲座邀请到了360奇舞团团长（360最大前端团队）月影来分享js学习。在这里记录一下。</p>
+<h2 id="1-js的历史"><a href="#1-js的历史" class="headerlink" title="1. js的历史"></a>1. js的历史</h2><p>js是作者在十天之内开发出来的一门语言。</p>
+<p>目前ecmascript是js的标准，es3和es5是最重要的两个版本，其中es3到es5的开发用了十年，</p>
+<p>其中产生的es4被废弃掉了，因为它违背了js的初衷，太过于复杂化。</p>
+<h2 id="2-js的不断改进"><a href="#2-js的不断改进" class="headerlink" title="2. js的不断改进"></a>2. js的不断改进</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用构造函数Array创建数组的方法</span></span><br><span class="line"><span class="comment">//a 无参数</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//    =&gt; []空数组;</span></span><br><span class="line"><span class="comment">//b 一个数值参数</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>);<span class="comment">//    =&gt; [undefined*5]稀疏数组;</span></span><br><span class="line"><span class="comment">//c 两个或多个数组元素或者一个非数值元素</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'2ab'</span>); <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>, <span class="string">'a'</span>, <span class="string">'b'</span>);<span class="comment">//=&gt; ['2ab']和[2, 'a', 'b'];</span></span><br></pre></td></tr></table></figure>
+<p>es6中的改进</p>
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a><strong>Array.of()</strong></h3><p><code>Array.of</code>方法用于将一组值，转换为数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Array.of(3, 11, 8) // [3,11,8]</span><br><span class="line">Array.of(3) // [3]</span><br><span class="line">Array.of(3).length // 1</span><br></pre></td></tr></table></figure>
+<p>这个方法的主要目的，是弥补数组构造函数<code>Array()</code>的不足。因为参数个数的不同，会导致<code>Array()</code>的行为有差异。</p>
+<p><code>Array.of</code>总是返回参数值组成的数组。如果没有参数，就返回一个空数组。</p>
+<p><code>Array.of</code>基本上可以用来替代<code>Array()</code>或<code>new Array()</code>，并且不存在由于参数不同而导致的重载。它的行为非常统一。</p>
+<h2 id="3-js模块化"><a href="#3-js模块化" class="headerlink" title="3. js模块化"></a>3. js模块化</h2><p>可以避免变量冲突</p>
+<p><a href="https://www.jb51.net/article/63741.htm" target="_blank" rel="noopener">https://www.jb51.net/article/63741.htm</a></p>
+<h2 id="4-web组件化"><a href="#4-web组件化" class="headerlink" title="4. web组件化"></a>4. web组件化</h2><p><a href="http://blog.jobbole.com/56161/" target="_blank" rel="noopener">http://blog.jobbole.com/56161/</a></p>
+<h2 id="5-JITcode"><a href="#5-JITcode" class="headerlink" title="5. JITcode"></a>5. JITcode</h2><p>goole到的pdf</p>
+<p><img src="http://www.tzr.me/images/2018/08/16/QQ20180816113908.png" alt="QQ20180816113908.png"></p>
+<p>知乎上的简介</p>
+<p>即时编译（英语：Just-in-time compilation），又译及时编译、实时编译[3]，动态编译的一种形式，是一种提高程序运行效率的方法。通常，程序有两种运行方式：静态编译与动态直译。静态编译的程序在执行前全部被翻译为机器码，而直译执行的则是一句一句边运行边翻译。  即时编译器则混合了这二者，一句一句编译源代码，但是会将翻译过的代码缓存起来以降低性能损耗。相对于静态编译代码，即时编译的代码可以处理延迟绑定并增强安全性。  即时编译器有两种类型，一是字节码翻译，二是动态编译翻译。 </p>
+<h2 id="6-函数式编程"><a href="#6-函数式编程" class="headerlink" title="6. 函数式编程"></a>6. 函数式编程</h2><h2 id="7-js可以调用C写的模块"><a href="#7-js可以调用C写的模块" class="headerlink" title="7.js可以调用C写的模块"></a>7.js可以调用C写的模块</h2><h2 id="8-提问题中提到的一些"><a href="#8-提问题中提到的一些" class="headerlink" title="8. 提问题中提到的一些"></a>8. 提问题中提到的一些</h2><ul>
+<li>数据可视化</li>
+<li>3D房屋展示</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/13/js学习-控制伪元素的方法/" rel="next" title="js学习-控制伪元素的方法">
+                <i class="fa fa-chevron-left"></i> js学习-控制伪元素的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/14/Android学习-安装与配置/" rel="prev" title="Android学习-安装与配置">
+                Android学习-安装与配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-js的历史"><span class="nav-number">1.</span> <span class="nav-text">1. js的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-js的不断改进"><span class="nav-number">2.</span> <span class="nav-text">2. js的不断改进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-of"><span class="nav-number">2.1.</span> <span class="nav-text">Array.of()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-js模块化"><span class="nav-number">3.</span> <span class="nav-text">3. js模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-web组件化"><span class="nav-number">4.</span> <span class="nav-text">4. web组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-JITcode"><span class="nav-number">5.</span> <span class="nav-text">5. JITcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-函数式编程"><span class="nav-number">6.</span> <span class="nav-text">6. 函数式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-js可以调用C写的模块"><span class="nav-number">7.</span> <span class="nav-text">7.js可以调用C写的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-提问题中提到的一些"><span class="nav-number">8.</span> <span class="nav-text">8. 提问题中提到的一些</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
