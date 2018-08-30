@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。2. 相同点：这两个方法的作用是一样的。都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域。 一般来说，this总是指向调用某个方法的对象，但是使用call()和apply()方法时，就会改变this的指向。 call()方法使用示例： 123456789101112131415">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js学习-call()方法和apply()方法">
+<meta property="og:url" content="http://yoursite.com/2018/08/19/js学习-call()方法和apply()方法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。2. 相同点：这两个方法的作用是一样的。都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域。 一般来说，this总是指向调用某个方法的对象，但是使用call()和apply()方法时，就会改变this的指向。 call()方法使用示例： 123456789101112131415">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-20T02:14:23.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js学习-call()方法和apply()方法">
+<meta name="twitter:description" content="1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。2. 相同点：这两个方法的作用是一样的。都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域。 一般来说，this总是指向调用某个方法的对象，但是使用call()和apply()方法时，就会改变this的指向。 call()方法使用示例： 123456789101112131415">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/19/js学习-call()方法和apply()方法/"/>
+
+
+
+
+
+  <title>js学习-call()方法和apply()方法 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/js学习-call()方法和apply()方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js学习-call()方法和apply()方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T15:00:54+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-每个函数都包含两个非继承而来的方法：call-方法和apply-方法。"><a href="#1-每个函数都包含两个非继承而来的方法：call-方法和apply-方法。" class="headerlink" title="1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。"></a><strong>1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。</strong></h3><h3 id="2-相同点：这两个方法的作用是一样的。"><a href="#2-相同点：这两个方法的作用是一样的。" class="headerlink" title="2. 相同点：这两个方法的作用是一样的。"></a><strong>2. 相同点：</strong>这两个方法的作用是一样的。</h3><p><strong>都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域。</strong></p>
+<p>一般来说，this总是指向调用某个方法的对象，但是使用call()和apply()方法时，就会改变this的指向。</p>
+<p><strong>call()方法使用示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    //例1</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.color = &apos;red&apos;;</span><br><span class="line">        document.color = &apos;yellow&apos;;</span><br><span class="line"></span><br><span class="line">        var s1 = &#123;color: &apos;blue&apos; &#125;;</span><br><span class="line">        function changeColor()&#123;</span><br><span class="line">            console.log(this.color);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        changeColor.call();         //red (默认传递参数)</span><br><span class="line">        changeColor.call(window);   //red</span><br><span class="line">        changeColor.call(document); //yellow</span><br><span class="line">        changeColor.call(this);     //red</span><br><span class="line">        changeColor.call(s1);       //blue</span><br><span class="line"></span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    //例2</span><br><span class="line">    var Pet = &#123;</span><br><span class="line">        words : &apos;...&apos;,</span><br><span class="line">        speak : function (say) &#123;</span><br><span class="line">            console.log(say + &apos;&apos;+ this.words)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    Pet.speak(&apos;Speak&apos;); // 结果：Speak...</span><br><span class="line"></span><br><span class="line">    var Dog = &#123;</span><br><span class="line">        words:&apos;Wang&apos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //将this的指向改变成了Dog</span><br><span class="line">    Pet.speak.call(Dog, &apos;Speak&apos;); //结果： SpeakWang</span><br><span class="line"></span><br><span class="line">1234567891011121314151617181920212223242526272829303132333435</span><br></pre></td></tr></table></figure>
+<p><strong>apply()方法使用示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//例1</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.number = &apos;one&apos;;</span><br><span class="line">    document.number = &apos;two&apos;;</span><br><span class="line"></span><br><span class="line">    var s1 = &#123;number: &apos;three&apos; &#125;;</span><br><span class="line">    function changeColor()&#123;</span><br><span class="line">        console.log(this.number);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    changeColor.apply();         //one (默认传参)</span><br><span class="line">    changeColor.apply(window);   //one</span><br><span class="line">    changeColor.apply(document); //two</span><br><span class="line">    changeColor.apply(this);     //one</span><br><span class="line">    changeColor.apply(s1);       //three</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">//例2</span><br><span class="line">function Pet(words)&#123;</span><br><span class="line">    this.words = words;</span><br><span class="line">    this.speak = function () &#123;</span><br><span class="line">        console.log( this.words)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Dog(words)&#123;</span><br><span class="line">    //Pet.call(this, words); //结果： Wang</span><br><span class="line">   Pet.apply(this, arguments); //结果： Wang</span><br><span class="line">&#125;</span><br><span class="line">var dog = new Dog(&apos;Wang&apos;);</span><br><span class="line">dog.speak();12345678910111213141516171819202122232425262728293031</span><br></pre></td></tr></table></figure>
+<h3 id="3-不同点：接收参数的方式不同。"><a href="#3-不同点：接收参数的方式不同。" class="headerlink" title="3. 不同点：接收参数的方式不同。"></a><strong>3. 不同点：</strong>接收参数的方式不同。</h3><ul>
+<li><strong>apply()方法</strong> 接收两个参数，一个是函数运行的作用域（this），另一个是参数数组。</li>
+</ul>
+<p><strong>语法：</strong><code>apply([thisObj [,argArray] ]);</code>，调用一个对象的一个方法，2另一个对象替换当前对象。</p>
+<p><strong>说明：</strong>如果argArray不是一个有效数组或不是arguments对象，那么将导致一个<br>TypeError，如果没有提供argArray和thisObj任何一个参数，那么Global对象将用作thisObj。</p>
+<ul>
+<li><strong>call()方法</strong> 第一个参数和apply()方法的一样，但是传递给函数的参数必须列举出来。</li>
+</ul>
+<p><strong>语法：</strong><code>call([thisObject[,arg1 [,arg2 [,...,argn]]]]);</code>，应用某一对象的一个方法，用另一个对象替换当前对象。</p>
+<p><strong>说明：</strong> call方法可以用来代替另一个对象调用一个方法，call方法可以将一个函数的对象上下文从初始的上下文改变为thisObj指定的新对象，如果没有提供thisObj参数，那么Global对象被用于thisObj。</p>
+<p>使用示例1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function add(c,d)&#123;</span><br><span class="line">    return this.a + this.b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var s = &#123;a:1, b:2&#125;;</span><br><span class="line">console.log(add.call(s,3,4)); // 1+2+3+4 = 10</span><br><span class="line">console.log(add.apply(s,[5,6])); // 1+2+5+6 = 14 1234567</span><br></pre></td></tr></table></figure>
+<p>使用示例2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    window.firstName = &quot;Cynthia&quot;; </span><br><span class="line">    window.lastName = &quot;_xie&quot;;</span><br><span class="line"></span><br><span class="line">    var myObject = &#123;firstName:&apos;my&apos;, lastName:&apos;Object&apos;&#125;;</span><br><span class="line"></span><br><span class="line">    function getName()&#123;</span><br><span class="line">        console.log(this.firstName + this.lastName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getMessage(sex,age)&#123;</span><br><span class="line">        console.log(this.firstName + this.lastName + &quot; 性别: &quot; + sex + &quot; age: &quot; + age );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getName.call(window); // Cynthia_xie</span><br><span class="line">    getName.call(myObject); // myObject</span><br><span class="line"></span><br><span class="line">    getName.apply(window); // Cynthia_xie</span><br><span class="line">    getName.apply(myObject);// myObject</span><br><span class="line"></span><br><span class="line">    getMessage.call(window,&quot;女&quot;,21); //Cynthia_xie 性别: 女 age: 21</span><br><span class="line">    getMessage.apply(window,[&quot;女&quot;,21]); // Cynthia_xie 性别: 女 age: 21</span><br><span class="line"></span><br><span class="line">    getMessage.call(myObject,&quot;未知&quot;,22); //myObject 性别: 未知 age: 22</span><br><span class="line">    getMessage.apply(myObject,[&quot;未知&quot;,22]); // myObject 性别: 未知 age: 22</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>转载自<a href="https://blog.csdn.net/ganyingxie123456/article/details/70855586" target="_blank" rel="noopener">https://blog.csdn.net/ganyingxie123456/article/details/70855586</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/19/js案例-选择替换/" rel="next" title="js案例-选择替换">
+                <i class="fa fa-chevron-left"></i> js案例-选择替换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/22/js学习-对象序列化与反序列化/" rel="prev" title="js学习-对象序列化与反序列化">
+                js学习-对象序列化与反序列化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-每个函数都包含两个非继承而来的方法：call-方法和apply-方法。"><span class="nav-number">1.</span> <span class="nav-text">1. 每个函数都包含两个非继承而来的方法：call()方法和apply()方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-相同点：这两个方法的作用是一样的。"><span class="nav-number">2.</span> <span class="nav-text">2. 相同点：这两个方法的作用是一样的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-不同点：接收参数的方式不同。"><span class="nav-number">3.</span> <span class="nav-text">3. 不同点：接收参数的方式不同。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
