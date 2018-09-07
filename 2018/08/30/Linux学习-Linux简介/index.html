@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux基本结构 Linux的文件系统与目录结构  shell基本命令格式Shell提示符标识了命令行的开始。用户在提示符后面输入一条命令并按Enter键，完成向系统提交指令。 普通用户以“$”作为shell提示符；根用户以“#”作为提示符。shell的快捷方式 用上下方向键调阅命令历史记录；  用Tab键输入命令行自动补齐； ▲在Linux下有时要对文件进行操作，有的文件名很长，完全逐字输入比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习-Linux简介">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Linux学习-Linux简介/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux基本结构 Linux的文件系统与目录结构  shell基本命令格式Shell提示符标识了命令行的开始。用户在提示符后面输入一条命令并按Enter键，完成向系统提交指令。 普通用户以“$”作为shell提示符；根用户以“#”作为提示符。shell的快捷方式 用上下方向键调阅命令历史记录；  用Tab键输入命令行自动补齐； ▲在Linux下有时要对文件进行操作，有的文件名很长，完全逐字输入比">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.tzr.me/images/2018/08/30/QQ20180830192718.png">
+<meta property="og:image" content="http://www.tzr.me/images/2018/08/30/QQ20180830192839.png">
+<meta property="og:image" content="http://www.tzr.me/images/2018/08/30/QQ20180830192850.png">
+<meta property="og:image" content="http://www.tzr.me/images/2018/08/30/QQ20180830195457.png">
+<meta property="og:updated_time" content="2018-08-30T13:49:44.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux学习-Linux简介">
+<meta name="twitter:description" content="Linux基本结构 Linux的文件系统与目录结构  shell基本命令格式Shell提示符标识了命令行的开始。用户在提示符后面输入一条命令并按Enter键，完成向系统提交指令。 普通用户以“$”作为shell提示符；根用户以“#”作为提示符。shell的快捷方式 用上下方向键调阅命令历史记录；  用Tab键输入命令行自动补齐； ▲在Linux下有时要对文件进行操作，有的文件名很长，完全逐字输入比">
+<meta name="twitter:image" content="http://www.tzr.me/images/2018/08/30/QQ20180830192718.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/30/Linux学习-Linux简介/"/>
+
+
+
+
+
+  <title>Linux学习-Linux简介 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/Linux学习-Linux简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux学习-Linux简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-30T19:16:54+08:00">
+                2018-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Linux基本结构"><a href="#Linux基本结构" class="headerlink" title="Linux基本结构"></a>Linux基本结构</h1><p><img src="http://www.tzr.me/images/2018/08/30/QQ20180830192718.png" alt="QQ20180830192718.png"></p>
+<h1 id="Linux的文件系统与目录结构"><a href="#Linux的文件系统与目录结构" class="headerlink" title="Linux的文件系统与目录结构"></a>Linux的文件系统与目录结构</h1><p><img src="http://www.tzr.me/images/2018/08/30/QQ20180830192839.png" alt="QQ20180830192839.png"></p>
+<p><img src="http://www.tzr.me/images/2018/08/30/QQ20180830192850.png" alt="QQ20180830192850.png"></p>
+<h1 id="shell基本命令格式"><a href="#shell基本命令格式" class="headerlink" title="shell基本命令格式"></a>shell基本命令格式</h1><p>Shell提示符标识了命令行的开始。用户在提示符后面输入一条命令并按Enter键，完成向系统提交指令。</p>
+<h4 id="普通用户以“-”作为shell提示符；"><a href="#普通用户以“-”作为shell提示符；" class="headerlink" title="普通用户以“$”作为shell提示符；"></a>普通用户以“$”作为shell提示符；</h4><h4 id="根用户以“-”作为提示符。"><a href="#根用户以“-”作为提示符。" class="headerlink" title="根用户以“#”作为提示符。"></a>根用户以“#”作为提示符。</h4><h1 id="shell的快捷方式"><a href="#shell的快捷方式" class="headerlink" title="shell的快捷方式"></a>shell的快捷方式</h1><ul>
+<li><p>用上下方向键调阅命令历史记录；</p>
+</li>
+<li><p>用Tab键输入命令行自动补齐；</p>
+<p>▲在Linux下有时要对文件进行操作，有的文件名很长，完全逐字输入比较麻烦，在输入命令的任意时刻可以按下Tab键，此时系统将补齐已输入的命令。如：<br><code>#tar zxvf b&lt;tab&gt;usy-pre-1.00.tar.gz</code><br>▲在命令行下，只需输入例如m，再连续按两次TAB键，系统将列出所有以m开头的命令，对查找某些记不清楚的命令特有用。</p>
+</li>
+<li><p>使用Shell 脚本进行批处理。</p>
+</li>
+<li><p>在终端上,单击Mouse右键可以将剪切板的内容粘贴到Shell。</p>
+</li>
+</ul>
+<h1 id="Linux中不同的颜色代表不同文件"><a href="#Linux中不同的颜色代表不同文件" class="headerlink" title="Linux中不同的颜色代表不同文件"></a>Linux中不同的颜色代表不同文件</h1><ul>
+<li>绿色：可执行程序</li>
+<li>蓝色：软连接文件</li>
+<li>深蓝色：目录</li>
+<li>红色：压缩文件</li>
+</ul>
+<h1 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h1><ul>
+<li><p>man   查看man手册</p>
+<p><code>#man ls</code></p>
+</li>
+<li><p>info   查看info手册（最相近）</p>
+</li>
+</ul>
+<p>​       <code>#info ls</code></p>
+<ul>
+<li><p>–help 命令接此参数（最简单）</p>
+<p><code>ls --help</code></p>
+</li>
+</ul>
+<h1 id="工作目录与用户主目录"><a href="#工作目录与用户主目录" class="headerlink" title="工作目录与用户主目录"></a>工作目录与用户主目录</h1><ul>
+<li>从用户初始登录到系统中时，其主目录（cd cd Directory）就成为其工作目录。工作目录用”.”表示，其父目录用”..”表示。</li>
+<li>用户主目录增加用户时建立起来的（以后也可以改变），每个用户都有自己的主目录，不同用户的主目录一般互不相同。</li>
+<li>用户刚登录到系统中时，其工作目录便是该用户主目录，通常与用户的登录名相同。</li>
+<li>用户可以通过一个“~”字符来引用自己的主目录。(cd ~)</li>
+</ul>
+<h1 id="绝对路径与相对路径"><a href="#绝对路径与相对路径" class="headerlink" title="绝对路径与相对路径"></a>绝对路径与相对路径</h1><p>绝对路径和相对路径的区别。绝对路径是确定不变的，而相对路径则随着用户工作目录的变化而不断变化。</p>
+<ul>
+<li>绝对路径: /home/hxy/hello.txt</li>
+<li>相对路径:<ul>
+<li>./hello.txt</li>
+<li>bin/cp</li>
+<li>../home/hxy</li>
+</ul>
+</li>
+</ul>
+<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="1-ls-显示目录内容"><a href="#1-ls-显示目录内容" class="headerlink" title="1. ls-显示目录内容"></a>1. ls-显示目录内容</h2><h2 id="2-ls-l-详细结果"><a href="#2-ls-l-详细结果" class="headerlink" title="2. ls-l 详细结果"></a>2. ls-l 详细结果</h2><p>例如<code>drwx------ 14 student student 4096 11月 17 16:58 student</code></p>
+<p><img src="http://www.tzr.me/images/2018/08/30/QQ20180830195457.png" alt="QQ20180830195457.png"></p>
+<p><strong>第一个字符表示文件类型，它可以是下述类型之一：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 普通文件 </span><br><span class="line">d 目录 </span><br><span class="line">l 符号链接 </span><br><span class="line">b 块设备文件 </span><br><span class="line">c 字符设备文件</span><br></pre></td></tr></table></figure>
+<p><strong>后面的9个字符表示文件的访问权限，分为3组，每组3位</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一组表示文件属主的权限，</span><br><span class="line">第二组表示同组用户的权限，</span><br><span class="line">第三组表示其他用户的权限。</span><br><span class="line">每一组的三个字 符分别表示对文件的读、写和执行权限。</span><br><span class="line">各权限如下所示：</span><br><span class="line">• r 读</span><br><span class="line">• w 写</span><br><span class="line">• x 执行。对于目录，表示进入权限。</span><br></pre></td></tr></table></figure>
+<h2 id="3-ls-la-列出所有文件，包括隐含文件"><a href="#3-ls-la-列出所有文件，包括隐含文件" class="headerlink" title="3. ls -la 列出所有文件，包括隐含文件"></a>3. ls -la 列出所有文件，包括隐含文件</h2><h2 id="4-ls-dl-仅查看目录属性"><a href="#4-ls-dl-仅查看目录属性" class="headerlink" title="4. ls -dl 仅查看目录属性"></a>4. ls -dl 仅查看目录属性</h2><h2 id="5-ls-R-递归显示子目录的文件"><a href="#5-ls-R-递归显示子目录的文件" class="headerlink" title="5. ls -R 递归显示子目录的文件"></a>5. ls -R 递归显示子目录的文件</h2><h2 id="6-ls-home-hxy-查看-home-hxy文件信息"><a href="#6-ls-home-hxy-查看-home-hxy文件信息" class="headerlink" title="6. ls /home/hxy 查看/home/hxy文件信息"></a>6. ls /home/hxy 查看/home/hxy文件信息</h2><h2 id="cd切换目录"><a href="#cd切换目录" class="headerlink" title="cd切换目录"></a>cd切换目录</h2><h2 id="pwd显示当前目录"><a href="#pwd显示当前目录" class="headerlink" title="pwd显示当前目录"></a>pwd显示当前目录</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/30/js学习-日期对象的方法/" rel="next" title="js学习-日期对象的方法">
+                <i class="fa fa-chevron-left"></i> js学习-日期对象的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/30/Linux学习-Linux一些简单操作/" rel="prev" title="Linux学习-Linux一些简单操作">
+                Linux学习-Linux一些简单操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux基本结构"><span class="nav-number">1.</span> <span class="nav-text">Linux基本结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux的文件系统与目录结构"><span class="nav-number">2.</span> <span class="nav-text">Linux的文件系统与目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shell基本命令格式"><span class="nav-number">3.</span> <span class="nav-text">shell基本命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通用户以“-”作为shell提示符；"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">普通用户以“$”作为shell提示符；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根用户以“-”作为提示符。"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">根用户以“#”作为提示符。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shell的快捷方式"><span class="nav-number">4.</span> <span class="nav-text">shell的快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux中不同的颜色代表不同文件"><span class="nav-number">5.</span> <span class="nav-text">Linux中不同的颜色代表不同文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#帮助命令"><span class="nav-number">6.</span> <span class="nav-text">帮助命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作目录与用户主目录"><span class="nav-number">7.</span> <span class="nav-text">工作目录与用户主目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绝对路径与相对路径"><span class="nav-number">8.</span> <span class="nav-text">绝对路径与相对路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件处理命令"><span class="nav-number">9.</span> <span class="nav-text">文件处理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ls-显示目录内容"><span class="nav-number">9.1.</span> <span class="nav-text">1. ls-显示目录内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ls-l-详细结果"><span class="nav-number">9.2.</span> <span class="nav-text">2. ls-l 详细结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ls-la-列出所有文件，包括隐含文件"><span class="nav-number">9.3.</span> <span class="nav-text">3. ls -la 列出所有文件，包括隐含文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-ls-dl-仅查看目录属性"><span class="nav-number">9.4.</span> <span class="nav-text">4. ls -dl 仅查看目录属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-ls-R-递归显示子目录的文件"><span class="nav-number">9.5.</span> <span class="nav-text">5. ls -R 递归显示子目录的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-ls-home-hxy-查看-home-hxy文件信息"><span class="nav-number">9.6.</span> <span class="nav-text">6. ls /home/hxy 查看/home/hxy文件信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd切换目录"><span class="nav-number">9.7.</span> <span class="nav-text">cd切换目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd显示当前目录"><span class="nav-number">9.8.</span> <span class="nav-text">pwd显示当前目录</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
