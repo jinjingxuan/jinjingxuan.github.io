@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="for循环中一个易错点12345678910111213141516&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;">
+<meta name="description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="for循环中一个易错点">
-<meta property="og:url" content="http://yoursite.com/2018/08/01/js学习-for循环中一个易错点/index.html">
+<meta property="og:title" content="js学习-视图操作">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/js学习-视图操作/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="for循环中一个易错点12345678910111213141516&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;">
+<meta property="og:description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T13:54:19.594Z">
+<meta property="og:updated_time" content="2018-09-10T03:22:15.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="for循环中一个易错点">
-<meta name="twitter:description" content="for循环中一个易错点12345678910111213141516&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; name=&quot;button&quot;&amp;gt;按钮&amp;lt;">
+<meta name="twitter:title" content="js学习-视图操作">
+<meta name="twitter:description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/01/js学习-for循环中一个易错点/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/07/js学习-视图操作/"/>
 
 
 
 
 
-  <title>for循环中一个易错点 | Hexo</title>
+  <title>js学习-视图操作 | Hexo</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/js学习-for循环中一个易错点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/js学习-视图操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">for循环中一个易错点</h1>
+          <h1 class="post-title" itemprop="name headline">js学习-视图操作</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T11:00:54+08:00">
-                2018-08-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T09:00:54+08:00">
+                2018-09-07
               </time>
             
 
@@ -366,13 +366,28 @@
       
 
       
-        <h2 id="for循环中一个易错点"><a href="#for循环中一个易错点" class="headerlink" title="for循环中一个易错点"></a>for循环中一个易错点</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)</span></span><br><span class="line"><span class="undefined">      &#123;</span></span><br><span class="line"><span class="javascript">        button[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(i);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>这个for循环并不能实现，点击第几个按钮就输出第几个数字</p>
-<p>在for循环中，只有点击才能触发函数，</p>
-<p>但是在浏览器中点击之前，for循环已经执行完毕(i = 6)，此时for循环完成了如下内容</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">button[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">button[<span class="number">1</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">button[<span class="number">2</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">button[<span class="number">3</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">button[<span class="number">4</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line">button[<span class="number">5</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时 i = 6, 所以不论点击哪个按钮，都会输出i = 6；</p>
-<h3 id="那么如何实现呢"><a href="#那么如何实现呢" class="headerlink" title="那么如何实现呢"></a>那么如何实现呢</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    button[i].order = i; <span class="comment">//记录每个i到button[i]的order属性中</span></span><br><span class="line">    button[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.order);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="innerWidth-innerHeight"><a href="#innerWidth-innerHeight" class="headerlink" title="innerWidth,innerHeight"></a>innerWidth,innerHeight</h2><p>获取窗口内部的宽高，包括窗口边缘的滚轮宽度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.innerWidth;</span><br></pre></td></tr></table></figure>
+<h2 id="clientWidth-clientHeight"><a href="#clientWidth-clientHeight" class="headerlink" title="clientWidth,clientHeight"></a>clientWidth,clientHeight</h2><p>获取文档内容的宽高，不会包括滚轮宽度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.clientWidth;</span><br></pre></td></tr></table></figure>
+<h2 id="ele-clientWidth-clientHeight"><a href="#ele-clientWidth-clientHeight" class="headerlink" title="ele.clientWidth/clientHeight"></a>ele.clientWidth/clientHeight</h2><p>padding+width/height</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.clientWidth</span><br></pre></td></tr></table></figure>
+<h2 id="ele-offsetWidth-offsetHeight"><a href="#ele-offsetWidth-offsetHeight" class="headerlink" title="ele.offsetWidth/offsetHeight"></a>ele.offsetWidth/offsetHeight</h2><p>padding + border + width/height</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.offsetWidth</span><br></pre></td></tr></table></figure>
+<h2 id="scrollWidth-scrollHeight"><a href="#scrollWidth-scrollHeight" class="headerlink" title="scrollWidth/scrollHeight"></a>scrollWidth/scrollHeight</h2><p> padding + width / height</p>
+<p>如果子元素超过父元素的宽高度时，会加上超出部分的宽高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.scrollHeight</span><br></pre></td></tr></table></figure>
+<h2 id="offsetTop-offsetLeft"><a href="#offsetTop-offsetLeft" class="headerlink" title="offsetTop/offsetLeft"></a>offsetTop/offsetLeft</h2><p>获取元素到<strong>定位</strong>父级的top和left的距离</p>
+<h2 id="自己封装一下到body的距离"><a href="#自己封装一下到body的距离" class="headerlink" title="自己封装一下到body的距离"></a><strong>自己封装一下到body的距离</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getOffset</span>(<span class="params"> ele </span>)</span>&#123;</span><br><span class="line">          <span class="keyword">var</span> obj = &#123;</span><br><span class="line">              left:<span class="number">0</span>,</span><br><span class="line">              top:<span class="number">0</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="function"><span class="keyword">function</span>  <span class="title">getStyle</span>(<span class="params"> obj </span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> obj.currentStyle || getComputedStyle( obj )</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">while</span>( ele!== <span class="built_in">document</span>.body )&#123;</span><br><span class="line">              obj.left += ele.offsetLeft + <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderLeftWidth  );</span><br><span class="line">              obj.top += ele.offsetTop + <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderTopWidth  );</span><br><span class="line">              </span><br><span class="line">              ele = ele.offsetParent;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> obj;</span><br><span class="line">          <span class="built_in">console</span>.log( <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderTopWidth  ) )</span><br><span class="line">      &#125;</span><br><span class="line">       <span class="built_in">console</span>.log( getOffset( wrap ).left )</span><br></pre></td></tr></table></figure>
+<h2 id="screenX-clientX-pageX"><a href="#screenX-clientX-pageX" class="headerlink" title="screenX/clientX/pageX"></a>screenX/clientX/pageX</h2><ul>
+<li>screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。</li>
+<li>clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。</li>
+<li>pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动</li>
+</ul>
+<p><strong>兼容</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e = e || <span class="built_in">window</span>.event; <span class="comment">//低版本下的兼容处理;</span></span><br><span class="line">            <span class="built_in">console</span>.log( e.clientX );<span class="comment">//可以正确显示</span></span><br><span class="line">            <span class="built_in">console</span>.log(e.pageX)；<span class="comment">//undefined</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">document</span>.documentElement.scrollTop + e.clientX)<span class="comment">//pageX</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="onresize"><a href="#onresize" class="headerlink" title="onresize"></a>onresize</h2><p>onresize 事件会在窗口或框架被调整大小时发生。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//onresize:触发事件改变窗口的大小，</span></span><br><span class="line">       <span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log( <span class="built_in">document</span>.documentElement.clientHeight )</span><br><span class="line">           <span class="built_in">console</span>.log( <span class="built_in">document</span>.documentElement.clientWidth )</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/01/暑期集训第八天-滑动验证码/" rel="next" title="暑期集训第八天-滑动验证码">
-                <i class="fa fa-chevron-left"></i> 暑期集训第八天-滑动验证码
+              <a href="/2018/09/03/js案例-运动框架/" rel="next" title="js案例-运动框架">
+                <i class="fa fa-chevron-left"></i> js案例-运动框架
               </a>
             
           </div>
@@ -406,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/js系统掌握-第二章词法结构/" rel="prev" title="js系统掌握-第二章词法结构">
-                js系统掌握-第二章词法结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环中一个易错点"><span class="nav-number">1.</span> <span class="nav-text">for循环中一个易错点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#那么如何实现呢"><span class="nav-number">1.1.</span> <span class="nav-text">那么如何实现呢</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#innerWidth-innerHeight"><span class="nav-number">1.</span> <span class="nav-text">innerWidth,innerHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clientWidth-clientHeight"><span class="nav-number">2.</span> <span class="nav-text">clientWidth,clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-clientWidth-clientHeight"><span class="nav-number">3.</span> <span class="nav-text">ele.clientWidth/clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-offsetWidth-offsetHeight"><span class="nav-number">4.</span> <span class="nav-text">ele.offsetWidth/offsetHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollWidth-scrollHeight"><span class="nav-number">5.</span> <span class="nav-text">scrollWidth/scrollHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offsetTop-offsetLeft"><span class="nav-number">6.</span> <span class="nav-text">offsetTop/offsetLeft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己封装一下到body的距离"><span class="nav-number">7.</span> <span class="nav-text">自己封装一下到body的距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screenX-clientX-pageX"><span class="nav-number">8.</span> <span class="nav-text">screenX/clientX/pageX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onresize"><span class="nav-number">9.</span> <span class="nav-text">onresize</span></a></li></ol></div>
             
 
           </div>
