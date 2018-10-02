@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转载自https://itbilu.com/javascript/js/4k9JcnZRl.html BOM浏览器对象模型（Browser Object Model）BOM对象是在Web中使用JavaScript的核心，该对象提供了与浏览器交互相关对象结构。BOM由多个子对象组成，其核心为window对象，它是BOM的顶层对象，表示在浏览器环境中的一个全局的顶级对象，所有在浏览器环境中使用的对象都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js学习-BOM对象">
+<meta property="og:url" content="http://yoursite.com/2018/10/02/js学习-BOM对象/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="转载自https://itbilu.com/javascript/js/4k9JcnZRl.html BOM浏览器对象模型（Browser Object Model）BOM对象是在Web中使用JavaScript的核心，该对象提供了与浏览器交互相关对象结构。BOM由多个子对象组成，其核心为window对象，它是BOM的顶层对象，表示在浏览器环境中的一个全局的顶级对象，所有在浏览器环境中使用的对象都">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://itbilu.com/img/demo/bom.png">
+<meta property="og:updated_time" content="2018-10-02T03:30:49.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js学习-BOM对象">
+<meta name="twitter:description" content="转载自https://itbilu.com/javascript/js/4k9JcnZRl.html BOM浏览器对象模型（Browser Object Model）BOM对象是在Web中使用JavaScript的核心，该对象提供了与浏览器交互相关对象结构。BOM由多个子对象组成，其核心为window对象，它是BOM的顶层对象，表示在浏览器环境中的一个全局的顶级对象，所有在浏览器环境中使用的对象都">
+<meta name="twitter:image" content="https://itbilu.com/img/demo/bom.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/02/js学习-BOM对象/"/>
+
+
+
+
+
+  <title>js学习-BOM对象 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/02/js学习-BOM对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js学习-BOM对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-02T11:00:54+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>转载自<a href="https://itbilu.com/javascript/js/4k9JcnZRl.html" target="_blank" rel="noopener">https://itbilu.com/javascript/js/4k9JcnZRl.html</a></p>
+<p><code>BOM</code>浏览器对象模型（Browser Object Model）<code>BOM</code>对象是在Web中使用JavaScript的核心，该对象提供了与浏览器交互相关对象结构。<code>BOM</code>由多个子对象组成，其核心为<code>window</code>对象，它是BOM的顶层对象，表示在浏览器环境中的一个全局的顶级对象，所有在浏览器环境中使用的对象都是<code>window</code>对象的子对象。</p>
+<h3 id="1-浏览器对象模型"><a href="#1-浏览器对象模型" class="headerlink" title="1. 浏览器对象模型"></a>1. <code>浏览器对象模型</code></h3><p><code>BOM</code>是指浏览器对象模型，它是对一系列在浏览器环境中使用对象的统称，这些对象提供了访问浏览器的功能。</p>
+<p>在<code>BOM</code>对象中，<code>window</code>对象是最顶层对象，在浏览器环境中它是一个Global全局对象，其它对象（如：<a href="http://itbilu.com/javascript/js/Vyxodm_1g.html" target="_blank" rel="noopener">DOM</a>对象）对是这个对象的属性（子对象）。<code>BOM</code>对象是与内容无关，主要用于管理浏览器窗口及窗口之间的通讯。下面是<code>BOM</code>对象的组成结构：</p>
+<p><img src="https://itbilu.com/img/demo/bom.png" alt="BOM－浏览器对象模型"></p>
+<h3 id="2-BOM中的对象"><a href="#2-BOM中的对象" class="headerlink" title="2. BOM中的对象"></a>2. <code>BOM</code>中的对象</h3><h4 id="2-1-window对象"><a href="#2-1-window对象" class="headerlink" title="2.1 window对象"></a>2.1 <code>window</code>对象</h4><p><code>window</code>对象对象表示一个浏览器窗口或一个<code>frame</code>框架，它处于对象层次的最顶端，它提供了处理浏览器窗口的方法和属性。</p>
+<p><code>window</code>对象是浏览器对象中的默认对象，所以可以隐式地引用<code>window</code>对象的属性和方法。在浏览器环境中，添加到<code>window</code>对象中的方法、属性等，其作用域都是全局的。JavaScript中的标准内置对象，在浏览器环境中也是做为<code>window</code>的方法和属性出现的。</p>
+<p>如，以下两行代码是等价的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Date();</span><br><span class="line">// 等价于</span><br><span class="line">new window.Date();</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-DOM（document）相关对象"><a href="#2-2-DOM（document）相关对象" class="headerlink" title="2.2 DOM（document）相关对象"></a>2.2 <code>DOM</code>（<code>document</code>）相关对象</h4><p><code>DOM</code>可以认为是<code>BOM</code>的一个子集，<code>DOM</code>中文档操作相关对象，如：<a href="http://itbilu.com/javascript/js/Ny3B0ddWg.html" target="_blank" rel="noopener"><code>Node</code></a>、<a href="http://itbilu.com/javascript/js/N1PfJNgMe.html" target="_blank" rel="noopener"><code>Document</code></a>、<a href="http://itbilu.com/javascript/js/VJYOZrWml.html" target="_blank" rel="noopener"><code>Element</code></a>等<code>DOM</code>节点类型对象，都是做为<code>window</code>对象的子属性出现的。</p>
+<p><code>document</code>是<code>window</code>对象的了个属性，它是一个<code>Document</code>对象实例，表示当前窗口中文档对象。通过该对象，可以对文档和文档中元素、节点等进行操作。</p>
+<h4 id="2-3-frames对象"><a href="#2-3-frames对象" class="headerlink" title="2.3 frames对象"></a>2.3 <code>frames</code>对象</h4><p><code>frames</code>对象是一个集合，表示当前页面中使用的子框架。如果页面中使用了框架，将产生一个框架集合<code>frames</code>，在集合中可以用数字下标（从0开始）或名字索引框架。集全中的每一个对象，包含了框架的页面布局信息，以及每一个框架所对应的<code>window</code>对象。</p>
+<h4 id="2-4-navigator对象"><a href="#2-4-navigator对象" class="headerlink" title="2.4 navigator对象"></a>2.4 <code>navigator</code>对象</h4><p><code>navigator</code>是指浏览器对象，该对象提供了当前正在使用的浏览器的信息。<code>navigator</code>对象中的属性是只读的，在W3C在<a href="https://www.w3.org/TR/html5/webappapis.html#the-navigator-object" target="_blank" rel="noopener">HTML5</a>标准中，对该对象进行了规范。由于浏览器的同，该对象的具体值可能有所区别。</p>
+<h4 id="2-5-history对象"><a href="#2-5-history对象" class="headerlink" title="2.5 history对象"></a>2.5 <code>history</code>对象</h4><p><code>history</code>对象来保存浏览器历史记录信息，也就是用户访问的页面。浏览器的前进与后退功能本质上就是<code>history</code>的操作。<code>history</code>对象记录了用户浏览过的页面，通过该对象提供的API可以实现与浏览器前进/后退类似的导航功能。</p>
+<h4 id="2-6-location对象"><a href="#2-6-location对象" class="headerlink" title="2.6 location对象"></a>2.6 <code>location</code>对象</h4><p><code>location</code>是一个静态对象，该对象是对当前窗口URL地址的解析。该对象提供了可以访问URL中不同部分的信息属性，通过<code>location</code>对象也可以实现页面或锚点跳转等功能。</p>
+<p>更多关于<code>location</code>对象的介绍请参考：<a href="http://itbilu.com/javascript/js/4JK2qCqz.html" target="_blank" rel="noopener">JavaScript获取url参数及Location对象简介</a>。</p>
+<h4 id="2-7-screen对象"><a href="#2-7-screen对象" class="headerlink" title="2.7 screen对象"></a>2.7 <code>screen</code>对象</h4><p><code>screen</code>对象中包含了用户显示器屏幕相关信息。通过该对象，可以访问用户显示器屏幕宽、高、色深等信息。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/02/js学习-键盘事件/" rel="next" title="js学习-键盘事件">
+                <i class="fa fa-chevron-left"></i> js学习-键盘事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-浏览器对象模型"><span class="nav-number">1.</span> <span class="nav-text">1. 浏览器对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-BOM中的对象"><span class="nav-number">2.</span> <span class="nav-text">2. BOM中的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-window对象"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 window对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DOM（document）相关对象"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 DOM（document）相关对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-frames对象"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 frames对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-navigator对象"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 navigator对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-history对象"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 history对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-location对象"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 location对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-screen对象"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 screen对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
