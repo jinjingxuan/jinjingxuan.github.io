@@ -103,14 +103,14 @@
 
 <meta name="description" content="首先了解一下规则1)函数声明会置顶  2)变量声明也会置顶  3)函数声明更优先  4)变量和赋值语句一起书写，在js引擎解析时，会将其拆成声明和赋值2部分，声明置顶，赋值保留在原来位置  5)声明过的变量不会重复声明  例子一先来看一下结果 123456var scope = gloabl;function f()&amp;#123;    console.log(scope);      var sc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习-函数与变量的解析顺序">
-<meta property="og:url" content="http://yoursite.com/2018/08/08/js案例-函数与变量的解析顺序/index.html">
+<meta property="og:title" content="js案例-函数与变量的解析顺序">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/js学习-函数与变量的解析顺序/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="首先了解一下规则1)函数声明会置顶  2)变量声明也会置顶  3)函数声明更优先  4)变量和赋值语句一起书写，在js引擎解析时，会将其拆成声明和赋值2部分，声明置顶，赋值保留在原来位置  5)声明过的变量不会重复声明  例子一先来看一下结果 123456var scope = gloabl;function f()&amp;#123;    console.log(scope);      var sc">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T04:51:55.956Z">
+<meta property="og:updated_time" content="2018-08-08T13:34:30.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js学习-函数与变量的解析顺序">
+<meta name="twitter:title" content="js案例-函数与变量的解析顺序">
 <meta name="twitter:description" content="首先了解一下规则1)函数声明会置顶  2)变量声明也会置顶  3)函数声明更优先  4)变量和赋值语句一起书写，在js引擎解析时，会将其拆成声明和赋值2部分，声明置顶，赋值保留在原来位置  5)声明过的变量不会重复声明  例子一先来看一下结果 123456var scope = gloabl;function f()&amp;#123;    console.log(scope);      var sc">
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/08/js案例-函数与变量的解析顺序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/08/js学习-函数与变量的解析顺序/"/>
 
 
 
 
 
-  <title>js学习-函数与变量的解析顺序 | Hexo</title>
+  <title>js案例-函数与变量的解析顺序 | Hexo</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/js案例-函数与变量的解析顺序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/js学习-函数与变量的解析顺序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js学习-函数与变量的解析顺序</h1>
+          <h1 class="post-title" itemprop="name headline">js案例-函数与变量的解析顺序</h1>
         
 
         <div class="post-meta">
@@ -378,7 +378,7 @@
 <h3 id="例子二"><a href="#例子二" class="headerlink" title="例子二"></a>例子二</h3><p>先来看一下结果</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( a );         </span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'fn'</span> );  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( a );         <span class="comment">//输出函数体，[]</span></span><br></pre></td></tr></table></figure>
 <p>按照规则改写顺序之后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;            <span class="comment">//函数声明提前</span></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'fn'</span> ); <span class="comment">//不执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a;                   <span class="comment">//变量声明提前，但是在函数后面</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log( a );        <span class="comment">//原本js内存地址中本来已经声明了一个名为a的函数对象                            （相当于已经将a这个地址指向了函数对象），再次声明一次a，但并没赋值，所以打印出来的依旧是函数a。</span></span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">a = [];</span><br><span class="line"><span class="built_in">console</span>.log( a );        <span class="comment">//输出[]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;            <span class="comment">//函数声明提前</span></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'fn'</span> ); <span class="comment">//不执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a;                   <span class="comment">//变量声明提前，但是在函数后面</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log( a );        <span class="comment">//原本js内存地址中本来已经声明了一个名为a的函数对象                            （相当于已经将a这个地址指向了函数对象），再次声明一次                           a，但并没赋值，所以打印出来的依旧是函数a。</span></span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">a = [];</span><br><span class="line"><span class="built_in">console</span>.log( a );        <span class="comment">//输出[]</span></span><br></pre></td></tr></table></figure>
 <h3 id="例子三"><a href="#例子三" class="headerlink" title="例子三"></a>例子三</h3><p>先来看一下结果</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    a = <span class="number">10</span>;              <span class="comment">//这里a并没有提升为全局变量</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a);  </span><br><span class="line">    &#125;	</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);          <span class="comment">//输出1</span></span><br></pre></td></tr></table></figure>
 <p>如果你不懂，我们来看看改写之后</p>
@@ -421,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/js学习-函数与变量的解析顺序/" rel="next" title="js案例-函数与变量的解析顺序">
-                <i class="fa fa-chevron-left"></i> js案例-函数与变量的解析顺序
+              <a href="/2018/08/08/MySQL学习-HeidiSQL简单操作/" rel="next" title="MySQL学习-HeidiSQL简单操作">
+                <i class="fa fa-chevron-left"></i> MySQL学习-HeidiSQL简单操作
               </a>
             
           </div>
@@ -431,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/09/MySQL学习-简单的选课系统/" rel="prev" title="MySQL学习-简单的选课系统">
-                MySQL学习-简单的选课系统 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/08/js案例-函数与变量的解析顺序/" rel="prev" title="js学习-函数与变量的解析顺序">
+                js学习-函数与变量的解析顺序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
