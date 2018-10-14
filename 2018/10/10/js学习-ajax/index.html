@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.AJAX简介AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。  什么是 AJAX ？AJAX = 异步 JavaScript 和 XML。 AJAX 是一种用于创建快速动态网页的技术。 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 传统的网页（不使用 AJAX）如果需要更新内容，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax简介">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/js学习-ajax/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="1.AJAX简介AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。  什么是 AJAX ？AJAX = 异步 JavaScript 和 XML。 AJAX 是一种用于创建快速动态网页的技术。 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 传统的网页（不使用 AJAX）如果需要更新内容，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/img-356e2a41d020613bf3c228764a377903%281%29.jpg">
+<meta property="og:updated_time" content="2018-10-14T12:16:52.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax简介">
+<meta name="twitter:description" content="1.AJAX简介AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。  什么是 AJAX ？AJAX = 异步 JavaScript 和 XML。 AJAX 是一种用于创建快速动态网页的技术。 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 传统的网页（不使用 AJAX）如果需要更新内容，">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/img-356e2a41d020613bf3c228764a377903%281%29.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/10/js学习-ajax/"/>
+
+
+
+
+
+  <title>ajax简介 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            photos
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/js学习-ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ajax简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T10:16:54+08:00">
+                2018-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js学习/" itemprop="url" rel="index">
+                    <span itemprop="name">js学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/img-356e2a41d020613bf3c228764a377903%281%29.jpg" rel="gallery_cjn8u6b4m001fagff2pp9lxuv"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/img-356e2a41d020613bf3c228764a377903%281%29.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h1 id="1-AJAX简介"><a href="#1-AJAX简介" class="headerlink" title="1.AJAX简介"></a>1.AJAX简介</h1><p>AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。 </p>
+<h2 id="什么是-AJAX-？"><a href="#什么是-AJAX-？" class="headerlink" title="什么是 AJAX ？"></a>什么是 AJAX ？</h2><p>AJAX = 异步 JavaScript 和 XML。</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p>
+<p>有很多使用 AJAX 的应用程序案例：新浪微博、Google 地图、开心网等等。</p>
+<h2 id="AJAX-工作原理"><a href="#AJAX-工作原理" class="headerlink" title="AJAX 工作原理"></a>AJAX 工作原理</h2><p><img src="http://www.runoob.com/images/ajax.gif" alt="AJAX"></p>
+<h1 id="2-创建-XMLHttpRequest-对象"><a href="#2-创建-XMLHttpRequest-对象" class="headerlink" title="2.创建 XMLHttpRequest 对象"></a>2.创建 XMLHttpRequest 对象</h1><hr>
+<p>XMLHttpRequest 是 AJAX 的基础。</p>
+<hr>
+<h2 id="XMLHttpRequest-对象"><a href="#XMLHttpRequest-对象" class="headerlink" title="XMLHttpRequest 对象"></a>XMLHttpRequest 对象</h2><p>所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。</p>
+<p>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<hr>
+<h2 id="创建-XMLHttpRequest-对象"><a href="#创建-XMLHttpRequest-对象" class="headerlink" title="创建 XMLHttpRequest 对象"></a>创建 XMLHttpRequest 对象</h2><p>所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。</p>
+<p>创建 XMLHttpRequest 对象的语法：</p>
+<p><code>variable=new XMLHttpRequest();</code></p>
+<p>老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象：</p>
+<p><code>variable=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</code></p>
+<p>为了应对所有的现代浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject ：</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">    xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AJAX-向服务器发送请求请求"><a href="#AJAX-向服务器发送请求请求" class="headerlink" title="AJAX - 向服务器发送请求请求"></a>AJAX - 向服务器发送请求请求</h1><hr>
+<p>XMLHttpRequest 对象用于和服务器交换数据。</p>
+<hr>
+<h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2><p>如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
+<p>xmlhttp.open(“GET”,”ajax_info.txt”,true);<br>xmlhttp.send();</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open(<em>method</em>,<em>url</em>,<em>async</em>)</td>
+<td>规定请求的类型、URL 以及是否异步处理请求。<em>method</em>：请求的类型；GET 或 POST<em>url</em>：文件在服务器上的位置<em>async</em>：true（异步）或 false（同步）</td>
+</tr>
+<tr>
+<td>send(<em>string</em>)</td>
+<td>将请求发送到服务器。<em>string</em>：仅用于 POST 请求</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="GET-还是-POST？"><a href="#GET-还是-POST？" class="headerlink" title="GET 还是 POST？"></a>GET 还是 POST？</h2><p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。</p>
+<p>然而，在以下情况中，请使用 POST 请求：</p>
+<ul>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ul>
+<hr>
+<h2 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h2><p>一个简单的 GET 请求：</p>
+<h2 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h2><p><code>xmlhttp.open(&quot;GET&quot;,&quot;/try/ajax/demo_get.php&quot;,true); xmlhttp.send();</code></p>
+<p>如果您希望通过 GET 方法发送信息，请向 URL 添加信息：</p>
+<hr>
+<h2 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h2><p>一个简单 POST 请求：</p>
+<h2 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h2><p><code>xmlhttp.open(&quot;POST&quot;,&quot;/try/ajax/demo_post.php&quot;,true); xmlhttp.send();</code></p>
+<p>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：</p>
+<h2 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"POST"</span>,<span class="string">"/try/ajax/demo_post2.php"</span>,<span class="literal">true</span>);</span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>); xmlhttp.send(<span class="string">"fname=Henry&amp;lname=Ford"</span>);</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setRequestHeader(<em>header,value</em>)</td>
+<td>向请求添加 HTTP 头。<em>header</em>: 规定头的名称<em>value</em>: 规定头的值</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url - 服务器上的文件"></a>url - 服务器上的文件</h2><p>open() 方法的 <em>url</em> 参数是服务器上文件的地址：</p>
+<p>xmlhttp.open(“GET”,”ajax_test.html”,true);</p>
+<p>该文件可以是任何类型的文件，比如 .txt 和 .xml，或者服务器脚本文件，比如 .asp 和 .php （在传回响应之前，能够在服务器上执行任务）。</p>
+<hr>
+<h2 id="异步-True-或-False？"><a href="#异步-True-或-False？" class="headerlink" title="异步 - True 或 False？"></a>异步 - True 或 False？</h2><p>AJAX 指的是异步 JavaScript 和 XML（Asynchronous JavaScript and XML）。</p>
+<p>XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true：</p>
+<p>xmlhttp.open(“GET”,”ajax_test.html”,true);</p>
+<p>对于 web 开发人员来说，发送异步请求是一个巨大的进步。很多在服务器执行的任务都相当费时。AJAX 出现之前，这可能会引起应用程序挂起或停止。</p>
+<p>通过 AJAX，JavaScript 无需等待服务器的响应，而是：</p>
+<ul>
+<li>在等待服务器响应时执行其他脚本</li>
+<li>当响应就绪后对响应进行处理</li>
+</ul>
+<hr>
+<h2 id="Async-true"><a href="#Async-true" class="headerlink" title="Async=true"></a>Async=true</h2><p>当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数：</p>
+<h2 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;     </span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)&#123;  </span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;     </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"/try/ajax/ajax_info.txt"</span>,<span class="literal">true</span>); xmlhttp.send();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Async-false"><a href="#Async-false" class="headerlink" title="Async = false"></a>Async = false</h2><p>如需使用 async=false，请将 open() 方法中的第三个参数改为 false：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;test1.txt&quot;,false);</span><br></pre></td></tr></table></figure>
+<p>我们不推荐使用 async=false，但是对于一些小型的请求，也是可以的。</p>
+<p>请记住，JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。</p>
+<p><strong>注意：</strong>当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可：</p>
+<h2 id="实例-5"><a href="#实例-5" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"/try/ajax/ajax_info.txt"</span>,<span class="literal">false</span>); </span><br><span class="line">xmlhttp.send(); </span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br></pre></td></tr></table></figure>
+<h1 id="AJAX-服务器-响应"><a href="#AJAX-服务器-响应" class="headerlink" title="AJAX - 服务器 响应"></a>AJAX - 服务器 响应</h1><hr>
+<h2 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h2><p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>responseText</td>
+<td>获得字符串形式的响应数据。</td>
+</tr>
+<tr>
+<td>responseXML</td>
+<td>获得 XML 形式的响应数据。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="responseText-属性"><a href="#responseText-属性" class="headerlink" title="responseText 属性"></a>responseText 属性</h2><p>如果来自服务器的响应并非 XML，请使用 responseText 属性。</p>
+<p>responseText 属性返回字符串形式的响应，因此您可以这样使用：</p>
+<h2 id="实例-6"><a href="#实例-6" class="headerlink" title="实例"></a>实例</h2><p><code>ocument.getElementById(&quot;myDiv&quot;).innerHTML=xmlhttp.responseText;</code></p>
+<hr>
+<h2 id="responseXML-属性"><a href="#responseXML-属性" class="headerlink" title="responseXML 属性"></a>responseXML 属性</h2><p>如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：</p>
+<h2 id="实例-7"><a href="#实例-7" class="headerlink" title="实例"></a>实例</h2><p>请求 <a href="http://www.runoob.com/try/demo_source/cd_catalog.xml" target="_blank" rel="noopener">cd_catalog.xml</a> 文件，并解析响应：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xmlDoc=xmlhttp.responseXML; txt=<span class="string">""</span>;</span><br><span class="line">x=xmlDoc.getElementsByTagName(<span class="string">"ARTIST"</span>); </span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;x.length;i++) &#123;     </span><br><span class="line">    txt=txt + x[i].childNodes[<span class="number">0</span>].nodeValue + <span class="string">"&lt;br&gt;"</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=txt;</span><br></pre></td></tr></table></figure>
+<h1 id="AJAX-onreadystatechange-事件"><a href="#AJAX-onreadystatechange-事件" class="headerlink" title="AJAX - onreadystatechange 事件"></a>AJAX - onreadystatechange 事件</h1><hr>
+<h2 id="onreadystatechange-事件"><a href="#onreadystatechange-事件" class="headerlink" title="onreadystatechange 事件"></a>onreadystatechange 事件</h2><p>当请求被发送到服务器时，我们需要执行一些基于响应的任务。</p>
+<p>每当 readyState 改变时，就会触发 onreadystatechange 事件。</p>
+<p>readyState 属性存有 XMLHttpRequest 的状态信息。</p>
+<p>下面是 XMLHttpRequest 对象的三个重要的属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onreadystatechange</td>
+<td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+</tr>
+<tr>
+<td>readyState</td>
+<td>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。0: 请求未初始化1: 服务器连接已建立2: 请求已接收3: 请求处理中4: 请求已完成，且响应已就绪</td>
+</tr>
+<tr>
+<td>status</td>
+<td>200: “OK” 404: 未找到页面</td>
+</tr>
+</tbody>
+</table>
+<p>在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。</p>
+<p>当 readyState 等于 4 且状态为 200 时，表示响应已就绪：</p>
+<h2 id="实例-8"><a href="#实例-8" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;     </span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)     </span><br><span class="line">    &#123;         <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;     </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> onreadystatechange 事件被触发 4 次（0 - 4）, 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。</p>
+<hr>
+<h2 id="使用回调函数"><a href="#使用回调函数" class="headerlink" title="使用回调函数"></a>使用回调函数</h2><p>回调函数是一种以参数形式传递给另一个函数的函数。</p>
+<p>如果您的网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个<em>标准</em>的函数，并为每个 AJAX 任务调用该函数。</p>
+<p>该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）：</p>
+<h2 id="实例-9"><a href="#实例-9" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;     </span><br><span class="line">    loadXMLDoc(<span class="string">"/try/ajax/ajax_info.txt"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         </span><br><span class="line">        <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)&#123;             </span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;         </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/09/js学习-ES6中的let命令，const命令与暂时性死区/" rel="next" title="js学习-ES6中的let命令，const命令与暂时性死区">
+                <i class="fa fa-chevron-left"></i> js学习-ES6中的let命令，const命令与暂时性死区
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/11/js学习-回调函数/" rel="prev" title="js学习-回调函数">
+                js学习-回调函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-AJAX简介"><span class="nav-number">1.</span> <span class="nav-text">1.AJAX简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-AJAX-？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 AJAX ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">AJAX 工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-创建-XMLHttpRequest-对象"><span class="nav-number">2.</span> <span class="nav-text">2.创建 XMLHttpRequest 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest-对象"><span class="nav-number">2.1.</span> <span class="nav-text">XMLHttpRequest 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-XMLHttpRequest-对象"><span class="nav-number">2.2.</span> <span class="nav-text">创建 XMLHttpRequest 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.3.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX-向服务器发送请求请求"><span class="nav-number">3.</span> <span class="nav-text">AJAX - 向服务器发送请求请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向服务器发送请求"><span class="nav-number">3.1.</span> <span class="nav-text">向服务器发送请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-还是-POST？"><span class="nav-number">3.2.</span> <span class="nav-text">GET 还是 POST？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-请求"><span class="nav-number">3.3.</span> <span class="nav-text">GET 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-1"><span class="nav-number">3.4.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-请求"><span class="nav-number">3.5.</span> <span class="nav-text">POST 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-2"><span class="nav-number">3.6.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-3"><span class="nav-number">3.7.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-服务器上的文件"><span class="nav-number">3.8.</span> <span class="nav-text">url - 服务器上的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步-True-或-False？"><span class="nav-number">3.9.</span> <span class="nav-text">异步 - True 或 False？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-true"><span class="nav-number">3.10.</span> <span class="nav-text">Async=true</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-4"><span class="nav-number">3.11.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-false"><span class="nav-number">3.12.</span> <span class="nav-text">Async = false</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-5"><span class="nav-number">3.13.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX-服务器-响应"><span class="nav-number">4.</span> <span class="nav-text">AJAX - 服务器 响应</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器响应"><span class="nav-number">4.1.</span> <span class="nav-text">服务器响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#responseText-属性"><span class="nav-number">4.2.</span> <span class="nav-text">responseText 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-6"><span class="nav-number">4.3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#responseXML-属性"><span class="nav-number">4.4.</span> <span class="nav-text">responseXML 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-7"><span class="nav-number">4.5.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX-onreadystatechange-事件"><span class="nav-number">5.</span> <span class="nav-text">AJAX - onreadystatechange 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#onreadystatechange-事件"><span class="nav-number">5.1.</span> <span class="nav-text">onreadystatechange 事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-8"><span class="nav-number">5.2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用回调函数"><span class="nav-number">5.3.</span> <span class="nav-text">使用回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例-9"><span class="nav-number">5.4.</span> <span class="nav-text">实例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
