@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="转载自https://blog.csdn.net/zhouziyu2011/article/details/68067609 ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。 下面介绍ES6的let命令：ES6新增了let命令，用来声明变量，它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 1、for循环">
+<meta name="description" content="ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习-ES6中的let命令，const命令与暂时性死区">
+<meta property="og:title" content="ES6中的let命令，const命令与暂时性死区">
 <meta property="og:url" content="http://yoursite.com/2018/10/09/js学习-ES6中的let命令，const命令与暂时性死区/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="转载自https://blog.csdn.net/zhouziyu2011/article/details/68067609 ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。 下面介绍ES6的let命令：ES6新增了let命令，用来声明变量，它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 1、for循环">
+<meta property="og:description" content="ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1ns9jwhz.bkt.clouddn.com/20180717114849.jpg">
-<meta property="og:updated_time" content="2018-10-14T08:18:50.717Z">
+<meta property="og:updated_time" content="2018-10-14T12:24:09.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js学习-ES6中的let命令，const命令与暂时性死区">
-<meta name="twitter:description" content="转载自https://blog.csdn.net/zhouziyu2011/article/details/68067609 ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。 下面介绍ES6的let命令：ES6新增了let命令，用来声明变量，它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 1、for循环">
+<meta name="twitter:title" content="ES6中的let命令，const命令与暂时性死区">
+<meta name="twitter:description" content="ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。">
 <meta name="twitter:image" content="http://p1ns9jwhz.bkt.clouddn.com/20180717114849.jpg">
 
 
@@ -149,7 +149,7 @@
 
 
 
-  <title>js学习-ES6中的let命令，const命令与暂时性死区 | -Breeze's Blog</title>
+  <title>ES6中的let命令，const命令与暂时性死区 | -Breeze's Blog</title>
   
 
 
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js学习-ES6中的let命令，const命令与暂时性死区</h1>
+          <h1 class="post-title" itemprop="name headline">ES6中的let命令，const命令与暂时性死区</h1>
         
 
         <div class="post-meta">
@@ -434,7 +434,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://p1ns9jwhz.bkt.clouddn.com/20180717114849.jpg" rel="gallery_cjn8u6b4b001bagff78tem6lx"
+                 href="http://p1ns9jwhz.bkt.clouddn.com/20180717114849.jpg" rel="gallery_cjn8udnlm001bvgffwnah2vcf"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://p1ns9jwhz.bkt.clouddn.com/20180717114849.jpg" itemprop="contentUrl"/>
               </a>
@@ -447,8 +447,8 @@
       
 
       
-        <p>转载自<a href="https://blog.csdn.net/zhouziyu2011/article/details/68067609" target="_blank" rel="noopener">https://blog.csdn.net/zhouziyu2011/article/details/68067609</a></p>
-<p>ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。</p>
+        <p>ES5只有两种声明变量的方式：var和function，ES6还添加了两种常用的声明变量的方式：let和const。</p>
+<a id="more"></a> 
 <h2 id="下面介绍ES6的let命令："><a href="#下面介绍ES6的let命令：" class="headerlink" title="下面介绍ES6的let命令："></a>下面介绍ES6的let命令：</h2><p>ES6新增了let命令，用来声明变量，它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</p>
 <p>1、for循环的计数器，就很合适使用let。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">	a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
@@ -482,6 +482,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">obj.name = “Alice”;</span><br><span class="line">obj = &#123;&#125;; <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
 <p>将一个数组声明为常量，该数组本身是可写的，但是若将另一个数组赋值给该数组，会报错。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line">arr.push(<span class="number">1</span>);</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]; <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+<p>转载自<a href="https://blog.csdn.net/zhouziyu2011/article/details/68067609" target="_blank" rel="noopener">https://blog.csdn.net/zhouziyu2011/article/details/68067609</a></p>
+
       
     </div>
     
