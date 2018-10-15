@@ -108,10 +108,12 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="什么是BFC在一个Web页面的CSS渲染中，块级格式化上下文 (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下： 1浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:13:20.426Z">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/img-6e56077a4c8310ab179a4b7cfe0da101%281%29.jpg">
+<meta property="og:updated_time" content="2018-10-15T05:38:08.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html学习-BFC">
 <meta name="twitter:description" content="什么是BFC在一个Web页面的CSS渲染中，块级格式化上下文 (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下： 1浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/img-6e56077a4c8310ab179a4b7cfe0da101%281%29.jpg">
 
 
 
@@ -267,12 +269,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
           <a href="/photo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
             
-            photos
+            相册
           </a>
         </li>
       
@@ -427,10 +429,27 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/img-6e56077a4c8310ab179a4b7cfe0da101%281%29.jpg" rel="gallery_cjn9wg82r000vwcff8268rq5z"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/img-6e56077a4c8310ab179a4b7cfe0da101%281%29.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         <h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>在一个Web页面的CSS渲染中，<a href="http://www.w3.org/TR/CSS21/visuren.html#block-formatting" target="_blank" rel="noopener">块级格式化上下文</a> (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：</p>
 <p>1、float的值不是none。<br>2、position的值不是static或者relative。<br>3、display的值是inline-block、table-cell、flex、table-caption或者inline-flex<br>4、overflow的值不是visible</p>
 <p>BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。</p>
@@ -495,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/03/java学习-Shape类/" rel="prev" title="java学习-Shape类">
-                java学习-Shape类 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/03/html学习-清除浮动/" rel="prev" title="html学习-清除浮动">
+                html学习-清除浮动 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -843,5 +862,11 @@
 
   
 
-</body>
+  () => {
+/* [wrapped with _.bind] */
+
+      print.warn('live2d tag detected, but won\'t be use. Make sure \'tagMode\' config is expected. See #36, #122.');
+
+    }
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","width":300,"height":600,"horizontalOffset":50,"position":"left","opacityDefault":1,"scaling":1.5,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

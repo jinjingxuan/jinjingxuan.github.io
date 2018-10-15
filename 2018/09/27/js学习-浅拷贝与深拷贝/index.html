@@ -101,17 +101,19 @@
 
 
 
-<meta name="description" content="原文地址：https://www.cnblogs.com/linhp/p/6085826.html 一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4] 自定义对象 12">
+<meta name="description" content="一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习-浅拷贝与深拷贝">
+<meta property="og:title" content="浅拷贝与深拷贝">
 <meta property="og:url" content="http://yoursite.com/2018/09/27/js学习-浅拷贝与深拷贝/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="原文地址：https://www.cnblogs.com/linhp/p/6085826.html 一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4] 自定义对象 12">
+<meta property="og:description" content="一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:22:09.066Z">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/%E4%BF%A1%E5%8F%B7%E9%87%8F.jpg">
+<meta property="og:updated_time" content="2018-10-15T05:42:15.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js学习-浅拷贝与深拷贝">
-<meta name="twitter:description" content="原文地址：https://www.cnblogs.com/linhp/p/6085826.html 一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4] 自定义对象 12">
+<meta name="twitter:title" content="浅拷贝与深拷贝">
+<meta name="twitter:description" content="一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝 将一个对象赋值给另外一个对象。 1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert(a); // a变成了[1,2,3,4]">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/%E4%BF%A1%E5%8F%B7%E9%87%8F.jpg">
 
 
 
@@ -147,7 +149,7 @@
 
 
 
-  <title>js学习-浅拷贝与深拷贝 | -Breeze's Blog</title>
+  <title>浅拷贝与深拷贝 | -Breeze's Blog</title>
   
 
 
@@ -267,12 +269,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
           <a href="/photo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
             
-            photos
+            相册
           </a>
         </li>
       
@@ -326,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js学习-浅拷贝与深拷贝</h1>
+          <h1 class="post-title" itemprop="name headline">浅拷贝与深拷贝</h1>
         
 
         <div class="post-meta">
@@ -427,12 +429,28 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/%E4%BF%A1%E5%8F%B7%E9%87%8F.jpg" rel="gallery_cjn9wg84s002cwcffjwcxu5i4"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/%E4%BF%A1%E5%8F%B7%E9%87%8F.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
-        <p>原文地址：<a href="https://www.cnblogs.com/linhp/p/6085826.html" target="_blank" rel="noopener">https://www.cnblogs.com/linhp/p/6085826.html</a></p>
-<h1 id="一、场景"><a href="#一、场景" class="headerlink" title="一、场景"></a>一、场景</h1><p>除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝</p>
+        <h1 id="一、场景"><a href="#一、场景" class="headerlink" title="一、场景"></a>一、场景</h1><p>除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝</p>
 <p>将一个对象赋值给另外一个对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,2,3];</span><br><span class="line">var b = a;</span><br><span class="line">b.push(4); // b中添加了一个4</span><br><span class="line">alert(a); // a变成了[1,2,3,4]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>自定义对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a:10&#125;;</span><br><span class="line">var obj2 = obj;</span><br><span class="line">obj2.a = 20; // obj2.a改变了，</span><br><span class="line">alert(obj.a); // 20，obj的a跟着改变</span><br></pre></td></tr></table></figure>
 <p>这就是由于对象类型直接赋值，只是将引用指向同一个地址，导致修改了obj会导致obj2也被修改</p>
@@ -443,6 +461,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a:&#123;b:10&#125;&#125;;</span><br><span class="line">function copy(obj)&#123;</span><br><span class="line">    var newobj = &#123;&#125;;</span><br><span class="line">    for ( var attr in obj) &#123;</span><br><span class="line">        newobj[attr] = obj[attr];</span><br><span class="line">    &#125;</span><br><span class="line">    return newobj;</span><br><span class="line">&#125;</span><br><span class="line">var obj2 = copy(obj);</span><br><span class="line">obj2.a.b = 20;</span><br><span class="line">alert(obj.a.b); //20</span><br></pre></td></tr></table></figure>
 <p>因此，由于这个copy对象只是对第一层进行拷贝，无法拷贝深层的对象，这个copy为浅拷贝，我们需要通过递归，来拷贝深层的对象。将copy改造成递归即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a:&#123;b:10&#125;&#125;;</span><br><span class="line">function deepCopy(obj)&#123;</span><br><span class="line">    if(typeof obj != &apos;object&apos;)&#123;</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    var newobj = &#123;&#125;;</span><br><span class="line">    for ( var attr in obj) &#123;</span><br><span class="line">        newobj[attr] = deepCopy(obj[attr]);</span><br><span class="line">    &#125;</span><br><span class="line">    return newobj;</span><br><span class="line">&#125;</span><br><span class="line">var obj2 = deepCopy(obj);</span><br><span class="line">obj2.a.b = 20;</span><br><span class="line">alert(obj.a.b); //10</span><br></pre></td></tr></table></figure>
+<p>原文地址：<a href="https://www.cnblogs.com/linhp/p/6085826.html" target="_blank" rel="noopener">https://www.cnblogs.com/linhp/p/6085826.html</a></p>
+
       
     </div>
     
@@ -466,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/js学习-原型链/" rel="next" title="js学习-原型链与继承">
-                <i class="fa fa-chevron-left"></i> js学习-原型链与继承
+              <a href="/2018/09/20/js学习-原型链/" rel="next" title="原型链与继承">
+                <i class="fa fa-chevron-left"></i> 原型链与继承
               </a>
             
           </div>
@@ -476,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/02/js学习-键盘事件/" rel="prev" title="js学习-键盘事件">
-                js学习-键盘事件 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/02/js学习-表单事件/" rel="prev" title="js学习-表单事件">
+                js学习-表单事件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -824,5 +844,11 @@
 
   
 
-</body>
+  () => {
+/* [wrapped with _.bind] */
+
+      print.warn('live2d tag detected, but won\'t be use. Make sure \'tagMode\' config is expected. See #36, #122.');
+
+    }
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","width":300,"height":600,"horizontalOffset":50,"position":"left","opacityDefault":1,"scaling":1.5,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

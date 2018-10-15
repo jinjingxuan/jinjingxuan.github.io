@@ -108,14 +108,12 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53121081  一、什么是原型 原型是Javascript中的继承的基础，JavaScript的继承就是基于原型的继承。  1.1 函数的原型对象 在JavaScript中，我们创建一个函数A(就是声明一个函数), 那么浏览器就会在内存中创建一个对象B，而且每个函数都默认会有一个属性 p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/43031030.jpg">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/6663492.jpg">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/45010346.jpg">
-<meta property="og:updated_time" content="2018-10-14T06:23:07.125Z">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg">
+<meta property="og:updated_time" content="2018-10-15T05:45:05.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习-原型">
 <meta name="twitter:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53121081  一、什么是原型 原型是Javascript中的继承的基础，JavaScript的继承就是基于原型的继承。  1.1 函数的原型对象 在JavaScript中，我们创建一个函数A(就是声明一个函数), 那么浏览器就会在内存中创建一个对象B，而且每个函数都默认会有一个属性 p">
-<meta name="twitter:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/43031030.jpg">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg">
 
 
 
@@ -271,12 +269,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
           <a href="/photo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
             
-            photos
+            相册
           </a>
         </li>
       
@@ -431,6 +429,22 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg" rel="gallery_cjn9wg844001vwcffsj11741m"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         <p>原文地址:<a href="https://blog.csdn.net/u012468376/article/details/53121081" target="_blank" rel="noopener">https://blog.csdn.net/u012468376/article/details/53121081</a> </p>
@@ -438,6 +452,7 @@
 <p>原型是Javascript中的继承的基础，JavaScript的继承就是基于原型的继承。</p>
 </blockquote>
 <h2 id="1-1-函数的原型对象"><a href="#1-1-函数的原型对象" class="headerlink" title="1.1 函数的原型对象"></a>1.1 函数的原型对象</h2><p> 在JavaScript中，我们创建一个函数A(<strong>就是声明一个函数</strong>), 那么浏览器就会在内存中创建一个对象B，而且每个函数都默认会有一个属性 <strong>prototype</strong> 指向了这个对象( 即：<strong>prototype的属性的值是这个对象</strong> )。这个对象B就是函数A的原型对象，简称函数的原型。这个原型对象B 默认会有一个属性 <strong>constructor</strong> 指向了这个函数A ( 意思就是说：constructor属性的值是函数A )。</p>
+<a id="more"></a>
 <p> 看下面的代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /*</span></span><br><span class="line"><span class="undefined">            声明一个函数，则这个函数默认会有一个属性叫 prototype 。而且浏览器会自动按照一定的规则</span></span><br><span class="line"><span class="undefined">            创建一个对象，这个对象就是这个函数的原型对象，prototype属性指向这个原型对象。这个原型对象</span></span><br><span class="line"><span class="javascript">            有一个属性叫<span class="keyword">constructor</span> 执行了这个函数</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            注意：原型对象默认只有属性：<span class="keyword">constructor</span>。其他都是从Object继承而来，暂且不用考虑。</span></span><br><span class="line"><span class="undefined">        */</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;       </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -549,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/18/css学习圣杯布局和双飞翼布局/" rel="next" title="css学习-圣杯布局和双飞翼布局">
-                <i class="fa fa-chevron-left"></i> css学习-圣杯布局和双飞翼布局
+              <a href="/2018/09/18/css学习圣杯布局和双飞翼布局/" rel="next" title="圣杯布局和双飞翼布局">
+                <i class="fa fa-chevron-left"></i> 圣杯布局和双飞翼布局
               </a>
             
           </div>
@@ -559,8 +574,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/20/js学习-原型链/" rel="prev" title="js学习-原型链与继承">
-                js学习-原型链与继承 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/20/js学习-原型链/" rel="prev" title="原型链与继承">
+                原型链与继承 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -907,5 +922,11 @@
 
   
 
-</body>
+  () => {
+/* [wrapped with _.bind] */
+
+      print.warn('live2d tag detected, but won\'t be use. Make sure \'tagMode\' config is expected. See #36, #122.');
+
+    }
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","width":300,"height":600,"horizontalOffset":50,"position":"left","opacityDefault":1,"scaling":1.5,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

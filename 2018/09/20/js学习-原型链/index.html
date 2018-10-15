@@ -103,19 +103,17 @@
 
 <meta name="description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习-原型链与继承">
+<meta property="og:title" content="原型链与继承">
 <meta property="og:url" content="http://yoursite.com/2018/09/20/js学习-原型链/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/45010346.jpg">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-11/5352248.jpg">
-<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/blog/20161111/123921677.png">
-<meta property="og:updated_time" content="2018-10-14T06:23:15.719Z">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/v2-8f3bb37faac47804a61a43c09e9fd1a6_r.jpg">
+<meta property="og:updated_time" content="2018-10-15T05:44:21.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js学习-原型链与继承">
+<meta name="twitter:title" content="原型链与继承">
 <meta name="twitter:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
-<meta name="twitter:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/45010346.jpg">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/v2-8f3bb37faac47804a61a43c09e9fd1a6_r.jpg">
 
 
 
@@ -151,7 +149,7 @@
 
 
 
-  <title>js学习-原型链与继承 | -Breeze's Blog</title>
+  <title>原型链与继承 | -Breeze's Blog</title>
   
 
 
@@ -271,12 +269,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
           <a href="/photo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
             
-            photos
+            相册
           </a>
         </li>
       
@@ -330,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js学习-原型链与继承</h1>
+          <h1 class="post-title" itemprop="name headline">原型链与继承</h1>
         
 
         <div class="post-meta">
@@ -431,11 +429,28 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/v2-8f3bb37faac47804a61a43c09e9fd1a6_r.jpg" rel="gallery_cjn9wg847001wwcffk6w14nir"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/v2-8f3bb37faac47804a61a43c09e9fd1a6_r.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         <p>原文地址:<a href="https://blog.csdn.net/u012468376/article/details/53127929" target="_blank" rel="noopener">https://blog.csdn.net/u012468376/article/details/53127929</a></p>
 <h1 id="一、继承的概念"><a href="#一、继承的概念" class="headerlink" title="一、继承的概念"></a>一、继承的概念</h1><p> 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。</p>
 <p> 但是对JavaScript来说，没有类和接口的概念(ES6之前)，所以只支持实现继承，而且继承在 <strong>原型链</strong> 的基础上实现的。等了解过原型链的概念之后，你会发现继承其实是发生在对象与对象之间。这是与其他编程语言很大的不同。</p>
+<a id="more"></a>
 <h1 id="二、原型链的概念"><a href="#二、原型链的概念" class="headerlink" title="二、原型链的概念"></a>二、原型链的概念</h1><blockquote>
 <p>在JavaScript中，将原型链实现继承的主要方法。其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法</p>
 </blockquote>
@@ -557,8 +572,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/27/js学习-浅拷贝与深拷贝/" rel="prev" title="js学习-浅拷贝与深拷贝">
-                js学习-浅拷贝与深拷贝 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/27/js学习-浅拷贝与深拷贝/" rel="prev" title="浅拷贝与深拷贝">
+                浅拷贝与深拷贝 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -905,5 +920,11 @@
 
   
 
-</body>
+  () => {
+/* [wrapped with _.bind] */
+
+      print.warn('live2d tag detected, but won\'t be use. Make sure \'tagMode\' config is expected. See #36, #122.');
+
+    }
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","width":300,"height":600,"horizontalOffset":50,"position":"left","opacityDefault":1,"scaling":1.5,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

@@ -101,17 +101,19 @@
 
 
 
-<meta name="description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起 1234567891011121314151617181920212223242526272829303132&amp;lt;input type=&quot;text&quot; id=&apos;input&apos;&amp;gt;   &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;   	input.onkeydown = fun">
+<meta name="description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js学习-键盘事件">
 <meta property="og:url" content="http://yoursite.com/2018/10/02/js学习-键盘事件/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起 1234567891011121314151617181920212223242526272829303132&amp;lt;input type=&quot;text&quot; id=&apos;input&apos;&amp;gt;   &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;   	input.onkeydown = fun">
+<meta property="og:description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:21:40.235Z">
+<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.jpg">
+<meta property="og:updated_time" content="2018-10-15T05:41:13.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习-键盘事件">
-<meta name="twitter:description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起 1234567891011121314151617181920212223242526272829303132&amp;lt;input type=&quot;text&quot; id=&apos;input&apos;&amp;gt;   &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;   	input.onkeydown = fun">
+<meta name="twitter:description" content="键盘事件keydown：按键按下 keyup：按键抬起 keypress：按键按下抬起">
+<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.jpg">
 
 
 
@@ -267,12 +269,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-photos">
+        <li class="menu-item menu-item-相册">
           <a href="/photo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
             
-            photos
+            相册
           </a>
         </li>
       
@@ -427,11 +429,28 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ou7wdump3.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.jpg" rel="gallery_cjn9wg859002qwcff676p3xz6"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ou7wdump3.bkt.clouddn.com/%E8%AF%BB%E5%86%99%E9%94%81.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         <h2 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h2><p>keydown：按键按下</p>
 <p>keyup：按键抬起</p>
 <p>keypress：按键按下抬起</p>
+<a id="more"></a>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">'input'</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">   	input.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.log(<span class="string">'按下键盘'</span>);</span></span><br><span class="line"><span class="javascript">   		<span class="comment">//console.log(e.keyCode);</span></span></span><br><span class="line"><span class="undefined">   	&#125;</span></span><br><span class="line"><span class="javascript">   	input.onkeyup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.log(<span class="string">'抬起键盘'</span>);</span></span><br><span class="line"><span class="undefined">   	&#125;</span></span><br><span class="line"><span class="javascript">   	input.onkeypress = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.log(<span class="string">'按下键盘(press)'</span>);</span></span><br><span class="line"><span class="undefined">   	&#125;</span></span><br><span class="line"><span class="undefined">       </span></span><br><span class="line"><span class="javascript">       input.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   		e.preventDefault();<span class="comment">//阻止默认事件</span></span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.dir(e);</span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.log(e.key);</span></span><br><span class="line"><span class="undefined">   	&#125;</span></span><br><span class="line"><span class="undefined">       </span></span><br><span class="line"><span class="javascript">       <span class="comment">//同时按下三个键</span></span></span><br><span class="line"><span class="javascript">        input.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">   		<span class="built_in">console</span>.dir(e);</span></span><br><span class="line"><span class="javascript">   	 	<span class="built_in">console</span>.log(e.key);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(e.altKey &amp;&amp; e.ctrlKey &amp;&amp; e.keyCode===<span class="number">66</span>)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'按下了ctrl+alt+a'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">            	<span class="built_in">console</span>.log(<span class="string">'错误操作'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="onkeypress-和-onkeydown-是有区别，"><a href="#onkeypress-和-onkeydown-是有区别，" class="headerlink" title="onkeypress 和 onkeydown 是有区别，"></a>onkeypress 和 onkeydown 是有区别，</h3><ul>
 <li><p>onkeypress 事件在用户按下并放开任何字母数字键时发生。但是系统按钮（例如：箭头键、功能键）无法得到识别。  </p>
@@ -469,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/js学习-浅拷贝与深拷贝/" rel="next" title="js学习-浅拷贝与深拷贝">
-                <i class="fa fa-chevron-left"></i> js学习-浅拷贝与深拷贝
+              <a href="/2018/10/02/js学习-表单事件/" rel="next" title="js学习-表单事件">
+                <i class="fa fa-chevron-left"></i> js学习-表单事件
               </a>
             
           </div>
@@ -479,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/02/js学习-表单事件/" rel="prev" title="js学习-表单事件">
-                js学习-表单事件 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/02/js学习-BOM对象/" rel="prev" title="js学习-BOM对象">
+                js学习-BOM对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -827,5 +846,11 @@
 
   
 
-</body>
+  () => {
+/* [wrapped with _.bind] */
+
+      print.warn('live2d tag detected, but won\'t be use. Make sure \'tagMode\' config is expected. See #36, #122.');
+
+    }
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","width":300,"height":600,"horizontalOffset":50,"position":"left","opacityDefault":1,"scaling":1.5,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
