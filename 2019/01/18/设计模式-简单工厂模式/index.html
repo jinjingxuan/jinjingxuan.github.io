@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’ 123456789var LoginAlert = function(text)&amp;#123;    this.content = text;&amp;#125;LoginAlert.prototype.show">
+<meta name="description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单工厂模式">
 <meta property="og:url" content="http://yoursite.com/2019/01/18/设计模式-简单工厂模式/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’ 123456789var LoginAlert = function(text)&amp;#123;    this.content = text;&amp;#125;LoginAlert.prototype.show">
+<meta property="og:description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-19T05:25:40.127Z">
+<meta property="og:updated_time" content="2019-01-19T06:43:17.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单工厂模式">
-<meta name="twitter:description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’ 123456789var LoginAlert = function(text)&amp;#123;    this.content = text;&amp;#125;LoginAlert.prototype.show">
+<meta name="twitter:description" content="简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 关于登录模块的需求当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’">
 
 
 
@@ -431,6 +431,7 @@
       
         <p>简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。</p>
 <h1 id="关于登录模块的需求"><a href="#关于登录模块的需求" class="headerlink" title="关于登录模块的需求"></a>关于登录模块的需求</h1><p>当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LoginAlert = <span class="function"><span class="keyword">function</span>(<span class="params">text</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.content = text;</span><br><span class="line">&#125;</span><br><span class="line">LoginAlert.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//显示警示框</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> userNameAlert = <span class="keyword">new</span> LoginAlert(<span class="string">'用户名不能多于16个字母或数字'</span>);</span><br><span class="line">userNameAlert.show();</span><br></pre></td></tr></table></figure>
 <p>当密码不正确时，提示‘输入的密码不正确’</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以用上面写好的类</span></span><br><span class="line"><span class="keyword">var</span> passwordAlert = <span class="keyword">new</span> LoginAlert(<span class="string">'输入的密码不正确'</span>);</span><br><span class="line">passwordAlert.show();</span><br></pre></td></tr></table></figure>
@@ -560,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
