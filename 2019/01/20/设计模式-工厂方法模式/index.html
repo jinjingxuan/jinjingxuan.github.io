@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。">
+<meta name="description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。 场景再现如何投放一批广告资源：  java,绿色字体 PHP，黄色字体，红色背景 JS，粉色背景…  我们想到了昨天学习的简单工厂模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工厂方法模式">
 <meta property="og:url" content="http://yoursite.com/2019/01/20/设计模式-工厂方法模式/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。">
+<meta property="og:description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。 场景再现如何投放一批广告资源：  java,绿色字体 PHP，黄色字体，红色背景 JS，粉色背景…  我们想到了昨天学习的简单工厂模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-20T02:24:26.782Z">
+<meta property="og:updated_time" content="2019-01-21T02:07:33.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂方法模式">
-<meta name="twitter:description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。">
+<meta name="twitter:description" content="工厂方法模式工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。 场景再现如何投放一批广告资源：  java,绿色字体 PHP，黄色字体，红色背景 JS，粉色背景…  我们想到了昨天学习的简单工厂模式">
 
 
 
@@ -430,7 +430,6 @@
 
       
         <h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><p>工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。</p>
-<a id="more"></a>
 <h1 id="场景再现"><a href="#场景再现" class="headerlink" title="场景再现"></a>场景再现</h1><p>如何投放一批广告资源：</p>
 <ul>
 <li>java,绿色字体</li>
@@ -438,6 +437,7 @@
 <li>JS，粉色背景…</li>
 </ul>
 <p>我们想到了昨天学习的简单工厂模式</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Java学科类</span></span><br><span class="line"><span class="keyword">var</span> Java = <span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建PHP学科类</span></span><br><span class="line"><span class="keyword">var</span> Php = <span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建JavaScript学科类</span></span><br><span class="line"><span class="keyword">var</span> JavaScript = <span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.content = content;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">        div.innerHTML = content;</span><br><span class="line">        div.style.background = <span class="string">'pink'</span>;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>).appendChild(div);</span><br><span class="line">    &#125;)(content);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//学科类工厂</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">JobFactory</span>(<span class="params">type,content</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'java'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Java(content);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'php'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Php(content);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'JavaScript'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JavaScript(content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">JobFactory(<span class="string">'JavaScript'</span>,<span class="string">'JavaScript哪家强'</span>);</span><br></pre></td></tr></table></figure>
 <p>但是这种方法每当有新的需求时，我们不仅仅要添加类，而且还要修改工厂函数，我们这里可以使用安全的工厂方法，在这之前，我们先介绍一下安全模式类。</p>
 <h1 id="安全模式类"><a href="#安全模式类" class="headerlink" title="安全模式类"></a>安全模式类</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不安全模式</span></span><br><span class="line"><span class="keyword">var</span> Demo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Demo.prototype = &#123;</span><br><span class="line">    show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'成功获取'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Demo();</span><br><span class="line">d.show();<span class="comment">//成功获取</span></span><br><span class="line"><span class="keyword">var</span> d = Demo();</span><br><span class="line">d.show();<span class="comment">//错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在构造函数开始时先判断当前对象this指代是不是类</span></span><br><span class="line"><span class="keyword">var</span> Demo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Demo))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Demo();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = Demo();</span><br><span class="line">d.show();</span><br></pre></td></tr></table></figure>
@@ -467,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/18/设计模式-面向对象编程/" rel="next" title="面向对象编程">
-                <i class="fa fa-chevron-left"></i> 面向对象编程
+              <a href="/2019/01/18/设计模式-简单工厂模式/" rel="next" title="简单工厂模式">
+                <i class="fa fa-chevron-left"></i> 简单工厂模式
               </a>
             
           </div>
@@ -476,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/工厂模式-抽象工厂模式/" rel="prev" title="抽象工厂模式">
+                抽象工厂模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
