@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JavaScript在客户端与服务端实现的功能不同，区别具体如下： ​    在客户端，JavaScript需要依赖浏览器提供的JavaScript引擎解析执行，浏览器提供了对DOM的解析，客户端不仅要应用语法，而且要会操作DOM和BOM。 ​    在服务器端，JavaScript不依赖浏览器，而是由特定的运行环境提供的JavaScript引擎解析执行，例如Node.js，只需应用语法，不需要操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Node.js">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Node.js-初识Node.js/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="JavaScript在客户端与服务端实现的功能不同，区别具体如下： ​    在客户端，JavaScript需要依赖浏览器提供的JavaScript引擎解析执行，浏览器提供了对DOM的解析，客户端不仅要应用语法，而且要会操作DOM和BOM。 ​    在服务器端，JavaScript不依赖浏览器，而是由特定的运行环境提供的JavaScript引擎解析执行，例如Node.js，只需应用语法，不需要操">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-02T06:58:38.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识Node.js">
+<meta name="twitter:description" content="JavaScript在客户端与服务端实现的功能不同，区别具体如下： ​    在客户端，JavaScript需要依赖浏览器提供的JavaScript引擎解析执行，浏览器提供了对DOM的解析，客户端不仅要应用语法，而且要会操作DOM和BOM。 ​    在服务器端，JavaScript不依赖浏览器，而是由特定的运行环境提供的JavaScript引擎解析执行，例如Node.js，只需应用语法，不需要操">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/02/Node.js-初识Node.js/"/>
+
+
+
+
+
+  <title>初识Node.js | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/02/Node.js-初识Node.js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初识Node.js</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-02T16:00:54+08:00">
+                2019-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JavaScript在客户端与服务端实现的功能不同，区别具体如下：</p>
+<p>​    在客户端，JavaScript需要依赖浏览器提供的JavaScript引擎解析执行，浏览器提供了对DOM的解析，客户端不仅要应用语法，而且要会操作DOM和BOM。</p>
+<p>​    在服务器端，JavaScript不依赖浏览器，而是由特定的运行环境提供的JavaScript引擎解析执行，例如Node.js，只需应用语法，不需要操作DOM和BOM。</p>
+<a id="more"></a>
+<p>JavaScript包括ECMAScript,DOM,BOM三个部分，具体如下：</p>
+<ol>
+<li>ECMAScript是JavaScript的核心语法</li>
+<li>DOM是HTML和XML的应用程序接口，用于控制文档的内容和结构。</li>
+<li>BOM（浏览器对象模型）可以对浏览器窗口进行访问和操作。</li>
+</ol>
+<h2 id="1-Node-js的特点与优势"><a href="#1-Node-js的特点与优势" class="headerlink" title="1.Node.js的特点与优势"></a>1.Node.js的特点与优势</h2><ul>
+<li>它是一个JavaScript运行环境，前后端语言一致。</li>
+<li>依赖于Chrome v8引擎进行代码解析，这个引擎负责在非浏览器解析情况下解析代码</li>
+<li>事件驱动（Event-Driven）</li>
+<li>非阻塞I/O：服务器端会设计阻塞I/O的操作，Node.js使用事件回调的方式实现非阻塞I/O</li>
+<li>轻量，可伸缩，适于实时数据交互应用</li>
+<li>单进程，单线程：阻塞I/O一个线程只能处理一个任务，非阻塞I/O一个线程永远在处理任务，Node.js采用             单线程，利用事件驱动的异步编程模式，实现了非阻塞I/O。</li>
+</ul>
+<h2 id="2-第一个Node-js的web程序"><a href="#2-第一个Node-js的web程序" class="headerlink" title="2.第一个Node.js的web程序"></a>2.第一个Node.js的web程序</h2><p>命令行运行<code>node demo.js</code>,demo.js如下，打开浏览器输入127.0.0.1:3000,输出hello world</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载http模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="comment">//创建http服务器</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//响应结束</span></span><br><span class="line">	res.end(<span class="string">'hello world'</span>);</span><br><span class="line">	<span class="comment">//监听网址127.0.0.1 端口号3000</span></span><br><span class="line">&#125;).listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="3-REPL运行环境（Read-Eval-Print-Loop）"><a href="#3-REPL运行环境（Read-Eval-Print-Loop）" class="headerlink" title="3.REPL运行环境（Read-Eval-Print-Loop）"></a>3.REPL运行环境（Read-Eval-Print-Loop）</h2><p>打开终端，输入node即可进入REPL运行环境，可以解析JS代码，执行变量和函数的相关操作。</p>
+<p>其实<strong>Chrome中的Console控制台就是REPL环境</strong>。</p>
+<h2 id="4-global对象和模块作用域"><a href="#4-global对象和模块作用域" class="headerlink" title="4.global对象和模块作用域"></a>4.global对象和模块作用域</h2><p>在Node.js中，默认声明的变量，函数都是属于当前文件模块，都是私有的，只有在当前模块作用域内可以使用，如果想在全局范围内为某个变量赋值，可以应用 全局对象global.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br><span class="line">global.foo = foo;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'global:foo'</span>+global.foo);</span><br></pre></td></tr></table></figure>
+<h3 id="4-1-require-exports-module-exports"><a href="#4-1-require-exports-module-exports" class="headerlink" title="4.1 require(),exports,module.exports"></a>4.1 require(),exports,module.exports</h3><p>在一个文件模块中直接给某个全局变量赋值，显得很突兀，可能会污染命名空间，造成耦合的问题，为了解决上述问题，exports是模块公开的接口，require()用于从外部获取一个模块的接口。</p>
+<p>info.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向外开放变量name</span></span><br><span class="line">exports.name = <span class="string">'itcast'</span>;</span><br><span class="line"><span class="comment">//向外开放变量age</span></span><br><span class="line"><span class="built_in">module</span>.exports.age = <span class="string">'10'</span>;</span><br><span class="line"><span class="comment">//向外开放函数</span></span><br><span class="line"><span class="built_in">module</span>.exports.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>demo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"><span class="keyword">let</span> myModule = <span class="built_in">require</span>(<span class="string">'./info'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myModule);</span><br><span class="line"><span class="comment">//输出模块中的变量值</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span>+myModule.name);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'age:'</span>+myModule.age);</span><br><span class="line"><span class="comment">//调用模块的方法</span></span><br><span class="line">myModule.sayHello();</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-exports和module-exports的区别"><a href="#4-2-exports和module-exports的区别" class="headerlink" title="4.2 exports和module.exports的区别"></a>4.2 exports和module.exports的区别</h3><p>exports是一个指向module.exports的引用，module.exports初始值为一个空对象{}，所以exports初始值也是{}，虽然exports和module.exports都可以向模块外开放变量和函数，但是使用上，<strong>module.exports可以单独定义，返回数据类型，而exports只能返回一个object对象</strong>。</p>
+<p>例如：</p>
+<p>test.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个数组</span></span><br><span class="line"><span class="built_in">module</span>.exports=[<span class="string">'name'</span>,<span class="string">'type'</span>,<span class="string">'age'</span>];</span><br></pre></td></tr></table></figure>
+<p>demo2-5.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"><span class="keyword">let</span> myModule = <span class="built_in">require</span>(<span class="string">'./test'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myModule);</span><br><span class="line"><span class="comment">//输出数组长度</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'length:'</span>+myModule.length); </span><br><span class="line"></span><br><span class="line"><span class="comment">//输出 结果</span></span><br><span class="line"><span class="comment">//[ 'name', 'type', 'age' ]</span></span><br><span class="line"><span class="comment">//length:3</span></span><br></pre></td></tr></table></figure>
+<p>修改test.js中的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports=[<span class="string">'name'</span>,<span class="string">'type'</span>,<span class="string">'age'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后输出</span></span><br><span class="line"><span class="comment">//&#123;&#125;</span></span><br><span class="line"><span class="comment">//length:undefined</span></span><br></pre></td></tr></table></figure>
+<p>可见使用exports直接定义数据，会切断exports与module.exports的联系，出现了找不到值的情况。</p>
+<h2 id="5-全局可用变量，函数和对象"><a href="#5-全局可用变量，函数和对象" class="headerlink" title="5.全局可用变量，函数和对象"></a>5.全局可用变量，函数和对象</h2><p>即不需要进行模块加载，可以直接使用的，例如require()函数。</p>
+<h3 id="5-1-dirname和-filename变量"><a href="#5-1-dirname和-filename变量" class="headerlink" title="5.1 _dirname和 _filename变量"></a>5.1 _dirname和 _filename变量</h3><ul>
+<li>_dirname表示当前文件所在的目录</li>
+<li>_filename表示当前正在执行的脚本的文件名。（绝对路径）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'文件的目录是：'</span>+__dirname);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'文件的绝对路径是：'</span>+__filename);</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//文件的目录是：C:\Users\Jin\Desktop\前端学习\Node.js\chapter 02</span></span><br><span class="line"><span class="comment">//文件的绝对路径是：C:\Users\Jin\Desktop\前端学习\Node.js\chapter 02\demo2-6.js</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-2-全局函数"><a href="#5-2-全局函数" class="headerlink" title="5.2 全局函数"></a>5.2 全局函数</h3><ul>
+<li>setTimeout(cb,ms)：ms后执行cb</li>
+<li>clearTimeout()</li>
+<li>setInterval(cb,ms)：每ms后执行cb</li>
+<li>clearInterval()</li>
+<li>setImmediate(cb)：延迟调用cb函数，cb将在I/O事件回调之后，setTimeout和setInterval回调之前调用</li>
+<li>clearImmediate()</li>
+</ul>
+<h3 id="5-3-console对象"><a href="#5-3-console对象" class="headerlink" title="5.3 console对象"></a>5.3 console对象</h3><p>console是一个全局对象，除了console.log()函数外还提供了其他函数</p>
+<ul>
+<li>console.info</li>
+<li>console.error</li>
+<li>console.warn</li>
+<li>console.dir：用来对一个对象进行检查，以易于阅读和打印的格式显示</li>
+<li>console.time和console.timeEnd</li>
+<li>console.trace：当前执行代码在堆栈中的调用路径</li>
+<li>console.assert：判断某个表达式或变量是否为真（断言）</li>
+</ul>
+<h2 id="6-重写计算器模块"><a href="#6-重写计算器模块" class="headerlink" title="6 重写计算器模块"></a>6 重写计算器模块</h2><p>以add.js为例，定义加减乘除模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">parseInt</span>(x)+<span class="built_in">parseInt</span>(y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.js：分别使用require加载4个功能模块，并使用exports向外开放这4个接口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    add:<span class="built_in">require</span>(<span class="string">'./add'</span>);</span><br><span class="line">    <span class="comment">//sub</span></span><br><span class="line">    <span class="comment">//mul</span></span><br><span class="line">    <span class="comment">//divide</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>testCal.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cal = <span class="built_in">require</span>(<span class="string">'./index'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(cal.add(<span class="number">1</span>,<span class="number">2</span>));<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-require-的模块加载规则"><a href="#7-require-的模块加载规则" class="headerlink" title="7. require()的模块加载规则"></a>7. require()的模块加载规则</h2><p>主要分为两类：文件模块和核心模块</p>
+<ol>
+<li>文件模块</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'路径.扩展名'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'/example.js'</span>);<span class="comment">//当前目录</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./example.js'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'../example.js'</span>);<span class="comment">//上一目录</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>核心模块</li>
+</ol>
+<p>核心模块包含了基本的API，保存在node.js源码的lib文件下，例如</p>
+<ul>
+<li>全局对象</li>
+<li>常用工具</li>
+<li>事件机制</li>
+<li>文件系统访问</li>
+<li>HTTP服务器与客户端</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'模块标识'</span>);</span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(os.cpus());</span><br></pre></td></tr></table></figure>
+<h2 id="8-模块的缓存"><a href="#8-模块的缓存" class="headerlink" title="8. 模块的缓存"></a>8. 模块的缓存</h2><p>多次使用同一模块，Node.js只会加载一次，模块被缓存在require.cache中</p>
+<p>foo.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'foo模块被加载了'</span>);</span><br></pre></td></tr></table></figure>
+<p>test.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'./foo'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./foo'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./foo'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./foo'</span>);</span><br><span class="line"><span class="comment">//只输出一次 foo模块被加载了，说明只加载了一次</span></span><br></pre></td></tr></table></figure>
+<p>在foo.js加入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="built_in">require</span>.cache[<span class="built_in">module</span>.filename];</span><br><span class="line"><span class="comment">//删除缓存后输出4次</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/01/Node.js-模块化编程/" rel="next" title="模块化编程">
+                <i class="fa fa-chevron-left"></i> 模块化编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Node-js的特点与优势"><span class="nav-number">1.</span> <span class="nav-text">1.Node.js的特点与优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-第一个Node-js的web程序"><span class="nav-number">2.</span> <span class="nav-text">2.第一个Node.js的web程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-REPL运行环境（Read-Eval-Print-Loop）"><span class="nav-number">3.</span> <span class="nav-text">3.REPL运行环境（Read-Eval-Print-Loop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-global对象和模块作用域"><span class="nav-number">4.</span> <span class="nav-text">4.global对象和模块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-require-exports-module-exports"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 require(),exports,module.exports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-exports和module-exports的区别"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 exports和module.exports的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-全局可用变量，函数和对象"><span class="nav-number">5.</span> <span class="nav-text">5.全局可用变量，函数和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-dirname和-filename变量"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 _dirname和 _filename变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-全局函数"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 全局函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-console对象"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 console对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-重写计算器模块"><span class="nav-number">6.</span> <span class="nav-text">6 重写计算器模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-require-的模块加载规则"><span class="nav-number">7.</span> <span class="nav-text">7. require()的模块加载规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-模块的缓存"><span class="nav-number">8.</span> <span class="nav-text">8. 模块的缓存</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
