@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="3.1 异步编程JavaScript的执行环境是单线程的，单线程一次只能完成一个任务，如果有多个任务，就需要等待前面一个任务完成后，再执行后面的一个任务。常见的浏览器无响应就是某一段JS代码长时间运行造成的。 为解决单线程阻塞的问题，Node.js中加入了异步编程模块，保证了Node.js快速响应，充分利用CPU。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步资源和包资源管理">
+<meta property="og:url" content="http://yoursite.com/2019/05/03/Node.js-异步资源和包资源管理/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="3.1 异步编程JavaScript的执行环境是单线程的，单线程一次只能完成一个任务，如果有多个任务，就需要等待前面一个任务完成后，再执行后面的一个任务。常见的浏览器无响应就是某一段JS代码长时间运行造成的。 为解决单线程阻塞的问题，Node.js中加入了异步编程模块，保证了Node.js快速响应，充分利用CPU。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T03:46:59.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步资源和包资源管理">
+<meta name="twitter:description" content="3.1 异步编程JavaScript的执行环境是单线程的，单线程一次只能完成一个任务，如果有多个任务，就需要等待前面一个任务完成后，再执行后面的一个任务。常见的浏览器无响应就是某一段JS代码长时间运行造成的。 为解决单线程阻塞的问题，Node.js中加入了异步编程模块，保证了Node.js快速响应，充分利用CPU。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/03/Node.js-异步资源和包资源管理/"/>
+
+
+
+
+
+  <title>异步资源和包资源管理 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/Node.js-异步资源和包资源管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">异步资源和包资源管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T16:00:54+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="3-1-异步编程"><a href="#3-1-异步编程" class="headerlink" title="3.1 异步编程"></a>3.1 异步编程</h1><p>JavaScript的执行环境是单线程的，单线程一次只能完成一个任务，如果有多个任务，就需要等待前面一个任务完成后，再执行后面的一个任务。常见的浏览器无响应就是某一段JS代码长时间运行造成的。</p>
+<p>为解决单线程阻塞的问题，Node.js中加入了异步编程模块，保证了Node.js快速响应，充分利用CPU。</p>
+<a id="more"></a>
+<h2 id="3-1-1-同步和异步"><a href="#3-1-1-同步和异步" class="headerlink" title="3.1.1 同步和异步"></a>3.1.1 同步和异步</h2><ol>
+<li>同步：代码按照顺序依次执行</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'起床'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'背单词'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatBreakfast</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'早餐吃完了'</span>);</span><br><span class="line">&#125;</span><br><span class="line">eatBreakfast();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'去上学'</span>);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>异步：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'起床'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'背单词'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatBreakfast</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'开始吃早餐了'</span>);</span><br><span class="line">    <span class="comment">//setTimeout是一个异步函数，不会阻塞后面代码的继续执行</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'早餐吃完了'</span>);</span><br><span class="line">    &#125;,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">eatBreakfast();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'去上学'</span>);</span><br><span class="line"><span class="comment">//相当于边去学校，边吃早餐</span></span><br><span class="line"><span class="comment">//输出：起床，背单词，开始吃早餐了，去上学，早餐吃完了</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-1-2-回调函数"><a href="#3-1-2-回调函数" class="headerlink" title="3.1.2 回调函数"></a>3.1.2 回调函数</h2><p>回调函数是指函数可以被传递到另一个函数中，然后被调用的形式，典型的应用就是异步函数的异常处理。</p>
+<ol>
+<li>同步代码中使用try…catch处理异常</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同步代码处理异常</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJsonStrToObj</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//用于从一个字符串中解析出json对象</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对于同步代码，可以使用try...catch来捕获异常</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = parseJsonStrToObj(<span class="string">'foo'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;<span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'转换失败了'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出：转换失败了</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>异步代码无法使用try…catch处理异常</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//异步代码无法处理异常</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJsonStrToObj</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">    &#125;,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = parseJsonStrToObj(<span class="string">'foo'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;<span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'转换失败了'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后会报错，说明异步代码无法处理异常</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用回调函数接收异步代码的执行结果</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//try...catch写在异步代码中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJsonStrToObj</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(str);<span class="comment">//有返回值，但是无法接收</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'转换失败了'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = parseJsonStrToObj(<span class="string">'foo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出：undefined 转换失败了</span></span><br></pre></td></tr></table></figure>
+<p>根据此提出回调函数的设计，即当使用异步代码去做一件事时，不能预测这件事什么时候做完，其他的事情还在继续，这时可给异步代码准备一个包裹，当异步代码有了执行结果时，可以将结果放在这个包裹里，需要在哪里使用这个结果就从包裹取出。</p>
+<p>回调函数设计的3个约定：</p>
+<p>（1） 函数名通常为callback,在封装异步执行代码时，优先把callback作为函数最后一个参数出现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">arg1,arg2,callback</span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>（2）把代码中出现的错误作为callback回调函数的第一个参数进行传递,返回结果作为第二个参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback(err,result);</span><br></pre></td></tr></table></figure>
+<p>改写上面函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJsonStrToObj</span>(<span class="params">str,callback</span>)</span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> obj = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">            callback(<span class="literal">null</span>,obj);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            callback(e,<span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line">parseJsonStrToObj(<span class="string">'foo'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'转换失败了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'转换成功：'</span>+result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//输出，转换失败了</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-1-3-事件驱动"><a href="#3-1-3-事件驱动" class="headerlink" title="3.1.3 事件驱动"></a>3.1.3 事件驱动</h2><p>当异步函数执行时，不确定何时执行完毕，回调函数会被压入到一个事件循环队列，然后往下执行其他代码，直到异步函数执行完成后，才会开始处理事件循环，调用相应的回调函数。事件循环队列为先进先出队列，按顺序执行。</p>
+<h1 id="3-2-Node-js的包和NPM"><a href="#3-2-Node-js的包和NPM" class="headerlink" title="3.2 Node.js的包和NPM"></a>3.2 Node.js的包和NPM</h1><p>Node.js根据CommonJS规范实现了包机制，CommomJS API定义很多用于非浏览器的应该使用的普通应用程序，Node.js就是一个非浏览器的应用，CommonJS是一种规范，Node.js是这种规范的部分实现。</p>
+<h2 id="3-2-1-包的概念"><a href="#3-2-1-包的概念" class="headerlink" title="3.2.1 包的概念"></a>3.2.1 包的概念</h2><p>包和模块没有本质的区别，包是在模块的基础上更进一步的组织JavaSript代码的目录。</p>
+<p>包目录结构：</p>
+<table>
+<thead>
+<tr>
+<th>规范的包结构</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>package.json</td>
+<td>顶层目录的包描述文件，说明文件（JSON字符串描述)</td>
+</tr>
+<tr>
+<td>bin</td>
+<td>可执行的二进制文件</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>存放JS文件的目录</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>文档</td>
+</tr>
+<tr>
+<td>test</td>
+<td>存放单元测试用例的代码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-2-2-NPM的概念"><a href="#3-2-2-NPM的概念" class="headerlink" title="3.2.2 NPM的概念"></a>3.2.2 NPM的概念</h2><p>全称为Node.js Package Manage,有两种含义，一种是Node.js的开放模块登记和管理系统，是一个NPM网站:<code>www.npmjs.com</code>,里面所有的包都是通过Node.js实现的。</p>
+<p>另一种含义是Node.js的包管理工具，命令行下的软件，比如，npm install 包名</p>
+<p>NPM是随Node.js一同安装的。</p>
+<h2 id="3-2-3-基本应用"><a href="#3-2-3-基本应用" class="headerlink" title="3.2.3 基本应用"></a>3.2.3 基本应用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install 包名</span><br></pre></td></tr></table></figure>
+<p>安装后，Node.js会自动在项目当前根目录下创建一个目录，名为node_modules,然后把第三方包自动放在该目录下。node_modules就是专门用于放置第三方包的。</p>
+<h2 id="3-2-4-包模块加载规则"><a href="#3-2-4-包模块加载规则" class="headerlink" title="3.2.4 包模块加载规则"></a>3.2.4 包模块加载规则</h2><p>（1）加载时，默认为核心模块，若不是，则会去node_modules目录下寻找。</p>
+<p>（2）如果找到了，Node.js将会找到该目录下的package.json文件获取main属性值，根据main属性指定的路径值进行加载。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/02/Node.js-初识Node.js/" rel="next" title="初识Node.js">
+                <i class="fa fa-chevron-left"></i> 初识Node.js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-1-异步编程"><span class="nav-number">1.</span> <span class="nav-text">3.1 异步编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-1-同步和异步"><span class="nav-number">1.1.</span> <span class="nav-text">3.1.1 同步和异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-2-回调函数"><span class="nav-number">1.2.</span> <span class="nav-text">3.1.2 回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-3-事件驱动"><span class="nav-number">1.3.</span> <span class="nav-text">3.1.3 事件驱动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-2-Node-js的包和NPM"><span class="nav-number">2.</span> <span class="nav-text">3.2 Node.js的包和NPM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-1-包的概念"><span class="nav-number">2.1.</span> <span class="nav-text">3.2.1 包的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-2-NPM的概念"><span class="nav-number">2.2.</span> <span class="nav-text">3.2.2 NPM的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-3-基本应用"><span class="nav-number">2.3.</span> <span class="nav-text">3.2.3 基本应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-4-包模块加载规则"><span class="nav-number">2.4.</span> <span class="nav-text">3.2.4 包模块加载规则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
