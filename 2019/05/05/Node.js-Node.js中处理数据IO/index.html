@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Node.js中提供了处理文件和网络I/O的功能，因此需要处理大量的二进制数据。在Node.js中，Buffer缓冲区和Stream文件流对二进制数据的处理提供了很好的支持。 5.1 Buffer缓冲区Buffer类是随Node.js内核一起发布的核心库，用于支持I/O操作中移动的数据处理。 5.1.2 Buffer的构造函数Node.js中的Buffer缓冲区模块，支持开发者在缓冲区结构中创建，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js中处理数据I&#x2F;O">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/Node.js-Node.js中处理数据IO/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="Node.js中提供了处理文件和网络I/O的功能，因此需要处理大量的二进制数据。在Node.js中，Buffer缓冲区和Stream文件流对二进制数据的处理提供了很好的支持。 5.1 Buffer缓冲区Buffer类是随Node.js内核一起发布的核心库，用于支持I/O操作中移动的数据处理。 5.1.2 Buffer的构造函数Node.js中的Buffer缓冲区模块，支持开发者在缓冲区结构中创建，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-05T06:13:05.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js中处理数据I&#x2F;O">
+<meta name="twitter:description" content="Node.js中提供了处理文件和网络I/O的功能，因此需要处理大量的二进制数据。在Node.js中，Buffer缓冲区和Stream文件流对二进制数据的处理提供了很好的支持。 5.1 Buffer缓冲区Buffer类是随Node.js内核一起发布的核心库，用于支持I/O操作中移动的数据处理。 5.1.2 Buffer的构造函数Node.js中的Buffer缓冲区模块，支持开发者在缓冲区结构中创建，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/Node.js-Node.js中处理数据IO/"/>
+
+
+
+
+
+  <title>Node.js中处理数据I/O | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Node.js-Node.js中处理数据IO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Node.js中处理数据I/O</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T16:00:54+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Node.js中提供了处理文件和网络I/O的功能，因此需要处理大量的二进制数据。在Node.js中，Buffer缓冲区和Stream文件流对二进制数据的处理提供了很好的支持。</p>
+<h1 id="5-1-Buffer缓冲区"><a href="#5-1-Buffer缓冲区" class="headerlink" title="5.1 Buffer缓冲区"></a>5.1 Buffer缓冲区</h1><p>Buffer类是随Node.js内核一起发布的核心库，用于支持I/O操作中移动的数据处理。</p>
+<h2 id="5-1-2-Buffer的构造函数"><a href="#5-1-2-Buffer的构造函数" class="headerlink" title="5.1.2 Buffer的构造函数"></a>5.1.2 Buffer的构造函数</h2><p>Node.js中的Buffer缓冲区模块，支持开发者在缓冲区结构中创建，读取，写入和操作二进制数据，该模块是全局性的，所以在使用时不需要require（）函数来加载。</p>
+<ol>
+<li>传入字节</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(size);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ol start="2">
+<li>传入数组</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>]);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>传入字符串和编码</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">"hello"</span>,<span class="string">"utf-8"</span>);</span><br></pre></td></tr></table></figure>
+<p>Buffer同样支持以下编码：</p>
+<ul>
+<li>ascii：7位ASCII字符</li>
+<li>utf16le：两个字节，16位小端字节序</li>
+<li>usc2：两个字节，以小尾字节序编码的Unicode字符</li>
+<li>base64：用于传输8字节代码的编码方式之一</li>
+<li>hex：Hex字符串编码</li>
+</ul>
+<h2 id="5-1-3-写入缓冲区"><a href="#5-1-3-写入缓冲区" class="headerlink" title="5.1.3 写入缓冲区"></a>5.1.3 写入缓冲区</h2><p><code>buf.write(string,offset,length,encoding) //字符串，索引值，字节数，编码</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buf.length);</span><br><span class="line">buf.write(<span class="string">'a'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buf);</span><br><span class="line"><span class="comment">//写入b时需要在第二个参数传入缓冲区开始写入的索引值</span></span><br><span class="line">buf.write(<span class="string">'b'</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="string">'ascii'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buf);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//5</span></span><br><span class="line"><span class="comment">//&lt;Buffer 61 00 00 00 00&gt;</span></span><br><span class="line"><span class="comment">//&lt;Buffer 61 62 00 00 00&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-1-4-从缓冲区读取数据"><a href="#5-1-4-从缓冲区读取数据" class="headerlink" title="5.1.4 从缓冲区读取数据"></a>5.1.4 从缓冲区读取数据</h2><p><code>buf.toString(encoding,start,end)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">26</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span> ; i++)&#123;</span><br><span class="line">    buf[i] = i + <span class="number">97</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出全部</span></span><br><span class="line"><span class="built_in">console</span>.log(buf.toString(<span class="string">'ascii'</span>));</span><br><span class="line"><span class="comment">//输出前5个</span></span><br><span class="line"><span class="built_in">console</span>.log(buf.toString(<span class="string">'ascii'</span>,<span class="number">0</span>,<span class="number">5</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//abcdefghijklmnopqrstuvwxyz</span></span><br><span class="line"><span class="comment">//abcde</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-1-5拼接缓冲区"><a href="#5-1-5拼接缓冲区" class="headerlink" title="5.1.5拼接缓冲区"></a>5.1.5拼接缓冲区</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">'世上无难事'</span>);</span><br><span class="line"><span class="keyword">var</span> buf1 = <span class="keyword">new</span> Buffer(<span class="string">'只怕有心人'</span>);</span><br><span class="line"><span class="keyword">var</span> buf2 = Buffer.concat([buf,buf1]);</span><br><span class="line"><span class="built_in">console</span>.log(buf2.toString());</span><br><span class="line"><span class="comment">//输出：世上无难事只怕有心人</span></span><br></pre></td></tr></table></figure>
+<h1 id="5-2-Stream文件流"><a href="#5-2-Stream文件流" class="headerlink" title="5.2 Stream文件流"></a>5.2 Stream文件流</h1><p>由于Buffer缓冲区限制在1GB，超过1GB的文件无法直接完成读写操作，在读写大文件时，如果读写资源一直持续不停止，Node.js将无法继续其他工作，为此Node.js中提供了Stream文件流模块。</p>
+<h2 id="5-2-1-文件流的概念"><a href="#5-2-1-文件流的概念" class="headerlink" title="5.2.1 文件流的概念"></a>5.2.1 文件流的概念</h2><p>例如复制文件的过程，文件流的概念就是文件A中数据以流动的方式通过数据流管道，然后进入到文件B中，采用”读一部分，写一部分“的方式，就像看视频，下一点播一点。</p>
+<p>在Node.js中，文件流的操作由Stream模块提供，Stream模块是一个抽象接口，Node.js中还有很多对象实现了这个接口，有4种流类型：</p>
+<ul>
+<li>Readable: 可读流</li>
+<li>Writeable：可写流</li>
+<li>Duplex：可读可写流</li>
+<li>Transform：变换流（操作被写入数据，然后读出结果）</li>
+</ul>
+<p>Node.js中的I/O是异步的，因此对磁盘和网络的读/写需要通过回调函数来读取数据，而回调函数需要通过事件来触发，所有的Stream对象都是EventEmitter(时间触发器)的实例。</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>当有数据可读时触发</td>
+</tr>
+<tr>
+<td>end</td>
+<td>没有更多的数据可读时触发</td>
+</tr>
+<tr>
+<td>error</td>
+<td>在接收和写入过程中发生错误时触发</td>
+</tr>
+<tr>
+<td>finish</td>
+<td>所有数据都已被写入到低层系统时触发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-2-2-Node-js的可读流和可写流"><a href="#5-2-2-Node-js的可读流和可写流" class="headerlink" title="5.2.2 Node.js的可读流和可写流"></a>5.2.2 Node.js的可读流和可写流</h2><ol>
+<li>可读流</li>
+</ol>
+<p>使用文件流进行文件复制，首先需要创建一个可读流，可读流可以让用户在源文件中分块读取文件中的数据，然后再从可读流中读取数据。</p>
+<p><code>fs.createReadStream()</code></p>
+<p>由于流是基于EventEmitter的，从流读取数据最好的方法是监听数据事件（data event），并附加一个回调函数，返回数据，这个操作是循环进制的，一直到读取完毕。在读取错误或读取完毕时触发error或end事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs= <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">let</span> total = <span class="string">""</span>;</span><br><span class="line"><span class="comment">//创建可读流</span></span><br><span class="line"><span class="keyword">let</span> readableStream = fs.createReadStream(<span class="string">'input.txt'</span>);<span class="comment">//此时流为静止状态</span></span><br><span class="line"><span class="comment">//设置编码为utf-8</span></span><br><span class="line">readableStream.setEncoding(<span class="string">'UTF8'</span>);</span><br><span class="line"><span class="comment">//处理流事件</span></span><br><span class="line">readableStream.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;<span class="comment">//附加回调函数，流开始流动</span></span><br><span class="line">    total += chunk;</span><br><span class="line">&#125;);</span><br><span class="line">readableStream.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(total);</span><br><span class="line">&#125;);</span><br><span class="line">readableStream.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"程序执行完毕"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出：程序执行完毕</span></span><br><span class="line"><span class="comment">//input.txt中的内容</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>可写流</li>
+</ol>
+<p><code>fs.createWriteStream()</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs= <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">let</span> total = <span class="string">""</span>;</span><br><span class="line"><span class="comment">//创建可读流</span></span><br><span class="line"><span class="keyword">let</span> readableStream = fs.createReadStream(<span class="string">'input.txt'</span>);</span><br><span class="line"><span class="comment">//创建可写流</span></span><br><span class="line"><span class="keyword">let</span> writableStream = fs.createWriteStream(<span class="string">'output.txt'</span>);</span><br><span class="line"><span class="comment">//设置编码为utf-8</span></span><br><span class="line">readableStream.setEncoding(<span class="string">'UTF8'</span>);</span><br><span class="line">readableStream.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">    writableStream.write(chunk);</span><br><span class="line">&#125;);</span><br><span class="line">readableStream.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack);</span><br><span class="line">&#125;);</span><br><span class="line">readableStream.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    writableStream.end();<span class="comment">//将剩下的数据全部写入</span></span><br><span class="line">&#125;);</span><br><span class="line">writableStream.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-3使用pipe-处理大文件"><a href="#5-2-3使用pipe-处理大文件" class="headerlink" title="5.2.3使用pipe()处理大文件"></a>5.2.3使用pipe()处理大文件</h2><p>在使用大文件复制的案例中，通过可读流的chunk参数来传递数据，如果把数据比作是水，chunk相当于盆，使用盆来完成水的传递。可读流中还有一个函数叫做pipe()，这个函数是一个很高效的文件处理方式，简化复制文件的操作，“把盆换成了管子”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> srcPath = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">let</span> distPath = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">let</span> readableStream = fs.createReadStream(srcPath);</span><br><span class="line"><span class="keyword">let</span> writableStream = fs.createWriteStream(distPath);</span><br><span class="line"><span class="comment">//可以通过使用可读流函数pipe()接入到可写流中</span></span><br><span class="line"><span class="keyword">if</span>(readableStream.pipe(writableStream))&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'复制成功'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'复制失败'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>数据与文件的处理是服务器端编程与客户端编程的本质区别所在。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/04/Node.js-Node.js文件操作/" rel="next" title="Node.js文件操作">
+                <i class="fa fa-chevron-left"></i> Node.js文件操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5-1-Buffer缓冲区"><span class="nav-number">1.</span> <span class="nav-text">5.1 Buffer缓冲区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-2-Buffer的构造函数"><span class="nav-number">1.1.</span> <span class="nav-text">5.1.2 Buffer的构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-3-写入缓冲区"><span class="nav-number">1.2.</span> <span class="nav-text">5.1.3 写入缓冲区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-4-从缓冲区读取数据"><span class="nav-number">1.3.</span> <span class="nav-text">5.1.4 从缓冲区读取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-5拼接缓冲区"><span class="nav-number">1.4.</span> <span class="nav-text">5.1.5拼接缓冲区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-2-Stream文件流"><span class="nav-number">2.</span> <span class="nav-text">5.2 Stream文件流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-1-文件流的概念"><span class="nav-number">2.1.</span> <span class="nav-text">5.2.1 文件流的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-2-Node-js的可读流和可写流"><span class="nav-number">2.2.</span> <span class="nav-text">5.2.2 Node.js的可读流和可写流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-3使用pipe-处理大文件"><span class="nav-number">2.3.</span> <span class="nav-text">5.2.3使用pipe()处理大文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
