@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="6.1 Node.js网络编程基础6.1.1 IP地址和端口号通过IP地址可以找到服务器设备，而端口号可以理解为在发送数据时定位到不同服务器应用程序的标识。 IP地址对于计算机是唯一的，一个端口号也只能被一个应用程序所占用。 6.1.2 套接字Socket简单模型先了解一下TCP/IP协议，TCP（Transfer Control Protocol）传输控制协议是一种稳定可靠的传送方式，TCP负责">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js网络编程">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/Node.js-Node.js网络编程/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="6.1 Node.js网络编程基础6.1.1 IP地址和端口号通过IP地址可以找到服务器设备，而端口号可以理解为在发送数据时定位到不同服务器应用程序的标识。 IP地址对于计算机是唯一的，一个端口号也只能被一个应用程序所占用。 6.1.2 套接字Socket简单模型先了解一下TCP/IP协议，TCP（Transfer Control Protocol）传输控制协议是一种稳定可靠的传送方式，TCP负责">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-07T07:23:51.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js网络编程">
+<meta name="twitter:description" content="6.1 Node.js网络编程基础6.1.1 IP地址和端口号通过IP地址可以找到服务器设备，而端口号可以理解为在发送数据时定位到不同服务器应用程序的标识。 IP地址对于计算机是唯一的，一个端口号也只能被一个应用程序所占用。 6.1.2 套接字Socket简单模型先了解一下TCP/IP协议，TCP（Transfer Control Protocol）传输控制协议是一种稳定可靠的传送方式，TCP负责">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/Node.js-Node.js网络编程/"/>
+
+
+
+
+
+  <title>Node.js网络编程 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Node.js-Node.js网络编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Node.js网络编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T08:00:54+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="6-1-Node-js网络编程基础"><a href="#6-1-Node-js网络编程基础" class="headerlink" title="6.1 Node.js网络编程基础"></a>6.1 Node.js网络编程基础</h1><h2 id="6-1-1-IP地址和端口号"><a href="#6-1-1-IP地址和端口号" class="headerlink" title="6.1.1 IP地址和端口号"></a>6.1.1 IP地址和端口号</h2><p>通过IP地址可以找到服务器设备，而端口号可以理解为在发送数据时定位到不同服务器应用程序的标识。</p>
+<p>IP地址对于计算机是唯一的，一个端口号也只能被一个应用程序所占用。</p>
+<h2 id="6-1-2-套接字Socket简单模型"><a href="#6-1-2-套接字Socket简单模型" class="headerlink" title="6.1.2 套接字Socket简单模型"></a>6.1.2 套接字Socket简单模型</h2><p>先了解一下TCP/IP协议，TCP（Transfer Control Protocol）传输控制协议是一种稳定可靠的传送方式，TCP负责发现传输的问题，一有问题就发出信号，要求重新传输，直到所有数据安全正确地传输到目的地为止。</p>
+<p>Socket原意为孔或插座。在程序方面可理解为接口对象，在网络编程中通常称为套接字，常用于描述IP地址和端口等。Socket是支持TCP/IP的网络通信的基本操作单元。<strong>简单理解，Socket就是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口</strong></p>
+<p>Socket需要使用套接字地址来展开工作，套接字地址就是IP地址和端口号的组合，套接字服务与其他服务不同，不需要处理网络中的GET或POST请求，而是采用点对点传输数据方式。</p>
+<h2 id="6-1-3-Node-js名字的由来"><a href="#6-1-3-Node-js名字的由来" class="headerlink" title="6.1.3 Node.js名字的由来"></a>6.1.3 Node.js名字的由来</h2><p>Node.js诞生的目的就是为了更加高效的处理网络数据，因为使用它进行网络编程时不需要使用其他的服务器软件进行支持，Node.js本身就是一个服务器。在进行网络编程时，每一个进程构成网络应用中的一个结点，而Node就是结点的意思，最终web.js更名为Node.js。</p>
+<h1 id="6-2-Node-js中实现套接字服务"><a href="#6-2-Node-js中实现套接字服务" class="headerlink" title="6.2 Node.js中实现套接字服务"></a>6.2 Node.js中实现套接字服务</h1><p>套接字服务由Net模块提供：</p>
+<p><code>let net = require(&#39;net&#39;);</code></p>
+<h2 id="6-2-1-Net-Server对象"><a href="#6-2-1-Net-Server对象" class="headerlink" title="6.2.1 Net.Server对象"></a>6.2.1 Net.Server对象</h2><p><code>let server = net.creatServer()</code></p>
+<p>当Server对象被创建后，在该服务器的生命周期中就存在了一些可触发的事件。</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>listening</td>
+<td>当服务器调用server.listen绑定后会触发</td>
+</tr>
+<tr>
+<td>connection</td>
+<td>当新连接创建后会被触发</td>
+</tr>
+<tr>
+<td>close</td>
+<td>服务器关闭时会被触发</td>
+</tr>
+<tr>
+<td>error</td>
+<td>发生错误时触发</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> server = net.createServer();</span><br><span class="line">server.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有客户端连接上来了'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.on(<span class="string">'listening'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器监听成功了，正在等待客户端连接'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>);</span><br></pre></td></tr></table></figure>
+<p>然后启用Telnet客户端服务，命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 127.0.0.1 3000</span><br></pre></td></tr></table></figure>
+<p>就会连接成功。</p>
+<h2 id="6-2-2-Net-Socket对象"><a href="#6-2-2-Net-Socket对象" class="headerlink" title="6.2.2 Net.Socket对象"></a>6.2.2 Net.Socket对象</h2><p> Net.Socket实例实现了一Duplex（双工）流接口，提供了Writable和Readable所有功能，所以说它既是可读流也是可写流。</p>
+<p> Net.Socket对象同时在套接字服务器和客户端上创建，并且会允许数据在他们之间进行读取和写入，一旦Socket对象被创建，就提供了一些触发的事件。</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lookup</td>
+<td>解析域名后，连接前触发</td>
+</tr>
+<tr>
+<td>connect</td>
+<td>成功建立socket连接时触发</td>
+</tr>
+<tr>
+<td>data</td>
+<td>当收到数据时触发</td>
+</tr>
+<tr>
+<td>end</td>
+<td>当socket另一点发送FIN包时</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>socket空闲超时</td>
+</tr>
+<tr>
+<td>drain</td>
+<td>写缓存为空的时候触发。</td>
+</tr>
+<tr>
+<td>error</td>
+<td>发生错误。</td>
+</tr>
+<tr>
+<td>close</td>
+<td>socket关闭</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>服务器向客户端发送消息</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> server = net.createServer();</span><br><span class="line">server.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有客户端连接上来了'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端IP地址：'</span>+socket.remoteAddress+<span class="string">'连接到了当前服务器'</span>);</span><br><span class="line">    socket.write(<span class="string">'hello'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.on(<span class="string">'listening'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器监听成功了，正在等待客户端连接'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后启用Telnet客户端服务，命令行中输入：</span></span><br><span class="line"><span class="comment">//telnet 127.0.0.1 3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//服务端输出</span></span><br><span class="line"><span class="comment">//服务器监听成功了，正在等待客户端连接</span></span><br><span class="line"><span class="comment">//有客户端连接上来了</span></span><br><span class="line"><span class="comment">//客户端IP地址：127.0.0.1连接到了当前服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端输出</span></span><br><span class="line"><span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>统计在线人数</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> server = net.createServer();</span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">server.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'welcome,当前在线人数：'</span>+count);</span><br><span class="line">    socket.write(<span class="string">'remoteAddress'</span>+socket.remoteAddress+<span class="string">'\n'</span>);</span><br><span class="line">    socket.write(<span class="string">'remotePort'</span>+socket.remotePort);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server listening at port 3000'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后启用两个Telnet客户端服务，命令行中输入：</span></span><br><span class="line"><span class="comment">//telnet 127.0.0.1 3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//服务端输出</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">server listening at port 3000</span></span><br><span class="line"><span class="comment">welcome,当前在线人数：1</span></span><br><span class="line"><span class="comment">welcome,当前在线人数：2</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>客户端与服务端双向通信</li>
+</ol>
+<p>创建客户端<code>net.creatConnection()</code>执行完毕会返回一个socket对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端</span></span><br><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> server = net.createServer();</span><br><span class="line">server.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">        socket.write(<span class="string">'我吃的小豆包'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server listening at port 3000'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> client = net.createConnection(&#123;</span><br><span class="line">    port:<span class="number">3000</span></span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'connect'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端与服务器连接成功了'</span>);</span><br><span class="line">    client.write(<span class="string">'你吃了吗'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="6-3-Node-js进程管理"><a href="#6-3-Node-js进程管理" class="headerlink" title="6.3 Node.js进程管理"></a>6.3 Node.js进程管理</h1><h2 id="6-3-1-Process模块获取终端输入"><a href="#6-3-1-Process模块获取终端输入" class="headerlink" title="6.3.1 Process模块获取终端输入"></a>6.3.1 Process模块获取终端输入</h2><p>如果需要在客户端输入信息发送到服务器，这样的功能就需要依赖Process模块来完成。</p>
+<p>Process模块是一个无须使用require就可以访问的全局对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString().trim());<span class="comment">//trim是去掉输入后按的空格</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="6-3-2-多人广播消息"><a href="#6-3-2-多人广播消息" class="headerlink" title="6.3.2 多人广播消息"></a>6.3.2 多人广播消息</h2><p>服务端接收客户端消息，将客户端消息发送给其他客户端</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端</span></span><br><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">let</span> server = net.createServer();</span><br><span class="line"><span class="comment">//该数组用来封装所有客户端的scoket</span></span><br><span class="line"><span class="keyword">let</span> users = [];</span><br><span class="line">server.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">    users.push(socket);</span><br><span class="line">    socket.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        data = data.toString().trim();</span><br><span class="line">        users.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">client</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(client !== socket)&#123;</span><br><span class="line">                <span class="comment">//不同客户端端口号不同</span></span><br><span class="line">                client.write(client.remotePort+<span class="string">':'</span>+data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'有客户端退出了'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">'127.0.0.1'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server listening at port 3000'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="keyword">let</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="comment">//向服务端创建连接</span></span><br><span class="line"><span class="keyword">let</span> client = net.createConnection(&#123;</span><br><span class="line">    port:<span class="number">3000</span>,</span><br><span class="line">    host:<span class="string">'127.0.0.1'</span></span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'connect'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//通过当前进程的标准输入的data事件获取终端的输入</span></span><br><span class="line">    process.stdin.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        data = data.toString().trim();</span><br><span class="line">        client.write(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//打开多个客户端，即可互相发送消息</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/04/Node.js-Node.js文件操作/" rel="next" title="Node.js文件操作">
+                <i class="fa fa-chevron-left"></i> Node.js文件操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/05/Node.js-Node.js中处理数据IO/" rel="prev" title="Node.js中处理数据I/O">
+                Node.js中处理数据I/O <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#6-1-Node-js网络编程基础"><span class="nav-number">1.</span> <span class="nav-text">6.1 Node.js网络编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-1-IP地址和端口号"><span class="nav-number">1.1.</span> <span class="nav-text">6.1.1 IP地址和端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-2-套接字Socket简单模型"><span class="nav-number">1.2.</span> <span class="nav-text">6.1.2 套接字Socket简单模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-3-Node-js名字的由来"><span class="nav-number">1.3.</span> <span class="nav-text">6.1.3 Node.js名字的由来</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-2-Node-js中实现套接字服务"><span class="nav-number">2.</span> <span class="nav-text">6.2 Node.js中实现套接字服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-1-Net-Server对象"><span class="nav-number">2.1.</span> <span class="nav-text">6.2.1 Net.Server对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-2-Net-Socket对象"><span class="nav-number">2.2.</span> <span class="nav-text">6.2.2 Net.Socket对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-3-Node-js进程管理"><span class="nav-number">3.</span> <span class="nav-text">6.3 Node.js进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-1-Process模块获取终端输入"><span class="nav-number">3.1.</span> <span class="nav-text">6.3.1 Process模块获取终端输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-2-多人广播消息"><span class="nav-number">3.2.</span> <span class="nav-text">6.3.2 多人广播消息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
