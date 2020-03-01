@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。12345678910111213141516171819import java.util.Scanner;//通过 Scanner 类来获取用户的输入public class Huiwen &amp;#123;    public static void main(String[] args) &amp;#123;        Sys">
+<meta name="description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java学习-判断回文字符串">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/java学习-判断回文字符串/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。12345678910111213141516171819import java.util.Scanner;//通过 Scanner 类来获取用户的输入public class Huiwen &amp;#123;    public static void main(String[] args) &amp;#123;        Sys">
+<meta property="og:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:14:20.533Z">
+<meta property="og:updated_time" content="2020-03-01T03:58:08.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习-判断回文字符串">
-<meta name="twitter:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。12345678910111213141516171819import java.util.Scanner;//通过 Scanner 类来获取用户的输入public class Huiwen &amp;#123;    public static void main(String[] args) &amp;#123;        Sys">
+<meta name="twitter:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
 
 
 
@@ -429,7 +429,8 @@
       
 
       
-        <h3 id="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。"><a href="#编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。" class="headerlink" title="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。"></a>编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//通过 Scanner 类来获取用户的输入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Huiwen</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"请输入一个字符串"</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(input.hasNext()) &#123;<span class="comment">//循环输入多组数据</span></span><br><span class="line">            String str = input.next();</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder(str);</span><br><span class="line">            sb.reverse();<span class="comment">//将str倒置的方法</span></span><br><span class="line">            String newStr = <span class="keyword">new</span> String(sb);</span><br><span class="line">            <span class="keyword">if</span> (str.equals(newStr)) &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"是回文字符串"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"不是回文字符串"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。"><a href="#编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。" class="headerlink" title="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。"></a>编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。</h3><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//通过 Scanner 类来获取用户的输入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Huiwen</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"请输入一个字符串"</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(input.hasNext()) &#123;<span class="comment">//循环输入多组数据</span></span><br><span class="line">            String str = input.next();</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder(str);</span><br><span class="line">            sb.reverse();<span class="comment">//将str倒置的方法</span></span><br><span class="line">            String newStr = <span class="keyword">new</span> String(sb);</span><br><span class="line">            <span class="keyword">if</span> (str.equals(newStr)) &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"是回文字符串"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"不是回文字符串"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -454,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/05/js案例-简单的下拉菜单/" rel="next" title="js学习-简单的下拉菜单">
-                <i class="fa fa-chevron-left"></i> js学习-简单的下拉菜单
+              <a href="/2018/08/05/js案例-简单的下拉菜单/" rel="next" title="js案例-简单的下拉菜单">
+                <i class="fa fa-chevron-left"></i> js案例-简单的下拉菜单
               </a>
             
           </div>
@@ -547,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

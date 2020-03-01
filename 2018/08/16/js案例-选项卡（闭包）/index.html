@@ -101,19 +101,17 @@
 
 
 
-<meta name="description" content="利用闭包在循环中直接找到对应元素的索引 之前用for循环 在循环中直接找到对应元素的索引 在循环中直接找到对应元素的索引 1234567891011121314151617181920212223242526272829303132333435363738394041&amp;lt;body&amp;gt;	&amp;lt;div class=&quot;tab&quot;&amp;gt;		&amp;lt;div class=&quot;tab-head&quot;&amp;gt;">
+<meta name="description" content="利用闭包在循环中直接找到对应元素的索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js案例-选项卡（闭包）">
 <meta property="og:url" content="http://yoursite.com/2018/08/16/js案例-选项卡（闭包）/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="利用闭包在循环中直接找到对应元素的索引 之前用for循环 在循环中直接找到对应元素的索引 在循环中直接找到对应元素的索引 1234567891011121314151617181920212223242526272829303132333435363738394041&amp;lt;body&amp;gt;	&amp;lt;div class=&quot;tab&quot;&amp;gt;		&amp;lt;div class=&quot;tab-head&quot;&amp;gt;">
+<meta property="og:description" content="利用闭包在循环中直接找到对应元素的索引">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.tzr.me/images/2018/08/16/GIF20180816211947.gif">
-<meta property="og:updated_time" content="2018-10-14T06:16:49.323Z">
+<meta property="og:updated_time" content="2020-03-01T03:55:29.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js案例-选项卡（闭包）">
-<meta name="twitter:description" content="利用闭包在循环中直接找到对应元素的索引 之前用for循环 在循环中直接找到对应元素的索引 在循环中直接找到对应元素的索引 1234567891011121314151617181920212223242526272829303132333435363738394041&amp;lt;body&amp;gt;	&amp;lt;div class=&quot;tab&quot;&amp;gt;		&amp;lt;div class=&quot;tab-head&quot;&amp;gt;">
-<meta name="twitter:image" content="http://www.tzr.me/images/2018/08/16/GIF20180816211947.gif">
+<meta name="twitter:description" content="利用闭包在循环中直接找到对应元素的索引">
 
 
 
@@ -394,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  227
+                  191
                 </span>
               
 
@@ -432,11 +430,8 @@
 
       
         <p>利用闭包在循环中直接找到对应元素的索引</p>
-<p>之前用for循环</p>
-<p>在循环中直接找到对应元素的索引</p>
-<p>在循环中直接找到对应元素的索引</p>
+<a id="more"></a>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-head"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> oHead = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.tab-head span'</span>),</span></span><br><span class="line"><span class="javascript">		oBody = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.body div'</span>);</span></span><br><span class="line"><span class="undefined">		index = 0;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,iL = oHead.length;i &lt; iL;i++)&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		;(<span class="function"><span class="keyword">function</span>(<span class="params">oSpan,i</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			oSpan.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                 <span class="comment">//清除原有</span></span></span><br><span class="line"><span class="javascript">				oHead[index].className = <span class="string">''</span>;</span></span><br><span class="line"><span class="javascript">				oBody[index].className = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">				index = i;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//添加样式</span></span></span><br><span class="line"><span class="javascript">				oHead[index].className = <span class="string">'on'</span>;</span></span><br><span class="line"><span class="javascript">				oBody[index].className = <span class="string">'on'</span>;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">		&#125;)(oHead[i],i);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="javascript">	<span class="comment">//初始化</span></span></span><br><span class="line"><span class="undefined">	oHead[index].click();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://www.tzr.me/images/2018/08/16/GIF20180816211947.gif" alt="GIF20180816211947.gif"></p>
 
       
     </div>
@@ -545,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

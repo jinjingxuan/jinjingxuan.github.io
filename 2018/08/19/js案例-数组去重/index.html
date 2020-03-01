@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="利用foreach和splice进行操作1. 正序12345678910111213141516171819var arr = [&apos;1&apos;,&apos;2&apos;,&apos;2&apos;,&apos;2&apos;,&apos;3&apos;,&apos;2&apos;];	var str = &apos;2&apos;;	arr.forEach(function( value,index,arrself )&amp;#123;		if(value===str)&amp;#123;			arr.splice(index,1)">
+<meta name="description" content="利用foreach和splice进行操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js案例-数组去重">
 <meta property="og:url" content="http://yoursite.com/2018/08/19/js案例-数组去重/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="利用foreach和splice进行操作1. 正序12345678910111213141516171819var arr = [&apos;1&apos;,&apos;2&apos;,&apos;2&apos;,&apos;2&apos;,&apos;3&apos;,&apos;2&apos;];	var str = &apos;2&apos;;	arr.forEach(function( value,index,arrself )&amp;#123;		if(value===str)&amp;#123;			arr.splice(index,1)">
+<meta property="og:description" content="利用foreach和splice进行操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:16:38.642Z">
+<meta property="og:updated_time" content="2020-03-01T03:47:38.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js案例-数组去重">
-<meta name="twitter:description" content="利用foreach和splice进行操作1. 正序12345678910111213141516171819var arr = [&apos;1&apos;,&apos;2&apos;,&apos;2&apos;,&apos;2&apos;,&apos;3&apos;,&apos;2&apos;];	var str = &apos;2&apos;;	arr.forEach(function( value,index,arrself )&amp;#123;		if(value===str)&amp;#123;			arr.splice(index,1)">
+<meta name="twitter:description" content="利用foreach和splice进行操作">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  245
+                  246
                 </span>
               
 
@@ -429,7 +429,8 @@
       
 
       
-        <h2 id="利用foreach和splice进行操作"><a href="#利用foreach和splice进行操作" class="headerlink" title="利用foreach和splice进行操作"></a>利用foreach和splice进行操作</h2><h4 id="1-正序"><a href="#1-正序" class="headerlink" title="1. 正序"></a>1. 正序</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">'2'</span>;</span><br><span class="line">	arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params"> value,index,arrself </span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(value===str)&#123;</span><br><span class="line">			arr.splice(index,<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">console</span>.log(arr);</span><br><span class="line">			<span class="built_in">console</span>.log(index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出为</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">2</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="number">3</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br></pre></td></tr></table></figure>
+        <h2 id="利用foreach和splice进行操作"><a href="#利用foreach和splice进行操作" class="headerlink" title="利用foreach和splice进行操作"></a>利用foreach和splice进行操作</h2><a id="more"></a>
+<h4 id="1-正序"><a href="#1-正序" class="headerlink" title="1. 正序"></a>1. 正序</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">'2'</span>;</span><br><span class="line">	arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params"> value,index,arrself </span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(value===str)&#123;</span><br><span class="line">			arr.splice(index,<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">console</span>.log(arr);</span><br><span class="line">			<span class="built_in">console</span>.log(index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出为</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">2</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="number">3</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br></pre></td></tr></table></figure>
 <p>分析</p>
 <p>forEach在进行数组遍历的时候，每裁剪一个元素数组会进行更新。</p>
 <p>比如说便利到下标为1的元素，检测是2，进行裁剪，此时数组变为[‘1’,’2’,’2’,’3’,’2’];</p>
@@ -553,7 +554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

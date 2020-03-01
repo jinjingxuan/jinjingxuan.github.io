@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
+<meta name="description" content="screenX/clientX/pageX screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。 clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。 pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js学习-视图操作">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/js学习-视图操作/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
+<meta property="og:description" content="screenX/clientX/pageX screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。 clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。 pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T06:22:41.451Z">
+<meta property="og:updated_time" content="2020-03-01T03:36:42.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习-视图操作">
-<meta name="twitter:description" content="innerWidth,innerHeight获取窗口内部的宽高，包括窗口边缘的滚轮宽度 1window.innerWidth; clientWidth,clientHeight获取文档内容的宽高，不会包括滚轮宽度 1document.documentElement.clientWidth; ele.clientWidth/clientHeightpadding+width/height 1box.">
+<meta name="twitter:description" content="screenX/clientX/pageX screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。 clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。 pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  391
+                  509
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -429,7 +429,13 @@
       
 
       
-        <h2 id="innerWidth-innerHeight"><a href="#innerWidth-innerHeight" class="headerlink" title="innerWidth,innerHeight"></a>innerWidth,innerHeight</h2><p>获取窗口内部的宽高，包括窗口边缘的滚轮宽度</p>
+        <h2 id="screenX-clientX-pageX"><a href="#screenX-clientX-pageX" class="headerlink" title="screenX/clientX/pageX"></a>screenX/clientX/pageX</h2><ul>
+<li>screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。</li>
+<li>clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。</li>
+<li>pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动</li>
+</ul>
+<a id="more"></a>
+<h2 id="innerWidth-innerHeight"><a href="#innerWidth-innerHeight" class="headerlink" title="innerWidth,innerHeight"></a>innerWidth,innerHeight</h2><p>获取窗口内部的宽高，包括窗口边缘的滚轮宽度</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.innerWidth;</span><br></pre></td></tr></table></figure>
 <h2 id="clientWidth-clientHeight"><a href="#clientWidth-clientHeight" class="headerlink" title="clientWidth,clientHeight"></a>clientWidth,clientHeight</h2><p>获取文档内容的宽高，不会包括滚轮宽度</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.clientWidth;</span><br></pre></td></tr></table></figure>
@@ -442,7 +448,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.scrollHeight</span><br></pre></td></tr></table></figure>
 <h2 id="offsetTop-offsetLeft"><a href="#offsetTop-offsetLeft" class="headerlink" title="offsetTop/offsetLeft"></a>offsetTop/offsetLeft</h2><p>获取元素到<strong>定位</strong>父级的top和left的距离</p>
 <h2 id="自己封装一下到body的距离"><a href="#自己封装一下到body的距离" class="headerlink" title="自己封装一下到body的距离"></a><strong>自己封装一下到body的距离</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getOffset</span>(<span class="params"> ele </span>)</span>&#123;</span><br><span class="line">          <span class="keyword">var</span> obj = &#123;</span><br><span class="line">              left:<span class="number">0</span>,</span><br><span class="line">              top:<span class="number">0</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="function"><span class="keyword">function</span>  <span class="title">getStyle</span>(<span class="params"> obj </span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> obj.currentStyle || getComputedStyle( obj )</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">while</span>( ele!== <span class="built_in">document</span>.body )&#123;</span><br><span class="line">              obj.left += ele.offsetLeft + <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderLeftWidth  );</span><br><span class="line">              obj.top += ele.offsetTop + <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderTopWidth  );</span><br><span class="line">              </span><br><span class="line">              ele = ele.offsetParent;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> obj;</span><br><span class="line">          <span class="built_in">console</span>.log( <span class="built_in">parseFloat</span>( getStyle( ele.offsetParent ).borderTopWidth  ) )</span><br><span class="line">      &#125;</span><br><span class="line">       <span class="built_in">console</span>.log( getOffset( wrap ).left )</span><br></pre></td></tr></table></figure>
-<h2 id="screenX-clientX-pageX"><a href="#screenX-clientX-pageX" class="headerlink" title="screenX/clientX/pageX"></a>screenX/clientX/pageX</h2><ul>
+<h2 id="screenX-clientX-pageX-1"><a href="#screenX-clientX-pageX-1" class="headerlink" title="screenX/clientX/pageX"></a>screenX/clientX/pageX</h2><ul>
 <li>screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。</li>
 <li>clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。</li>
 <li>pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动</li>
@@ -568,7 +574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -614,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#innerWidth-innerHeight"><span class="nav-number">1.</span> <span class="nav-text">innerWidth,innerHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clientWidth-clientHeight"><span class="nav-number">2.</span> <span class="nav-text">clientWidth,clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-clientWidth-clientHeight"><span class="nav-number">3.</span> <span class="nav-text">ele.clientWidth/clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-offsetWidth-offsetHeight"><span class="nav-number">4.</span> <span class="nav-text">ele.offsetWidth/offsetHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollWidth-scrollHeight"><span class="nav-number">5.</span> <span class="nav-text">scrollWidth/scrollHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offsetTop-offsetLeft"><span class="nav-number">6.</span> <span class="nav-text">offsetTop/offsetLeft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己封装一下到body的距离"><span class="nav-number">7.</span> <span class="nav-text">自己封装一下到body的距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screenX-clientX-pageX"><span class="nav-number">8.</span> <span class="nav-text">screenX/clientX/pageX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onresize"><span class="nav-number">9.</span> <span class="nav-text">onresize</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#screenX-clientX-pageX"><span class="nav-number">1.</span> <span class="nav-text">screenX/clientX/pageX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerWidth-innerHeight"><span class="nav-number">2.</span> <span class="nav-text">innerWidth,innerHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clientWidth-clientHeight"><span class="nav-number">3.</span> <span class="nav-text">clientWidth,clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-clientWidth-clientHeight"><span class="nav-number">4.</span> <span class="nav-text">ele.clientWidth/clientHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ele-offsetWidth-offsetHeight"><span class="nav-number">5.</span> <span class="nav-text">ele.offsetWidth/offsetHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollWidth-scrollHeight"><span class="nav-number">6.</span> <span class="nav-text">scrollWidth/scrollHeight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offsetTop-offsetLeft"><span class="nav-number">7.</span> <span class="nav-text">offsetTop/offsetLeft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己封装一下到body的距离"><span class="nav-number">8.</span> <span class="nav-text">自己封装一下到body的距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screenX-clientX-pageX-1"><span class="nav-number">9.</span> <span class="nav-text">screenX/clientX/pageX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onresize"><span class="nav-number">10.</span> <span class="nav-text">onresize</span></a></li></ol></div>
             
 
           </div>

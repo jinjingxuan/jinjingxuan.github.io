@@ -108,12 +108,12 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53121081  一、什么是原型 原型是Javascript中的继承的基础，JavaScript的继承就是基于原型的继承。  1.1 函数的原型对象 在JavaScript中，我们创建一个函数A(就是声明一个函数), 那么浏览器就会在内存中创建一个对象B，而且每个函数都默认会有一个属性 p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg">
-<meta property="og:updated_time" content="2018-10-15T05:45:05.650Z">
+<meta property="og:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/45010346.jpg">
+<meta property="og:updated_time" content="2020-03-01T03:29:27.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习-原型">
 <meta name="twitter:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53121081  一、什么是原型 原型是Javascript中的继承的基础，JavaScript的继承就是基于原型的继承。  1.1 函数的原型对象 在JavaScript中，我们创建一个函数A(就是声明一个函数), 那么浏览器就会在内存中创建一个对象B，而且每个函数都默认会有一个属性 p">
-<meta name="twitter:image" content="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg">
+<meta name="twitter:image" content="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/45010346.jpg">
 
 
 
@@ -429,22 +429,6 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg" rel="gallery_ck78etlzx002hzcffmru35s32"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://ou7wdump3.bkt.clouddn.com/mmexport1502445532172.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
         <p>原文地址:<a href="https://blog.csdn.net/u012468376/article/details/53121081" target="_blank" rel="noopener">https://blog.csdn.net/u012468376/article/details/53121081</a> </p>
@@ -455,17 +439,9 @@
 <a id="more"></a>
 <p> 看下面的代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        /*</span></span><br><span class="line"><span class="undefined">            声明一个函数，则这个函数默认会有一个属性叫 prototype 。而且浏览器会自动按照一定的规则</span></span><br><span class="line"><span class="undefined">            创建一个对象，这个对象就是这个函数的原型对象，prototype属性指向这个原型对象。这个原型对象</span></span><br><span class="line"><span class="javascript">            有一个属性叫<span class="keyword">constructor</span> 执行了这个函数</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            注意：原型对象默认只有属性：<span class="keyword">constructor</span>。其他都是从Object继承而来，暂且不用考虑。</span></span><br><span class="line"><span class="undefined">        */</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;       </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>下面的图描述了声明一个函数之后发生的事情：</p>
-</blockquote>
-<p><img src="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/43031030.jpg" alt="img"></p>
 <h2 id="1-2-使用构造函数创建对象"><a href="#1-2-使用构造函数创建对象" class="headerlink" title="1.2 使用构造函数创建对象"></a>1.2 使用构造函数创建对象</h2><p> 当把一个函数作为构造函数 (理论上任何函数都可以作为构造函数) 使用new创建对象的时候，那么这个对象就会存在一个默认的不可见的属性，来指向了构造函数的原型对象。 <strong>这个不可见的属性我们一般用 [[prototype]] 来表示，只是这个属性没有办法直接访问到。</strong></p>
 <p> 看下面的代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;   </span></span><br><span class="line"><span class="undefined">        /*</span></span><br><span class="line"><span class="undefined">            利用构造函数创建一个对象，则这个对象会自动添加一个不可见的属性 [[prototype]], 而且这个属性</span></span><br><span class="line"><span class="undefined">            指向了构造函数的原型对象。</span></span><br><span class="line"><span class="undefined">        */</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>观察下面的示意图：</p>
-</blockquote>
-<p><img src="http://o7cqr8cfk.bkt.clouddn.com/public/16-11-10/6663492.jpg" alt="img"></p>
 <blockquote>
 <p>说明：</p>
 </blockquote>
@@ -657,7 +633,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

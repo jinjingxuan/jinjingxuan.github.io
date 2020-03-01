@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。  12345678910111213var arr = new Array(3)arr[0] = &quot;George&quot;arr[1] = &quot;John&quot;arr[2] = &quot;Thomas&quot;document.write(arr + &quot;&amp;lt;br /&amp;gt;&quot;)document.write(arr.push(&quot;James&quot;">
+<meta name="description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js学习-数组的操作">
 <meta property="og:url" content="http://yoursite.com/2018/08/18/js学习-数组的操作/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。  12345678910111213var arr = new Array(3)arr[0] = &quot;George&quot;arr[1] = &quot;John&quot;arr[2] = &quot;Thomas&quot;document.write(arr + &quot;&amp;lt;br /&amp;gt;&quot;)document.write(arr.push(&quot;James&quot;">
+<meta property="og:description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="c:/Users/Jin/AppData/Local/Temp/1534642577899.png">
-<meta property="og:updated_time" content="2018-10-14T06:22:50.595Z">
+<meta property="og:updated_time" content="2020-03-01T03:48:13.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js学习-数组的操作">
-<meta name="twitter:description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。  12345678910111213var arr = new Array(3)arr[0] = &quot;George&quot;arr[1] = &quot;John&quot;arr[2] = &quot;Thomas&quot;document.write(arr + &quot;&amp;lt;br /&amp;gt;&quot;)document.write(arr.push(&quot;James&quot;">
+<meta name="twitter:description" content="1. push()push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。">
 <meta name="twitter:image" content="c:/Users/Jin/AppData/Local/Temp/1534642577899.png">
 
 
@@ -432,6 +432,7 @@
 
       
         <h2 id="1-push"><a href="#1-push" class="headerlink" title="1. push()"></a>1. push()</h2><p>push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。 </p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr + <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr.push(<span class="string">"James"</span>) + <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr)</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line">George,John,Thomas</span><br><span class="line"><span class="number">4</span></span><br><span class="line">George,John,Thomas,James</span><br></pre></td></tr></table></figure>
 <h2 id="2-pop"><a href="#2-pop" class="headerlink" title="2. pop"></a>2. pop</h2><p>pop() 方法用于删除并返回返回删除的元素。 </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></span><br><span class="line"><span class="built_in">document</span>.write(arr)</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr.pop())</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr)</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line">George,John,Thomas</span><br><span class="line">Thomas</span><br><span class="line">George,John</span><br></pre></td></tr></table></figure>
@@ -731,7 +732,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
