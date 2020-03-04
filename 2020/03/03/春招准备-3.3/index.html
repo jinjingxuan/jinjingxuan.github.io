@@ -109,7 +109,8 @@
 <meta property="og:description" content="一.回顾昨天我们从cooike记住用户名密码为起点，谈到了以下：  Cooike,sessionStorge,localStorge的区别 Cooike始终在同源的HTTP请求中携带，什么为同源HTTP 同源是指协议，域名，端口号相同，又可继续延伸 协议：HTTP协议和HTTPS协议，SSL，非对称加密算法（RSA） OSI中的7层协议，TCP/IP的4层协议，以及我们常学的5层协议">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2905385-d3d809845229a31b.png?imageMogr2/auto-orient/strip|imageView2/2/w/697/format/webp">
-<meta property="og:updated_time" content="2020-03-03T14:55:37.707Z">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/04/35aGh8.png">
+<meta property="og:updated_time" content="2020-03-04T02:24:07.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.3">
 <meta name="twitter:description" content="一.回顾昨天我们从cooike记住用户名密码为起点，谈到了以下：  Cooike,sessionStorge,localStorge的区别 Cooike始终在同源的HTTP请求中携带，什么为同源HTTP 同源是指协议，域名，端口号相同，又可继续延伸 协议：HTTP协议和HTTPS协议，SSL，非对称加密算法（RSA） OSI中的7层协议，TCP/IP的4层协议，以及我们常学的5层协议">
@@ -394,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k
+                  2.2k
                 </span>
               
 
@@ -410,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -476,8 +477,18 @@
 </ul>
 <p>出现请求跨域错误问题,主要原因就是因为浏览器的“同源策略”</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">跨域解决方案</span><br><span class="line">1、 通过jsonp跨域: 直接请求文件不行，请求JS可以，我们就把数据以JSON格式装进JS文件里</span><br><span class="line"></span><br><span class="line">客户端：                               服务端的js文件：</span><br><span class="line">function handleCallback(res) &#123;		  handleCallback(&#123;</span><br><span class="line">        alert(JSON.stringify(res));       &quot;status&quot;: true, &quot;user&quot;: &quot;admin&quot;</span><br><span class="line">&#125;                                     &#125;)</span><br><span class="line"></span><br><span class="line">2、 document.domain + iframe跨域:</span><br><span class="line">    news.baidu.com和map.baidu.com的一级域名相同，故可以设置document.domain = “baidu.com”;就可以跨域</span><br><span class="line"></span><br><span class="line">3、 location.hash + iframe</span><br><span class="line">	Location hash 属性：http://www.runoob.com/test.htm＃PART2：返回#后面即锚部分</span><br><span class="line">	锚点作用：打开用户页面时滚动到该锚点位置</span><br><span class="line">4、 window.name + iframe跨域</span><br><span class="line">5、 postMessage跨域</span><br><span class="line">6、 跨域资源共享（CORS）</span><br><span class="line">7、 nginx代理跨域</span><br><span class="line">8、 nodejs中间件代理跨域</span><br><span class="line">9、 WebSocket协议跨域</span><br></pre></td></tr></table></figure>
-<h3 id="3-域名与DNS，浏览器输入网址到页面展示发生了什么"><a href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么" class="headerlink" title="3.域名与DNS，浏览器输入网址到页面展示发生了什么"></a>3.域名与DNS，浏览器输入网址到页面展示发生了什么</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DNS（Domain Name System，域名系统），简单的说：就是把我们输入的网站域名翻译成IP地址的系统.</span><br><span class="line">1.在浏览器中输入url</span><br><span class="line">2.客户端先检查本地是否有对应的IP地址，若找到则返回响应的IP地址。若没找到则请求上级DNS服务器，直至找到</span><br><span class="line">3.有了服务器的IP， 浏览器就要可以发起HTTP请求了,联系之前的HTTP和HTTPS</span><br><span class="line">4.Http会通过TCP建立起一个到服务器的连接通道，TCP是面向连接可靠的服务，联系三次握手四次握手</span><br><span class="line">5.传输层下面是网络层，作用是把TCP分割好的各种数据包传送给接收方，这里需要用到mac地址，一个网络设备的IP地   址可以更换，但是MAC地址一般是固定不变的.ARP协议可以将IP地址解析成对应的MAC地址。</span><br><span class="line">6.在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，客户端发送请求的阶段结束</span><br><span class="line">7. 接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议讲分段的数据包重新组成原来的HTTP请求报文,返回响应报文，联系返回码。</span><br><span class="line">8.请求成功之后，服务器会返回响应的HTML文件，接下来就到页面渲染了，联系到渲染引擎。</span><br><span class="line">9.构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，即像素图）-&gt;显示</span><br></pre></td></tr></table></figure>
-<h3 id="4-浏览器的多进程架构-笔记上有"><a href="#4-浏览器的多进程架构-笔记上有" class="headerlink" title="4. 浏览器的多进程架构(笔记上有)"></a>4. 浏览器的多进程架构(笔记上有)</h3>
+<h3 id="3-域名与DNS，浏览器输入网址到页面展示发生了什么"><a href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么" class="headerlink" title="3.域名与DNS，浏览器输入网址到页面展示发生了什么"></a>3.域名与DNS，浏览器输入网址到页面展示发生了什么</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DNS（Domain Name System，域名系统），简单的说：就是把我们输入的网站域名翻译成IP地址的系统.</span><br><span class="line"></span><br><span class="line">1.在浏览器中输入url</span><br><span class="line"></span><br><span class="line">2.客户端先检查本地是否有对应的IP地址，若找到则返回响应的IP地址。若没找到则请求上级DNS服务器，直至找到</span><br><span class="line"></span><br><span class="line">3.有了服务器的IP， 浏览器就要可以发起HTTP请求了,联系之前的HTTP和HTTPS</span><br><span class="line"></span><br><span class="line">4.Http会基于TCP建立起一个到服务器的连接通道，TCP是面向连接可靠的服务，联系三次握手四次握手</span><br><span class="line">  Udp是无连接的，想发就发，不会对数据进行封装。适用于实时应用，就比如视频面试。TCP可靠，用于文件传输。</span><br><span class="line"></span><br><span class="line">5.传输层下面是网络层，作用是把TCP分割好的各种数据包传送给接收方，这里需要用到mac地址，一个网络设备的IP地   址可以更换，但是MAC地址一般是固定不变的.ARP协议可以将IP地址解析成对应的MAC地址。</span><br><span class="line"></span><br><span class="line">6.在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，客户端发送请求的阶段结束</span><br><span class="line"></span><br><span class="line">7. 接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议讲分段的数据包重新组成原来的HTTP请求报文,返回响应报文，联系返回码。</span><br><span class="line"></span><br><span class="line">8.请求成功之后，服务器会返回响应的HTML文件，接下来就到页面渲染了，联系到渲染引擎。</span><br><span class="line"></span><br><span class="line">9.构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，GPU可以处理）-&gt;显示</span><br></pre></td></tr></table></figure>
+<h3 id="4-浏览器的多进程架构及渲染过程"><a href="#4-浏览器的多进程架构及渲染过程" class="headerlink" title="4. 浏览器的多进程架构及渲染过程"></a>4. 浏览器的多进程架构及渲染过程</h3><ul>
+<li>多进程架构</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Browers进程，一个只有一个</span><br><span class="line">渲染进程，一个tab窗口对应一个</span><br><span class="line">GPU进程，只有一个，负责GPU渲染</span><br><span class="line">插件进程，每个插件会创建一个进程</span><br></pre></td></tr></table></figure>
+<ul>
+<li>渲染过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个渲染进程包括三个线程，compositor线程，tile worker线程，main线程</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2020/03/04/35aGh8.png" alt="35aGh8.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主线程：</span><br><span class="line">js动画：要走主线程，css动画：有的不会走主线程    </span><br><span class="line">csstriggers.com这个网站里面会展示，哪些CSS不会走主线程，比如transform，但是不同浏览器不一样。</span><br><span class="line"></span><br><span class="line">主线程：构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，GPU可以处理-&gt;显示</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -510,6 +521,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/04/春招准备-3.4/" rel="prev" title="春招准备-3.4">
+                春招准备-3.4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -590,7 +605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-回顾"><span class="nav-number">1.</span> <span class="nav-text">一.回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-今日列表"><span class="nav-number">2.</span> <span class="nav-text">二.今日列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-让我们开始愉快地学习吧"><span class="nav-number">3.</span> <span class="nav-text">三.让我们开始愉快地学习吧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-关于HTTP协议"><span class="nav-number">3.1.</span> <span class="nav-text">1.关于HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-前端安全问题：跨站脚本攻击XSS"><span class="nav-number">3.2.</span> <span class="nav-text">2.前端安全问题：跨站脚本攻击XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么"><span class="nav-number">3.3.</span> <span class="nav-text">3.域名与DNS，浏览器输入网址到页面展示发生了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-浏览器的多进程架构-笔记上有"><span class="nav-number">3.4.</span> <span class="nav-text">4. 浏览器的多进程架构(笔记上有)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-回顾"><span class="nav-number">1.</span> <span class="nav-text">一.回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-今日列表"><span class="nav-number">2.</span> <span class="nav-text">二.今日列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-让我们开始愉快地学习吧"><span class="nav-number">3.</span> <span class="nav-text">三.让我们开始愉快地学习吧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-关于HTTP协议"><span class="nav-number">3.1.</span> <span class="nav-text">1.关于HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-前端安全问题：跨站脚本攻击XSS"><span class="nav-number">3.2.</span> <span class="nav-text">2.前端安全问题：跨站脚本攻击XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么"><span class="nav-number">3.3.</span> <span class="nav-text">3.域名与DNS，浏览器输入网址到页面展示发生了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-浏览器的多进程架构及渲染过程"><span class="nav-number">3.4.</span> <span class="nav-text">4. 浏览器的多进程架构及渲染过程</span></a></li></ol></li></ol></div>
             
 
           </div>
