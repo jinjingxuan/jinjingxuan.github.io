@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="春招准备-3.7">
+<meta property="og:url" content="http://yoursite.com/2020/03/07/春招准备-3.7/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-07T10:52:06.957Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="春招准备-3.7">
+<meta name="twitter:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/07/春招准备-3.7/"/>
+
+
+
+
+
+  <title>春招准备-3.7 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/春招准备-3.7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">春招准备-3.7</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T09:52:01+08:00">
+                2020-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/春招/" itemprop="url" rel="index">
+                    <span itemprop="name">春招</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>括号匹配问题</li>
+<li>讲一下es6的新特性</li>
+<li>call,apply,bind区别，手写原生代码</li>
+<li>柯里化</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-括号匹配"><a href="#1-括号匹配" class="headerlink" title="1. 括号匹配"></a>1. 括号匹配</h2><p>创建一个函数来判断给定的表达式中的大括号是否闭合，返回True/false，对于空字符串，返回True </p>
+<ul>
+<li>正则表达式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBalanced</span>(<span class="params">exp</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> reg = <span class="regexp">/\&#123;\&#125;/g</span>,len;</span><br><span class="line">	<span class="keyword">do</span>&#123;</span><br><span class="line">		len = exp.length;</span><br><span class="line">		exp = exp.replace(reg,<span class="string">""</span>);</span><br><span class="line">	&#125;<span class="keyword">while</span>(len != exp.length)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> exp.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//此算法的最坏时间复杂度是O(n^2)级别。</span></span><br><span class="line"><span class="comment">//当表达式中含有干扰字符需要修改正则表达式，正则表达式复杂时会影响检索效率。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>栈</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBalanced</span>(<span class="params">exp</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> info = exp.split(<span class="string">""</span>);</span><br><span class="line">	<span class="keyword">let</span> stack = [];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; info.length; ++i)&#123;</span><br><span class="line">		<span class="keyword">let</span> el = info[i];</span><br><span class="line">		<span class="keyword">if</span>(el == <span class="string">"&#123;"</span>)&#123;</span><br><span class="line">			stack.push(<span class="string">"&#123;"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(el == <span class="string">"&#125;"</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(stack.length === <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			stack.pop();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> stack.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//当字符串同时包含()[]&#123;&#125;怎么办</span></span><br></pre></td></tr></table></figure>
+<p>每一种右括号有一种唯一的左括号与之对应。出现右括号时候，栈顶的左括号必须是和它匹配的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isBalanced = <span class="function">(<span class="params">str</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        [<span class="string">"&#123;"</span>, <span class="string">"&#125;"</span>],</span><br><span class="line">        [<span class="string">"["</span>, <span class="string">"]"</span>],</span><br><span class="line">        [<span class="string">"("</span>, <span class="string">")"</span>]</span><br><span class="line">    ])</span><br><span class="line">    <span class="keyword">let</span> stack = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; str.length; ++i)&#123;</span><br><span class="line">        <span class="keyword">let</span> node = str[i]</span><br><span class="line">        <span class="keyword">if</span> (map.has(node))&#123;       <span class="comment">//Map 结构的has方法，是用来查找键名的</span></span><br><span class="line">            stack.push(node)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ([...map.values()].includes(node))&#123;  <span class="comment">//把值集合转换为数组</span></span><br><span class="line">            <span class="keyword">if</span> (stack[stack.length - <span class="number">1</span>] !==      <span class="comment">//栈顶元素,[...map.entries()]把六个值转为二维数组</span></span><br><span class="line">                                [...map.entries()].filter(<span class="function"><span class="params">el</span>=&gt;</span>el[<span class="number">1</span>]===node).pop().shift()</span><br><span class="line">                			   <span class="comment">//filter用于筛选为node的一对，若node为&#125;时</span></span><br><span class="line">                                <span class="comment">//[...map.entries()].filter(el=&gt;el[1]===node)的值为[['&#123;','&#125;']]</span></span><br><span class="line">                                <span class="comment">// .pop()后为['&#123;','&#125;'],.shift()后为&#123;</span></span><br><span class="line">                			   <span class="comment">//pop() 方法用于删除并返回数组的最后一个元素。</span></span><br><span class="line">                			   <span class="comment">//shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素值。</span></span><br><span class="line">                         )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            stack.splice(stack.length<span class="number">-1</span>, <span class="number">1</span>)<span class="comment">//删除栈顶元素</span></span><br><span class="line">            <span class="comment">//splice(index,howmany,item1,.....,itemX)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.length === <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-ES6新特性"><a href="#2-ES6新特性" class="headerlink" title="2. ES6新特性"></a>2. ES6新特性</h2><ul>
+<li><strong>let与const</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. let 关键词声明的变量不具备变量提升特性，仅在块级作用域内有效</span></span><br><span class="line"><span class="comment">//2. let 不可重复声明</span></span><br><span class="line"><span class="comment">//3. 使用let命令声明变量之前，该变量不可用，称为暂时性死区。</span></span><br><span class="line"><span class="comment">//const与let类似，只是声明的是常量。</span></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">6</span></span><br><span class="line"><span class="keyword">if</span>(i&gt;<span class="number">5</span>)&#123;</span><br><span class="line">    i=<span class="number">3</span>   <span class="comment">//报错</span></span><br><span class="line">    <span class="keyword">let</span> i </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>箭头函数</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不需要 function 关键字来创建函数</span></span><br><span class="line"><span class="comment">//省略 return 关键字</span></span><br><span class="line"><span class="comment">//继承当前上下文的 this 关键字</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;  <span class="comment">//map方法返回一个由原数组中的每个元素调用指定方法后的返回值组成的新数组。</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span>;</span><br><span class="line">&#125;).bind(<span class="keyword">this</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//array.map(function() &#123;&#125;, this) 的作用实际上和 array.map(function() &#123;&#125;.bind(this)) 是一样的。map的第二个参数就是给第一个参数bind一个对象。</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// 使用箭头函数</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>函数默认参数值</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6之前，当未传入参数时，text = 'default'；</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    text = text || <span class="string">'default'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6；</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printText</span>(<span class="params">text = <span class="string">'default'</span></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>扩展运算符(spread)和剩余运算符(rest)，即…的含义</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展运算符(spread)   数组化为参数,功能是把数组或类数组对象展开成一系列用逗号隔开的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1.构造数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">'aa'</span>,<span class="string">'bb'</span>,<span class="string">'cc'</span>];</span><br><span class="line"><span class="keyword">var</span> arrs = [...arr1, ...arr2];</span><br><span class="line"><span class="built_in">console</span>.log(arrs); <span class="comment">// ['a','b','c','aa','bb','cc']</span></span><br><span class="line"><span class="comment">//2.解析数组</span></span><br><span class="line"><span class="keyword">var</span> son1,son2;</span><br><span class="line">[son1, ...son2] = arr1</span><br><span class="line"><span class="built_in">console</span>.log(son1);  <span class="comment">// 'a'</span></span><br><span class="line"><span class="built_in">console</span>.log(son2);  <span class="comment">//['b','c']</span></span><br><span class="line"><span class="comment">//3.参数赋值</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> maxNum = <span class="built_in">Math</span>.max(...arr); <span class="comment">// 返回5。max函数不接受数组只接受数列</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//剩余运算符(rest)     参数转化为数组,把逗号隔开的值序列组合成一个数组</span></span><br><span class="line"><span class="comment">//1.所有参数可由一个变量统一接收</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(args);</span><br><span class="line">&#125;</span><br><span class="line">foo( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>); <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line">foo( <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>); <span class="comment">// [a,b,c]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>对象和数组解构</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> &#123;x, y, z&#125; = obj; <span class="comment">// x = 1, y = 2, z = 3</span></span><br><span class="line"><span class="comment">//还可赋值a,b,c</span></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">x</span>: a, <span class="attr">y</span>: b, <span class="attr">z</span>: c&#125; = obj; <span class="comment">// a = 1, b = 2, c = 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.数组</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">const</span> [a, b] = arr;</span><br><span class="line"><span class="built_in">console</span>.log(a, b);  <span class="comment">// 1, 2，按顺序自动获取</span></span><br><span class="line"><span class="keyword">const</span> [a, b,,, c] = arr;</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c);  <span class="comment">// 1, 2, 5  获取指定位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3.函数对象参数</span></span><br><span class="line"><span class="keyword">const</span> student = &#123;</span><br><span class="line">  name: <span class="string">'Job'</span>,</span><br><span class="line">  num: <span class="number">001</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sex: <span class="string">'boy'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> check = <span class="function"><span class="keyword">function</span> <span class="title">half</span>(<span class="params">&#123;num,sex&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (num , sex);</span><br><span class="line">  &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(student); <span class="comment">// 一个object</span></span><br><span class="line"><span class="built_in">console</span>.log(check(student)); <span class="comment">// (001, 'boy')</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Map数据结构</strong></li>
+</ul>
+<p>为什么需要Map，因为Object本质上是键值对的集合，键只能为字符串，Map的键不限于字符串。</p>
+<p>与Object的区别</p>
+<p>（1）Map 中的键值是有序的，而添加到对象中的键则不是。因此，当对它进行遍历时，Map 对象是按插入的顺序返回键值。</p>
+<p>（2）你可以通过 <code>size</code> 属性直接获取一个 <code>Map</code> 的键值对个数，而 <code>Object</code> 的键值对个数只能手动计算。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Map的结构遍历</span></span><br><span class="line"><span class="comment">// 1. keys()--&gt;将键名都取出来，组成一个可遍历的数据集合</span></span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="number">123</span>,<span class="string">'abc'</span>],</span><br><span class="line">    [<span class="string">'a'</span>,<span class="string">'hahaha'</span>],</span><br><span class="line">    [<span class="number">1</span>&gt;<span class="number">2</span>,<span class="string">'baidu.com'</span>]</span><br><span class="line">]);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> x <span class="keyword">of</span> m.keys())&#123;  <span class="comment">//m.keys=&gt;MapIterator &#123;123, "a", false&#125;  返回容器对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line">--&gt;<span class="number">123</span> a <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. values()  返回键值的遍历器</span></span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="number">123</span>,<span class="string">'abc'</span>],</span><br><span class="line">    [<span class="string">'a'</span>,<span class="string">'hahaha'</span>],</span><br><span class="line">    [<span class="number">1</span>&gt;<span class="number">2</span>,<span class="string">'baidu.com'</span>]</span><br><span class="line">]);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> x <span class="keyword">of</span> m.values())&#123;  <span class="comment">//m.values=&gt;MapIterator &#123;"abc", "hahaha", "baidu.com"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line">--&gt;abc hahaha baidu.com</span><br><span class="line"></span><br><span class="line"><span class="comment">//3. entries()  返回所有成员的遍历器</span></span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="number">123</span>,<span class="string">'abc'</span>],</span><br><span class="line">    [<span class="string">'a'</span>,<span class="string">'hahaha'</span>],</span><br><span class="line">    [<span class="number">1</span>&gt;<span class="number">2</span>,<span class="string">'baidu.com'</span>]</span><br><span class="line">]);</span><br><span class="line">m.entries()   <span class="comment">//MapIterator &#123;123 =&gt; "abc", "a" =&gt; "hahaha", false =&gt; "baidu.com"&#125;</span></span><br><span class="line">[...m.entries()] <span class="comment">// [Array(2), Array(2), Array(2)]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 扩展运算符,转换为二维数组或一维数组</span></span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="number">123</span>,<span class="string">'abc'</span>],</span><br><span class="line">    [<span class="string">'a'</span>,<span class="string">'hahaha'</span>],</span><br><span class="line">    [<span class="number">1</span>&gt;<span class="number">2</span>,<span class="string">'baidu.com'</span>]</span><br><span class="line">]);</span><br><span class="line"><span class="built_in">console</span>.log([...m]) <span class="comment">//(3) [Array(2), Array(2), Array(2)]</span></span><br><span class="line">[...m.keys()]       <span class="comment">//[123, "a", false]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>数组的include方法</strong></li>
+</ul>
+<p>在ES5，Array已经提供了indexOf用来查找某个元素的位置，如果不存在就返回-1，</p>
+<p>缺点：</p>
+<ol>
+<li><p>是它会返回-1和元素的位置来表示是否包含，在定位方面是没问题，就是不够语义化。</p>
+</li>
+<li><p>不能判断是否有NaN的元素。 </p>
+</li>
+</ol>
+<p>ES6提供了Array.includes()函数判断是否包含某一元素，除了不能定位外，解决了indexOf的上述的两个问题。它直接返回true或者false表示是否包含元素，对NaN一样能有有效。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>)     <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">4</span>)     <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="literal">NaN</span>].includes(<span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">3</span>, <span class="number">3</span>);  <span class="comment">// false  该方法的第二个参数表示搜索的起始位置，默认为0</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">3</span>, <span class="number">-1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>filter() 数组过滤方法</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ages = [<span class="number">32</span>, <span class="number">33</span>, <span class="number">16</span>, <span class="number">40</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAdult</span>(<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> age &gt;= <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ages.filter(checkAdult));</span><br></pre></td></tr></table></figure>
+<h2 id="3-call，apply，bind的区别"><a href="#3-call，apply，bind的区别" class="headerlink" title="3. call，apply，bind的区别"></a>3. call，apply，bind的区别</h2><ul>
+<li>call和apply用于动态改变函数运行时，函数内容的this指向，和传入参数值。</li>
+</ul>
+<h4 id="fun-call-thisArg-arg1-arg2-…"><a href="#fun-call-thisArg-arg1-arg2-…" class="headerlink" title="fun.call(thisArg, arg1, arg2, …)"></a>fun.call(thisArg, arg1, arg2, …)</h4><h4 id="fun-apply-thisArg-arg1-arg2-…"><a href="#fun-apply-thisArg-arg1-arg2-…" class="headerlink" title="fun.apply(thisArg, [arg1, arg2], …)"></a>fun.apply(thisArg, [arg1, arg2], …)</h4><ul>
+<li>bind()方法创建一个新的函数，在bind()被调用时，这个新函数的this被bind的第一个参数指定，其余的参数将作为新函数的参数供调用时使用。</li>
+</ul>
+<h4 id="fun-bind-thisArg-arg1-arg2"><a href="#fun-bind-thisArg-arg1-arg2" class="headerlink" title="fun.bind(thisArg, arg1,arg2)"></a>fun.bind(thisArg, arg1,arg2)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//若thisArg指定为null和undefined，this自动指向全局对象</span></span><br><span class="line"><span class="comment">//一个函数被call/apply时，会直接调用，而bind会创建一个新函数</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.call(...arr)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.bind(...arr)()) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p><strong>如何自己实现，首先我们来复习一下eval()</strong></p>
+<p>eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval(string)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showName</span>(<span class="params">gender, age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, <span class="string">" "</span>, gender, <span class="string">" "</span>, age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"亚古"</span></span><br><span class="line">&#125;</span><br><span class="line">showName.call(obj, <span class="string">"female"</span>, <span class="number">22</span>)<span class="comment">// 亚古   female   22</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现call</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.myCall=<span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> obj=context||<span class="built_in">window</span></span><br><span class="line">    obj.fn=<span class="keyword">this</span></span><br><span class="line">    <span class="keyword">const</span> arg=[...arguments].slice(<span class="number">1</span>)</span><br><span class="line">    res=obj.fn(...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj.fn</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现apply</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.myApply=<span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> obj=context||<span class="built_in">window</span></span><br><span class="line">    obj.fn=<span class="keyword">this</span></span><br><span class="line">    <span class="keyword">const</span> arg=<span class="built_in">arguments</span>[<span class="number">1</span>]||[]</span><br><span class="line">    res=obj.fn(...arg)</span><br><span class="line">    <span class="keyword">delete</span> obj.fn</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现bind</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.myBind=<span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> _this=<span class="keyword">this</span></span><br><span class="line">    <span class="keyword">const</span> arg=[...arguments].slice(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> _this.call(context,...arg,...arguments)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>柯里化：多个参数转为一个一个的参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params"> fn, arr = []</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="comment">//判断参数总数是否和fn参数个数相等</span></span><br><span class="line">        <span class="keyword">if</span>([...arr, ...args].length === fn.length)&#123;</span><br><span class="line">            <span class="keyword">return</span> fn(...arr, ...args) <span class="comment">//拓展参数，调用fn</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> curry(fn,[...arr, ...args]) <span class="comment">//迭代，传入现有的所有参数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一行解决</span></span><br><span class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params"> fn, arr = []</span>) =&gt;</span> (...args) =&gt; ( <span class="function"><span class="params">a</span> =&gt;</span> a.length === fn.length? fn(...a) : curry(fn, a))([...arr, ...args]) </span><br><span class="line"></span><br><span class="line"><span class="comment">//试一下</span></span><br><span class="line"><span class="keyword">let</span> curryPlus = curry(<span class="function">(<span class="params">a,b,c,d</span>)=&gt;</span>a+b+c+d)</span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)(<span class="number">4</span>) <span class="comment">//返回10</span></span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">4</span>)(<span class="number">3</span>) <span class="comment">//返回10</span></span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>,<span class="number">4</span>) <span class="comment">//返回10</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/06/春招准备-3.6/" rel="next" title="春招准备-3.6">
+                <i class="fa fa-chevron-left"></i> 春招准备-3.6
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-括号匹配"><span class="nav-number">1.1.</span> <span class="nav-text">1. 括号匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ES6新特性"><span class="nav-number">1.2.</span> <span class="nav-text">2. ES6新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-call，apply，bind的区别"><span class="nav-number">1.3.</span> <span class="nav-text">3. call，apply，bind的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-call-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">fun.call(thisArg, arg1, arg2, …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-apply-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">fun.apply(thisArg, [arg1, arg2], …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-bind-thisArg-arg1-arg2"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">fun.bind(thisArg, arg1,arg2)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
