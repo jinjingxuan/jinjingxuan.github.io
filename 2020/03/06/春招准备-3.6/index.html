@@ -110,7 +110,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2020/03/06/3btMhq.png">
 <meta property="og:image" content="http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/imgs/public/16-11-11/5352248.jpg">
-<meta property="og:updated_time" content="2020-03-06T06:38:37.740Z">
+<meta property="og:updated_time" content="2020-03-08T03:34:37.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.6">
 <meta name="twitter:description" content="今日清单 最长公共子序列和最长公共子串 DP 给一个无序数组分成两个数组，让两个数组的和最接近 说一下满二叉树与完全二叉树，以及使用数组实现满二叉树  求两个字符串的最长公共前前缀 ==和===的区别 JS实现继承的几种方式和好处 settimeout和setinteval的区别以及事件轮询 聊一下箭头函数 聊一下this">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  2k
                 </span>
               
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -461,7 +461,7 @@
 <p>1.父类的共有属性会被子类实例共享</p>
 <p>2.创建子类对象无法传参，因为只有Son.prototype = new Father()可以传，但是会对所有子类有效。</p>
 <p> <strong>（2）构造函数继承</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name,age,sex</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    Father.call(<span class="keyword">this</span>,name,age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son1 = <span class="keyword">new</span> Son(<span class="string">'张三'</span>,<span class="string">'30'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name,age,sex</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    Father.call(<span class="keyword">this</span>,name,age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son1 = <span class="keyword">new</span> Son(<span class="string">'张三'</span>,<span class="string">'30'</span>,<span class="string">'男'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//简述new一个对象的过程</span></span><br><span class="line"><span class="comment">//1.创造一个新的空对象</span></span><br><span class="line"><span class="comment">//2.新对象的_proto_指向构造函数的原型对象</span></span><br><span class="line"><span class="comment">//3.构造函数的this指向正在创建的新对象，并执行构造函数的代码，向新对象中添加属性和方法。</span></span><br><span class="line"><span class="comment">//4.返回新对象地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//讲一下_proto_和prototype的区别</span></span><br><span class="line"><span class="comment">//1.__proto__是 对象实例 都有的，而 prototype 是函数对象特有的</span></span><br><span class="line"><span class="comment">//2.prototype 原型对象 有 constructor 属性，又指回 构造函数</span></span><br><span class="line"><span class="comment">//3.对象实例的 __proto__ 均默认指向 它们的 构造函数的 prototype</span></span><br></pre></td></tr></table></figure>
 <p>缺点：1.父类的原型方法不会被子类继承，如果全放到构造函数中，每个子类实例都单独拥有一份，违反复用性。</p>
 <p>​        2.不能通过 son instanceof Father</p>
 <p><strong>（3）组合继承</strong></p>
@@ -488,6 +488,14 @@
 </ul>
 <h2 id="8-箭头函数"><a href="#8-箭头函数" class="headerlink" title="8.箭头函数"></a>8.箭头函数</h2><p>箭头函数的含义</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; x * x  <span class="comment">//相当于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new一个箭头函数可以吗？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">箭头函数是匿名函数，不能作为构造函数，不能使用new</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说一下箭头函数和普通函数的区别</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">（1）箭头函数是匿名函数，不能作为构造函数，不能使用new</span><br><span class="line">（2）箭头函数不绑定arguments，取而代之用rest参数...解决</span><br><span class="line">        let B = (b)=&gt;&#123;</span><br><span class="line">          console.log(arguments);</span><br><span class="line">        &#125;</span><br><span class="line">        B(2,92,32,32);   // Uncaught ReferenceError: arguments is not defined</span><br><span class="line"></span><br><span class="line">        let C = (...c) =&gt; &#123;</span><br><span class="line">          console.log(c);</span><br><span class="line">        &#125;</span><br><span class="line">        C(3,82,32,11323);  // [3, 82, 32, 11323]</span><br><span class="line">（3）箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值</span><br><span class="line">（4）箭头函数通过 call()或apply() 方法调用一个函数时，对 this 并没有影响。</span><br><span class="line">（5）箭头函数没有原型属性</span><br></pre></td></tr></table></figure>
 <h2 id="9-this的指向"><a href="#9-this的指向" class="headerlink" title="9. this的指向"></a>9. this的指向</h2><ul>
 <li>普通函数指向函数调用者（执行的时候才确定）</li>
 <li>箭头函数指向函数所在的作用域（对象的{}和if(){}都构不成作用域）</li>
@@ -610,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

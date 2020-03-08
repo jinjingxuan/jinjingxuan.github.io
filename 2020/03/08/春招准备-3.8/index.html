@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今日清单 算法：字符串的最大非重复子串长度 promise与setTimeout，微队列和宏队列 generator，async，await 有哪些提高http请求速度的方法，http缓存机制 babel是什么 meta标签，视口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="春招准备-3.8">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/春招准备-3.8/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="今日清单 算法：字符串的最大非重复子串长度 promise与setTimeout，微队列和宏队列 generator，async，await 有哪些提高http请求速度的方法，http缓存机制 babel是什么 meta标签，视口">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdn.net/20170901101909195">
+<meta property="og:image" content="https://img-blog.csdn.net/20170901101933387">
+<meta property="og:image" content="https://img-blog.csdn.net/20170901101950208">
+<meta property="og:updated_time" content="2020-03-08T14:56:45.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="春招准备-3.8">
+<meta name="twitter:description" content="今日清单 算法：字符串的最大非重复子串长度 promise与setTimeout，微队列和宏队列 generator，async，await 有哪些提高http请求速度的方法，http缓存机制 babel是什么 meta标签，视口">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170901101909195">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/春招准备-3.8/"/>
+
+
+
+
+
+  <title>春招准备-3.8 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/春招准备-3.8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">春招准备-3.8</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T09:52:01+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/春招/" itemprop="url" rel="index">
+                    <span itemprop="name">春招</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>算法：字符串的最大非重复子串长度</li>
+<li>promise与setTimeout，微队列和宏队列</li>
+<li>generator，async，await</li>
+<li>有哪些提高http请求速度的方法，http缓存机制</li>
+<li>babel是什么</li>
+<li>meta标签，视口</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-字符串的最大非重复子串长度（o-n-，讲思路）"><a href="#1-字符串的最大非重复子串长度（o-n-，讲思路）" class="headerlink" title="1.字符串的最大非重复子串长度（o(n)，讲思路）"></a>1.字符串的最大非重复子串长度（o(n)，讲思路）</h2><p>js中，因为Array继承Object，那么Array也是可以用字符串作为数组下标的 ，c++可以，写一个参考的C++解法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dict(<span class="number">256</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>, start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dict[s[i]] &gt; start)<span class="comment">//当前字符“曾经”是否出现在此子串中？</span></span><br><span class="line">                start = dict[s[i]];<span class="comment">//“曾经”出现那次作为新起点</span></span><br><span class="line">            dict[s[i]] = i;<span class="comment">//标志该字符出现的位置</span></span><br><span class="line">            maxLen = max(maxLen, i - start);<span class="comment">//每次都要更新最大长度</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如：a,b,c,d,a,b,a  输出4</p>
+<p>无重复：a,b,c,d</p>
+<p>a重复了：把上一个a之前的清除，现在b,c,d,a</p>
+<p>b重复了：把上一个b之前的清除，现在c,d,a,b</p>
+<p>a重复了：现在b,a</p>
+<h2 id="2-promise"><a href="#2-promise" class="headerlink" title="2. promise"></a>2. promise</h2><p>首先想一下，怎么规定函数的执行顺序，通过回调的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"I am A"</span>);</span><br><span class="line">    callback();  <span class="comment">//调用该函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"I am B"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A(B);<span class="comment">//先执行A后执行B，当需要执行ABCDEFG时，就会造成回调地狱</span></span><br></pre></td></tr></table></figure>
+<p>回调地狱“也叫”回调金字塔“，我们平时写代码的时候 js如果异步 回调是不可避免的  例如 ajax不断的进行异步请求数据 回调方法里还要对数据进行处理，继续回调…形成回调地狱  这会使得我们的代码可读性变差，出现问题 不好调试 也会导致性能下降 </p>
+<p><strong>Promise：同步代码解决异步编程</strong></p>
+<ul>
+<li>是一个构造函数，用来传递异步操作消息，链式调用，避免层层嵌套的回调函数。</li>
+<li>promise接收两个函数参数，resolve和reject，分别表示异步操作执行成功后的回调和失败的回调</li>
+<li>promise在声明的时候就已经执行了</li>
+<li>有三种状态：pending进行中、resolve已完成、rejected已失败,</li>
+<li>这些状态只能由pending -&gt; resolved, pending -&gt; rejected,一旦promise实例发生改变，就不能在变了，任何时候都能得到这个结果</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(<span class="number">5</span>))</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>) <span class="comment">//立刻执行</span></span><br><span class="line">    resolve()      <span class="comment">//半异步</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>)  <span class="comment">//输出1,2,4,3,5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//resolve可以接收参数</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    resolve(<span class="string">"2"</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//现在有work1 ~ work4四个方法,怎么实现顺序执行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">work1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"work1"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">res,rej</span>)</span>&#123;</span><br><span class="line">        res()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">work2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"work2"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">res,rej</span>)</span>&#123;</span><br><span class="line">        res()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">work3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"work3"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">res,rej</span>)</span>&#123;</span><br><span class="line">        res()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">work4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"work4"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">res,rej</span>)</span>&#123;</span><br><span class="line">        res()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>work1())</span><br><span class="line">      .then(<span class="function"><span class="params">()</span>=&gt;</span>work2())</span><br><span class="line">      .then(<span class="function"><span class="params">()</span>=&gt;</span>work3())</span><br><span class="line">      .then(<span class="function"><span class="params">()</span>=&gt;</span>work4())</span><br><span class="line">      .finally(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"work done!"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([work1(),work2(),work3()]).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"work1,work2,work3"</span>)</span><br><span class="line">&#125;)<span class="comment">//所有操作全完成之后的操作</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([work1(),work2(),work3()]).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"有就行"</span>)</span><br><span class="line">&#125;)<span class="comment">//有一个成功就行</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-Generator"><a href="#3-Generator" class="headerlink" title="3. Generator"></a>3. Generator</h2><ul>
+<li><p>Generator 的中文名称是生成器，</p>
+</li>
+<li><p>通过<code>function*</code>来定义的函数称之为“生成器函数”（generator function），它的特点是可以中断函数的执行，每次执行<code>yield</code>语句之后，函数即暂停执行，直到调用返回的生成器对象的<code>next()</code>函数它才会继续执行。</p>
+</li>
+<li><p>也就是说Generator 函数是一个状态机，封装了多个内部状态。执行 Generator 函数返回一个遍历器对象（一个指向内部状态的指针对象），调用遍历器对象的next方法，使得指针移向下一个状态。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = say()<span class="comment">//返回一个遍历器对象</span></span><br><span class="line">obj.next()  <span class="comment">//Object &#123;value: 0, done: false&#125;</span></span><br><span class="line">obj.next()  <span class="comment">//Object &#123;value: 1, done: false&#125;</span></span><br><span class="line">obj.next()  <span class="comment">//Object &#123;value: 2, done: false&#125;</span></span><br><span class="line">...</span><br><span class="line">obj.next()  <span class="comment">//Object &#123;value: 9 done: false&#125;</span></span><br><span class="line">obj.next()  <span class="comment">//Object &#123;value: undefined, done: true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//计数</span></span><br><span class="line">funtion* count()&#123;</span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">yield</span> c++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> countNum = count()</span><br><span class="line">countNum.next()</span><br><span class="line"></span><br><span class="line"><span class="comment">//next方法可以传值</span></span><br><span class="line">funtion* count()&#123;</span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> status = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">while</span>(!status)&#123;</span><br><span class="line">        status = <span class="keyword">yield</span> c++ <span class="comment">//还可以接收值，先接收值然后就暂停，赋值在后面</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> countNum = count()</span><br><span class="line">countNum.next()</span><br><span class="line">countNum.next()</span><br><span class="line">countNum.next(<span class="literal">true</span>)<span class="comment">//停止</span></span><br></pre></td></tr></table></figure>
+<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2></li>
+</ul>
+<p>将promise方法中的generator和yield替换成async和await结合使用，也就是一个语法糖</p>
+<ul>
+<li>async本质上是* ，await本质上是yiled</li>
+<li>async将function变为异步function，遇到await会等待执行结果</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">all</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> work1()</span><br><span class="line">    <span class="keyword">await</span> work2()</span><br><span class="line">    <span class="keyword">await</span> work3()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//async函数返回的是一个Promise对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-有哪些提高http请求速度的方法，http缓存机制"><a href="#4-有哪些提高http请求速度的方法，http缓存机制" class="headerlink" title="4. 有哪些提高http请求速度的方法，http缓存机制"></a>4. 有哪些提高http请求速度的方法，http缓存机制</h2><p>Http缓存主要涉及三个角色：一是浏览器，二是浏览器的缓存数据库，三是服务器。当浏览器端向服务器发出<strong>第一次</strong>请求时 ：</p>
+<p><img src="https://img-blog.csdn.net/20170901101909195" alt="1"></p>
+<h3 id="缓存的类型"><a href="#缓存的类型" class="headerlink" title="缓存的类型"></a>缓存的类型</h3><h3 id="（1）强缓存"><a href="#（1）强缓存" class="headerlink" title="（1）强缓存"></a>（1）强缓存</h3><p>强缓存基本原理是：所请求的数据在缓存数据库中尚未过期时，不与服务器进行交互，直接使用缓存数据库中的数据。当缓存未过期时基本流程如下 ：</p>
+<p><img src="https://img-blog.csdn.net/20170901101933387" alt="2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">控制强缓存过期时间的两个主要规则字段：</span><br><span class="line">1.Expire 其指定了一个日期/时间， 在这个日期/时间之后，HTTP响应被认为是过时的。但是它本身是一个HTTP1.0标准下的字段，所以如果请求中还有一个置了 “max-age” 或者 “s-max-age” 指令的Cache-Control响应头，那么 Expires 头就会被忽略。</span><br><span class="line"></span><br><span class="line">2.Cache-Control通用消息头用于在http 请求和响应中通过指定指令来实现缓存机制。其常用的几个取值有：</span><br><span class="line">private：客户端可以缓存</span><br><span class="line">public：客户端和代理服务器都可以缓存</span><br><span class="line">max-age=xxx：缓存的内容将在xxx 秒后失效</span><br><span class="line">s-max-age=xxx：同s-max-age，但仅适用于共享缓存(比如各个代理)，并且私有缓存中忽略。</span><br><span class="line">no-cache：需要使用协商缓存来验证缓存数据</span><br><span class="line">no-store：所有内容都不会缓存，强缓存和协商缓存都不会触发</span><br><span class="line">must-revalidate：缓存必须在使用之前验证旧资源的状态，并且不可使用过期资源。</span><br></pre></td></tr></table></figure>
+<h3 id="（2）协商缓存"><a href="#（2）协商缓存" class="headerlink" title="（2）协商缓存"></a>（2）协商缓存</h3><ul>
+<li>当强缓存过期未命中或者响应报文Cache-Control中有must-revalidate标识必须每次请求验证资源的状态时，便使用协商缓存的方式去处理缓存文件。</li>
+<li>协商缓存主要原理是从缓存数据库中取出缓存的标识，然后向浏览器发送请求验证请求的数据是否已经更新，如果已更新则返回新的数据，若未更新则使用缓存数据库中的缓存数据，具体流程如下，当协商缓存命中：</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170901101950208" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">两个字段etag和last-modified是用于协商缓存的规则字段。其中etag是所请求的数据在服务器中的唯一标识，而last-modifind标识所请求资源最后一次修改的时间。</span><br><span class="line"></span><br><span class="line">将缓存信息中的Etag和Last-Modified通过请求发送给服务器，由服务器校验，返回304状态码时，浏览器直接使用缓存。</span><br></pre></td></tr></table></figure>
+<h2 id="5-什么是babel"><a href="#5-什么是babel" class="headerlink" title="5. 什么是babel"></a>5. 什么是babel</h2><p>babel是一个node命令行工具，它的作用是对我们源代码进行转码（把es6=&gt;es5）</p>
+<h2 id="6-meta标签，视口"><a href="#6-meta标签，视口" class="headerlink" title="6.meta标签，视口"></a>6.meta标签，视口</h2><p>首先介绍3个视口的概念</p>
+<ul>
+<li><strong>layout viewport(布局视口)：</strong>在PC端上，布局视口等于浏览器窗口的宽度。而在移动端上，由于要使为PC端浏览器设计的网站能够完全显示在移动端的小屏幕里，此时的布局视口会远大于移动设备的屏幕，就会出现滚动条。js获取布局视口：<code>document.documentElement.clientWidth | document.body.clientWidth</code>；</li>
+<li><strong>visual viewport(视觉视口)：</strong>用户正在看到的网页的区域。用户可以通过缩放来查看网站的内容。如果用户缩小网站，我们看到的网站区域将变大，此时视觉视口也变大了，同理，用户放大网站，我们能看到的网站区域将缩小，此时视觉视口也变小了。不管用户如何缩放，都不会影响到布局视口的宽度。js获取视觉视口：<code>window.innerWidth</code>；</li>
+<li><strong>ideal viewport(理想视口)：</strong>布局视口的一个理想尺寸，只有当布局视口的尺寸等于设备屏幕的尺寸时，才是理想视口。js获取理想视口：<code>window.screen.width</code>；</li>
+<li>页面的滚动条取决于视觉视口和布局视口，页面元素宽度取决于布局视口大小</li>
+</ul>
+<p>我们在开发时，常常加入这样一行代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> <span class="attr">name</span>=<span class="string">"viewport"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>width=device-width</code>，这句代码的意思就是把布局视口 = 理想视口。 </li>
+<li><code>initial-scale</code>指的是缩放系数。其中有这样的公式： </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">视觉视口宽度 = 理想视口宽度 / 缩放系数 </span><br><span class="line"></span><br><span class="line">比如iphone加入这段代码时：</span><br><span class="line">视觉视口 = 320/1.0 = 320</span><br><span class="line">布局视口 = 320</span><br><span class="line">当视觉视口= 布局视口，页面无滚动条。</span><br><span class="line"></span><br><span class="line">当改变initial-scale时：</span><br><span class="line"></span><br><span class="line">initial-scale = 0.5 </span><br><span class="line">视觉视口宽度 = 320 / 0.5 = 640</span><br><span class="line">布局视口宽度 = 320</span><br><span class="line">又因为：视觉视口不能大于布局视口，所以此时，将布局视口的宽度提高等于640</span><br><span class="line">总结：视觉视口 = 布局视口 = 640</span><br><span class="line"></span><br><span class="line">initial-scale = 2 「 div宽度320，页面有滚动条 」</span><br><span class="line">视觉视口宽度 = 320 / 2 = 160</span><br><span class="line">布局视口宽度 = 320</span><br><span class="line">总结：视觉视口 &lt; 布局视口 页面出现了滚动条。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/07/春招准备-3.7/" rel="next" title="春招准备-3.7">
+                <i class="fa fa-chevron-left"></i> 春招准备-3.7
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-字符串的最大非重复子串长度（o-n-，讲思路）"><span class="nav-number">1.1.</span> <span class="nav-text">1.字符串的最大非重复子串长度（o(n)，讲思路）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-promise"><span class="nav-number">1.2.</span> <span class="nav-text">2. promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Generator"><span class="nav-number">1.3.</span> <span class="nav-text">3. Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async和await"><span class="nav-number">1.4.</span> <span class="nav-text">async和await</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-有哪些提高http请求速度的方法，http缓存机制"><span class="nav-number">1.5.</span> <span class="nav-text">4. 有哪些提高http请求速度的方法，http缓存机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存的类型"><span class="nav-number">1.5.1.</span> <span class="nav-text">缓存的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）强缓存"><span class="nav-number">1.5.2.</span> <span class="nav-text">（1）强缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）协商缓存"><span class="nav-number">1.5.3.</span> <span class="nav-text">（2）协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-什么是babel"><span class="nav-number">1.6.</span> <span class="nav-text">5. 什么是babel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-meta标签，视口"><span class="nav-number">1.7.</span> <span class="nav-text">6.meta标签，视口</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

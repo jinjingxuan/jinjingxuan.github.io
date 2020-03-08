@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+<meta name="description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化 几道小题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="春招准备-3.7">
 <meta property="og:url" content="http://yoursite.com/2020/03/07/春招准备-3.7/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+<meta property="og:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化 几道小题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-07T10:52:06.957Z">
+<meta property="og:updated_time" content="2020-03-07T14:33:24.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.7">
-<meta name="twitter:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化">
+<meta name="twitter:description" content="今日清单 括号匹配问题 讲一下es6的新特性 call,apply,bind区别，手写原生代码 柯里化 几道小题">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  3.2k
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  14
                 </span>
               
             </div>
@@ -434,6 +434,7 @@
 <li>讲一下es6的新特性</li>
 <li>call,apply,bind区别，手写原生代码</li>
 <li>柯里化</li>
+<li>几道小题</li>
 </ul>
 <a id="more"></a>
 <h2 id="1-括号匹配"><a href="#1-括号匹配" class="headerlink" title="1. 括号匹配"></a>1. 括号匹配</h2><p>创建一个函数来判断给定的表达式中的大括号是否闭合，返回True/false，对于空字符串，返回True </p>
@@ -508,6 +509,80 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params"> fn, arr = []</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="comment">//判断参数总数是否和fn参数个数相等</span></span><br><span class="line">        <span class="keyword">if</span>([...arr, ...args].length === fn.length)&#123;</span><br><span class="line">            <span class="keyword">return</span> fn(...arr, ...args) <span class="comment">//拓展参数，调用fn</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> curry(fn,[...arr, ...args]) <span class="comment">//迭代，传入现有的所有参数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一行解决</span></span><br><span class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params"> fn, arr = []</span>) =&gt;</span> (...args) =&gt; ( <span class="function"><span class="params">a</span> =&gt;</span> a.length === fn.length? fn(...a) : curry(fn, a))([...arr, ...args]) </span><br><span class="line"></span><br><span class="line"><span class="comment">//试一下</span></span><br><span class="line"><span class="keyword">let</span> curryPlus = curry(<span class="function">(<span class="params">a,b,c,d</span>)=&gt;</span>a+b+c+d)</span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)(<span class="number">4</span>) <span class="comment">//返回10</span></span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">4</span>)(<span class="number">3</span>) <span class="comment">//返回10</span></span><br><span class="line">curryPlus(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>,<span class="number">4</span>) <span class="comment">//返回10</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="4-几道小题"><a href="#4-几道小题" class="headerlink" title="4.几道小题"></a>4.几道小题</h2><ul>
+<li>问以下哪个选择器的运行效率最高</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#header</span> <span class="selector-tag">li</span></span><br><span class="line"><span class="selector-id">#header</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">ul</span>&gt;<span class="selector-tag">li</span></span><br><span class="line"><span class="selector-attr">[id="header"]</span> <span class="selector-tag">li</span></span><br><span class="line"></span><br><span class="line">选择是从后向前的，前面是过滤条件，2全是子代选择，效率高于后代选择</span><br><span class="line"><span class="selector-tag">DOM</span>创建时会把<span class="selector-tag">ID</span>,类，标签生成集合，查找时不需要爬<span class="selector-tag">DOM</span>树，所以效率2&gt;1&gt;3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简述什么是盒模型</li>
+</ul>
+<p>存在两种盒子：</p>
+<ol>
+<li>W3C标准盒模型：width,height,padding,border,margin，可视宽度：width+border+padding</li>
+<li>IE盒模型:               同上，但是 可视宽度：width</li>
+</ol>
+<p>css3中可以设置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-sizing</span><span class="selector-pseudo">:content-box</span>    标准</span><br><span class="line"><span class="selector-tag">box-sizing</span><span class="selector-pseudo">:border-box</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>简述CSS选择器的优先级规则</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">优先级不同，高优先级属性覆盖低优先级属性</span><br><span class="line">优先级相同，定义灾后覆盖定义在先</span><br><span class="line"></span><br><span class="line">行内&gt;ID&gt;类，伪类&gt;元素标记  !important最高，但是在低版本IE有兼容性问题</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简述一个居中元素的方法  </li>
+</ul>
+<p>考虑：水平还是垂直，块还是行内，是否需要知道宽高，兼容性</p>
+<p>（1）水平：</p>
+<pre><code> 1. 块元素：margin:0,auto
+2. 行内元素，行内块元素：text-align:center
+</code></pre><p>（2）垂直：</p>
+<ol start="3">
+<li>行内元素：line-height：xxpx</li>
+<li>行内块元素：line-height：xxpx；vertical-align：middle</li>
+</ol>
+<p>（3）水平竖直同时居中</p>
+<p>​     absolute方法：</p>
+<ol start="5">
+<li>已知宽高：负数margin</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>已知宽高：calc</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="built_in">calc</span>(50% - 30px);</span><br><span class="line">    <span class="attribute">left</span>:<span class="built_in">calc</span>(50% - 40px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>需要设定宽高：margin auto</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.f14</span> <span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f14</span> <span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>不需要设定宽高：transform(css3,IE8及以下不支持)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.f15</span> <span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f15</span> <span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    transform: translate(-50%,-50%);  自身偏移</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>flex布局</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: flex;</span><br><span class="line">     <span class="attribute">justify-content</span>: center;</span><br><span class="line">     <span class="attribute">align-items</span>: center;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>table-cell + inline-block</li>
+</ol>
+<p>css新增的table属性，可以让我们把普通元素，变为table元素的现实效果，通过这个特性也可以实现水平垂直居中，这个属性和table标签一样的居中原理。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浏览器向服务器发送请求，但是中间发生丢包，最后返回了200ok</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. http协议，tcp协议</span><br><span class="line">2. 请求和响应属于http的范畴，丢包和重传属于TCP的范畴</span><br><span class="line">3. 丢包和重传由TCP管理，http不管</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TCP与UDP</li>
+</ul>
+<p><strong>TCP与UDP区别总结：</strong></p>
+<p>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接</p>
+<p>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付。</p>
+<p>Tcp通过校验和，重传控制，序号标识，滑动窗口、确认应答实现可靠传输。如丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。</p>
+<p>3、UDP具有较好的实时性，工作效率比TCP高，适用于对高速传输和实时性有较高的通信或广播通信。</p>
+<p><strong>为什么UDP有时比TCP更有优势?</strong></p>
+<p>UDP以其简单、传输快的优势，在越来越多场景下取代了TCP,如实时游戏。</p>
+<p>（1）网速的提升给UDP的稳定性提供可靠网络保障，丢包率很低，如果使用应用层重传，能够确保传输的可靠性。</p>
+<p>（2）TCP为了实现网络通信的可靠性，使用了复杂的拥塞控制算法，建立了繁琐的握手过程，由于TCP内置的系统协议栈中，极难对其进行改进。</p>
+<p>采用TCP，一旦发生丢包，TCP会将后续的包缓存起来，等前面的包重传并接收到后再继续发送，延时会越来越大，基于UDP对实时性要求较为严格的情况下，采用自定义重传机制，能够把丢包产生的延迟降到最低，尽量减少网络问题对游戏性造成影响。</p>
 
       
     </div>
@@ -541,6 +616,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/08/春招准备-3.8/" rel="prev" title="春招准备-3.8">
+                春招准备-3.8 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -621,7 +700,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -667,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-括号匹配"><span class="nav-number">1.1.</span> <span class="nav-text">1. 括号匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ES6新特性"><span class="nav-number">1.2.</span> <span class="nav-text">2. ES6新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-call，apply，bind的区别"><span class="nav-number">1.3.</span> <span class="nav-text">3. call，apply，bind的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-call-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">fun.call(thisArg, arg1, arg2, …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-apply-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">fun.apply(thisArg, [arg1, arg2], …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-bind-thisArg-arg1-arg2"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">fun.bind(thisArg, arg1,arg2)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-括号匹配"><span class="nav-number">1.1.</span> <span class="nav-text">1. 括号匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ES6新特性"><span class="nav-number">1.2.</span> <span class="nav-text">2. ES6新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-call，apply，bind的区别"><span class="nav-number">1.3.</span> <span class="nav-text">3. call，apply，bind的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-call-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">fun.call(thisArg, arg1, arg2, …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-apply-thisArg-arg1-arg2-…"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">fun.apply(thisArg, [arg1, arg2], …)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fun-bind-thisArg-arg1-arg2"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">fun.bind(thisArg, arg1,arg2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-几道小题"><span class="nav-number">1.4.</span> <span class="nav-text">4.几道小题</span></a></li></ol></li></ol></div>
             
 
           </div>
