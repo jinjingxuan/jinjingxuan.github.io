@@ -110,7 +110,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2020/03/06/3btMhq.png">
 <meta property="og:image" content="http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/imgs/public/16-11-11/5352248.jpg">
-<meta property="og:updated_time" content="2020-03-08T03:34:37.083Z">
+<meta property="og:updated_time" content="2020-03-09T02:21:17.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.6">
 <meta name="twitter:description" content="今日清单 最长公共子序列和最长公共子串 DP 给一个无序数组分成两个数组，让两个数组的和最接近 说一下满二叉树与完全二叉树，以及使用数组实现满二叉树  求两个字符串的最长公共前前缀 ==和===的区别 JS实现继承的几种方式和好处 settimeout和setinteval的区别以及事件轮询 聊一下箭头函数 聊一下this">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  2.1k
                 </span>
               
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -501,6 +501,14 @@
 <li>箭头函数指向函数所在的作用域（对象的{}和if(){}都构不成作用域）</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name:<span class="string">'objName'</span>,</span><br><span class="line">    say:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)&#125;,</span><br><span class="line">    read:<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say();  <span class="comment">//objName     指向的是调用者</span></span><br><span class="line">obj.read(); <span class="comment">//undefined   指向的是window.name</span></span><br></pre></td></tr></table></figure>
+<p>怎么答：</p>
+<ol>
+<li>全局环境中的this指向全局对象window</li>
+<li>new绑定，并且构造函数没有返回其他对象，this指向这个新对象</li>
+<li>通过call，apply，bind，并且第一个参数值不是Null,undefined，那么this绑定的就是指定的对象</li>
+<li>普通函数指向函数调用者（执行的时候才确定）</li>
+<li>箭头函数指向函数所在的作用域，根据上下文确定</li>
+</ol>
 
       
     </div>
@@ -618,7 +626,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">107</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
