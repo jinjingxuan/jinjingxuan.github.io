@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流 requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="春招准备-3.10">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/春招准备-3.10/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流 requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://segmentfault.com/img/bVbaC2e?w=624&h=289">
+<meta property="og:updated_time" content="2020-03-10T15:18:24.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="春招准备-3.10">
+<meta name="twitter:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流 requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVbaC2e?w=624&h=289">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/10/春招准备-3.10/"/>
+
+
+
+
+
+  <title>春招准备-3.10 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/春招准备-3.10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">春招准备-3.10</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T09:52:01+08:00">
+                2020-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/春招/" itemprop="url" rel="index">
+                    <span itemprop="name">春招</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>算法：深度优先，广度优先</li>
+<li><p>宏队列，微队列，事件循环</p>
+</li>
+<li><p>事件冒泡与事件捕获</p>
+</li>
+<li>重绘与回流</li>
+<li>requestAnimationFrame 和 setTimeout 的区别 </li>
+<li>事件委托机制</li>
+<li>前端路由的实现方法</li>
+<li>for in和for of的区别</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-深度优先，广度优先（层次遍历）"><a href="#1-深度优先，广度优先（层次遍历）" class="headerlink" title="1.深度优先，广度优先（层次遍历）"></a>1.深度优先，广度优先（层次遍历）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//深度优先的递归实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepTraversal</span>(<span class="params">node,nodeList</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (node) &#123;    </span><br><span class="line">            nodeList.push(node);    </span><br><span class="line">            <span class="keyword">var</span> children = node.children;    </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++) </span><br><span class="line">      <span class="comment">//每次递归的时候将  需要遍历的节点  和 节点所存储的数组传下去</span></span><br><span class="line">                deepTraversal(children[i],nodeList);    </span><br><span class="line">        &#125;    </span><br><span class="line">    <span class="keyword">return</span> nodeList;  </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//深度优先非递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepTraversal</span>(<span class="params">node</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> nodeList = [];  </span><br><span class="line">    <span class="keyword">if</span> (node) &#123;  </span><br><span class="line">        <span class="keyword">var</span> stack = [];  </span><br><span class="line">        stack.push(node);  </span><br><span class="line">        <span class="keyword">while</span> (stack.length != <span class="number">0</span>) &#123;  </span><br><span class="line">            <span class="keyword">var</span> childrenItem = stack.pop();  </span><br><span class="line">            nodeList.push(childrenItem);  </span><br><span class="line">            <span class="keyword">var</span> childrenList = childrenItem.children;  </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = childrenList.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">//从右向左进栈</span></span><br><span class="line">                stack.push(childrenList[i]);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> nodeList;  </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//广度非递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wideTraversal</span>(<span class="params">node</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> nodes = [];  </span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">var</span> queue = [];  </span><br><span class="line">        queue.unshift(node);     <span class="comment">//加入根节点</span></span><br><span class="line">        <span class="keyword">while</span> (queue.length != <span class="number">0</span>) &#123;  </span><br><span class="line">            <span class="keyword">var</span> item = queue.shift();  <span class="comment">//拿出队头元素</span></span><br><span class="line">            nodes.push(item);          <span class="comment">//加入结果</span></span><br><span class="line">            <span class="keyword">var</span> children = item.children;  <span class="comment">//队友元素的孩子加入队尾</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++)  </span><br><span class="line">                queue.push(children[i]);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> nodes;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-宏任务，微任务，事件循环"><a href="#2-宏任务，微任务，事件循环" class="headerlink" title="2.宏任务，微任务，事件循环"></a>2.宏任务，微任务，事件循环</h2><ul>
+<li>JS 任务分为同步任务和异步任务；</li>
+<li>同步任务都在主线程上执行，形成一个执行栈；</li>
+<li>主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了结果，就在任务队列里面放置一个事件</li>
+<li>一旦执行栈中所有同步任务执行完毕（JS 引擎空闲之后），就会去读取任务队列，将可运行的异步任务添加到可执行栈里面，开始执行。</li>
+</ul>
+<blockquote>
+<p>任务有同步任务、异步任务，而异步任务又分为<strong>宏任务（macro-task）</strong>和<strong>微任务（micro-task）</strong> </p>
+</blockquote>
+<p> <strong>宏任务(macrotask)：</strong>：</p>
+<p>script(整体代码)、setTimeout、setInterval、UI 渲染、 I/O、postMessage、 MessageChannel、setImmediate(Node.js 环境)</p>
+<p><strong>微任务(microtask)：</strong></p>
+<p>Promise、 MutaionObserver、process.nextTick(Node.js环境</p>
+<p> <strong>事件循环(Event Loop)</strong>:   指主线程重复从任务队列中取任务、执行的过程 </p>
+<ul>
+<li>选择最先进入队列的宏任务(通常是<code>script</code>整体代码)，如果有则执行</li>
+<li>检查是否存在 Microtask，如果存在则不停的执行，直至清空 microtask 队列</li>
+<li>更新render(每一次事件循环，浏览器都可能会去更新渲染)</li>
+<li>重复以上步骤</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//script start</span></span><br><span class="line"><span class="comment">//script end</span></span><br><span class="line"><span class="comment">//promise1</span></span><br><span class="line"><span class="comment">//promise2</span></span><br><span class="line"><span class="comment">//setTimeout</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-事件冒泡与事件捕获"><a href="#3-事件冒泡与事件捕获" class="headerlink" title="3. 事件冒泡与事件捕获"></a>3. 事件冒泡与事件捕获</h2><ul>
+<li><strong>事件冒泡</strong></li>
+</ul>
+<blockquote>
+<p>当给父子元素的同一事件绑定方法的时候，触发子元素身上的事件，执行完毕之后，也会触发父级元素相同的事件，这种机制叫事件冒泡 </p>
+</blockquote>
+<ul>
+<li>事件捕获</li>
+</ul>
+<blockquote>
+<p>给父子元素用绑定同一事件时，当触发子元素身上的事件时，先触发父元素，然后在传递给子元素，这种传播机制叫事件捕获；</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">sayBox3</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'你点了最里面的box'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">sayBox2</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'你点了最中间的box'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">sayBox1</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'你点了最外面的box'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 事件监听，第三个参数是布尔值，默认false，false是事件冒泡，true是事件捕获</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, sayBox3, <span class="literal">false</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'box2'</span>).addEventListener(<span class="string">'click'</span>, sayBox2, <span class="literal">false</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'box1'</span>).addEventListener(<span class="string">'click'</span>, sayBox1, <span class="literal">false</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-重绘与回流"><a href="#4-重绘与回流" class="headerlink" title="4.重绘与回流"></a>4.重绘与回流</h2><p>在页面加载时，浏览器把获取到的HTML代码解析成1个DOM树。 DOM Tree 和样式结构体组合后构建render tree，render tree中每个NODE都有自己的style，而且render tree不包含隐藏的节点，因为这些节点不会用于呈现，而且不会影响呈现的。</p>
+<p><img src="https://segmentfault.com/img/bVbaC2e?w=624&amp;h=289" alt="1"></p>
+<h3 id="什么是回流"><a href="#什么是回流" class="headerlink" title="什么是回流"></a>什么是回流</h3><p>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候，这时候是一定会发生回流的，因为要构建render tree。在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程成为重绘。</p>
+<h3 id="什么是重绘"><a href="#什么是重绘" class="headerlink" title="什么是重绘"></a>什么是重绘</h3><p>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘。</p>
+<h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ul>
+<li>回流必将引起重绘，而重绘不一定会引起回流。比如：只有颜色改变的时候就只会发生重绘而不会引起回流</li>
+<li>当页面布局和几何属性改变时就需要回流。比如：添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变</li>
+</ul>
+<h3 id="浏览器的优化机制"><a href="#浏览器的优化机制" class="headerlink" title="浏览器的优化机制"></a>浏览器的优化机制</h3><p> 由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。 </p>
+<h3 id="如何减少回流，重绘"><a href="#如何减少回流，重绘" class="headerlink" title="如何减少回流，重绘"></a>如何减少回流，重绘</h3><ul>
+<li>CSS中避免回流、重绘</li>
+</ul>
+<ol>
+<li>尽可能在DOM树的最末端改变class</li>
+<li>避免设置多层内联样式</li>
+<li>动画效果应用到position属性为absolute或fixed的元素上</li>
+<li>避免使用table布局</li>
+<li>使用css3硬件加速，可以让transform、opacity、filters等动画效果不会引起回流重绘</li>
+</ol>
+<ul>
+<li>JS操作避免回流、重绘</li>
+</ul>
+<ol>
+<li>避免使用JS一个样式修改完接着改下一个样式，最好一次性更改CSS样式，或者将样式列表定义为class的名称</li>
+<li>避免频繁操作DOM，使用文档片段创建一个子树，然后再拷贝到文档中</li>
+<li>先隐藏元素，进行修改后再显示该元素，因为display:none上的DOM操作不会引发回流和重绘</li>
+<li>避免循环读取offsetLeft等属性，在循环之前把它们存起来</li>
+<li>对于复杂动画效果,使用绝对定位让其脱离文档流，否则会引起父元素及后续元素大量的回流</li>
+</ol>
+<h2 id="5-requestAnimationFrame-和-setTimeout-的区别"><a href="#5-requestAnimationFrame-和-setTimeout-的区别" class="headerlink" title="5.requestAnimationFrame 和 setTimeout 的区别"></a>5.requestAnimationFrame 和 setTimeout 的区别</h2><h3 id="（1）seTimeout实现动画："><a href="#（1）seTimeout实现动画：" class="headerlink" title="（1）seTimeout实现动画："></a>（1）seTimeout实现动画：</h3><p>利用seTimeout实现的动画在某些低端机上会出现卡顿、抖动的现象</p>
+<p>　　<strong>原因一</strong>、setTimeout的执行时间并不是确定的。在Javascript中， setTimeout 任务被放进了异步队列中，只有当主线程上的任务执行完以后，才会去检查该队列里的任务是否需要开始执行，因此 setTimeout 的实际执行时间一般要比其设定的时间晚一些。</p>
+<p>　　<strong>原因二</strong>、刷新频率受屏幕分辨率和屏幕尺寸的影响，因此不同设备的屏幕刷新频率可能会不同，而 setTimeout只能设置一个固定的时间间隔，这个时间不一定和屏幕的刷新时间相同。</p>
+<p>　　上两种情况都会导致setTimeout的执行步调和屏幕的刷新步调不一致，从而引起丢帧现象。</p>
+<p><strong>setTimeout的执行只是在内存中对图像属性进行改变，这个变化必须要等到屏幕下次刷新时才会被更新到屏幕上。如果两者的步调不一致，就可能会导致中间某一帧的操作被跨越过去，而直接更新下一帧的图像。</strong></p>
+<h3 id="（2）requestAnimationFrame实现动画："><a href="#（2）requestAnimationFrame实现动画：" class="headerlink" title="（2）requestAnimationFrame实现动画："></a>（2）<strong>requestAnimationFrame实现动画：</strong></h3><p>​    requestAnimationFrame最大的优势是由系统来决定回调函数的执行时机。</p>
+<p>　　如果屏幕刷新率是60Hz,那么回调函数就每16.7ms被执行一次，如果刷新率是75Hz，那么这个时间间隔就变成了1000/75=13.3ms，换句话说就是，requestAnimationFrame的步伐跟着系统的刷新步伐走。它能保证回调函数在屏幕每一次的刷新间隔中只被执行一次，这样就不会引起丢帧现象，也不会导致动画出现卡顿的问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line">animation = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( num++ );</span><br><span class="line">	animation = requestAnimationFrame(fn);<span class="comment">//异步</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line">	</span><br><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	cancelAnimation( animation );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-事件委托机制"><a href="#6-事件委托机制" class="headerlink" title="6.事件委托机制"></a>6.事件委托机制</h2><p>JavaScript高级程序设计上讲：事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。 </p>
+<h3 id="为什么要用事件委托"><a href="#为什么要用事件委托" class="headerlink" title="为什么要用事件委托"></a>为什么要用事件委托</h3><p>一般来说，dom需要有事件处理程序，我们都会直接给它设事件处理程序就好了，那如果是很多的dom需要添加事件处理呢？比如我们有100个li，每个li都有相同的click点击事件，可能我们会用for循环的方法，来遍历所有的li，然后给它们添加事件，那这么做会存在什么影响呢？</p>
+<p>在JavaScript中，添加到页面上的事件处理程序数量将直接关系到页面的整体运行性能，因为需要不断的与dom节点进行交互，访问dom的次数越多，引起浏览器重绘与重排的次数也就越多，就会延长整个页面的交互就绪时间，这就是为什么性能优化的主要思想之一就是减少DOM操作的原因；如果要用事件委托，就会将所有的操作放到js程序里面，与dom的操作就只需要交互一次，这样就能大大的减少与dom的交互次数，提高性能；</p>
+<p>每个函数都是一个对象，是对象就会占用内存，对象越多，内存占用率就越大，自然性能就越差了，比如上面的100个li，就要占用100个内存空间，如果用事件委托，那么我们就可以只对它的父级（如果只有一个父级）这一个对象进行操作，这样我们就需要一个内存空间就够了，是不是省了很多，自然性能就会更好。</p>
+<p>如何实现呢？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">'ul'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> oul = <span class="built_in">document</span>.getElementById(<span class="string">"ul"</span>);</span></span><br><span class="line"><span class="javascript">    oul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        alert(123);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--怎么知道点击的是那个li呢，通过事件对象，Event对象提供了一个属性叫target，可以返回事件的目标节点，我们称为事件源，--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">　　<span class="keyword">var</span> oul = <span class="built_in">document</span>.getElementById(<span class="string">"ul"</span>);</span></span><br><span class="line"><span class="javascript">　　oul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">　　　　<span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</span></span><br><span class="line"><span class="javascript">　　　　<span class="keyword">var</span> target = e.target || e.srcElement;  <span class="comment">//IE浏览器用event.srcElement</span></span></span><br><span class="line"><span class="javascript">　　　　<span class="keyword">if</span>(target.nodeName.toLowerCase() == <span class="string">'li'</span>)&#123;</span></span><br><span class="line"><span class="undefined">　 　　　　　　	alert(123);</span></span><br><span class="line"><span class="undefined">　　　　&#125;</span></span><br><span class="line"><span class="undefined">　　&#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-前端路由的实现方法"><a href="#7-前端路由的实现方法" class="headerlink" title="7.前端路由的实现方法"></a>7.前端路由的实现方法</h2><h3 id="什么是前端路由？"><a href="#什么是前端路由？" class="headerlink" title="什么是前端路由？"></a><strong>什么是前端路由？</strong></h3><p>路由的概念来源于服务端，在服务端中路由描述的是 URL 与处理函数之间的映射关系。</p>
+<p>在 Web 前端单页应用 SPA(Single Page Application)中，路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。</p>
+<h3 id="如何实现前端路由？"><a href="#如何实现前端路由？" class="headerlink" title="如何实现前端路由？"></a><strong>如何实现前端路由？</strong></h3><p>要实现前端路由，需要解决两个核心问题：</p>
+<ol>
+<li>如何改变 URL 却不引起页面刷新？</li>
+<li>如何检测 URL 变化了？</li>
+</ol>
+<p>下面分别使用 hash 和 history 两种实现方式回答上面的两个核心问题。</p>
+<h3 id="hash-实现-点击链接则改变hash，监听hash是否改变，改变就重新渲染UI"><a href="#hash-实现-点击链接则改变hash，监听hash是否改变，改变就重新渲染UI" class="headerlink" title="hash 实现:点击链接则改变hash，监听hash是否改变，改变就重新渲染UI"></a><strong>hash 实现:</strong>点击链接则改变hash，监听hash是否改变，改变就重新渲染UI</h3><ol>
+<li>hash 是 URL 中 hash (<code>#</code>) 及后面的那部分，常用作锚点在页面内进行导航，改变 URL 中的 hash 部分不会引起页面刷新</li>
+<li>通过 <a href="https://link.zhihu.com/?target=https%3A//developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event" target="_blank" rel="noopener">hashchange</a> 事件监听 URL 的变化，改变 URL 的方式只有这几种：通过浏览器前进后退改变 URL、通过<code>标签改变 URL、通过wind</code>ow.location改变URL，这几种情况改变 URL 都会触发 hashchange 事件</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 定义路由 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/home"</span>&gt;</span>home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/about"</span>&gt;</span>about<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">        <span class="comment">&lt;!-- 渲染路由对应的 UI --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"routeView"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="comment">// 页面加载完不会触发 hashchange，这里主动触发一次 hashchange 事件</span></span></span><br><span class="line"><span class="javascript">          <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, onLoad)</span></span><br><span class="line"><span class="javascript">          <span class="comment">// 监听路由变化</span></span></span><br><span class="line"><span class="javascript">          <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, onHashChange)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="comment">// 路由视图</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> routerView = <span class="literal">null</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="function"><span class="keyword">function</span> <span class="title">onLoad</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              routerView = <span class="built_in">document</span>.querySelector(<span class="string">'#routeView'</span>)</span></span><br><span class="line"><span class="undefined">              onHashChange()</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">          <span class="comment">// 路由变化时，根据路由渲染对应 UI</span></span></span><br><span class="line"><span class="javascript">          <span class="function"><span class="keyword">function</span> <span class="title">onHashChange</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">switch</span> (location.hash) &#123;</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">case</span> <span class="string">'#/home'</span>:</span></span><br><span class="line"><span class="javascript">                  routerView.innerHTML = <span class="string">'Home'</span></span></span><br><span class="line"><span class="javascript">                  <span class="keyword">return</span></span></span><br><span class="line"><span class="javascript">                  <span class="keyword">case</span> <span class="string">'#/about'</span>:</span></span><br><span class="line"><span class="javascript">                  routerView.innerHTML = <span class="string">'About'</span></span></span><br><span class="line"><span class="javascript">                  <span class="keyword">return</span></span></span><br><span class="line"><span class="javascript">                  <span class="keyword">default</span>:</span></span><br><span class="line"><span class="javascript">                  <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">              &#125;</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="history-实现-点击链接后-采用pushState改变url，根据url的变化渲染ui"><a href="#history-实现-点击链接后-采用pushState改变url，根据url的变化渲染ui" class="headerlink" title="history 实现:点击链接后,采用pushState改变url，根据url的变化渲染ui"></a>history 实现:点击链接后,采用pushState改变url，根据url的变化渲染ui</h3><ol>
+<li>history 提供了 pushState 和 replaceState 两个方法，这两个方法改变 URL 的 path 部分不会引起页面刷新.但是会分别添加和修改历史记录。</li>
+<li><p>history 提供类似 hashchange 事件的 <a href="https://link.zhihu.com/?target=https%3A//developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event" target="_blank" rel="noopener">popstate</a> 事件，但 popstate 事件有些不同：通过浏览器前进后退改变 URL 时会触发 popstate 事件，通过<code>pushState/replaceState</code>或标签改变 URL 不会触发 popstate 事件。好在我们可以拦截 pushState，eplaceState的调用和标签的点击事件来检测 URL 变化，所以监听 URL 变化可以实现，只是没有 hashchange 那么方便。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 定义路由 --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/home"</span>&gt;</span>home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/about"</span>&gt;</span>about<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">          <span class="comment">&lt;!-- 渲染路由对应的 UI --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"routeView"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 页面加载完不会触发 hashchange，这里主动触发一次 hashchange 事件</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, onLoad)</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 监听路由变化</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, onPopState)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 路由视图</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> routerView = <span class="literal">null</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">onLoad</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            routerView = <span class="built_in">document</span>.querySelector(<span class="string">'#routeView'</span>)</span></span><br><span class="line"><span class="undefined">            onPopState()</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 拦截 &lt;a&gt; 标签点击事件默认行为， 点击时使用 pushState 修改 URL并更新手动 UI，从而实现点击链接更新 URL 和 UI 的效果。</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> linkList = <span class="built_in">document</span>.querySelectorAll(<span class="string">'a[href]'</span>)</span></span><br><span class="line"><span class="javascript">            linkList.forEach(<span class="function"><span class="params">el</span> =&gt;</span> el.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                e.preventDefault()</span></span><br><span class="line"><span class="javascript">                history.pushState(<span class="literal">null</span>, <span class="string">''</span>, el.getAttribute(<span class="string">'href'</span>))</span></span><br><span class="line"><span class="undefined">                onPopState()</span></span><br><span class="line"><span class="undefined">            &#125;))</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 路由变化时，根据路由渲染对应 UI</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">onPopState</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">switch</span> (location.pathname) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">case</span> <span class="string">'/home'</span>:</span></span><br><span class="line"><span class="javascript">                routerView.innerHTML = <span class="string">'Home'</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">case</span> <span class="string">'/about'</span>:</span></span><br><span class="line"><span class="javascript">                routerView.innerHTML = <span class="string">'About'</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">default</span>:</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="8-for-in和for-of的区别"><a href="#8-for-in和for-of的区别" class="headerlink" title="8.for in和for of的区别"></a>8.for in和for of的区别</h2><p> 最直接的区别是：</p>
+<ul>
+<li>for in遍历的是数组的索引（即键名），</li>
+<li>for of遍历的是数组元素值。</li>
+</ul>
+<p>除此之外，对于for in的缺点</p>
+<ol>
+<li>索引是字符串型的数字，因而不能直接进行几何运算</li>
+<li>遍历顺序可能不是实际的内部顺序</li>
+<li>for in会遍历数组所有的可枚举属性，包括原型。例如的原型方法method和name属性</li>
+</ol>
+<p>对于for of的缺点：</p>
+<ol>
+<li>for of不支持普通对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.method=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> myArray=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>];</span><br><span class="line">myArray.name=<span class="string">"数组"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> myArray)</span><br><span class="line">    <span class="built_in">console</span>.log(myArray[index]);    <span class="comment">//0,1,2,method,name</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> value <span class="keyword">of</span> myArray) </span><br><span class="line">    <span class="built_in">console</span>.log(value);    <span class="comment">//1,2,4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    b:<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj[i])   <span class="comment">//1,2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j <span class="keyword">of</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(j)        <span class="comment">//报错obj[Symbol.iterator] is not a function</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9-Symbol"><a href="#9-Symbol" class="headerlink" title="9.Symbol"></a>9.Symbol</h2><ul>
+<li>为什么要用Symbol？</li>
+</ul>
+<p>ES5里面的对象的属性名是字符串，当我们使用时，若想添加一些新属性，可能会出现重名的情况，于是我们借助Symbol来生成一个独一无二的值，这样就可以防止属性名的冲突了。</p>
+<ul>
+<li>Symbol是什么</li>
+</ul>
+<p>她是ES6新引入的一种原始类型数据，使用Symbol可以直接生成一个新的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a1 = <span class="built_in">Symbol</span>(<span class="string">"a1"</span>)</span><br><span class="line"><span class="keyword">let</span> a2 = <span class="built_in">Symbol</span>(<span class="string">"a2"</span>)</span><br><span class="line">a1===a2 <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/09/春招准备-3.9/" rel="next" title="春招准备-3.9">
+                <i class="fa fa-chevron-left"></i> 春招准备-3.9
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-深度优先，广度优先（层次遍历）"><span class="nav-number">1.1.</span> <span class="nav-text">1.深度优先，广度优先（层次遍历）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-宏任务，微任务，事件循环"><span class="nav-number">1.2.</span> <span class="nav-text">2.宏任务，微任务，事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-事件冒泡与事件捕获"><span class="nav-number">1.3.</span> <span class="nav-text">3. 事件冒泡与事件捕获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-重绘与回流"><span class="nav-number">1.4.</span> <span class="nav-text">4.重绘与回流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是回流"><span class="nav-number">1.4.1.</span> <span class="nav-text">什么是回流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是重绘"><span class="nav-number">1.4.2.</span> <span class="nav-text">什么是重绘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别："><span class="nav-number">1.4.3.</span> <span class="nav-text">区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器的优化机制"><span class="nav-number">1.4.4.</span> <span class="nav-text">浏览器的优化机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何减少回流，重绘"><span class="nav-number">1.4.5.</span> <span class="nav-text">如何减少回流，重绘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-requestAnimationFrame-和-setTimeout-的区别"><span class="nav-number">1.5.</span> <span class="nav-text">5.requestAnimationFrame 和 setTimeout 的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）seTimeout实现动画："><span class="nav-number">1.5.1.</span> <span class="nav-text">（1）seTimeout实现动画：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）requestAnimationFrame实现动画："><span class="nav-number">1.5.2.</span> <span class="nav-text">（2）requestAnimationFrame实现动画：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-事件委托机制"><span class="nav-number">1.6.</span> <span class="nav-text">6.事件委托机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用事件委托"><span class="nav-number">1.6.1.</span> <span class="nav-text">为什么要用事件委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-前端路由的实现方法"><span class="nav-number">1.7.</span> <span class="nav-text">7.前端路由的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是前端路由？"><span class="nav-number">1.7.1.</span> <span class="nav-text">什么是前端路由？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现前端路由？"><span class="nav-number">1.7.2.</span> <span class="nav-text">如何实现前端路由？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-实现-点击链接则改变hash，监听hash是否改变，改变就重新渲染UI"><span class="nav-number">1.7.3.</span> <span class="nav-text">hash 实现:点击链接则改变hash，监听hash是否改变，改变就重新渲染UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-实现-点击链接后-采用pushState改变url，根据url的变化渲染ui"><span class="nav-number">1.7.4.</span> <span class="nav-text">history 实现:点击链接后,采用pushState改变url，根据url的变化渲染ui</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-for-in和for-of的区别"><span class="nav-number">1.8.</span> <span class="nav-text">8.for in和for of的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Symbol"><span class="nav-number">1.9.</span> <span class="nav-text">9.Symbol</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
