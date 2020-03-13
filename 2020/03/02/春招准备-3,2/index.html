@@ -109,7 +109,7 @@
 <meta property="og:description" content="首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/801336/201806/801336-20180602081838664-361436590.png">
-<meta property="og:updated_time" content="2020-03-02T15:07:12.675Z">
+<meta property="og:updated_time" content="2020-03-12T03:48:46.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.2">
 <meta name="twitter:description" content="首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.6k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -452,7 +452,7 @@
 <ul>
 <li>首先来说一下协议HTTP和HTTPS</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https并非应用层的一种新协议，只是http通信接口部分用ssl/tls协议代替而已。</span><br><span class="line">通常http直接和tcp通信，当使用ssl时则演变成先和ssl通信，再由ssl和tcp通信。</span><br><span class="line">所谓https，其实就是身披ssl协议这层外壳的http。（回忆一下osi7层,TCP/IP4层，我们学的是5层）</span><br><span class="line"></span><br><span class="line">SSL协议采用的是非对称加密算法，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密.</span><br><span class="line"></span><br><span class="line">RSA算法：两个大素数p,q，n=pq,f(n)=(p-1)(q-1),1&lt;b&lt;f(n),a=b^-1modf(n),公钥n,b,私钥p,q,a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https并非应用层的一种新协议，只是http通信接口部分用ssl/tls协议代替而已。</span><br><span class="line">SSL和TLS都是加密协议</span><br><span class="line">通常http直接和tcp通信，当使用ssl时则演变成先和ssl通信，再由ssl和tcp通信。</span><br><span class="line">所谓https，其实就是身披ssl协议这层外壳的http。（回忆一下osi7层,TCP/IP4层，我们学的是5层）</span><br><span class="line"></span><br><span class="line">SSL协议采用的是非对称加密算法，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密.</span><br><span class="line"></span><br><span class="line">RSA算法：两个大素数p,q，n=pq,f(n)=(p-1)(q-1),1&lt;b&lt;f(n),a=b^-1modf(n),公钥n,b,私钥p,q,a</span><br><span class="line"></span><br><span class="line">证书，顾名思义，就是证明的文件。例如浏览器和 tlanyan.me 服务器通信，浏览器怎么知道对方就是 tlanyan.me 对应的服务器呢？在不可信的网络下通信，中立的第三方作用就显现出来了。权威的第三方中立机构（ Certificate Authority, CA）收到 tlanyan.me 持有者的证书请求并核验信息后，将持有者的名称、公钥与 CA 用私钥生成的数字签名等信息写成证书颁发给申请者。</span><br></pre></td></tr></table></figure>
 <p><img src="https://images2018.cnblogs.com/blog/801336/201806/801336-20180602081838664-361436590.png" alt="2"></p>
 <ul>
 <li>三次握手，四次握手</li>
@@ -586,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
