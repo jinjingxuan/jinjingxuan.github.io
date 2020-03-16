@@ -109,7 +109,7 @@
 <meta property="og:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流  requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://segmentfault.com/img/bVbaC2e?w=624&h=289">
-<meta property="og:updated_time" content="2020-03-11T02:28:17.385Z">
+<meta property="og:updated_time" content="2020-03-16T12:05:32.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.10">
 <meta name="twitter:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流  requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.9k
+                  4.6k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  18
                 </span>
               
             </div>
@@ -453,7 +453,8 @@
 <li>一旦执行栈中所有同步任务执行完毕（JS 引擎空闲之后），就会去读取任务队列，将可运行的异步任务添加到可执行栈里面，开始执行。</li>
 </ul>
 <blockquote>
-<p>任务有同步任务、异步任务，而异步任务又分为<strong>宏任务（macro-task）</strong>和<strong>微任务（micro-task）</strong> </p>
+<p>任务有同步任务、异步任务，ES5中这么分足够了</p>
+<p>由于ES6有promise，就任务又分为<strong>宏任务（macro-task）</strong>和<strong>微任务（micro-task）</strong> </p>
 </blockquote>
 <p> <strong>宏任务(macrotask)：</strong>：</p>
 <p>script(整体代码)、setTimeout、setInterval、UI 渲染、 I/O、postMessage、 MessageChannel、setImmediate(Node.js 环境)</p>
@@ -466,7 +467,25 @@
 <li>更新render(每一次事件循环，浏览器都可能会去更新渲染)</li>
 <li>重复以上步骤</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//script start</span></span><br><span class="line"><span class="comment">//script end</span></span><br><span class="line"><span class="comment">//promise1</span></span><br><span class="line"><span class="comment">//promise2</span></span><br><span class="line"><span class="comment">//setTimeout</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//script start</span></span><br><span class="line"><span class="comment">//script end</span></span><br><span class="line"><span class="comment">//promise1</span></span><br><span class="line"><span class="comment">//promise2</span></span><br><span class="line"><span class="comment">//setTimeout</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'async1 start'</span>)  <span class="comment">//2</span></span><br><span class="line">    <span class="keyword">await</span> async2()               </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)    <span class="comment">//6   放入了微队列</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'async2'</span>)       <span class="comment">//3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)     <span class="comment">//1</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)   <span class="comment">//8</span></span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line">async1()</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)     <span class="comment">//4</span></span><br><span class="line">    resolve()</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)    <span class="comment">//7   放入了微队列</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)     <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//await是一个让出线程的标志。await后面的表达式会先执行一遍，将await 后面的代码加入到microtask中，然后就会跳出整个async函数来执行后面的代码</span></span><br><span class="line">script start</span><br><span class="line">async1 start</span><br><span class="line">async2</span><br><span class="line">promise1</span><br><span class="line">script end</span><br><span class="line">async1 end</span><br><span class="line">promise2</span><br><span class="line">setTimeout</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.首先，事件循环从宏任务(macrotask)队列开始，这个时候，宏任务队列中，只有一个script(整体代码)任务；当遇到任务源(task source)时，则会先分发任务到对应的任务队列中去。</p>
+</blockquote>
+<blockquote>
+<p>2.然后我们看到首先定义了两个async函数，接着往下看，然后遇到了 console 语句，直接输出 script start。输出之后，script 任务继续往下执行，遇到 setTimeout，其作为一个宏任务源，则会先将其任务分发到对应的队列中</p>
+</blockquote>
+<blockquote>
+<p>3.script 任务继续往下执行，执行了async1()函数，前面讲过async函数中在await之前的代码是立即执行的，所以会立即输出async1 start。<br> 遇到了await时，会将await后面的表达式执行一遍，所以就紧接着输出async2，然后将await后面的代码也就是console.log(‘async1 end’)加入到microtask中的Promise队列中，接着跳出async1函数来执行后面的代码</p>
+</blockquote>
+<blockquote>
+<p>4.script任务继续往下执行，遇到Promise实例。由于Promise中的函数是立即执行的，而后续的 .then 则会被分发到 microtask 的 Promise 队列中去。所以会先输出 promise1，然后执行 resolve，将 promise2 分配到对应队列</p>
+</blockquote>
+<blockquote>
+<p>5.script任务继续往下执行，最后只有一句输出了 script end，至此，全局任务就执行完毕了。<br> 根据上述，每次执行完一个宏任务之后，会去检查是否存在 Microtasks；如果有，则执行 Microtasks 直至清空 Microtask Queue。<br> 因而在script任务执行完毕之后，开始查找清空微任务队列。此时，微任务中， Promise 队列有的两个任务async1 end和promise2，因此按先后顺序输出 async1 end，promise2。当所有的 Microtasks 执行完毕之后，表示第一轮的循环就结束了</p>
+</blockquote>
+<blockquote>
+<p>6.第二轮循环依旧从宏任务队列开始。此时宏任务中只有一个 setTimeout，取出直接输出即可，至此整个流程结束</p>
+</blockquote>
 <h2 id="3-事件冒泡与事件捕获"><a href="#3-事件冒泡与事件捕获" class="headerlink" title="3. 事件冒泡与事件捕获"></a>3. 事件冒泡与事件捕获</h2><ul>
 <li><strong>事件冒泡</strong></li>
 </ul>
@@ -683,7 +702,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

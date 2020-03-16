@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="春招准备-3.16">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/春招准备-3.16/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2295405-2012a343e5e0c162.png?imageMogr2/auto-orient/strip|imageView2/2/w/423/format/webp">
+<meta property="og:updated_time" content="2020-03-16T05:53:10.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="春招准备-3.16">
+<meta name="twitter:description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2295405-2012a343e5e0c162.png?imageMogr2/auto-orient/strip|imageView2/2/w/423/format/webp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/16/春招准备-3.16/"/>
+
+
+
+
+
+  <title>春招准备-3.16 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/春招准备-3.16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">春招准备-3.16</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T09:52:01+08:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/春招/" itemprop="url" rel="index">
+                    <span itemprop="name">春招</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>什么是脱离文档流，定位与浮动</li>
+<li>值类型与引用类型，堆和栈</li>
+<li>MVC与MVVM</li>
+<li>说一下Vue数据双向绑定的原理</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-什么是脱离文档流，定位与浮动"><a href="#1-什么是脱离文档流，定位与浮动" class="headerlink" title="1.什么是脱离文档流，定位与浮动"></a>1.什么是脱离文档流，定位与浮动</h2><p>所谓的<strong>文档流</strong>，指的是元素排版布局过程中，元素会自动从左往右，从上往下的流式排列。</p>
+<p><strong>脱离文档流</strong>，也就是将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。</p>
+<p><strong>浮动 ( float ) 和绝对定位 ( position:absolute )</strong> </p>
+<p>（1）均脱离文档流</p>
+<p>（2）均不占位</p>
+<p>（3）浮动情况下，其他元素会自动在其右边排列。绝对定位会完全忽视其存在。</p>
+<h2 id="2-值类型与引用类型，堆和栈"><a href="#2-值类型与引用类型，堆和栈" class="headerlink" title="2.值类型与引用类型，堆和栈"></a>2.值类型与引用类型，堆和栈</h2><ul>
+<li>undefined null number string boolean symbol 属于值类型，object array function 属于引用类型 </li>
+<li>值类型存储在栈中，引用类型存储在堆中。</li>
+<li>值类型有固定的大小和值，存放在栈中，而引用类型不确定大小，但是其引用地址是固定的，因此，它的地址存在栈中，指向存在堆中的对象。 </li>
+<li>值类型不可添加属性和方法，而引用类型可以添加属性和方法 </li>
+<li>值类型比较只要相等，就可以用==或者===来比较，但是引用类型，即使let s = {};let s1 = {};但他们的内存地址不一样，比较依然不相等。</li>
+<li>stack为自动分配的内存空间，它由系统自动释放；而heap则是动态分配的内存，大小不定也不会自动释放。  </li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2295405-2012a343e5e0c162.png?imageMogr2/auto-orient/strip|imageView2/2/w/423/format/webp" alt="1"></p>
+<h2 id="3-MVC与MVVM"><a href="#3-MVC与MVVM" class="headerlink" title="3.MVC与MVVM"></a>3.MVC与MVVM</h2><p>（1）MVC的定义：MVC是Model-View- Controller的简写。即模型-视图-控制器。 </p>
+<ul>
+<li>Model（模型）表示应用程序核心（如数据库）。</li>
+<li>View（视图）显示效果（HTML页面）。</li>
+<li>Controller（控制器）处理输入（业务逻辑）。 </li>
+</ul>
+<p>（2）MVVM是Model-View-ViewModel的简写。即模型-视图-视图模型。是MVC的升级版</p>
+<ul>
+<li>【模型】指的是后端传递的数据。</li>
+<li>【视图】指的是所看到的页面。</li>
+<li>【视图模型】mvvm模式的核心，它是连接view和model的桥梁。它有两个方向，也就是常说的双向绑定。 </li>
+</ul>
+<p>（3）在以前传统的开发模式当中即MVC模式，前端人员只负责MVC当中的View（视图）部分，写好页面交由后端创建渲染模板并提供数据，随着MVVM模式的出现前端已经可以自己写业务逻辑以及渲染模板，后端只负责数据即可，前端所能做的事情越来越多。</p>
+<h2 id="4-说一下Vue数据双向绑定的原理"><a href="#4-说一下Vue数据双向绑定的原理" class="headerlink" title="4.说一下Vue数据双向绑定的原理"></a>4.说一下Vue数据双向绑定的原理</h2><p>vue其实就是基于MVVM，Vue实例控制的元素区域就是V，new出来的Vue对象就是VM调度者，Vue实例中 的data就是M。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>         <span class="comment">&lt;!--V--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;       <span class="comment">//VM</span></span></span><br><span class="line"><span class="javascript">        el:<span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">        data:&#123;</span></span><br><span class="line"><span class="javascript">            msg:<span class="string">'欢迎学习'</span>    <span class="comment">//M</span></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式 。</p>
+<h3 id="（1）发布者-订阅者模式（观察者模式）"><a href="#（1）发布者-订阅者模式（观察者模式）" class="headerlink" title="（1）发布者-订阅者模式（观察者模式）"></a>（1）发布者-订阅者模式（观察者模式）</h3><p>观察者模式又叫做发布—订阅模式，是我们最常用的设计模式之一。它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知和更新。 </p>
+<h3 id="（2）观察者模式的使用场景"><a href="#（2）观察者模式的使用场景" class="headerlink" title="（2）观察者模式的使用场景"></a>（2）观察者模式的使用场景</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DOM事件</span></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"Hello World"</span>)</span><br><span class="line">&#125;，<span class="literal">false</span> )</span><br><span class="line"><span class="built_in">document</span>.body.click() <span class="comment">//模拟用户点击</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//我们订阅了 document.body 的 click 事件，当 body 节点被点击时，body 节点便会向订阅者发布 "Hello World" 消息。</span></span><br></pre></td></tr></table></figure>
+<h3 id="（3）回顾一下Object-defineProperty"><a href="#（3）回顾一下Object-defineProperty" class="headerlink" title="（3）回顾一下Object.defineProperty"></a>（3）回顾一下Object.defineProperty</h3><ul>
+<li><p>语法</p>
+<blockquote>
+<p> Object.<strong>defineProperty</strong>(obj,prop,descriptor)</p>
+</blockquote>
+</li>
+<li><p>参数</p>
+<blockquote>
+<p> obj:目标对象</p>
+<p>prop:需要定义的属性或方法的名称</p>
+<p>descriptor:目标属性所拥有的特性</p>
+</blockquote>
+</li>
+<li><p>可供定义的特性列表</p>
+<blockquote>
+<p><strong>value</strong>:属性的值</p>
+<p><strong>writable</strong>:如果为false，属性的值就不能被重写。</p>
+<p><strong>get</strong>: 一旦目标属性被访问就会调回此方法，并将此方法的运算结果返回用户。</p>
+<p><strong>set</strong>:一旦目标属性被赋值，就会调回此方法。</p>
+<p><strong>configurable</strong>: 如果为false，则任何尝试删除目标属性或修改属性性以下特性（writable, configurable, enumerable）的行为将被无效化。</p>
+<p><strong>enumerable</strong>: 是否能在for…in循环中遍历出来或在Object.keys中列举出来。</p>
+</blockquote>
+<h3 id="4）什么是数据劫持"><a href="#4）什么是数据劫持" class="headerlink" title="(4）什么是数据劫持"></a>(4）什么是数据劫持</h3><p>通过上面对Object.defineProperty的介绍，我们不难发现，<strong>当我们访问或设置对象的属性的时候，都会触发相对应的函数</strong>，然后在这个函数里<strong>返回或设置属性的值</strong>。</p>
+<p>既然如此，我们当然可以在<strong>触发函数的时候</strong>动一些手脚做点我们自己想做的事情，这也就是<strong>“劫持”操作</strong>。</p>
+<p>在Vue中其实就是通过<strong>Object.defineProperty来劫持对象属性的setter和getter操作</strong>，并<strong>“种下”一个监听器</strong>，当数据发生变化的时候发出通知。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">    name:<span class="string">'lhl'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:<span class="literal">true</span>, <span class="comment">// 是否能在for...in循环中遍历出来或在Object.keys中列举出来。</span></span><br><span class="line">        configurable:<span class="literal">true</span>, <span class="comment">// false，不可修改、删除目标属性或修改属性性以下特性</span></span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'get'</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'监听到数据发生了变化'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)；</span><br><span class="line">data.name <span class="comment">//控制台会打印出 “get”</span></span><br><span class="line">data.name = <span class="string">'hxx'</span> <span class="comment">//控制台会打印出 "监听到数据发生了变化"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/13/春招准备-3.13/" rel="next" title="春招准备-3.13">
+                <i class="fa fa-chevron-left"></i> 春招准备-3.13
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">111</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是脱离文档流，定位与浮动"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是脱离文档流，定位与浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-值类型与引用类型，堆和栈"><span class="nav-number">1.2.</span> <span class="nav-text">2.值类型与引用类型，堆和栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MVC与MVVM"><span class="nav-number">1.3.</span> <span class="nav-text">3.MVC与MVVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说一下Vue数据双向绑定的原理"><span class="nav-number">1.4.</span> <span class="nav-text">4.说一下Vue数据双向绑定的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）发布者-订阅者模式（观察者模式）"><span class="nav-number">1.4.1.</span> <span class="nav-text">（1）发布者-订阅者模式（观察者模式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）观察者模式的使用场景"><span class="nav-number">1.4.2.</span> <span class="nav-text">（2）观察者模式的使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）回顾一下Object-defineProperty"><span class="nav-number">1.4.3.</span> <span class="nav-text">（3）回顾一下Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）什么是数据劫持"><span class="nav-number">1.4.4.</span> <span class="nav-text">(4）什么是数据劫持</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
