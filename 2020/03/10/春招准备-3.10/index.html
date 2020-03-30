@@ -109,7 +109,7 @@
 <meta property="og:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流  requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://segmentfault.com/img/bVbaC2e?w=624&h=289">
-<meta property="og:updated_time" content="2020-03-17T10:31:35.541Z">
+<meta property="og:updated_time" content="2020-03-29T08:55:10.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.10">
 <meta name="twitter:description" content="今日清单 算法：深度优先，广度优先 宏队列，微队列，事件循环  事件冒泡与事件捕获  重绘与回流  requestAnimationFrame 和 setTimeout 的区别  事件委托机制 前端路由的实现方法 for in和for of的区别">
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17
+                  18
                 </span>
               
             </div>
@@ -486,6 +486,8 @@
 <blockquote>
 <p>6.第二轮循环依旧从宏任务队列开始。此时宏任务中只有一个 setTimeout，取出直接输出即可，至此整个流程结束</p>
 </blockquote>
+<p>面试官问：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout（()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"1"</span>)</span><br><span class="line">&#125;, <span class="number">0</span>）;</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>（resolve =&gt; &#123;</span><br><span class="line">    resolve()</span><br><span class="line">&#125;）.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"2"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"3"</span>)</span><br><span class="line"><span class="comment">//为什么你说先运行宏任务，不直接运行setTimeout呢？</span></span><br><span class="line"><span class="comment">//因为后面如果有console.log("3")时，肯定会先执行3，setTimeout是放到宏任务队列里的。</span></span><br></pre></td></tr></table></figure>
 <h2 id="3-事件冒泡与事件捕获"><a href="#3-事件冒泡与事件捕获" class="headerlink" title="3. 事件冒泡与事件捕获"></a>3. 事件冒泡与事件捕获</h2><ul>
 <li><strong>事件冒泡</strong></li>
 </ul>
@@ -690,7 +692,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">116</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
