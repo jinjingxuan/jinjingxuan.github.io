@@ -109,13 +109,8 @@
 <meta property="og:description" content="今日清单 什么是Sass,Less 什么是webpack webpack的核心概念">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-6ae398f45b5a85e3.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-96d511b73c41ab8a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/384/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-aecdaf88c746305f.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/344/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-68f1095733a6ce63.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/271/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-f7076a59a3863aaf.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/518/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-3617bbaf697873f4.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/204/format/webp">
 <meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&fm=15&gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&fm=15&gp=0.jpg">
-<meta property="og:updated_time" content="2020-04-09T14:02:58.580Z">
+<meta property="og:updated_time" content="2020-04-09T14:47:34.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-4.8">
 <meta name="twitter:description" content="今日清单 什么是Sass,Less 什么是webpack webpack的核心概念">
@@ -400,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  779
+                  808
                 </span>
               
 
@@ -416,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -459,16 +454,13 @@
 <p>使用less，css文件的后缀名需要改为.less在html页面中加入下面代码。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5122957-6ae398f45b5a85e3.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp" alt="img"></p>
 <p>less定义变量</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-96d511b73c41ab8a.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/384/format/webp" alt="1"></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@colors:</span><span class="number">#333</span>;</span><br><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@colors</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>less样式嵌套</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-aecdaf88c746305f.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/344/format/webp" alt="2"></p>
-<p>less嵌套规则</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-68f1095733a6ce63.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/271/format/webp" alt="3"></p>
-<p>名称更为简短，并修改时易查找。</p>
-<p><a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fwebxiaoma%2Farticle%2Fdetails%2F72768170" target="_blank" rel="noopener">less样式的运算</a></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-f7076a59a3863aaf.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/518/format/webp" alt="4"></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="selector-class">.div1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*可以直接嵌入.div1的样式*/</span></span><br></pre></td></tr></table></figure>
+<p>less样式的运算</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@width:</span><span class="number">10%</span></span><br><span class="line">.myP&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="variable">@width</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>-<span class="variable">@width</span>/<span class="number">2</span></span><br><span class="line">    .mixin(red,<span class="number">#657</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>less样式的传参</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-3617bbaf697873f4.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/204/format/webp" alt="5"></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div5</span>(<span class="variable">@widths</span>:<span class="number">5px</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">border-width</span>:<span class="variable">@widths</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="2-什么是webpack"><a href="#2-什么是webpack" class="headerlink" title="2. 什么是webpack"></a>2. 什么是webpack</h2><p>webpack是一种前端资源构建工具，一个静态模块打包器（module bundler）。在webpack看来，前端的所有资源文件（js/json/css/img/less…）都会作为模块处理。它将根据模块的依赖2关系进行静态分析，打包生成对应的静态资源（bundle）</p>
 <p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&amp;fm=15&amp;gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&amp;fm=15&amp;gp=0.jpg" alt="3"></p>
 <h2 id="3-webpack的核心概念"><a href="#3-webpack的核心概念" class="headerlink" title="3. webpack的核心概念"></a>3. webpack的核心概念</h2><h3 id="（1）入口-entry"><a href="#（1）入口-entry" class="headerlink" title="（1）入口(entry)"></a>（1）入口(entry)</h3><p>webpack 创建应用程序所有依赖的关系图。图的起点被称之为入口起点(<code>entry point</code>)。入口起点告诉 webpack 从哪里开始，并根据依赖关系图确定需要打包的内容。可以将应用程序的入口起点认为是根上下文或 APP第一个启动文件。</p>
@@ -510,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/09/春招准备-4.9/" rel="prev" title="春招准备-4.9">
-                春招准备-4.9 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/08/实习-4.16/" rel="prev" title="实习-4.16">
+                实习-4.16 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">125</span>
+                  <span class="site-state-item-count">127</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +596,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
