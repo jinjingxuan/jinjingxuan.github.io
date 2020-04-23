@@ -101,17 +101,20 @@
 
 
 
-<meta name="description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
+<meta name="description" content="今日清单 虚拟DOM 小程序的页面栈 小程序的生命周期">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java学习-判断回文字符串">
-<meta property="og:url" content="http://yoursite.com/2018/08/05/java学习-判断回文字符串/index.html">
+<meta property="og:title" content="实习-4.23">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/实习-4.23/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
+<meta property="og:description" content="今日清单 虚拟DOM 小程序的页面栈 小程序的生命周期">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T03:58:08.964Z">
+<meta property="og:image" content="https://image.fundebug.com/2019-06-26-01.png">
+<meta property="og:image" content="https://image.fundebug.com/2019-06-26-04.png">
+<meta property="og:updated_time" content="2020-04-23T09:24:50.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java学习-判断回文字符串">
-<meta name="twitter:description" content="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。">
+<meta name="twitter:title" content="实习-4.23">
+<meta name="twitter:description" content="今日清单 虚拟DOM 小程序的页面栈 小程序的生命周期">
+<meta name="twitter:image" content="https://image.fundebug.com/2019-06-26-01.png">
 
 
 
@@ -141,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/05/java学习-判断回文字符串/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/23/实习-4.23/"/>
 
 
 
 
 
-  <title>java学习-判断回文字符串 | -Breeze's Blog</title>
+  <title>实习-4.23 | -Breeze's Blog</title>
   
 
 
@@ -309,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/java学习-判断回文字符串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/23/实习-4.23/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -326,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java学习-判断回文字符串</h1>
+          <h1 class="post-title" itemprop="name headline">实习-4.23</h1>
         
 
         <div class="post-meta">
@@ -338,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T16:16:54+08:00">
-                2018-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T09:52:01+08:00">
+                2020-04-23
               </time>
             
 
@@ -361,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java学习/" itemprop="url" rel="index">
-                    <span itemprop="name">java学习</span>
+                  <a href="/categories/实习/" itemprop="url" rel="index">
+                    <span itemprop="name">实习</span>
                   </a>
                 </span>
 
@@ -392,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  146
+                  1.2k
                 </span>
               
 
@@ -408,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -429,8 +432,91 @@
       
 
       
-        <h3 id="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。"><a href="#编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。" class="headerlink" title="编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。"></a>编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。</h3><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//通过 Scanner 类来获取用户的输入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Huiwen</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"请输入一个字符串"</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(input.hasNext()) &#123;<span class="comment">//循环输入多组数据</span></span><br><span class="line">            String str = input.next();</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder(str);</span><br><span class="line">            sb.reverse();<span class="comment">//将str倒置的方法</span></span><br><span class="line">            String newStr = <span class="keyword">new</span> String(sb);</span><br><span class="line">            <span class="keyword">if</span> (str.equals(newStr)) &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"是回文字符串"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(str + <span class="string">"不是回文字符串"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>虚拟DOM</li>
+<li>小程序的页面栈</li>
+<li>小程序的生命周期</li>
+</ul>
+<a id="more"></a>
+<h2 id="vue的虚拟DOM"><a href="#vue的虚拟DOM" class="headerlink" title="vue的虚拟DOM"></a>vue的虚拟DOM</h2><p>参考文章：<a href="https://www.jianshu.com/p/af0b398602bc" target="_blank" rel="noopener">vue核心之虚拟DOM(vdom)</a> ,<a href="https://www.cnblogs.com/fundebug/p/vue-virtual-dom.html" target="_blank" rel="noopener">详解Vue中的虚拟DOM </a></p>
+<p><strong>真实DOM和解析流程</strong></p>
+<blockquote>
+<p> 创建DOM树——创建StyleRules——创建Render树——布局Layout——绘制Painting </p>
+</blockquote>
+<p><strong>JS操作真实DOM的代价</strong></p>
+<blockquote>
+<p>原生JS或JQ操作DOM时，浏览器会从构建DOM树开始从头到尾执行一遍流程。如果连续操作了10次DOM，前一次计算可能为无用功。计算DOM节点坐标值等都是白白浪费的性能。</p>
+</blockquote>
+<p><strong>为什么需要虚拟DOM</strong></p>
+<blockquote>
+<p>虚拟DOM就是为了<strong>解决浏览器性能问题</strong>而被设计出来的。<strong>如前</strong>，若一次操作中有10次更新DOM的动作，虚拟DOM不会立即操作DOM，而是将这10次更新的diff内容保存到本地一个JS对象中，最终将这个JS对象一次性attch到DOM树上，再进行后续操作，避免大量无谓的计算量。</p>
+</blockquote>
+<p>也就是说，可以把虚拟DOM理解为一个简单的JS对象，并且最少包含标签名( tag)、属性(attrs)和子元素对象( children)三个属性,就比如像下面这样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vnode = &#123;</span><br><span class="line">  tag:<span class="string">'div'</span>,</span><br><span class="line">  attrs:&#123;<span class="attr">id</span>:<span class="string">'app'</span>&#125;,</span><br><span class="line">  children:[&#123; <span class="attr">tag</span>:<span class="string">'span'</span>,<span class="attr">attrs</span>:&#123;<span class="attr">id</span>:<span class="string">'child'</span>&#125;,<span class="attr">children</span>:[<span class="string">'1'</span>]&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Vue的渲染流程"><a href="#Vue的渲染流程" class="headerlink" title="Vue的渲染流程"></a>Vue的渲染流程</h3><p><img src="https://image.fundebug.com/2019-06-26-01.png" alt="1"></p>
+<ul>
+<li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制。</li>
+<li><strong>VNode 虚拟节点</strong>：它可以代表一个真实的 dom 节点。通过 createElement 方法能将 VNode 渲染成 dom 节点。简单地说，vnode可以理解成<strong>节点描述对象</strong>，它描述了应该怎样去创建真实的DOM节点。</li>
+<li><p><strong>patch(也叫做patching算法)</strong>：虚拟DOM最核心的部分，它可以将vnode渲染成真实的DOM，这个过程是对比新旧虚拟节点之间有哪些不同，然后根据对比结果找出需要更新的的节点进行更新。</p>
+<p>为了实现高效的DOM操作，一套高效的虚拟DOM diff算法显得很有必要。<strong>我们通过patch 的核心—-diff 算法，找出本次DOM需要更新的节点来更新，其他的不更新</strong>。 </p>
+</li>
+<li><p>patch（补丁）：将虚拟DOM渲染成真实的DOM</p>
+</li>
+<li>diff（差异）：比较新旧虚拟结点之间的不同</li>
+</ul>
+<p><img src="https://image.fundebug.com/2019-06-26-04.png" alt="2"></p>
+<h3 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h3><p>原理：两个树完全的diff算法的时间复杂度为O（n^3）,Vue进行了优化，只比较同级不考虑跨级，时间复杂度为O（n），步骤大致如下：</p>
+<ul>
+<li>同级比较，再比较子结点</li>
+<li>先判断一方有子节点，另一方没有的情况，直接更新</li>
+<li>若都有子节点，递归比较</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diff</span>(<span class="params">vnode, newVnode</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> children = vnode.children || []</span><br><span class="line">    <span class="keyword">var</span> newChildren = newVnode.children || []</span><br><span class="line">  <span class="comment">// 遍历现有的children</span></span><br><span class="line">    children.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">childVnode, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> newChildVnode = newChildren[index]</span><br><span class="line">  <span class="comment">// 两者tag一样</span></span><br><span class="line">        <span class="keyword">if</span> (childVnode.tag === newChildVnode.tag) &#123;</span><br><span class="line">            <span class="comment">// 深层次对比，递归</span></span><br><span class="line">            diff(childVnode, newChildVnode)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">  <span class="comment">// 两者tag不一样</span></span><br><span class="line">           replaceNode(childVnode, newChildVnode) </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我去看了一下源码中的diff算法，在<code>src/vdom/patch.js</code>中，说实话emmm，没看懂，等以后学到位了再详细看把，先在这记录一下。</p>
+<h2 id="小程序的页面栈"><a href="#小程序的页面栈" class="headerlink" title="小程序的页面栈"></a>小程序的页面栈</h2><table>
+<thead>
+<tr>
+<th>路由方式</th>
+<th>页面栈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化</td>
+<td>新页面入栈</td>
+</tr>
+<tr>
+<td>打开新页面（wx.navigateTo）</td>
+<td>新页面入栈</td>
+</tr>
+<tr>
+<td>页面重定向（wx.redirctTo）</td>
+<td>当前页面出栈，新页面入栈</td>
+</tr>
+<tr>
+<td>页面返回（wx.navigateBack）</td>
+<td>页面不断出栈，直到目标返回页，新页面入栈</td>
+</tr>
+<tr>
+<td>Tab切换（wx.switchTab或底部tab切换）</td>
+<td>页面全部出栈，只留下新的Tab页面</td>
+</tr>
+<tr>
+<td>重启动（wx.relaunch）</td>
+<td>页面全部出栈，只留下新的页面</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>navigateTo</code>, <code>redirectTo</code> 只能打开非 tabBar 页面。</li>
+<li><code>switchTab</code> 只能打开 tabBar 页面。</li>
+<li><code>reLaunch</code> 可以打开任意页面。</li>
+<li>页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。</li>
+<li><p>调用页面路由带的参数可以在目标页面的<code>onLoad</code>中获取。</p>
+<h2 id="小程序的生命周期"><a href="#小程序的生命周期" class="headerlink" title="小程序的生命周期"></a>小程序的生命周期</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">onLaunch() &#123;</span><br><span class="line">  console.log(&apos;onLaunch监听小程序初始化&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onShow() &#123;</span><br><span class="line">  console.log(&apos;onShow监听小程序显示&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onHide() &#123;</span><br><span class="line">  console.log(&apos;onLaunch监听小程序隐藏&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onLoad监听页面加载'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onReady() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onReady监听页面初次渲染完成'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onShow() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onShow监听页面显示'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onHide() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onHide监听页面隐藏'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onUnload() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onUnload监听页面卸载'</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/05/js案例-简单的下拉菜单/" rel="next" title="js案例-简单的下拉菜单">
-                <i class="fa fa-chevron-left"></i> js案例-简单的下拉菜单
+              <a href="/2020/04/22/实习-4.22/" rel="next" title="实习-4.22">
+                <i class="fa fa-chevron-left"></i> 实习-4.22
               </a>
             
           </div>
@@ -464,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/05/java学习-String，StringBuilder，StringBuffer三者的区别/" rel="prev" title="java学习-String，StringBuilder，StringBuffer三者的区别">
-                java学习-String，StringBuilder，StringBuffer三者的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -594,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回-文形式。"><span class="nav-number">1.</span> <span class="nav-text">编写程序，从命令行循环读取用户输入的字符串，检验每个字符串是否是回 文形式。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue的虚拟DOM"><span class="nav-number">1.1.</span> <span class="nav-text">vue的虚拟DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue的渲染流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Vue的渲染流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff算法"><span class="nav-number">1.1.2.</span> <span class="nav-text">diff算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的页面栈"><span class="nav-number">1.2.</span> <span class="nav-text">小程序的页面栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的生命周期"><span class="nav-number">1.3.</span> <span class="nav-text">小程序的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面的生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">页面的生命周期</span></a></li></ol></li></ol></div>
             
 
           </div>
