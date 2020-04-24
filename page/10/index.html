@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/13/讲座学习-360前端/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/13/js学习-控制伪元素的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -328,7 +328,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/13/讲座学习-360前端/" itemprop="url">讲座学习-360前端</a></h1>
+                <a class="post-title-link" href="/2018/08/13/js学习-控制伪元素的方法/" itemprop="url">js学习-控制伪元素的方法</a></h1>
         
 
         <div class="post-meta">
@@ -351,6 +351,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js学习/" itemprop="url" rel="index">
+                    <span itemprop="name">js学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -372,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  625
+                  1.4k
                 </span>
               
 
@@ -388,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -411,14 +433,13 @@
       
         
           
-          今天暑期讲座邀请到了360奇舞团团长（360最大前端团队）月影来分享js学习。在这里记录一下。
-1. js的历史js是作者在十天之内开发出来的一门语言。
-目前ecmascript是js的标准，es3和es5是最重要的两个版本，其中es3到es5的开发用了十年，
-其中产生的es4被废弃掉了，因为它违背
+          一. 缘由：我们不能通过$(“:before”)、$(dom).find(“:before”)或document.querySelector(“:before”)来获取:before伪元素。
+为此，我不得不重新了解伪元素（Pseudo-elements）。为什么不能用JS直接获取伪元素呢？
+譬如::
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/13/讲座学习-360前端/#more" rel="contents">
+            <a class="btn" href="/2018/08/13/js学习-控制伪元素的方法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
