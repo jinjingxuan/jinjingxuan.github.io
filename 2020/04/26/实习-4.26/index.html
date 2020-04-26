@@ -101,17 +101,19 @@
 
 
 
-<meta name="description" content="利用foreach和splice进行操作">
+<meta name="description" content="今日清单 组件传值 props与data 小程序实现语音；录像功能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js案例-数组去重">
-<meta property="og:url" content="http://yoursite.com/2018/08/19/js案例-数组去重/index.html">
+<meta property="og:title" content="实习-4.26">
+<meta property="og:url" content="http://yoursite.com/2020/04/26/实习-4.26/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="利用foreach和splice进行操作">
+<meta property="og:description" content="今日清单 组件传值 props与data 小程序实现语音；录像功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T03:47:38.485Z">
+<meta property="og:image" content="https://files.jb51.net/file_images/article/201808/201808160849108.jpg">
+<meta property="og:updated_time" content="2020-04-26T08:32:32.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js案例-数组去重">
-<meta name="twitter:description" content="利用foreach和splice进行操作">
+<meta name="twitter:title" content="实习-4.26">
+<meta name="twitter:description" content="今日清单 组件传值 props与data 小程序实现语音；录像功能">
+<meta name="twitter:image" content="https://files.jb51.net/file_images/article/201808/201808160849108.jpg">
 
 
 
@@ -141,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/19/js案例-数组去重/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/26/实习-4.26/"/>
 
 
 
 
 
-  <title>js案例-数组去重 | -Breeze's Blog</title>
+  <title>实习-4.26 | -Breeze's Blog</title>
   
 
 
@@ -309,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/js案例-数组去重/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/实习-4.26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -326,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js案例-数组去重</h1>
+          <h1 class="post-title" itemprop="name headline">实习-4.26</h1>
         
 
         <div class="post-meta">
@@ -338,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T10:00:54+08:00">
-                2018-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T09:52:01+08:00">
+                2020-04-26
               </time>
             
 
@@ -361,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js案例/" itemprop="url" rel="index">
-                    <span itemprop="name">js案例</span>
+                  <a href="/categories/实习/" itemprop="url" rel="index">
+                    <span itemprop="name">实习</span>
                   </a>
                 </span>
 
@@ -392,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  246
+                  649
                 </span>
               
 
@@ -408,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -429,14 +431,28 @@
       
 
       
-        <h2 id="利用foreach和splice进行操作"><a href="#利用foreach和splice进行操作" class="headerlink" title="利用foreach和splice进行操作"></a>利用foreach和splice进行操作</h2><a id="more"></a>
-<h4 id="1-正序"><a href="#1-正序" class="headerlink" title="1. 正序"></a>1. 正序</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">'2'</span>;</span><br><span class="line">	arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params"> value,index,arrself </span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(value===str)&#123;</span><br><span class="line">			arr.splice(index,<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">console</span>.log(arr);</span><br><span class="line">			<span class="built_in">console</span>.log(index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出为</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line"><span class="number">2</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="number">3</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br></pre></td></tr></table></figure>
-<p>分析</p>
-<p>forEach在进行数组遍历的时候，每裁剪一个元素数组会进行更新。</p>
-<p>比如说便利到下标为1的元素，检测是2，进行裁剪，此时数组变为[‘1’,’2’,’2’,’3’,’2’];</p>
-<p>继续遍历，会遍历到下标为2的元素，更新之后的下标为1的‘2’就没有被裁剪掉</p>
-<p>如果是这样的数组[‘1’,’2’,’3’,’2’],则不会有这种情况</p>
-<h4 id="2-反序"><a href="#2-反序" class="headerlink" title="2. 反序"></a>2. 反序</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'2'</span>];</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">var</span> i = arr.length<span class="number">-1</span>; i &gt;= <span class="number">0</span> ; i--)&#123;</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">var</span> j = i<span class="number">-1</span>; j &gt;= <span class="number">0</span> ; j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>( arr[i] === arr[j] )&#123;</span><br><span class="line">				arr.splice(i,<span class="number">1</span>);</span><br><span class="line">				<span class="built_in">console</span>.log(arr);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>];</span><br></pre></td></tr></table></figure>
+        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+<li>组件传值</li>
+<li>props与data</li>
+<li>小程序实现语音；录像功能</li>
+</ul>
+<a id="more"></a>
+<h2 id="组件传值"><a href="#组件传值" class="headerlink" title="组件传值"></a>组件传值</h2><p>前言：在写vue代码时,<code>npm run dev</code>总会报一些语法错误，但是在文件中看不到，所以在下载插件<code>ESLint</code>后解决。下载后发现ESLint对代码规范要求很高，比如缩进为2个空格键，冒号后要有空格，虽然很麻烦，我觉得刚学习还是按照规范来比较好，我就在setting中设置了tab键为两个空格。</p>
+<blockquote>
+<p>父子组件的关系可以总结为 prop 向下传递，事件向上传递。父组件通过 prop 给子组件下发数据，子组件通过事件给父组件发送消息 </p>
+</blockquote>
+<p><img src="https://files.jb51.net/file_images/article/201808/201808160849108.jpg" alt="1"></p>
+<h3 id="父组件传子组件：通过props"><a href="#父组件传子组件：通过props" class="headerlink" title="父组件传子组件：通过props"></a>父组件传子组件：通过props</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;我是父组件,我的值是&#123;&#123; msg &#125;&#125;</span><br><span class="line">        &lt;child :logo=&quot;msg&quot;&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./child&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;123&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--子组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;div&gt;我是子组件,这是父组件的值：&#123;&#123; logo &#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;child&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: [&apos;logo&apos;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">	我是父组件,我的值是123</span><br><span class="line">	我是子组件,这是父组件的值：123</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="子组件传父组件：-emit"><a href="#子组件传父组件：-emit" class="headerlink" title="子组件传父组件：$emit"></a>子组件传父组件：$emit</h3><ul>
+<li>输入框的onchange事件，要在 input 失去焦点的时候才会触发； </li>
+<li>oninput 事件在用户输入时触发，它是在元素值发生变化时立即触发； </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;child @transfer=&quot;get&quot;&gt;&lt;/child&gt;</span><br><span class="line">        &lt;div&gt;我是父组件：这是子组件传来的值：&#123;&#123; msg &#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./child&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    get (msg) &#123;</span><br><span class="line">      this.msg = msg</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--子组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; @input=&quot;set&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;child&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    set: function () &#123;</span><br><span class="line">      this.$emit(&apos;transfer&apos;, this.msg)</span><br><span class="line">      console.log(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">    23131 //输入框</span><br><span class="line">    我是父组件：这是子组件传来的值：23131</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="props与data的区别"><a href="#props与data的区别" class="headerlink" title="props与data的区别"></a>props与data的区别</h2><ul>
+<li><code>data</code>是每个组件的私有内存，可以在其中存储需要的任何变量。</li>
+<li><code>props</code>是将数据从父组件传递到子组件的方式。 </li>
+</ul>
+<p>都是响应式的。</p>
 
       
     </div>
@@ -461,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/18/js学习-数组的操作/" rel="next" title="js学习-数组的操作">
-                <i class="fa fa-chevron-left"></i> js学习-数组的操作
+              <a href="/2020/04/24/实习-4.24/" rel="next" title="实习-4.24">
+                <i class="fa fa-chevron-left"></i> 实习-4.24
               </a>
             
           </div>
@@ -470,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/19/js案例-选择替换/" rel="prev" title="js案例-选择替换">
-                js案例-选择替换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -600,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用foreach和splice进行操作"><span class="nav-number">1.</span> <span class="nav-text">利用foreach和splice进行操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-正序"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 正序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-反序"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 反序</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件传值"><span class="nav-number">1.1.</span> <span class="nav-text">组件传值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件传子组件：通过props"><span class="nav-number">1.1.1.</span> <span class="nav-text">父组件传子组件：通过props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子组件传父组件：-emit"><span class="nav-number">1.1.2.</span> <span class="nav-text">子组件传父组件：$emit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props与data的区别"><span class="nav-number">1.2.</span> <span class="nav-text">props与data的区别</span></a></li></ol></li></ol></div>
             
 
           </div>
