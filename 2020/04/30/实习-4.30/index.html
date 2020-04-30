@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="今日清单 什么是npm与webpack的安装 webpack打包实例 如何打包样式资源">
+<meta name="description" content="今日清单 mpvue绑定图片src属性时的问题 vue的异步请求放在哪个钩子函数中合适，mpvue呢">
 <meta property="og:type" content="article">
-<meta property="og:title" content="春招准备-4.9">
-<meta property="og:url" content="http://yoursite.com/2020/04/09/春招准备-4.9/index.html">
+<meta property="og:title" content="实习-4.30">
+<meta property="og:url" content="http://yoursite.com/2020/04/30/实习-4.30/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="今日清单 什么是npm与webpack的安装 webpack打包实例 如何打包样式资源">
+<meta property="og:description" content="今日清单 mpvue绑定图片src属性时的问题 vue的异步请求放在哪个钩子函数中合适，mpvue呢">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-09T14:39:44.455Z">
+<meta property="og:updated_time" content="2020-04-30T07:44:41.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="春招准备-4.9">
-<meta name="twitter:description" content="今日清单 什么是npm与webpack的安装 webpack打包实例 如何打包样式资源">
+<meta name="twitter:title" content="实习-4.30">
+<meta name="twitter:description" content="今日清单 mpvue绑定图片src属性时的问题 vue的异步请求放在哪个钩子函数中合适，mpvue呢">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/09/春招准备-4.9/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/30/实习-4.30/"/>
 
 
 
 
 
-  <title>春招准备-4.9 | -Breeze's Blog</title>
+  <title>实习-4.30 | -Breeze's Blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/春招准备-4.9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/30/实习-4.30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">春招准备-4.9</h1>
+          <h1 class="post-title" itemprop="name headline">实习-4.30</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T09:52:01+08:00">
-                2020-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-30T09:52:01+08:00">
+                2020-04-30
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/春招/" itemprop="url" rel="index">
-                    <span itemprop="name">春招</span>
+                  <a href="/categories/实习/" itemprop="url" rel="index">
+                    <span itemprop="name">实习</span>
                   </a>
                 </span>
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  503
+                  805
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -430,46 +430,27 @@
 
       
         <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
-<li>什么是npm与webpack的安装</li>
-<li>webpack打包实例</li>
-<li>如何打包样式资源</li>
+<li>mpvue绑定图片src属性时的问题</li>
+<li>vue的异步请求放在哪个钩子函数中合适，mpvue呢</li>
 </ul>
 <a id="more"></a>
-<h2 id="1-什么是npm"><a href="#1-什么是npm" class="headerlink" title="1.什么是npm"></a>1.什么是npm</h2><p>NPM 的思路大概是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 买个服务器作为代码仓库（registry），在里面放所有需要被共享的代码</span><br><span class="line">2. 发邮件通知 jQuery、Bootstrap、Underscore 作者使用 npm publish 把代码提交到 registry 上，分别取名 jquery、bootstrap 和 underscore（注意大小写）</span><br><span class="line">3. 社区里的其他人如果想使用这些代码，就把 jquery、bootstrap 和 underscore 写到 package.json 里，然后运行 npm install ，npm 就会帮他们下载代码</span><br><span class="line">4. 下载完的代码出现在 node_modules 目录里，可以随意使用了。</span><br></pre></td></tr></table></figure>
-<p>这些可以被使用的代码被叫做「包」（package），这就是 NPM 名字的由来：Node Package Manager</p>
-<p><strong>可以安装淘宝镜像cnpm代替提高速度</strong></p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<p><strong>然后安装webpack</strong></p>
-<p><code>cnpm install webpack -g</code></p>
-<p><strong>然后输入webpack -v会提示安装webpack-cli</strong></p>
-<p><code>cnpm install webpack-cli -g</code></p>
-<h2 id="2-webpack打包实例"><a href="#2-webpack打包实例" class="headerlink" title="2. webpack打包实例"></a>2. webpack打包实例</h2><ul>
-<li>初始化一个包描述文件（package.json）</li>
-</ul>
-<p>使用命令<code>cnpm init</code>，命名为webpack_test，此时文件夹中会生成一个package.json文件</p>
+<h2 id="mpvue绑定图片src属性时的问题"><a href="#mpvue绑定图片src属性时的问题" class="headerlink" title="mpvue绑定图片src属性时的问题"></a>mpvue绑定图片src属性时的问题</h2><p>绑定图片的src属性时，一般是这样的，路径直接写src中的static文件夹下的图片就行：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"路径"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>想要动态绑定属性时，是这样的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgPath"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">data () &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">		imgPath:<span class="string">"路径"</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在mpvue里，最终生成的是dist目录，所以在动态绑定时，需要将图片路径设置为dist目录下的static文件夹</p>
+<h2 id="vue的异步请求放在哪个钩子函数中合适"><a href="#vue的异步请求放在哪个钩子函数中合适" class="headerlink" title="vue的异步请求放在哪个钩子函数中合适"></a>vue的异步请求放在哪个钩子函数中合适</h2><p>首先复习一下vue的生命周期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">beforeCreate（创建前）: 在数据观测和初始化事件还未开始,data、watcher、methods都还不存在，但是$route已存在，可以根据路由信息进行重定向等操作。</span><br><span class="line"></span><br><span class="line">created(创建后)：在实例创建之后被调用，该阶段可以访问data，使用watcher、events、methods，也就是说 数据观测(data observer) 和event/watcher 事件配置 已完成。但是此时dom还没有被挂载。该阶段允许执行http请求操作。</span><br><span class="line"></span><br><span class="line">beforeMount （挂载前）：将HTML解析生成AST节点，再根据AST节点动态生成渲染函数。相关render函数首次被调用(划重点)。</span><br><span class="line"></span><br><span class="line">mounted (挂载后)：在挂载完成之后被调用，执行render函数生成虚拟dom，创建真实dom替换虚拟dom，并挂载到实例。可以操作dom，比如事件监听</span><br><span class="line"></span><br><span class="line">beforeUpdate：vm.data更新之后，虚拟dom重新渲染之前被调用。在这个钩子可以修改vm.data更新之后，虚拟dom重新渲染之前被调用。在这个钩子可以修改vm.data更新之后，虚拟dom重新渲染之前被调用。在这个钩子可以修改vm.data，并不会触发附加的冲渲染过程。</span><br><span class="line"></span><br><span class="line">updated：虚拟dom重新渲染后调用，若再次修改$vm.data，会再次触发beforeUpdate、updated，进入死循环。</span><br><span class="line"></span><br><span class="line">beforeDestroy：实例被销毁前调用，也就是说在这个阶段还是可以调用实例的。</span><br><span class="line"></span><br><span class="line">destroyed：实例被销毁后调用，所有的事件监听器已被移除，子实例被销毁。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实际上在created，beforeMount，mounted都可以，因为此时data已经创建，后端传来的数据可以放入data中。</p>
+</blockquote>
 <ul>
-<li>新建一个src文件夹，里面新建一个index.js文件和data.json，将index.js作为入口文件</li>
+<li>created 阶段的优势是：请求时间比较早，页面 loading 时间相对较短； </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> data <span class="keyword">from</span> <span class="string">'./data.json'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<ul>
-<li>为项目添加依赖 node_modules </li>
-</ul>
-<p><code>cnpm install webpack --save-dev</code></p>
-<ul>
-<li>新建一个build文件夹作为输出文件夹</li>
-<li>运行指令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webpack ./src/index.js -o ./build/built.js --mode=development  //开发环境</span><br><span class="line">webpack ./src/index.js -o ./build/built.js --mode=production  //生产环境（压缩）</span><br></pre></td></tr></table></figure>
-<ul>
-<li>出现错误</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">File C:\Users\Jin\AppData\Roaming\npm\webpack.ps1 cannot be loaded because running scripts is disabled on this system.</span><br><span class="line"></span><br><span class="line">不允许执行脚本，解决办法：</span><br><span class="line">以管理员身份运行power shell，运行一下代码  Set-ExecutionPolicy RemoteSigned</span><br></pre></td></tr></table></figure>
-<ul>
-<li>打包成功（webpack本身只识别js和json）</li>
-</ul>
-<h2 id="3-如何打包样式资源"><a href="#3-如何打包样式资源" class="headerlink" title="3. 如何打包样式资源"></a>3. 如何打包样式资源</h2><p>在学习这个之前，先学习一下模块化</p>
-<p><a href="https://www.jianshu.com/p/67ce52c93392" target="_blank" rel="noopener">https://www.jianshu.com/p/67ce52c93392</a> ：理解CommonJs、AMD、CMD、ES6模块</p>
+<p>有人说如果需要操作dom需要放在mounted中，因为mounted完成了挂载，真实的DOM存在了。</p>
+<p>但其实当生命周期遇到异步函数时，都会先执行完生命周期，再去执行异步函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            template: <span class="string">"&lt;div&gt;hello world&lt;/div&gt;"</span>,</span><br><span class="line">            beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"beforeCreate"</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"created"</span>)</span><br><span class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">                &#125;,<span class="number">0</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el)</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"beforeMount"</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"mounted"</span>)</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// beforeCreate</span></span><br><span class="line"><span class="comment">//created</span></span><br><span class="line"><span class="comment">//&lt;div id='app'&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment">//beforeMount</span></span><br><span class="line"><span class="comment">//mounted</span></span><br><span class="line"><span class="comment">//&lt;div&gt;hello world&lt;/div&gt;</span></span><br><span class="line"><span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<p>但是在mpvue中就不行了，因为mpvue的created会一次性执行完，这里用到原生小程序的onLoad。</p>
 
       
     </div>
@@ -494,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/08/春招准备-4.8/" rel="next" title="春招准备-4.8">
-                <i class="fa fa-chevron-left"></i> 春招准备-4.8
+              <a href="/2020/04/28/实习-4.28/" rel="next" title="实习-4.28">
+                <i class="fa fa-chevron-left"></i> 实习-4.28
               </a>
             
           </div>
@@ -503,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/12/春招准备-JSON.stringify详解/" rel="prev" title="春招准备-JSON.stringify详解">
-                春招准备-JSON.stringify详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -633,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是npm"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-webpack打包实例"><span class="nav-number">1.2.</span> <span class="nav-text">2. webpack打包实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何打包样式资源"><span class="nav-number">1.3.</span> <span class="nav-text">3. 如何打包样式资源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mpvue绑定图片src属性时的问题"><span class="nav-number">1.1.</span> <span class="nav-text">mpvue绑定图片src属性时的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue的异步请求放在哪个钩子函数中合适"><span class="nav-number">1.2.</span> <span class="nav-text">vue的异步请求放在哪个钩子函数中合适</span></a></li></ol></li></ol></div>
             
 
           </div>
