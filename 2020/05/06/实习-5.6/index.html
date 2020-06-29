@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程">
+<meta name="description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程 关于分支的理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实习-5.6">
 <meta property="og:url" content="http://yoursite.com/2020/05/06/实习-5.6/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程">
+<meta property="og:description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程 关于分支的理解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-23T11:43:31.088Z">
+<meta property="og:updated_time" content="2020-06-29T13:32:49.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习-5.6">
-<meta name="twitter:description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程">
+<meta name="twitter:description" content="今日清单 git pull 和 git clone的区别 git clone和download zip的区别 上传代码的流程 关于分支的理解">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  230
+                  629
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -433,6 +433,7 @@
 <li>git pull 和 git clone的区别</li>
 <li>git clone和download zip的区别</li>
 <li>上传代码的流程</li>
+<li>关于分支的理解</li>
 </ul>
 <a id="more"></a>
 <h2 id="git-pull-和-git-clone的区别"><a href="#git-pull-和-git-clone的区别" class="headerlink" title="git pull 和 git clone的区别"></a>git pull 和 git clone的区别</h2><ul>
@@ -448,13 +449,21 @@
 <li>采用下载zip文件的是没有版本历史信息的。只是当前分支的最新版本</li>
 </ul>
 <h2 id="上传代码的流程"><a href="#上传代码的流程" class="headerlink" title="上传代码的流程"></a>上传代码的流程</h2><ul>
+<li>git clone 克隆代码到本地</li>
+<li>cd 目标文件夹</li>
 <li>git branch -a 查看远程分支</li>
 <li>git checkout branchname 切换分支</li>
 <li>git pull origin branchname  拉取分支</li>
 <li>修改代码</li>
 <li>git add .</li>
+<li>git status 查看修改信息</li>
 <li>git commit -m ‘信息’</li>
 <li>git push -u origin branchname</li>
+</ul>
+<h2 id="关于分支的理解"><a href="#关于分支的理解" class="headerlink" title="关于分支的理解"></a>关于分支的理解</h2><ul>
+<li>master主干：线上的版本：主干的代码不做开发，目的是保留现在线上的版本，如果现在线上的代码出现任何的BUG或紧急添加新功能，就从master拉下来一个分支master_alter，master_alter分支的代码修改或添加后，然后测试打包发布，发布后把这个分支master_alter合并到master；删除master_alter分支，这时master任然是线上的版本；</li>
+<li>release分支：预发布的版本、正在测试的版本：新需求已经开发完成，9.30号上线，这段的时间就是测试和修改BUG，我们给这个分支起名字叫release_930，等release_930版本的代码发布上线后，把release分支合并到master主干上，把release分支删除；</li>
+<li>dev分支：正在开发的版本：假如公司出了两个新的需求，要给现在的商城项目添加一个新的功能叫购物车，然后我的这个分支叫dev_spc，日常的开发工作就一直在这个dev_spc这个分支上面；还要给商城加上店铺功能，然后我旁边哥们的分支就叫dev_shops，旁边这哥们他日常的开发工作就一直在这个dev_shops这个分支上面；开发完成后从dev分支合并到release分支，发布后再合并到master主干；master主干的代码不做开发用，保留现在线上的版本代码；</li>
 </ul>
 
       
@@ -619,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-和-git-clone的区别"><span class="nav-number">1.1.</span> <span class="nav-text">git pull 和 git clone的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone和download-zip的区别"><span class="nav-number">1.2.</span> <span class="nav-text">git clone和download zip的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传代码的流程"><span class="nav-number">1.3.</span> <span class="nav-text">上传代码的流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-和-git-clone的区别"><span class="nav-number">1.1.</span> <span class="nav-text">git pull 和 git clone的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone和download-zip的区别"><span class="nav-number">1.2.</span> <span class="nav-text">git clone和download zip的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传代码的流程"><span class="nav-number">1.3.</span> <span class="nav-text">上传代码的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于分支的理解"><span class="nav-number">1.4.</span> <span class="nav-text">关于分支的理解</span></a></li></ol></li></ol></div>
             
 
           </div>

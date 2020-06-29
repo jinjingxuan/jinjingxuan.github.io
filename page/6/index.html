@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/设计模式-面向对象编程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/设计模式-简单工厂模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -328,7 +328,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/18/设计模式-面向对象编程/" itemprop="url">面向对象编程</a></h1>
+                <a class="post-title-link" href="/2019/01/18/设计模式-简单工厂模式/" itemprop="url">简单工厂模式</a></h1>
         
 
         <div class="post-meta">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k
+                  581
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  2
                 </span>
               
             </div>
@@ -432,11 +432,12 @@
 
       
         
-          <p>JavaScript这种解释型的弱类型语言没有经典强类型语言中那种通过class等关键字实现类的封装方式，JavaScript中都是通过一些特性模仿实现的。</p>
-<h1 id="如何创建一个类"><a href="#如何创建一个类" class="headerlink" title="如何创建一个类"></a>如何创建一个类</h1><p>首先声明一个函数保存在一个变量里，然后在这个函数（类）的内部通过this变量添加属性或者方法来实现对类添加属性或者方法。</p>
+          <p>简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。</p>
+<h1 id="关于登录模块的需求"><a href="#关于登录模块的需求" class="headerlink" title="关于登录模块的需求"></a>关于登录模块的需求</h1><p>当用户名的内容不符合规定，警示框警示一句’用户名不能多于16个字母或数字’</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LoginAlert = <span class="function"><span class="keyword">function</span>(<span class="params">text</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.content = text;</span><br><span class="line">&#125;</span><br><span class="line">LoginAlert.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//显示警示框</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> userNameAlert = <span class="keyword">new</span> LoginAlert(<span class="string">'用户名不能多于16个字母或数字'</span>);</span><br><span class="line">userNameAlert.show();</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/18/设计模式-面向对象编程/#more" rel="contents">
+            <a class="btn" href="/2019/01/18/设计模式-简单工厂模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2061,7 +2062,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://sjbz.fd.zol-img.com.cn/t_s750x530c/g5/M00/0F/0A/ChMkJ1fJQs2IPMvhAA3AGcW_heUAAU7xAB2lEAADcAx198.jpg" rel="gallery_ckbrv29w20051y0ff0ahfm0nu"
+                 href="http://sjbz.fd.zol-img.com.cn/t_s750x530c/g5/M00/0F/0A/ChMkJ1fJQs2IPMvhAA3AGcW_heUAAU7xAB2lEAADcAx198.jpg" rel="gallery_ckc0jnvfv004wv8ff8vrif0lg"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://sjbz.fd.zol-img.com.cn/t_s750x530c/g5/M00/0F/0A/ChMkJ1fJQs2IPMvhAA3AGcW_heUAAU7xAB2lEAADcAx198.jpg" itemprop="contentUrl"/>
               </a>

@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题">
+<meta name="description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题 github打不开怎么办">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实习-6.23">
 <meta property="og:url" content="http://yoursite.com/2020/06/23/实习-6.23/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题">
+<meta property="og:description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题 github打不开怎么办">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-23T11:43:43.414Z">
+<meta property="og:updated_time" content="2020-06-23T12:14:37.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习-6.23">
-<meta name="twitter:description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题">
+<meta name="twitter:description" content="今日清单 input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题 github打不开怎么办">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  726
+                  795
                 </span>
               
 
@@ -436,6 +436,7 @@
 <li>什么是vuex</li>
 <li>调用接口</li>
 <li>每日一题</li>
+<li>github打不开怎么办</li>
 </ul>
 <a id="more"></a>
 <h2 id="input标签的maxlength属性和autocomplete属性"><a href="#input标签的maxlength属性和autocomplete属性" class="headerlink" title="input标签的maxlength属性和autocomplete属性"></a>input标签的maxlength属性和autocomplete属性</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- maxlength 属性规定输入字段的最大长度--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">maxlength</span>=<span class="string">"value"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- autocomplete 属性规定输入字段是否应该启用自动完成功能。自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项。 开启为默认--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">autocomplete</span>=<span class="string">"on/off"</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -456,6 +457,11 @@
 </blockquote>
 <h2 id="调用接口"><a href="#调用接口" class="headerlink" title="调用接口"></a>调用接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//页面中的钩子函数调用indexRecommend接口，async/await保证异步执行顺序</span></span><br><span class="line"><span class="keyword">async</span> created() &#123;</span><br><span class="line">        <span class="keyword">this</span>.recommend = <span class="keyword">await</span> <span class="keyword">this</span>.$serv.indexRecommend();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//后面由于涉及到公司的代码就不贴出了，贴一些学到的代码</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(<span class="function"><span class="params">x</span>=&gt;</span> <span class="built_in">console</span>.log(x*x))   <span class="comment">//输出1,4,9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//解析赋值，将req对象中定义的方法分别赋值给get,post等方法，到此请求方法定义成功</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> &#123; get, post, put, jsonp, <span class="attr">delete</span> : del &#125; = req;</span><br></pre></td></tr></table></figure>
 <h2 id="每日一题"><a href="#每日一题" class="headerlink" title="每日一题"></a>每日一题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(length)  <span class="comment">//词法作用域，找foo函数外面定义的length，即window.length</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> length = <span class="string">'jin'</span></span><br><span class="line">    foo()</span><br><span class="line">&#125;</span><br><span class="line">bar()  <span class="comment">//输出的为window.length即为iframe的个数</span></span><br></pre></td></tr></table></figure>
+<h2 id="github打不开怎么办"><a href="#github打不开怎么办" class="headerlink" title="github打不开怎么办"></a>github打不开怎么办</h2><ul>
+<li>进入网站的域名解析网址：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Ftool.chinaz.com%2Fdns%2F" target="_blank" rel="noopener">http://tool.chinaz.com/dns/</a> ，在A类型的查询中输入github.com，找出最快的IP地址 </li>
+<li>进入  <strong>C:\Windows\System32\drivers\etc\hosts</strong> </li>
+<li>添加对应ip，例如   52.74.223.119 github </li>
+</ul>
 
       
     </div>
@@ -615,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input标签的maxlength属性和autocomplete属性"><span class="nav-number">1.1.</span> <span class="nav-text">input标签的maxlength属性和autocomplete属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定class改变样式"><span class="nav-number">1.2.</span> <span class="nav-text">动态绑定class改变样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定图片-require"><span class="nav-number">1.3.</span> <span class="nav-text">动态绑定图片 require</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是vuex"><span class="nav-number">1.4.</span> <span class="nav-text">什么是vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用接口"><span class="nav-number">1.5.</span> <span class="nav-text">调用接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每日一题"><span class="nav-number">1.6.</span> <span class="nav-text">每日一题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#input标签的maxlength属性和autocomplete属性"><span class="nav-number">1.1.</span> <span class="nav-text">input标签的maxlength属性和autocomplete属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定class改变样式"><span class="nav-number">1.2.</span> <span class="nav-text">动态绑定class改变样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态绑定图片-require"><span class="nav-number">1.3.</span> <span class="nav-text">动态绑定图片 require</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是vuex"><span class="nav-number">1.4.</span> <span class="nav-text">什么是vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用接口"><span class="nav-number">1.5.</span> <span class="nav-text">调用接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每日一题"><span class="nav-number">1.6.</span> <span class="nav-text">每日一题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github打不开怎么办"><span class="nav-number">1.7.</span> <span class="nav-text">github打不开怎么办</span></a></li></ol></li></ol></div>
             
 
           </div>
