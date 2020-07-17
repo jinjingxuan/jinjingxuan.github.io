@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="编译时的bug解决 cnpm install  版本不匹配 下载匹配版本 1.4.6 mpvue-loader版本 下载1.1.4 node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev 修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T12:13:32.121Z">
+<meta property="og:updated_time" content="2020-07-17T14:26:30.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作-7.16">
 <meta name="twitter:description" content="编译时的bug解决 cnpm install  版本不匹配 下载匹配版本 1.4.6 mpvue-loader版本 下载1.1.4 node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev 修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代">
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  587
+                  657
                 </span>
               
 
@@ -437,6 +437,7 @@
 <li>修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代码</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> temp = key.split(<span class="string">'.'</span>)</span><br><span class="line"><span class="keyword">if</span> (temp.length === <span class="number">2</span>) &#123;</span><br><span class="line">   key = temp[<span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>根本原因是install时根本没有按照package-lock.json中的版本去执行，只能手动安装相应版本</strong></p>
 <a id="more"></a>
 <h2 id="什么是nrm和npm"><a href="#什么是nrm和npm" class="headerlink" title="什么是nrm和npm"></a>什么是nrm和npm</h2><p>nrm 是一个 npm 源管理器，允许你快速地在 npm源间切换。</p>
 <h3 id="nrm安装"><a href="#nrm安装" class="headerlink" title="nrm安装"></a>nrm安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
@@ -474,11 +475,11 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个生成的ip地址在config/index.js中配置，为本机ip地址+2333端口号</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>更改本机host 用本地ip 指向 xxx.focus-test.cn 通过 xxx.focus-test.cn:端口号去访问</li>
+<li>更改本机host 用本地ip 指向 xxx.company-test.cn 通过 xxx.company-test.cn:端口号去访问</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//host文件</span><br><span class="line">10.2.98.163 xxx.focus-test.cn</span><br><span class="line"></span><br><span class="line">//访问地址：http://xxx.focus-test.cn:2333/</span><br></pre></td></tr></table></figure>
-<p>为什么要改为xxx.focus-test.cn？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为cooike的同源策略，二级域名相同算作同源，这样可以保证用户的登录状态。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//host文件</span><br><span class="line">10.2.98.163 xxx.company-test.cn</span><br><span class="line"></span><br><span class="line">//访问地址：http://xxx.company-test.cn:2333/</span><br></pre></td></tr></table></figure>
+<p>为什么要改为xxx.company-test.cn？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">因为cooike的同源策略，二级域名相同算作同源，这样可以保证用户的登录状态。</span><br><span class="line"></span><br><span class="line">我已经在company-test.cn上成功登录了，就已经存在了cooike，此时再用xxx.company-test.cn访问就可以获取登录态</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,6 +513,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/17/工作-7.17/" rel="prev" title="工作-7.17">
+                工作-7.17 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -592,7 +597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">139</span>
+                  <span class="site-state-item-count">138</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +608,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
