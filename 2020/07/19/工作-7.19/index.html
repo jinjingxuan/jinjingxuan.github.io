@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="编译时的bug解决 cnpm install  版本不匹配 下载匹配版本 1.4.6 mpvue-loader版本 下载1.1.4 node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev 修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代">
+<meta name="description" content="今日清单 vscode一些常见快捷键 feature分支（扩展分支） Vue中watch的用法 Promise ref与refs  vscode一些常见快捷键          Ctrl + Shift + P，F1 显示命令面板    Ctrl + B 显示/隐藏侧边栏 很实用   Ctrl + \ 创建多个编辑器窗口 【重要】抄代码利器   Ctrl + 1、2 聚焦到第 1、第 2 个编辑器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作-7.16">
-<meta property="og:url" content="http://yoursite.com/2020/07/16/工作-7.16/index.html">
+<meta property="og:title" content="工作-7.19">
+<meta property="og:url" content="http://yoursite.com/2020/07/19/工作-7.19/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="编译时的bug解决 cnpm install  版本不匹配 下载匹配版本 1.4.6 mpvue-loader版本 下载1.1.4 node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev 修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代">
+<meta property="og:description" content="今日清单 vscode一些常见快捷键 feature分支（扩展分支） Vue中watch的用法 Promise ref与refs  vscode一些常见快捷键          Ctrl + Shift + P，F1 显示命令面板    Ctrl + B 显示/隐藏侧边栏 很实用   Ctrl + \ 创建多个编辑器窗口 【重要】抄代码利器   Ctrl + 1、2 聚焦到第 1、第 2 个编辑器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-17T14:26:30.008Z">
+<meta property="og:updated_time" content="2020-07-20T09:52:00.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工作-7.16">
-<meta name="twitter:description" content="编译时的bug解决 cnpm install  版本不匹配 下载匹配版本 1.4.6 mpvue-loader版本 下载1.1.4 node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev 修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代">
+<meta name="twitter:title" content="工作-7.19">
+<meta name="twitter:description" content="今日清单 vscode一些常见快捷键 feature分支（扩展分支） Vue中watch的用法 Promise ref与refs  vscode一些常见快捷键          Ctrl + Shift + P，F1 显示命令面板    Ctrl + B 显示/隐藏侧边栏 很实用   Ctrl + \ 创建多个编辑器窗口 【重要】抄代码利器   Ctrl + 1、2 聚焦到第 1、第 2 个编辑器">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/16/工作-7.16/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/19/工作-7.19/"/>
 
 
 
 
 
-  <title>工作-7.16 | -Breeze's Blog</title>
+  <title>工作-7.19 | -Breeze's Blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/16/工作-7.16/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/19/工作-7.19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">工作-7.16</h1>
+          <h1 class="post-title" itemprop="name headline">工作-7.19</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-16T09:52:01+08:00">
-                2020-07-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-19T09:52:01+08:00">
+                2020-07-19
               </time>
             
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  657
+                  1.2k
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -429,57 +429,159 @@
       
 
       
-        <h2 id="编译时的bug解决"><a href="#编译时的bug解决" class="headerlink" title="编译时的bug解决"></a>编译时的bug解决</h2><ol>
-<li>cnpm install  版本不匹配</li>
-<li>下载匹配版本 1.4.6</li>
-<li>mpvue-loader版本 下载1.1.4</li>
-<li>node-sass文件夹下缺少vender目录，新建 vender 文件夹.然后运行,npm rebuild node-sass –save-dev</li>
-<li>修改 mpvue-template-compiler/build.js 4675行，converFor函数里添加如下代码</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> temp = key.split(<span class="string">'.'</span>)</span><br><span class="line"><span class="keyword">if</span> (temp.length === <span class="number">2</span>) &#123;</span><br><span class="line">   key = temp[<span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>根本原因是install时根本没有按照package-lock.json中的版本去执行，只能手动安装相应版本</strong></p>
-<a id="more"></a>
-<h2 id="什么是nrm和npm"><a href="#什么是nrm和npm" class="headerlink" title="什么是nrm和npm"></a>什么是nrm和npm</h2><p>nrm 是一个 npm 源管理器，允许你快速地在 npm源间切换。</p>
-<h3 id="nrm安装"><a href="#nrm安装" class="headerlink" title="nrm安装"></a>nrm安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看可选源：<code>nrm ls</code></li>
-<li>查看当前使用源：<code>nrm current</code></li>
-<li>切换源：<code>nrm use taobao</code></li>
+        <h2 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h2><ul>
+<li>vscode一些常见快捷键</li>
+<li>feature分支（扩展分支）</li>
+<li>Vue中watch的用法</li>
+<li>Promise</li>
+<li>ref与refs</li>
 </ul>
-<p>之后再使用npm安装命令就是使用的淘宝源</p>
-<h2 id="符号标识版本号"><a href="#符号标识版本号" class="headerlink" title="^符号标识版本号"></a>^符号标识版本号</h2><table>
+<h2 id="vscode一些常见快捷键"><a href="#vscode一些常见快捷键" class="headerlink" title="vscode一些常见快捷键"></a>vscode一些常见快捷键</h2><table>
 <thead>
 <tr>
-<th>^2.5.2</th>
-<th>2.5.2 &lt;= version &lt; 3.0.0</th>
+<th></th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>^0.2.3</td>
-<td>0.2.3 &lt;= version &lt; 0.3.0</td>
+<td><strong>Ctrl + Shift + P</strong>，F1</td>
+<td>显示命令面板</td>
+<td></td>
 </tr>
 <tr>
-<td>^0.0.3</td>
-<td>0.0.3 &lt;= version &lt; 0.0.4</td>
+<td><strong>Ctrl + B</strong></td>
+<td>显示/隐藏侧边栏</td>
+<td>很实用</td>
+</tr>
+<tr>
+<td>Ctrl + \</td>
+<td><strong>创建多个编辑器窗口</strong></td>
+<td>【重要】抄代码利器</td>
+</tr>
+<tr>
+<td><strong>Ctrl + 1、2</strong></td>
+<td>聚焦到第 1、第 2 个编辑器</td>
+<td>同上重要</td>
+</tr>
+<tr>
+<td><strong>ctrl +/-</strong></td>
+<td>将工作区放大/缩小（包括代码字体、左侧导航栏）</td>
+<td>在投影仪场景经常用到</td>
+</tr>
+<tr>
+<td>Ctrl + J</td>
+<td>显示/隐藏控制台</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Ctrl + Shift + N</strong></td>
+<td>重新开一个软件的窗口</td>
+<td>很常用</td>
 </tr>
 </tbody>
 </table>
-<p>首位不为0的加1</p>
-<h2 id="package-json和package-lock-json"><a href="#package-json和package-lock-json" class="headerlink" title="package.json和package-lock.json"></a>package.json和package-lock.json</h2><p>npm描述模块信息的文件就是 package.json ，npm  install会根据package.json安装依赖</p>
-<p>每次执行完npm install之后会对应生成package-lock文件，该文件记录了上一次安装的具体的版本号。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原来的 package.json 文件只能锁定大版本，也就是版本号的第一位，并不能锁定后面的小版本，你每次npm install都是拉取的该大版本下的最新的版本，为了稳定性考虑我们几乎是不敢随意升级依赖包的，这将导致多出来很多工作量，测试/适配等，所以package-lock.json文件出来了，当你每次安装一个依赖的时候就锁定在你安装的这个版本。</span><br></pre></td></tr></table></figure>
-<p>当文件中存在package-lock.json时，执行npm install，node从package.json文件读取模块名称，从package-lock.json文件中获取版本号，然后进行下载或者更新。 </p>
-<h2 id="运行后台项目"><a href="#运行后台项目" class="headerlink" title="运行后台项目"></a>运行后台项目</h2><ol>
-<li>npm run dev之后：<code>Your application is running here: http://10.2.98.163:2333</code></li>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl + 左右方向键</strong></td>
+<td>在<strong>单词</strong>之间移动光标</td>
+<td>很常用</td>
+</tr>
+<tr>
+<td>Ctrl + Home</td>
+<td>将光标定位到文章的第一行</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + End</td>
+<td>将光标定位到文章的最后一行</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl+Shift+\</td>
+<td>跳转到匹配的括号</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Home</td>
+<td>将光标定位到文章的第一行</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + End</td>
+<td>将光标定位到文章的最后一行</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Alt + Shift + ↓</strong></td>
+<td>将代码向下复制</td>
+<td>写重复代码的利器</td>
+</tr>
+<tr>
+<td><strong>Ctrl + P</strong></td>
+<td>在当前的项目工程里，<strong>全局</strong>搜索文件名</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + F</td>
+<td>在当前文件中搜索代码，光标在搜索框里</td>
+</tr>
+</tbody>
+</table>
+<h2 id="feature分支（扩展分支）"><a href="#feature分支（扩展分支）" class="headerlink" title="feature分支（扩展分支）"></a>feature分支（扩展分支）</h2><ol>
+<li>新建dev分支(对于没有分支的人)：<code>git checkout -b dev</code> （-b表示创建新的分支）</li>
+<li>拉取最新数据：<code>git pull origin dev</code></li>
+<li>建立一个新分支，名称为具体内容，用于开发新功能：<code>git checkout -b $feature</code></li>
+<li>在修改工作目录的文件后提交修改：<code>git commit -a -m &quot;msg&quot;</code></li>
+<li>切换回dev分支：<code>git checkout dev</code></li>
+<li>下载服务器最新的dev数据，保证dev分支是最新的数据：<code>git pull origin dev</code></li>
+<li>把feature的内容合并到dev，并且保留分支结构：<code>git merge $feature --no-ff</code></li>
+<li>如果有，则处理conflicts(即进行第6,7步,保证数据是最新的)</li>
+<li>处理完再提交一次：<code>git commit -a -m &quot;merge msg&quot;</code></li>
+<li>此时可以删除这个分支：<code>git branch -d $feature</code></li>
+<li>推送到服务器：<code>git push origin dev</code></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个生成的ip地址在config/index.js中配置，为本机ip地址+2333端口号</span><br></pre></td></tr></table></figure>
+<h2 id="Vue中watch的用法（具体可看4-6）"><a href="#Vue中watch的用法（具体可看4-6）" class="headerlink" title="Vue中watch的用法（具体可看4.6）"></a>Vue中watch的用法（具体可看4.6）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">  <span class="comment">// 监听data中的oldvalue</span></span><br><span class="line">  oldvalue()&#123;</span><br><span class="line">    <span class="keyword">this</span>.newvalue = <span class="string">"change"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="再学一下Promise（上次在3-8）"><a href="#再学一下Promise（上次在3-8）" class="headerlink" title="再学一下Promise（上次在3.8）"></a>再学一下Promise（上次在3.8）</h2><p><strong>Promise意为承诺，即无论成功与失败，都会返回结果</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拿点外卖为例，点外卖后可能会成功派送也可能会延迟，无论如何都会有个结果</span></span><br><span class="line">funtion dianwaimai()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">reslove,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> result = cooking()</span><br><span class="line">        <span class="keyword">if</span>(result===<span class="string">"做好了"</span>) reslove(<span class="string">"正在派送"</span>)</span><br><span class="line">        <span class="keyword">else</span> reject(<span class="string">"还没做好"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cooking</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="string">'菜烧好了'</span> : <span class="string">'菜烧糊了'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行</span></span><br><span class="line">dianwaimai().then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res)).catch(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</span><br></pre></td></tr></table></figure>
+<p>promise实例有三种状态：</p>
+<ul>
+<li>pending（待定）</li>
+<li>fulfilled（已执行）</li>
+<li>rejected（已拒绝）</li>
+</ul>
+<p>调用resolve和reject能将分别将promise实例的状态变成fulfilled和rejected，只有状态变成已完成（即fulfilled和rejected之一），才能触发状态的回调 </p>
+<h2 id="ref与refs"><a href="#ref与refs" class="headerlink" title="ref与refs"></a>ref与refs</h2><p><strong>Vue中的ref可以用来给元素或子组件注册引用信息，而$refs可以用来获取ref注册过的元素或组件</strong> </p>
+<ol>
+<li>当ref用在DOM节点上时，通过$refs获取的是该DOM元素节点。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p ref=&quot;test&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;button @click=&quot;fun&quot;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">fun:function()&#123;</span><br><span class="line">	console.log(this.$refs.test)  //输出&lt;p&gt;&lt;/p&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>更改本机host 用本地ip 指向 xxx.company-test.cn 通过 xxx.company-test.cn:端口号去访问</li>
+<li>当ref用在组件上时，通过$refs获取的是该组件的实例，可进而调用组件内定义的方法、属性等</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//host文件</span><br><span class="line">10.2.98.163 xxx.company-test.cn</span><br><span class="line"></span><br><span class="line">//访问地址：http://xxx.company-test.cn:2333/</span><br></pre></td></tr></table></figure>
-<p>为什么要改为xxx.company-test.cn？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">因为cooike的同源策略，二级域名相同算作同源，这样可以保证用户的登录状态。</span><br><span class="line"></span><br><span class="line">我已经在company-test.cn上成功登录了，就已经存在了cooike，此时再用xxx.company-test.cn访问就可以获取登录态</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Home ref=&quot;test&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">console.log(this.$refs.test) //输出VueComponent</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>当有多处ref引用的值相同时</li>
+</ol>
+<ul>
+<li><strong>当html中ref值相同的节点是兄弟节点时，通过$refs获取到的是文档中顺序靠下的节点（使用在DOM上和组件上原则一致，以DOM为例）</strong> </li>
+<li><strong>当html中ref值相同的节点是嵌套关系时，比如父子关系，则通过$refs获取到的是外层节点（使用在DOM上和组件上原则一致，以DOM为例）</strong> </li>
+<li><strong>当html中ref值相同的节点不在同一层级，也不是嵌套关系时，仍然遵循文档中顺序靠下的节点被获取的原则（使用在DOM上和组件上原则一致，以DOM为例）</strong> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p ref=&quot;test&quot;&gt;456&lt;/p&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">  &lt;span ref=&quot;test&quot;&gt;123&lt;/span&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">console.log(this.$refs.test)   //&lt;span&gt;123&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>ref与v-for连用时，this.$refs[ref名称]获取到的是该DOM节点或组件的数组，需要加下标访问</strong> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Home v-for=&quot;num in loop&quot; :key=&quot;num&quot; ref=&quot;test&quot;&gt;&lt;/Home&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">console.log(this.$refs.test)</span><br><span class="line">//输出的是一个数组  (3)[VueComponent,VueComponent,VueComponent...]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -504,8 +606,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/14/实习-7.14/" rel="next" title="实习-7.14">
-                <i class="fa fa-chevron-left"></i> 实习-7.14
+              <a href="/2020/07/18/工作-7.18/" rel="next" title="工作-7.18">
+                <i class="fa fa-chevron-left"></i> 工作-7.18
               </a>
             
           </div>
@@ -513,10 +615,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/17/工作-7.17/" rel="prev" title="工作-7.17">
-                工作-7.17 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -643,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译时的bug解决"><span class="nav-number">1.</span> <span class="nav-text">编译时的bug解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是nrm和npm"><span class="nav-number">2.</span> <span class="nav-text">什么是nrm和npm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nrm安装"><span class="nav-number">2.1.</span> <span class="nav-text">nrm安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号标识版本号"><span class="nav-number">3.</span> <span class="nav-text">^符号标识版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json和package-lock-json"><span class="nav-number">4.</span> <span class="nav-text">package.json和package-lock.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行后台项目"><span class="nav-number">5.</span> <span class="nav-text">运行后台项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode一些常见快捷键"><span class="nav-number">2.</span> <span class="nav-text">vscode一些常见快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature分支（扩展分支）"><span class="nav-number">3.</span> <span class="nav-text">feature分支（扩展分支）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue中watch的用法（具体可看4-6）"><span class="nav-number">4.</span> <span class="nav-text">Vue中watch的用法（具体可看4.6）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再学一下Promise（上次在3-8）"><span class="nav-number">5.</span> <span class="nav-text">再学一下Promise（上次在3.8）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ref与refs"><span class="nav-number">6.</span> <span class="nav-text">ref与refs</span></a></li></ol></div>
             
 
           </div>
