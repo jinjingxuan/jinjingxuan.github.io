@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="利用闭包在循环中直接找到对应元素的索引">
+<meta name="description" content="算法：最长公共前缀 [] == [] 为什么是false 开发上线流程总结 小程序的上线流程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js案例-选项卡（闭包）">
-<meta property="og:url" content="http://yoursite.com/2018/08/16/js案例-选项卡（闭包）/index.html">
+<meta property="og:title" content="工作-7.30">
+<meta property="og:url" content="http://yoursite.com/2020/07/30/工作-7.30/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="利用闭包在循环中直接找到对应元素的索引">
+<meta property="og:description" content="算法：最长公共前缀 [] == [] 为什么是false 开发上线流程总结 小程序的上线流程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T03:55:29.031Z">
+<meta property="og:updated_time" content="2020-07-31T13:43:36.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js案例-选项卡（闭包）">
-<meta name="twitter:description" content="利用闭包在循环中直接找到对应元素的索引">
+<meta name="twitter:title" content="工作-7.30">
+<meta name="twitter:description" content="算法：最长公共前缀 [] == [] 为什么是false 开发上线流程总结 小程序的上线流程">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/16/js案例-选项卡（闭包）/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/30/工作-7.30/"/>
 
 
 
 
 
-  <title>js案例-选项卡（闭包） | -Breeze's Blog</title>
+  <title>工作-7.30 | -Breeze's Blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/js案例-选项卡（闭包）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/工作-7.30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js案例-选项卡（闭包）</h1>
+          <h1 class="post-title" itemprop="name headline">工作-7.30</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T21:00:54+08:00">
-                2018-08-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-30T09:52:01+08:00">
+                2020-07-30
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js案例/" itemprop="url" rel="index">
-                    <span itemprop="name">js案例</span>
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
                   </a>
                 </span>
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  191
+                  508
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -429,9 +429,49 @@
       
 
       
-        <p>利用闭包在循环中直接找到对应元素的索引</p>
+        <ul>
+<li>算法：最长公共前缀</li>
+<li>[] == [] 为什么是false</li>
+<li>开发上线流程总结</li>
+<li>小程序的上线流程</li>
+</ul>
 <a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-head"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> oHead = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.tab-head span'</span>),</span></span><br><span class="line"><span class="javascript">		oBody = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.body div'</span>);</span></span><br><span class="line"><span class="undefined">		index = 0;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,iL = oHead.length;i &lt; iL;i++)&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		;(<span class="function"><span class="keyword">function</span>(<span class="params">oSpan,i</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			oSpan.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                 <span class="comment">//清除原有</span></span></span><br><span class="line"><span class="javascript">				oHead[index].className = <span class="string">''</span>;</span></span><br><span class="line"><span class="javascript">				oBody[index].className = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">				index = i;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//添加样式</span></span></span><br><span class="line"><span class="javascript">				oHead[index].className = <span class="string">'on'</span>;</span></span><br><span class="line"><span class="javascript">				oBody[index].className = <span class="string">'on'</span>;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">		&#125;)(oHead[i],i);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="javascript">	<span class="comment">//初始化</span></span></span><br><span class="line"><span class="undefined">	oHead[index].click();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="算法：最长公共前缀"><a href="#算法：最长公共前缀" class="headerlink" title="算法：最长公共前缀"></a>算法：最长公共前缀</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">编写一个函数来查找字符串数组中的最长公共前缀。</span><br><span class="line"></span><br><span class="line">如果不存在公共前缀，返回空字符串 &quot;&quot;。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出: &quot;fl&quot;</span><br><span class="line"></span><br><span class="line">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">输出: &quot;&quot;</span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：依次比较，时间复杂度O(s)，s为所有字符串总长度</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    <span class="keyword">let</span> ans = strs[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;strs.length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;ans.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[i][j]!==ans[j])&#123;</span><br><span class="line">                ans = ans.slice(<span class="number">0</span>,j)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="为什么是false"><a href="#为什么是false" class="headerlink" title="[] == [] 为什么是false"></a>[] == [] 为什么是false</h2><p>因为是引用型。。。</p>
+<h2 id="开发上线流程总结"><a href="#开发上线流程总结" class="headerlink" title="开发上线流程总结"></a>开发上线流程总结</h2><ul>
+<li><p>gitlab新建分支，例如feature-jjx-a，开始写代码</p>
+</li>
+<li><p>写好代码和后端对接口，没问题了准备部署，让测试人员测试</p>
+</li>
+<li><p>根据接口创建分支，若接口在test分支，则直接<code>node .\publish\local.js dev</code>上传到dev分支。</p>
+</li>
+<li><p>rscode创建feature分支4，对应名字feature-dev-4，作用是在gitlab上创建了feature-dev-4分支</p>
+</li>
+<li><p>若创建失败，删除分支重新建立</p>
+</li>
+<li><p>项目中执行<code>node .\publish\local.js feature-dev-4</code>，作用是将项目打包并上传到所创建的分支</p>
+</li>
+<li><p>打包之前一定要pull最新的，切到master分支，git pull，再切到feature分支，git merge master</p>
+</li>
+<li><p>在rscode中新建上线任务，开始部署，即上传到服务器，可以看到域名地址</p>
+</li>
+<li><p>从dev到test，让测试人员在test环境下的域名进行测试 。</p>
+</li>
+<li><p>若将master merge到feature-dev-4失败，则clone下来项目，切到feature-dev-4，执行git merge master</p>
+<p>将master合并到此分支，手动消除冲突。</p>
+</li>
+<li><p>测试点测试通过后，进行上线。</p>
+</li>
+</ul>
+<h2 id="小程序的上线流程"><a href="#小程序的上线流程" class="headerlink" title="小程序的上线流程"></a>小程序的上线流程</h2><ul>
+<li>npm run build 进行打包</li>
+<li>开发者工具中上传</li>
+<li>选择设置为体验版</li>
+</ul>
 
       
     </div>
@@ -456,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/16/js学习-闭包/" rel="next" title="js学习-闭包">
-                <i class="fa fa-chevron-left"></i> js学习-闭包
+              <a href="/2020/07/27/工作-7.27/" rel="next" title="工作-7.27">
+                <i class="fa fa-chevron-left"></i> 工作-7.27
               </a>
             
           </div>
@@ -465,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/17/js案例-内容可编辑/" rel="prev" title="js案例-内容可编辑">
-                js案例-内容可编辑 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -576,6 +621,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：最长公共前缀"><span class="nav-number">1.</span> <span class="nav-text">算法：最长公共前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么是false"><span class="nav-number">2.</span> <span class="nav-text">[] == [] 为什么是false</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发上线流程总结"><span class="nav-number">3.</span> <span class="nav-text">开发上线流程总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的上线流程"><span class="nav-number">4.</span> <span class="nav-text">小程序的上线流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
