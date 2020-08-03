@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="括号匹配问题 git回退命令 纯函数以及三个条件 el-form表单验证">
+<meta name="description" content="括号匹配问题（栈） git回退命令 纯函数以及三个条件 el-form表单验证">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工作-8.2">
 <meta property="og:url" content="http://yoursite.com/2020/08/02/工作-8.2/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="括号匹配问题 git回退命令 纯函数以及三个条件 el-form表单验证">
+<meta property="og:description" content="括号匹配问题（栈） git回退命令 纯函数以及三个条件 el-form表单验证">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-02T14:44:36.328Z">
+<meta property="og:updated_time" content="2020-08-03T14:40:51.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作-8.2">
-<meta name="twitter:description" content="括号匹配问题 git回退命令 纯函数以及三个条件 el-form表单验证">
+<meta name="twitter:description" content="括号匹配问题（栈） git回退命令 纯函数以及三个条件 el-form表单验证">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  535
+                  698
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -430,7 +430,7 @@
 
       
         <ul>
-<li>括号匹配问题</li>
+<li>括号匹配问题（栈）</li>
 <li>git回退命令</li>
 <li>纯函数以及三个条件</li>
 <li>el-form表单验证</li>
@@ -440,14 +440,33 @@
 <li>思路：遇左括号入栈，遇右括号则与栈顶的左括号匹配，匹配成功左括号出栈，栈空则成功</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        [<span class="string">"&#125;"</span>,<span class="string">"&#123;"</span>],</span><br><span class="line">        [<span class="string">")"</span>,<span class="string">"("</span>],</span><br><span class="line">        [<span class="string">"]"</span>,<span class="string">"["</span>]</span><br><span class="line">    ])</span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line">    <span class="keyword">let</span> str = s.split(<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> str)&#123;</span><br><span class="line">        <span class="comment">// 判断是否为左括号</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="regexp">/(\(|\[|\&#123;)/</span>.test(str[i]))&#123;</span><br><span class="line">            stack.push(str[i])</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stack.length===<span class="number">0</span>||stack[stack.length<span class="number">-1</span>]!==map.get(str[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                stack.pop()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.length === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="git的回退命令"><a href="#git的回退命令" class="headerlink" title="git的回退命令"></a>git的回退命令</h2><ul>
-<li>·本地代码回退到与git远程仓库保持一致 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 远程分支名</span><br></pre></td></tr></table></figure>
+<h2 id="git的回退命令"><a href="#git的回退命令" class="headerlink" title="git的回退命令"></a>git的回退命令</h2><p>首先将本地的内容回退到自己想要的版本。回退版本我一般使用</p>
+<blockquote>
+<p>git reset</p>
+</blockquote>
+<p>其中这条命令中又分为两种</p>
+<blockquote>
+<p>git reset –hard ：会改变本地源码</p>
+<p>git reset –soft ：改变head的指向，本地代码不会变</p>
+</blockquote>
+<p>回退到某个版本可以使用：</p>
+<blockquote>
+<p>git reset –soft xx版本号xxxx </p>
+<p>git reset –hard xx版本号xxx </p>
+</blockquote>
+<p>如果只是回到上个版本，可以使用</p>
+<blockquote>
+<p>git reset –soft HEAD~1 </p>
+<p>git reset –hard HEAD~1 </p>
+</blockquote>
+<p>场景：我提交了push之后发现push的代码存在错误，应该怎么操作？</p>
 <ul>
-<li>撤销 git push</li>
+<li>git reset –soft HEAD~1 ：将head指向上一个版本</li>
+<li>git status：会发现已经提交的内容会再次出现在缓存中</li>
+<li>git add . ：重新add</li>
+<li>git commit -m ‘’ : 重新填写信息</li>
+<li>git push –force ：当前分支的版本低于远程分支的版本，所以要想覆盖掉它，必须使用force </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log查看commit的信息</span><br><span class="line">git revert 以前commit的id</span><br><span class="line">git push 此时本地回滚的代码到服务器就可以了</span><br></pre></td></tr></table></figure>
 <h2 id="纯函数的三个条件："><a href="#纯函数的三个条件：" class="headerlink" title="纯函数的三个条件："></a>纯函数的三个条件：</h2><ul>
 <li>给定输入，无论什么时候调用，无论调用多少次，输出总是确定的</li>
 <li>在函数内部不可以改变函数外部对象的状态</li>
@@ -493,6 +512,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/03/工作-8.3/" rel="prev" title="工作-8.3">
+                工作-8.3 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -573,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">144</span>
+                  <span class="site-state-item-count">145</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
