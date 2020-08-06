@@ -101,20 +101,17 @@
 
 
 
-<meta name="description" content="算法：最长公共前缀 谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
+<meta name="description" content="算法：删除排序数组中的重复项，移除元素 关于时间戳处理 webview 对象的Observer属性 Date.parse()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作-7.27">
-<meta property="og:url" content="http://yoursite.com/2020/07/27/工作-7.27/index.html">
+<meta property="og:title" content="工作-8.6">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/工作-8.4/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="算法：最长公共前缀 谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
+<meta property="og:description" content="算法：删除排序数组中的重复项，移除元素 关于时间戳处理 webview 对象的Observer属性 Date.parse()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19506176-270a25ba8eb67ffa.png?imageMogr2/auto-orient/strip|imageView2/2/w/1105/format/webp">
-<meta property="og:updated_time" content="2020-07-27T15:20:56.755Z">
+<meta property="og:updated_time" content="2020-08-06T14:05:59.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工作-7.27">
-<meta name="twitter:description" content="算法：最长公共前缀 谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp">
+<meta name="twitter:title" content="工作-8.6">
+<meta name="twitter:description" content="算法：删除排序数组中的重复项，移除元素 关于时间戳处理 webview 对象的Observer属性 Date.parse()">
 
 
 
@@ -144,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/27/工作-7.27/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/08/06/工作-8.4/"/>
 
 
 
 
 
-  <title>工作-7.27 | -Breeze's Blog</title>
+  <title>工作-8.6 | -Breeze's Blog</title>
   
 
 
@@ -312,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/27/工作-7.27/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/06/工作-8.4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -329,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">工作-7.27</h1>
+          <h1 class="post-title" itemprop="name headline">工作-8.6</h1>
         
 
         <div class="post-meta">
@@ -341,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-27T09:52:01+08:00">
-                2020-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-06T10:27:54+08:00">
+                2020-08-06
               </time>
             
 
@@ -395,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  459
+                  804
                 </span>
               
 
@@ -411,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -433,34 +430,40 @@
 
       
         <ul>
-<li>算法：最长公共前缀</li>
-<li>谷歌浏览器中对第三方的cookie设置</li>
-<li>SameSite by default cookies</li>
-<li>Cookies without SameSite must be secure</li>
+<li>算法：删除排序数组中的重复项，移除元素</li>
+<li>关于时间戳处理</li>
+<li>webview</li>
+<li>对象的Observer属性</li>
+<li>Date.parse()</li>
 </ul>
 <a id="more"></a>
-<h2 id="最长公共前缀-链表"><a href="#最长公共前缀-链表" class="headerlink" title="最长公共前缀(链表)"></a>最长公共前缀(链表)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出: &quot;fl&quot;</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">输出: &quot;&quot;</span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<h2 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">给定数组 nums = [1,1,2], </span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 (注意只需修改，不需删除)</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br><span class="line"></span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">给定 nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
 <ul>
-<li>标签：链表</li>
-<li>当字符串数组长度为 0 时则公共前缀为空，直接返回</li>
-<li>令最长公共前缀 ans 的值为第一个字符串，进行初始化</li>
-<li>遍历后面的字符串，依次将其与 ans 进行比较，两两找出公共前缀，最终结果即为最长公共前缀</li>
-<li>如果查找过程中出现了 ans 为空的情况，则公共前缀不存在直接返回</li>
-<li>时间复杂度：O(s)，s 为所有字符串的长度之和</li>
+<li>遍历一次，不重复的放在数组前几位，时间复杂度O（n)</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.length == <span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">let</span> ans = strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;strs.length;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;;j&lt;ans.length &amp;&amp; j &lt; strs[i].length;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(ans[j] != strs[i][j])</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = ans.substr(<span class="number">0</span>, j);</span><br><span class="line">        <span class="keyword">if</span>(ans === <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="SameSite-by-default-cookies"><a href="#SameSite-by-default-cookies" class="headerlink" title="SameSite by default cookies"></a>SameSite by default cookies</h4><p><img src="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp" alt="img"></p>
-<p>把这个设置关了就允许所有的第三方cookie</p>
-<h4 id="Cookies-without-SameSite-must-be-secure"><a href="#Cookies-without-SameSite-must-be-secure" class="headerlink" title="Cookies without SameSite must be secure"></a>Cookies without SameSite must be secure</h4><p><img src="https://upload-images.jianshu.io/upload_images/19506176-270a25ba8eb67ffa.png?imageMogr2/auto-orient/strip|imageView2/2/w/1105/format/webp" alt="img"></p>
-<p>如果你想加 SameSite=none 属性，那么该 Cookie 就必须同时加上 Secure 属性，表示只有在 HTTPS 协议下该 Cookie 才会被发送。 </p>
-<p>SameSite 可以有下面三种值：</p>
-<ol>
-<li>Strict 仅允许一方请求携带 Cookie，即浏览器将只发送相同站点请求的 Cookie，即当前网页 URL 与请求目标 URL 完全一致。</li>
-<li>Lax 允许部分第三方请求携带 Cookie</li>
-<li>None 无论是否跨站都会发送 Cookie</li>
-</ol>
-<p>之前默认是 None 的，Chrome80 后默认是 Lax</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果允许了第三方的cookie，就不用在本地配置xxx.域名了</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]!==nums[i<span class="number">-1</span>]) nums[len++] = nums[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [3,2,2,3], val = 3,</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">给定 nums = [0,1,2,2,3,0,4,2], val = 2,</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。</span><br><span class="line"></span><br><span class="line">注意这五个元素可为任意顺序。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>跟上题思路一样</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeElement = <span class="function"><span class="keyword">function</span>(<span class="params">nums, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] !== val) nums[len++] = nums[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="关于时间戳处理"><a href="#关于时间戳处理" class="headerlink" title="关于时间戳处理"></a>关于时间戳处理</h2><p>在前后端接口开发时，时间对象的处理往往处理成13位的时间戳形式。</p>
+<ul>
+<li>时间对象转换为时间戳</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个时间对象 dt，然后依次演示各种将 dt 转换为时间戳的写法</span></span><br><span class="line"><span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2019-07-04 23:59:59.999"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法一，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(dt.getTime());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(dt.valueOf());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法三，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(dt));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法四，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(+dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法五，精确到秒，得到 13 位时间戳 1562255999000，后三位固定为 000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.parse(dt));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间戳转换为时间对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：参数中的时间戳必须是 13 位的，多一位或少一位都不行</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1562169599000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将时间戳转换为更加直观形象的本地时间</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1562169599000</span>).toLocaleString();</span><br></pre></td></tr></table></figure>
+<h2 id="webview"><a href="#webview" class="headerlink" title="webview"></a>webview</h2><p><strong>承载网页的容器。会自动铺满整个小程序页面</strong></p>
+<p>官方文档：<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html</a> </p>
+<h2 id="对象的Observer属性"><a href="#对象的Observer属性" class="headerlink" title="对象的Observer属性"></a>对象的Observer属性</h2><p>当对象有__ob__: Observer属性时，表明对象已经被监听</p>
+<p>此时可以用<code>JSON.parse(JSON.stringify(obj))</code>处理</p>
+<h2 id="Date-parse"><a href="#Date-parse" class="headerlink" title="Date.parse"></a>Date.parse</h2><blockquote>
+<p><em>Date.parse</em>()函数用于分析一个包含日期的字符串,并返回该日期与 1970 年 1 月 1 日午夜之间相差的毫秒数。 </p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断两个时间差是否超过一天</span></span><br><span class="line">(<span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-08-06 21:33:00'</span>)) - <span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-08-05 21:33:00'</span>)))</span><br><span class="line">/<span class="number">1000</span>/<span class="number">3600</span>/<span class="number">24</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -485,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/23/工作-7.23/" rel="next" title="工作-7.23">
-                <i class="fa fa-chevron-left"></i> 工作-7.23
+              <a href="/2020/08/03/工作-8.3/" rel="next" title="工作-8.3">
+                <i class="fa fa-chevron-left"></i> 工作-8.3
               </a>
             
           </div>
@@ -494,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/30/工作-7.30/" rel="prev" title="工作-7.30">
-                工作-7.30 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -624,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最长公共前缀-链表"><span class="nav-number">1.</span> <span class="nav-text">最长公共前缀(链表)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SameSite-by-default-cookies"><span class="nav-number">1.0.1.</span> <span class="nav-text">SameSite by default cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookies-without-SameSite-must-be-secure"><span class="nav-number">1.0.2.</span> <span class="nav-text">Cookies without SameSite must be secure</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除排序数组中的重复项"><span class="nav-number">1.</span> <span class="nav-text">删除排序数组中的重复项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除元素"><span class="nav-number">2.</span> <span class="nav-text">移除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于时间戳处理"><span class="nav-number">3.</span> <span class="nav-text">关于时间戳处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webview"><span class="nav-number">4.</span> <span class="nav-text">webview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的Observer属性"><span class="nav-number">5.</span> <span class="nav-text">对象的Observer属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date-parse"><span class="nav-number">6.</span> <span class="nav-text">Date.parse</span></a></li></ol></div>
             
 
           </div>
