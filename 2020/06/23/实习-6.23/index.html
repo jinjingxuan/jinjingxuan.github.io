@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题 github打不开怎么办">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-06T14:07:42.906Z">
+<meta property="og:updated_time" content="2020-08-10T13:41:35.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习-6.23">
 <meta name="twitter:description" content="input标签的maxlength属性和autocomplete属性 动态绑定class改变样式 动态绑定图片 require 什么是vuex 调用接口 每日一题 github打不开怎么办">
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  791
+                  878
                 </span>
               
 
@@ -455,6 +455,8 @@
 <blockquote>
 <p>this.$store：我们最开始把vuex挂载到了根组件上（在main.js中），所以在任何地方都可以调用$store，和$router是一个道理</p>
 </blockquote>
+<p><strong>如果想引入很多数据，一个一个写又很麻烦，就可以用mapState</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    name: <span class="string">'xiaoming'</span>,</span><br><span class="line">    ...mapState(&#123;  <span class="comment">//这里的...不是省略号了,是对象扩展符</span></span><br><span class="line">        sex: <span class="function"><span class="params">state</span> =&gt;</span> state.person.sex,</span><br><span class="line">        height: <span class="function"><span class="params">state</span> =&gt;</span> state.person.sex</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用扩展运算符可以使数据与其他计算属性的数据混合在一起</span></span><br></pre></td></tr></table></figure>
 <h2 id="调用接口"><a href="#调用接口" class="headerlink" title="调用接口"></a>调用接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//页面中的钩子函数调用indexRecommend接口，async/await保证异步执行顺序</span></span><br><span class="line"><span class="keyword">async</span> created() &#123;</span><br><span class="line">        <span class="keyword">this</span>.recommend = <span class="keyword">await</span> <span class="keyword">this</span>.$serv.indexRecommend();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//后面由于涉及到公司的代码就不贴出了，贴一些学到的代码</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(<span class="function"><span class="params">x</span>=&gt;</span> <span class="built_in">console</span>.log(x*x))   <span class="comment">//输出1,4,9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//解析赋值，将req对象中定义的方法分别赋值给get,post等方法，到此请求方法定义成功</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> &#123; get, post, put, jsonp, <span class="attr">delete</span> : del &#125; = req;</span><br></pre></td></tr></table></figure>
 <h2 id="每日一题"><a href="#每日一题" class="headerlink" title="每日一题"></a>每日一题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(length)  <span class="comment">//词法作用域，找foo函数外面定义的length，即window.length</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> length = <span class="string">'jin'</span></span><br><span class="line">    foo()</span><br><span class="line">&#125;</span><br><span class="line">bar()  <span class="comment">//输出的为window.length即为iframe的个数</span></span><br></pre></td></tr></table></figure>
 <h2 id="github打不开怎么办"><a href="#github打不开怎么办" class="headerlink" title="github打不开怎么办"></a>github打不开怎么办</h2><ul>
@@ -579,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">146</span>
+                  <span class="site-state-item-count">147</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
