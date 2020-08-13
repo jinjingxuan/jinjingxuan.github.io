@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta name="description" content="什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="春招准备-3.16">
 <meta property="og:url" content="http://yoursite.com/2020/03/16/春招准备-3.16/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta property="og:description" content="什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2295405-2012a343e5e0c162.png?imageMogr2/auto-orient/strip|imageView2/2/w/423/format/webp">
-<meta property="og:updated_time" content="2020-03-16T05:53:10.947Z">
+<meta property="og:updated_time" content="2020-08-13T14:14:01.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招准备-3.16">
-<meta name="twitter:description" content="今日清单 什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
+<meta name="twitter:description" content="什么是脱离文档流，定位与浮动 值类型与引用类型，堆和栈 MVC与MVVM 说一下Vue数据双向绑定的原理">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2295405-2012a343e5e0c162.png?imageMogr2/auto-orient/strip|imageView2/2/w/423/format/webp">
 
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.8k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -431,7 +431,7 @@
       
 
       
-        <h1 id="今日清单"><a href="#今日清单" class="headerlink" title="今日清单"></a>今日清单</h1><ul>
+        <ul>
 <li>什么是脱离文档流，定位与浮动</li>
 <li>值类型与引用类型，堆和栈</li>
 <li>MVC与MVVM</li>
@@ -497,6 +497,20 @@
 <p>既然如此，我们当然可以在<strong>触发函数的时候</strong>动一些手脚做点我们自己想做的事情，这也就是<strong>“劫持”操作</strong>。</p>
 <p>在Vue中其实就是通过<strong>Object.defineProperty来劫持对象属性的setter和getter操作</strong>，并<strong>“种下”一个监听器</strong>，当数据发生变化的时候发出通知。 </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">    name:<span class="string">'lhl'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:<span class="literal">true</span>, <span class="comment">// 是否能在for...in循环中遍历出来或在Object.keys中列举出来。</span></span><br><span class="line">        configurable:<span class="literal">true</span>, <span class="comment">// false，不可修改、删除目标属性或修改属性性以下特性</span></span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'get'</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        set:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'监听到数据发生了变化'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)；</span><br><span class="line">data.name <span class="comment">//控制台会打印出 “get”</span></span><br><span class="line">data.name = <span class="string">'hxx'</span> <span class="comment">//控制台会打印出 "监听到数据发生了变化"</span></span><br></pre></td></tr></table></figure>
+<p><strong>极简版双向绑定</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">'input'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">'span'</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">"input"</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> span = <span class="built_in">document</span>.getElementById(<span class="string">"span"</span>)</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> obj = &#123;&#125;;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">Object</span>.defineProperty(obj, <span class="string">'text'</span>, &#123;</span></span><br><span class="line"><span class="javascript">        get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'get val'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        set: <span class="function"><span class="keyword">function</span>(<span class="params">newVal</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'set val:'</span> + newVal);</span></span><br><span class="line"><span class="undefined">            input.value = newVal;</span></span><br><span class="line"><span class="undefined">            span.innerHTML = newVal;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="javascript">    input.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        obj.text = e.target.value;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="vue3-x双向绑定：proxy"><a href="#vue3-x双向绑定：proxy" class="headerlink" title="vue3.x双向绑定：proxy"></a>vue3.x双向绑定：proxy</h3><p>Proxy可以理解成，在目标对象之前架设一层 “拦截”，当外界对该对象访问的时候，都必须经过这层拦截，而Proxy就充当了这种机制，类似于代理的含义，它可以对外界访问对象之前进行过滤和改写该对象。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var proxy = new Proxy(target, handler);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>new Proxy()</code>表示生成一个<code>Proxy</code>实例，<code>target</code>参数表示所要拦截的目标对象，<code>handler</code>参数也是一个对象，用来定制拦截行为</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"input"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"span"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">       <span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">"input"</span>)</span></span><br><span class="line"><span class="javascript">       <span class="keyword">let</span> span = <span class="built_in">document</span>.getElementById(<span class="string">"span"</span>)</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> obj = &#123;</span></span><br><span class="line"><span class="javascript">           text: <span class="string">'123'</span></span></span><br><span class="line"><span class="undefined">       &#125;;</span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> Handler = &#123;</span></span><br><span class="line"><span class="javascript">           get: <span class="function"><span class="keyword">function</span> (<span class="params">obj, key</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">               <span class="built_in">console</span>.log(<span class="string">'get val'</span>);</span></span><br><span class="line"><span class="javascript">               <span class="keyword">return</span> obj[key]</span></span><br><span class="line"><span class="undefined">           &#125;,</span></span><br><span class="line"><span class="javascript">           set: <span class="function"><span class="keyword">function</span> (<span class="params">obj, key, newVal</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">               <span class="built_in">console</span>.log(<span class="string">'set val:'</span> + newVal);</span></span><br><span class="line"><span class="undefined">               obj.key = newVal</span></span><br><span class="line"><span class="undefined">               span.innerHTML = newVal</span></span><br><span class="line"><span class="undefined">               input.value = newVal</span></span><br><span class="line"><span class="undefined">           &#125;</span></span><br><span class="line"><span class="undefined">       &#125;</span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, Handler);</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="javascript">       input.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">           proxy.text = e.target.value</span></span><br><span class="line"><span class="undefined">       &#125;)</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>proxy</code> 读取属性的值时，实际上执行的是 <code>Handler.get</code> ：在控制台输出信息，并且读取被代理对象 <code>obj</code> 的属性。</p>
+</li>
+<li><p>在 <code>proxy</code> 设置属性值时，实际上执行的是 <code>Handler.set</code> ：在控制台输出信息，并且设置被代理对象 <code>obj</code> 的属性的值</p>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -616,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">147</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -627,7 +641,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -662,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今日清单"><span class="nav-number">1.</span> <span class="nav-text">今日清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是脱离文档流，定位与浮动"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是脱离文档流，定位与浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-值类型与引用类型，堆和栈"><span class="nav-number">1.2.</span> <span class="nav-text">2.值类型与引用类型，堆和栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MVC与MVVM"><span class="nav-number">1.3.</span> <span class="nav-text">3.MVC与MVVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说一下Vue数据双向绑定的原理"><span class="nav-number">1.4.</span> <span class="nav-text">4.说一下Vue数据双向绑定的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）发布者-订阅者模式（观察者模式）"><span class="nav-number">1.4.1.</span> <span class="nav-text">（1）发布者-订阅者模式（观察者模式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）观察者模式的使用场景"><span class="nav-number">1.4.2.</span> <span class="nav-text">（2）观察者模式的使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）回顾一下Object-defineProperty"><span class="nav-number">1.4.3.</span> <span class="nav-text">（3）回顾一下Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）什么是数据劫持"><span class="nav-number">1.4.4.</span> <span class="nav-text">(4）什么是数据劫持</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是脱离文档流，定位与浮动"><span class="nav-number">1.</span> <span class="nav-text">1.什么是脱离文档流，定位与浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-值类型与引用类型，堆和栈"><span class="nav-number">2.</span> <span class="nav-text">2.值类型与引用类型，堆和栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MVC与MVVM"><span class="nav-number">3.</span> <span class="nav-text">3.MVC与MVVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说一下Vue数据双向绑定的原理"><span class="nav-number">4.</span> <span class="nav-text">4.说一下Vue数据双向绑定的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）发布者-订阅者模式（观察者模式）"><span class="nav-number">4.1.</span> <span class="nav-text">（1）发布者-订阅者模式（观察者模式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）观察者模式的使用场景"><span class="nav-number">4.2.</span> <span class="nav-text">（2）观察者模式的使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）回顾一下Object-defineProperty"><span class="nav-number">4.3.</span> <span class="nav-text">（3）回顾一下Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）什么是数据劫持"><span class="nav-number">4.4.</span> <span class="nav-text">(4）什么是数据劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue3-x双向绑定：proxy"><span class="nav-number">4.5.</span> <span class="nav-text">vue3.x双向绑定：proxy</span></a></li></ol></li></ol></div>
             
 
           </div>
