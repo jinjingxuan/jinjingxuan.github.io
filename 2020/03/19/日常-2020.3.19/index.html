@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="cooike和session的区别  html5的一些标签  数组和链表的对比 链表反转 给一个链表，输出链表中倒数第k个结点 输入两个单增的链表，合并后新链表单调不减 轮播图怎么实现 设计模式你了解哪些 项目中你遇到了哪些坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常-2020.3.19">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/日常-2020.3.19/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="cooike和session的区别  html5的一些标签  数组和链表的对比 链表反转 给一个链表，输出链表中倒数第k个结点 输入两个单增的链表，合并后新链表单调不减 轮播图怎么实现 设计模式你了解哪些 项目中你遇到了哪些坑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-14T15:04:53.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常-2020.3.19">
+<meta name="twitter:description" content="cooike和session的区别  html5的一些标签  数组和链表的对比 链表反转 给一个链表，输出链表中倒数第k个结点 输入两个单增的链表，合并后新链表单调不减 轮播图怎么实现 设计模式你了解哪些 项目中你遇到了哪些坑">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/19/日常-2020.3.19/"/>
+
+
+
+
+
+  <title>日常-2020.3.19 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/日常-2020.3.19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">日常-2020.3.19</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T09:52:01+08:00">
+                2020-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p>cooike和session的区别</p>
+</li>
+<li><p>html5的一些标签</p>
+</li>
+<li>数组和链表的对比</li>
+<li>链表反转</li>
+<li>给一个链表，输出链表中倒数第k个结点</li>
+<li>输入两个单增的链表，合并后新链表单调不减</li>
+<li>轮播图怎么实现</li>
+<li>设计模式你了解哪些</li>
+<li>项目中你遇到了哪些坑</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-cooike和session的区别"><a href="#1-cooike和session的区别" class="headerlink" title="1.cooike和session的区别"></a>1.cooike和session的区别</h2><p>Session是另一种记录客户状态的机制，不同的是Cookie保存在客户端浏览器中，而Session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上。这就是Session。客户端浏览器再次访问时只需要从该Session中查找该客户的状态就可以了 。</p>
+<h2 id="2-html5的一些标签"><a href="#2-html5的一些标签" class="headerlink" title="2.html5的一些标签"></a>2.html5的一些标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;:定义区段或页面的页眉.(头部)</span><br><span class="line">&lt;footer&gt;:定义区段或页面的页脚.(足部)</span><br><span class="line">&lt;section&gt;:定义文档中的区段.</span><br><span class="line">&lt;article&gt;:定义文章.</span><br><span class="line">&lt;aside&gt;:定义页面内容之外的内容.</span><br><span class="line">&lt;details&gt;:定义元素的细节.</span><br><span class="line">&lt;audio&gt;:定义声音内容.</span><br><span class="line">&lt;video&gt;:定义视频.</span><br><span class="line">&lt;iframe&gt;:内联框架.</span><br></pre></td></tr></table></figure>
+<h2 id="3-数组和链表的对比"><a href="#3-数组和链表的对比" class="headerlink" title="3.数组和链表的对比"></a>3.数组和链表的对比</h2><p>数组存储方式采用线性结构，声明数组时需要声明类型，并且大小也会固定：</p>
+<ul>
+<li>优点：</li>
+</ul>
+<p>　　　　因此访问数组元素可根据数组下标随机访问，O(1).</p>
+<ul>
+<li>缺点：</li>
+</ul>
+<p>　　　　大小固定，可能会造成空间浪费，或空间不够影响程序运行；</p>
+<p>　　　　插入和删除元素却比较麻烦，可能需要移动部分数组元素以保证数组元素的物理位置保持连续。</p>
+<p>链表采用链式存储结构，在声明时只需声明结构类型，：</p>
+<ul>
+<li>优点：</li>
+</ul>
+<p>　　　　链表大小在实际使用中可以动态增大和减小；</p>
+<p>　　　　插入和删除操作就很方便，只需修改该元素节点邻接元素即可O(1).</p>
+<ul>
+<li>缺点：</li>
+</ul>
+<p>　　　　访问元素比较费时，需要逐个节点进行查看或能找到目标元素。</p>
+<h2 id="4-链表反转"><a href="#4-链表反转" class="headerlink" title="4.链表反转"></a>4.链表反转</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Reverse</span>(<span class="params">p</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pre=<span class="literal">null</span></span><br><span class="line">    <span class="keyword">var</span> next=<span class="literal">null</span></span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">null</span>)&#123;</span><br><span class="line">        next=p.next</span><br><span class="line">        p.next=pre <span class="comment">//反转指针</span></span><br><span class="line">        pre=p      </span><br><span class="line">        p=next</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-给一个链表，输出链表中倒数第k个结点"><a href="#5-给一个链表，输出链表中倒数第k个结点" class="headerlink" title="5.给一个链表，输出链表中倒数第k个结点"></a>5.给一个链表，输出链表中倒数第k个结点</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = []</span><br><span class="line"><span class="keyword">while</span>(head)&#123;</span><br><span class="line">    arr.unshift(head)</span><br><span class="line">    head=head.next</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> arr[k<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="6-输入两个单增的链表，合并后新链表单调不减"><a href="#6-输入两个单增的链表，合并后新链表单调不减" class="headerlink" title="6.输入两个单增的链表，合并后新链表单调不减"></a>6.输入两个单增的链表，合并后新链表单调不减</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">pHead1,pHead2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pHead1==<span class="literal">null</span>) <span class="keyword">return</span> pHead2</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(pHead2==<span class="literal">null</span>) <span class="keyword">return</span> pHead1</span><br><span class="line">    <span class="keyword">let</span> result =[]</span><br><span class="line">    <span class="keyword">if</span>(pHead1.val&lt;pHead2.val)&#123;</span><br><span class="line">        result = pHead1</span><br><span class="line">        result.next = merge(pHead1.next,pHead2)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        result = pHead2</span><br><span class="line">        result.next = merge(pHead1,pHead2.next)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-怎么实现轮播图"><a href="#7-怎么实现轮播图" class="headerlink" title="7. 怎么实现轮播图"></a>7. 怎么实现轮播图</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若果有在等待的定时器，则清掉</span></span><br><span class="line"><span class="keyword">if</span> (timer) &#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    timer = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//自动切换</span></span><br><span class="line">timer = setInterval(autoPlay, <span class="number">4000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义自动播放函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">autoPlay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    index++;</span><br><span class="line">    <span class="keyword">if</span> (list.length &lt;=index) &#123;</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    changeImg(index);</span><br><span class="line">    <span class="comment">// alert("我正在autoplay");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义图片切换函数（根据当前的index值也就是curindex）</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeImg</span>(<span class="params">curIndex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; list.length; j++) &#123;</span><br><span class="line">        list[j].className = <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改变当前显示索引</span></span><br><span class="line">    list[curIndex].className = <span class="string">"on"</span>;</span><br><span class="line">    pic.style.marginLeft = <span class="number">-1920</span> * curIndex + <span class="string">"px"</span>;</span><br><span class="line">    index = curIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标划过整个容器时停止自动播放</span></span><br><span class="line">wrap.onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params">curIndex</span>) </span>&#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    <span class="comment">//点击右按钮</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标离开整个容器时继续播放至下一张</span></span><br><span class="line">wrap.onmouseout = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    timer = setInterval(autoPlay, <span class="number">4000</span>);</span><br><span class="line">    <span class="comment">// alert("鼠标移走了");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历所有数字导航实现划过切换至对应的图片</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">    list[i].id = i;</span><br><span class="line">    list[i].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearInterval(timer);</span><br><span class="line">        changeImg(<span class="keyword">this</span>.id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-设计模式"><a href="#8-设计模式" class="headerlink" title="8. 设计模式"></a>8. 设计模式</h2><ul>
+<li>单例模式（Singleton）：又称为单体模式，是只允许实例化一次的对象类。有时我们也用一个对象来规划一个命名空间，井井有条地管理对象上的属性与方法。 </li>
+<li>简单工厂模式：又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。 </li>
+<li>工厂方法模式（Factory Method）：通过对产品类的抽象使其创建业务主要负责用于创建多类产品的实例。 </li>
+<li>抽象工厂模式：通过对类的工厂抽象使其业务用于对产品类簇的创建，而不负责创建某一类产品的实例。 </li>
+<li>建造者模式（Builder：将一个复杂对象的构建层与其表示层相互分离，同样的构建过程可采用不同的表示。 </li>
+</ul>
+<h2 id="9-项目中遇到过那些坑"><a href="#9-项目中遇到过那些坑" class="headerlink" title="9. 项目中遇到过那些坑"></a>9. 项目中遇到过那些坑</h2><ul>
+<li>for循环给li设置点击事件，闭包，let</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/16/日常-2020.3.16/" rel="next" title="日常-2020.3.16">
+                <i class="fa fa-chevron-left"></i> 日常-2020.3.16
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/20/整理-手写代码整理/" rel="prev" title="手写代码整理">
+                手写代码整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-cooike和session的区别"><span class="nav-number">1.</span> <span class="nav-text">1.cooike和session的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-html5的一些标签"><span class="nav-number">2.</span> <span class="nav-text">2.html5的一些标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数组和链表的对比"><span class="nav-number">3.</span> <span class="nav-text">3.数组和链表的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-链表反转"><span class="nav-number">4.</span> <span class="nav-text">4.链表反转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-给一个链表，输出链表中倒数第k个结点"><span class="nav-number">5.</span> <span class="nav-text">5.给一个链表，输出链表中倒数第k个结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-输入两个单增的链表，合并后新链表单调不减"><span class="nav-number">6.</span> <span class="nav-text">6.输入两个单增的链表，合并后新链表单调不减</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-怎么实现轮播图"><span class="nav-number">7.</span> <span class="nav-text">7. 怎么实现轮播图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-设计模式"><span class="nav-number">8.</span> <span class="nav-text">8. 设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-项目中遇到过那些坑"><span class="nav-number">9.</span> <span class="nav-text">9. 项目中遇到过那些坑</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

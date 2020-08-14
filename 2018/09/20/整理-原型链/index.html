@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型链与继承">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/整理-原型链/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-14T14:36:12.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原型链与继承">
+<meta name="twitter:description" content="原文地址:https://blog.csdn.net/u012468376/article/details/53127929 一、继承的概念 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。  但是对JavaScript来说，没有类和接口的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/20/整理-原型链/"/>
+
+
+
+
+
+  <title>原型链与继承 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/整理-原型链/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">原型链与继承</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T10:00:54+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文地址:<a href="https://blog.csdn.net/u012468376/article/details/53127929" target="_blank" rel="noopener">https://blog.csdn.net/u012468376/article/details/53127929</a></p>
+<h1 id="一、继承的概念"><a href="#一、继承的概念" class="headerlink" title="一、继承的概念"></a>一、继承的概念</h1><p> 继承是所有的面向对象的语言最重要的特征之一。大部分的oop语言的都支持两种继承：接口继承和实现继承。比如基于类的编程语言Java，对这两种继承都支持。从接口继承抽象方法 (只有方法签名)，从类中继承实例方法。</p>
+<p> 但是对JavaScript来说，没有类和接口的概念(ES6之前)，所以只支持实现继承，而且继承在 <strong>原型链</strong> 的基础上实现的。等了解过原型链的概念之后，你会发现继承其实是发生在对象与对象之间。这是与其他编程语言很大的不同。</p>
+<a id="more"></a>
+<h1 id="二、原型链的概念"><a href="#二、原型链的概念" class="headerlink" title="二、原型链的概念"></a>二、原型链的概念</h1><blockquote>
+<p>在JavaScript中，将原型链实现继承的主要方法。其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法</p>
+</blockquote>
+<p> 再回顾下，构造函数、原型(对象)和对象之间的关系。每个构造函数都有一个属性 prototype 指向一个原型对象，每个原型对象也有一个属性 constructor 指向函数，通过new 构造函数() 创建出来的对象内部有一个不可见的属性[[prototype]]指向构造函数的原型。当每次访问对象的属性和方法的时候，总是先从p1中找，找不到则再去p1指向的原型中找。</p>
+<blockquote>
+<p>下面我们开始一步步的构造原型链，来实现继承</p>
+</blockquote>
+<h2 id="2-1-更换构造函数的原型"><a href="#2-1-更换构造函数的原型" class="headerlink" title="2.1 更换构造函数的原型"></a>2.1 更换构造函数的原型</h2><p> 原型其实就是一个对象，只是默认情况下原型对象是浏览器会自动帮我们创建的，而且自动让构造函数的 prototype 属性指向这个自动创建的原型对象。</p>
+<p> 其实我们完全可以把原型对象更换成一个我们自定义类型的对象。</p>
+<blockquote>
+<p>看下面的代码：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//定义一个构造函数。</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 添加name属性.  默认直接赋值了。当然也可以通过构造函数传递过来</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.name = <span class="string">"马云"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//给Father的原型添加giveMoney方法</span></span></span><br><span class="line"><span class="javascript">    Father.prototype.giveMoney = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"我是Father原型中定义的方法"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//再定义一个构造函数。</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//添加age属性</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.age = <span class="number">18</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//关键地方：把Son构造方法的原型替换成Father的对象。</span></span></span><br><span class="line"><span class="javascript">    Son.prototype = <span class="keyword">new</span> Father();</span></span><br><span class="line"><span class="javascript">    <span class="comment">//给Son的原型添加getMoney方法</span></span></span><br><span class="line"><span class="javascript">    Son.prototype.getMoney = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"我是Son的原型中定义的方法"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//创建Son类型的对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son1 = <span class="keyword">new</span> Son();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//发现不仅可以访问Son中定义属性和Son原型中定义的方法，也可以访问Father中定义的属性和Father原型中的方法。</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//这样就通过继承完成了类型之间的继承。 </span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Son继承了Father中的属性和方法，当然还有Father原型中的属性和方法。</span></span></span><br><span class="line"><span class="undefined">    son1.giveMoney();</span></span><br><span class="line"><span class="undefined">    son1.getMoney();</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"Father定义的属性："</span> + son1.name);</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"Son中定义的属性："</span> + son1.age);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的代码其实就完成了Son继承Father的过程。那么到底是怎么完成的继承呢？</p>
+</blockquote>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+<ol>
+<li>定义Son构造函数后，我们没有再使用Son的默认原型，而是把他的默认原型更换成了Father类型对象。</li>
+<li>这时，如果这样访问 son1.name, 则先在son1中查找name属性，没有然后去他的原型( Father对象)中找到了，所以是”马云”。</li>
+<li>如果这样访问 son1.giveMoney(), 则现在son1中这个方法，找不到去他的原型中找，仍然找不到，则再去这个原型的原型中去找，然后在Father的原型对象找到了。</li>
+<li>从图中可以看出来，在访问属性和方法的时候，查找的顺序是这样的：对象-&gt;原型-&gt;原型的原型-&gt;…-&gt;原型链的顶端。 就像一个链条一样，这样<strong>由原型连成的”链条”，就是我们经常所说的原型链。</strong></li>
+<li>从上面的分析可以看出，通过原型链的形式就完成了JavaScript的继承。</li>
+</ol>
+<h2 id="2-2-默认顶端原型"><a href="#2-2-默认顶端原型" class="headerlink" title="2.2 默认顶端原型"></a>2.2 默认顶端原型</h2><p> 其实上面原型链还缺少一环。</p>
+<p> 在 JavaScript 中所有的类型如果没有指明继承某个类型，则默认是继承的 Object 类型。这种 <strong>默认继承也是通过原型链的方式完成的。</strong></p>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+<ol>
+<li>原型链的顶端一定是Object的原型对象。这也是为什么我们随意创建一个对象，就有很多方法可以调用，其实这些方法都是来自Object的原型对象。</li>
+<li>通过对象访问属性方法的时候，一定是会通过原型链来查找的，直到原型链的顶端。</li>
+<li>一旦有了继承，就会出现多态的情况。假设需要一个Father类型的数据，那么你给一个Father对象，或Son对象都是没有任何问题的。而在实际执行的过程中，一个方法的具体执行结果，就看在原型链中的查找过程了。给一个实际的Father对象则从Fahter的原型链中查找，给一个实际的Son则从Son的原型链中查找。</li>
+<li>因为继承的存在，Son的对象，也可以看出Father类型的对象和Object类型的对象。 子类型对象可以看出一个特殊的父类型对象。</li>
+</ol>
+<h2 id="2-3-测试数据的类型"><a href="#2-3-测试数据的类型" class="headerlink" title="2.3 测试数据的类型"></a>2.3 测试数据的类型</h2><p> 到目前为止，我们有3中方法来测试数据的类型。</p>
+<ol>
+<li><strong>typeof：</strong>一般用来测试简单数据类型和函数的类型。如果用来测试对象，则会一直返回object，没有太大意义。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    alert(<span class="keyword">typeof</span> <span class="number">5</span>); <span class="comment">// number</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> v = <span class="string">"abc"</span>;</span></span><br><span class="line"><span class="javascript">    alert(<span class="keyword">typeof</span> v);  <span class="comment">// string</span></span></span><br><span class="line"><span class="javascript">    alert(<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    &#125;);  <span class="comment">//funcion</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    alert(<span class="keyword">typeof</span> <span class="keyword">new</span> Person()); <span class="comment">//object</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>instanceof: 用来测试一个对象是不是属于某个类型。结果为boolean值。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params"></span>) </span>&#123;   </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    Son.prototype = <span class="keyword">new</span> Father();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son = <span class="keyword">new</span> Son();</span></span><br><span class="line"><span class="javascript">    alert(son <span class="keyword">instanceof</span> Son);  <span class="comment">// true</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Son通过原型继承了Father</span></span></span><br><span class="line"><span class="javascript">    alert(son <span class="keyword">instanceof</span> Father);  <span class="comment">// true</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//Father又默认继承了Objcet</span></span></span><br><span class="line"><span class="javascript">    alert(son <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>isPrototypeOf( 对象 ) : 这是个原型的方法，参数传入一个对象，判断参数对象是不是由这个原型派生出来的。 也就是判断这个原型是不是参数对象原型链中的一环。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    Son.prototype = <span class="keyword">new</span> Father();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son = <span class="keyword">new</span> Son();</span></span><br><span class="line"><span class="javascript">    alert(Son.prototype.isPrototypeOf(son));  <span class="comment">// true</span></span></span><br><span class="line"><span class="javascript">    alert(Father.prototype.isPrototypeOf(son)); <span class="comment">// true</span></span></span><br><span class="line"><span class="javascript">    alert(<span class="built_in">Object</span>.prototype.isPrototypeOf(son)); <span class="comment">// true</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-4-原型链在继承中的缺陷"><a href="#2-4-原型链在继承中的缺陷" class="headerlink" title="2.4 原型链在继承中的缺陷"></a>2.4 原型链在继承中的缺陷</h2><p> 原型链并非完美无缺，也是存在一些问题的。</p>
+<h3 id="2-4-1-父类型的属性共享问题"><a href="#2-4-1-父类型的属性共享问题" class="headerlink" title="2.4.1 父类型的属性共享问题"></a>2.4.1 父类型的属性共享问题</h3><p> 在原型链中，父类型的构造函数创建的对象，会成为子类型的原型。那么父类型中定义的实例属性，就会成为子类型的原型属性。对子类型来说，这和我们以前说的在原型中定会以方法，构造函数中定义属性是违背的。子类型原型中的属性被所有的子类型的实例所共有，如果有个一个实例去更改，则会很快反应的其他的实例上。</p>
+<blockquote>
+<p>看下面的代码：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.girls = [<span class="string">"志玲"</span>, <span class="string">"凤姐"</span>];</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 子类的原型对象中就有一个属性 girls ，是个数组</span></span></span><br><span class="line"><span class="javascript">    Son.prototype = <span class="keyword">new</span> Father();   </span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son1 = <span class="keyword">new</span> Son();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son2 = <span class="keyword">new</span> Son();</span></span><br><span class="line"><span class="javascript">    <span class="comment">//给son1的girls属性的数组添加一个元素</span></span></span><br><span class="line"><span class="javascript">    son1.girls.push(<span class="string">"亦非"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">//这时，发现son2中的girls属性的数组内容也发生了改变</span></span></span><br><span class="line"><span class="javascript">    alert(son2.girls);  <span class="comment">// "志玲", "凤姐", "亦非"</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-2-向父类型的构造函数中传递参数问题"><a href="#2-4-2-向父类型的构造函数中传递参数问题" class="headerlink" title="2.4.2 向父类型的构造函数中传递参数问题"></a>2.4.2 向父类型的构造函数中传递参数问题</h3><p> 在原型链的继承过程中，只有一个地方用到了父类型的构造函数，Son.prototype = new Father();。只能在这个一个位置传递参数，但是这个时候传递的参数，将来对子类型的所有的实例都有效。</p>
+<p> 如果想在创建子类型对象的时候传递参数是没有办法做到的。</p>
+<p> 如果想创建子类对象的时候，传递参数，只能另辟他法。</p>
+<h1 id="三、借用构造函数调用继承"><a href="#三、借用构造函数调用继承" class="headerlink" title="三、借用构造函数调用继承"></a>三、借用构造函数调用继承</h1><h2 id="3-1-借用的方式"><a href="#3-1-借用的方式" class="headerlink" title="3.1 借用的方式"></a>3.1 借用的方式</h2><blockquote>
+<p>借用构造函数调用继承，又叫伪装调用继承或冒充调用继承。虽然有了继承两个子，但是这种方法从本质上并没实现继承，只是完成了构造方法的调用而已。</p>
+</blockquote>
+<p> 使用call或apply这两个方法完成函数借调。这两个方法的功能是一样的，只有少许的区别(暂且不管)。功能都是更改一个构造方法内部的this指向到指定的对象上。</p>
+<blockquote>
+<p>看下面的代码：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name,age</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.name = name;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.age = age;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//这样直接调用，那么father中的this只的是 window。 因为其实这样调用的： window.father("李四", 20)</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// name 和age 属性就添加到了window属性上</span></span></span><br><span class="line"><span class="javascript">    Father(<span class="string">"李四"</span>, <span class="number">20</span>);</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"name:"</span> + <span class="built_in">window</span>.name + <span class="string">"\nage:"</span> + <span class="built_in">window</span>.age);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//使用call方法调用，则可以改变this的指向</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params">name, age, sex</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.sex = sex;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//调用Father方法(看成普通方法)，第一个参数传入一个对象this，则this(Son类型的对象)就成为了Father中的this</span></span></span><br><span class="line"><span class="javascript">        Father.call(<span class="keyword">this</span>, name, age);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">"张三"</span>, <span class="number">30</span>, <span class="string">"男"</span>);</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"name:"</span> + son.name + <span class="string">"\nage:"</span> + son.age + <span class="string">"\nsex:"</span> + son.sex);</span></span><br><span class="line"><span class="javascript">    alert(son <span class="keyword">instanceof</span> Father); <span class="comment">//false</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数借调的方式还有别的实现方式，但是原理都是一样的。但是有一点要记住，这里其实并没有真的继承，仅仅是调用了Father构造函数而已。也就是说，son对象和Father没有任何的关系。</p>
+</blockquote>
+<h2 id="3-2-借用的缺陷"><a href="#3-2-借用的缺陷" class="headerlink" title="3.2 借用的缺陷"></a>3.2 借用的缺陷</h2><p> Father的原型对象中的共享属性和方法，Son没有办法获取。因为这个根本就不是真正的继承。</p>
+<h1 id="四、组合继承"><a href="#四、组合继承" class="headerlink" title="四、组合继承"></a>四、组合继承</h1><p> 组合函数利用了原型继承和构造函数借调继承的优点，组合在一起。成为了使用最广泛的一种继承方式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//定义父类型的构造函数</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name,age</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 属性放在构造函数内部</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.name = name;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.age = age;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 方法定义在原型中</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>((<span class="keyword">typeof</span> Father.prototype.eat) != <span class="string">"function"</span>)&#123;</span></span><br><span class="line"><span class="javascript">            Father.prototype.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(<span class="keyword">this</span>.name + <span class="string">" 在吃东西"</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;  </span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 定义子类类型的构造函数</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name, age, sex</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//借调父类型的构造函数，相当于把父类型中的属性添加到了未来的子类型的对象中</span></span></span><br><span class="line"><span class="javascript">        Father.call(<span class="keyword">this</span>, name, age);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.sex = sex;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//修改子类型的原型。这样就可以继承父类型中的方法了。</span></span></span><br><span class="line"><span class="javascript">    Son.prototype = <span class="keyword">new</span> Father( );</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son1 = <span class="keyword">new</span> Son(<span class="string">"志玲"</span>, <span class="number">30</span>, <span class="string">"女"</span>);</span></span><br><span class="line"><span class="undefined">    alert(son1.name);</span></span><br><span class="line"><span class="undefined">    alert(son1.sex);</span></span><br><span class="line"><span class="undefined">    alert(son1.age);</span></span><br><span class="line"><span class="undefined">    son1.eat();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+<ol>
+<li>组合继承是我们实际使用中最常用的一种继承方式。</li>
+<li>可能有个地方有些人会有疑问：Son.prototype = new Father( );这不照样把父类型的属性给放在子类型的原型中了吗，还是会有共享问题呀。但是不要忘记了，我们在子类型的构造函数中借调了父类型的构造函数，也就是说，子类型的原型中有的属性，都会被子类对象中的属性给覆盖掉。就是这样的。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/19/整理-原型/" rel="next" title="原型">
+                <i class="fa fa-chevron-left"></i> 原型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/27/整理-浅拷贝与深拷贝/" rel="prev" title="浅拷贝与深拷贝">
+                浅拷贝与深拷贝 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、继承的概念"><span class="nav-number">1.</span> <span class="nav-text">一、继承的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、原型链的概念"><span class="nav-number">2.</span> <span class="nav-text">二、原型链的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-更换构造函数的原型"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 更换构造函数的原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-默认顶端原型"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 默认顶端原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-测试数据的类型"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 测试数据的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-原型链在继承中的缺陷"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 原型链在继承中的缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-父类型的属性共享问题"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 父类型的属性共享问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-向父类型的构造函数中传递参数问题"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2 向父类型的构造函数中传递参数问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、借用构造函数调用继承"><span class="nav-number">3.</span> <span class="nav-text">三、借用构造函数调用继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-借用的方式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 借用的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-借用的缺陷"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 借用的缺陷</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、组合继承"><span class="nav-number">4.</span> <span class="nav-text">四、组合继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

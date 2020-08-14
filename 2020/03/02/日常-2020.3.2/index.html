@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常-2020.3.2">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/日常-2020.3.2/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/801336/201806/801336-20180602081838664-361436590.png">
+<meta property="og:updated_time" content="2020-08-14T15:42:45.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常-2020.3.2">
+<meta name="twitter:description" content="首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/801336/201806/801336-20180602081838664-361436590.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/02/日常-2020.3.2/"/>
+
+
+
+
+
+  <title>日常-2020.3.2 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/日常-2020.3.2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">日常-2020.3.2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T09:52:01+08:00">
+                2020-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="首先贴一道机试题"><a href="#首先贴一道机试题" class="headerlink" title="首先贴一道机试题"></a>首先贴一道机试题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，希望大家能正确处理)。</span><br><span class="line"></span><br><span class="line">Input Param</span><br><span class="line">n               输入随机数的个数</span><br><span class="line">inputArray      n个随机整数组成的数组</span><br><span class="line"></span><br><span class="line">Return Value</span><br><span class="line">OutputArray    输出处理后的随机整数</span><br><span class="line"></span><br><span class="line">注：测试用例保证输入参数的正确性，答题者无需验证。测试用例不止一组。</span><br><span class="line">样例输入解释：</span><br><span class="line">样例有两组测试</span><br><span class="line">第一组是3个数字，分别是：2，2，1。</span><br><span class="line">第二组是11个数字，分别是：10，20，40，32，67，40，20，89，300，400，15。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>其实这道题的实质就是去重+排序，这里有一个巧妙的算法，用数组下标来存数据，js代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> line,res,i,n</span><br><span class="line"><span class="keyword">while</span>(line=readline())&#123;      <span class="comment">//读第一行数据</span></span><br><span class="line">    res=[]</span><br><span class="line">    n=line</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;              <span class="comment">//一组n个数据</span></span><br><span class="line">        res[readline()]=<span class="number">1</span>    <span class="comment">//数组下标存数据，值代表存在</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> res)&#123;           <span class="comment">//遍历数组，值存在的输出</span></span><br><span class="line">        <span class="keyword">if</span>(res[i]=<span class="number">1</span>) <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个算法的巧妙在于，利用数组下标自动排序，重复值在数组中只存在一个。</p>
+<h2 id="简历上的知识点"><a href="#简历上的知识点" class="headerlink" title="简历上的知识点"></a>简历上的知识点</h2><p>花了一天写完了简历，我来复习一下简历上的知识点以及深入挖掘一些知识点（没写完的明天补充）</p>
+<ul>
+<li>利用Cooike实现记住用户名和密码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//chrome://settings/content/cookies  可在浏览器中查看Cooike</span></span><br><span class="line"><span class="comment">//首先封装了三个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span> (<span class="params"> name, value, expdays </span>)</span></span><br><span class="line"><span class="function"><span class="title">function</span> <span class="title">getCookie</span> (<span class="params"> name </span>)</span></span><br><span class="line"><span class="function"><span class="title">function</span> <span class="title">delCookie</span> (<span class="params"> name </span>)</span></span><br><span class="line"><span class="function">//然后点击登录按钮后会获取用户的用户名和密码</span></span><br><span class="line"><span class="function">//然后会判断用户是否选择了记住密码选项，若选择了则<span class="title">SetCooike</span>，否则<span class="title">delCooike</span></span></span><br><span class="line"><span class="function">//<span class="title">window</span>.<span class="title">onload</span>函数中会<span class="title">getCooike</span>若存在则填充</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Cooike,sessionStorge,localStorge</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cooike始终在同源的HTTP请求中携带，会在浏览器和服务器之间传递。</span><br><span class="line">sessionStorge和localStorge不会发送给服务器，仅在本地保存</span><br><span class="line">Cooike不能超过4k，session和local一般小于5M</span><br><span class="line">localStorge存储的是持久数据，浏览器关闭不丢失。SessionStorge在关闭窗口后会自动删除。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>什么是同源的HTTP请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同源是指：就是协议、域名和端口号    不同源的客户端脚本是不可以互相读数据的</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先来说一下协议HTTP和HTTPS</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https并非应用层的一种新协议，只是http通信接口部分用ssl/tls协议代替而已。</span><br><span class="line">SSL和TLS都是加密协议</span><br><span class="line">通常http直接和tcp通信，当使用ssl时则演变成先和ssl通信，再由ssl和tcp通信。</span><br><span class="line">所谓https，其实就是身披ssl协议这层外壳的http。（回忆一下osi7层,TCP/IP4层，我们学的是5层）</span><br><span class="line"></span><br><span class="line">SSL协议采用的是非对称加密算法，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密.</span><br><span class="line"></span><br><span class="line">RSA算法：两个大素数p,q，n=pq,f(n)=(p-1)(q-1),1&lt;b&lt;f(n),a=b^-1modf(n),公钥n,b,私钥p,q,a</span><br><span class="line"></span><br><span class="line">证书，顾名思义，就是证明的文件。例如浏览器和 tlanyan.me 服务器通信，浏览器怎么知道对方就是 tlanyan.me 对应的服务器呢？在不可信的网络下通信，中立的第三方作用就显现出来了。权威的第三方中立机构（ Certificate Authority, CA）收到 tlanyan.me 持有者的证书请求并核验信息后，将持有者的名称、公钥与 CA 用私钥生成的数字签名等信息写成证书颁发给申请者。</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/801336/201806/801336-20180602081838664-361436590.png" alt="2"></p>
+<ul>
+<li>三次握手，四次握手</li>
+<li>前端安全问题</li>
+<li>关于域名，经典问题，输入域名到展示页面发生了什么</li>
+<li>端口标志一个进程，浏览器的多进程</li>
+<li><p>跨域问题</p>
+</li>
+<li><p>正则表达式判断邮箱是否合法</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span>;</span><br><span class="line"><span class="comment">//字符+@+字符+.+字母</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>复习一下正则的基本知识</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.横向模糊匹配,一个正则可匹配的字符串的长度不是固定的</span></span><br><span class="line"><span class="comment">//比如/ab&#123;2,5&#125;c/表示匹配这样一个字符串：第一个字符是“a”，接下来是2到5个字符“b”，最后是字符“c”</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/ab&#123;2,5&#125;c/g</span>;</span><br><span class="line"><span class="keyword">var</span> string = <span class="string">"abc abbc abbbc abbbbc abbbbbc abbbbbbc"</span>;</span><br><span class="line"><span class="built_in">console</span>.log( string.match(regex) ); </span><br><span class="line"><span class="comment">// =&gt; ["abbc", "abbbc", "abbbbc", "abbbbbc"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.纵向模糊匹配，一个正则匹配的字符串，具体到某一位字符时，它可以不是某个确定的字符</span></span><br><span class="line"><span class="comment">//比如/a[123]b/可以匹配如下三种字符串："a1b"、"a2b"、"a3b"。测试如下：</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/a[123]b/g</span>;</span><br><span class="line"><span class="keyword">var</span> string = <span class="string">"a0b a1b a2b a3b a4b"</span>;</span><br><span class="line"><span class="built_in">console</span>.log( string.match(regex) ); </span><br><span class="line"><span class="comment">// =&gt; ["a1b", "a2b", "a3b"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3.范围表示法，比如[123456abcdefGHIJKLM]，可以写成[1-6a-fG-M]</span></span><br><span class="line"><span class="comment">//要匹配“a”、“-”、“z”这三者中任意一个字符，不能写成[a-z]，可以写成如下的方式：[-az]或[az-]或[a\-z]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//4.排除字符组</span></span><br><span class="line"><span class="keyword">var</span> regex = = <span class="regexp">/[^abc]/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//5.常见简写</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">\d就是[0-9]。表示是一位数字。记忆方式：其英文是digit（数字）。</span></span><br><span class="line"><span class="comment">\D就是[^0-9]。表示除数字外的任意字符。</span></span><br><span class="line"><span class="comment">\w就是[0-9a-zA-Z_]。表示数字、大小写字母和下划线。记忆方式：w是word的简写，也称单词字符。</span></span><br><span class="line"><span class="comment">\W是[^0-9a-zA-Z_]。非单词字符。</span></span><br><span class="line"><span class="comment">\s是[ \t\v\n\r\f]。表示空白符，包括空格、水平制表符、垂直制表符、换行符、回车符、换页符。记忆方式：s是space character的首字母。</span></span><br><span class="line"><span class="comment">\S是[^ \t\v\n\r\f]。 非空白符。</span></span><br><span class="line"><span class="comment">.通配符，表示几乎任意字符。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//6.多选分支</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/good|nice/g</span>;</span><br><span class="line"><span class="keyword">var</span> string = <span class="string">"good idea, nice try."</span>;</span><br><span class="line"><span class="built_in">console</span>.log( string.match(regex) ); </span><br><span class="line"><span class="comment">// =&gt; ["good", "nice"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//7. ^代表开头，$代表结尾</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/07/Node.js-Node.js中实现HTTP服务/" rel="next" title="Node.js中实现HTTP服务">
+                <i class="fa fa-chevron-left"></i> Node.js中实现HTTP服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/03/日常-2020.3.3/" rel="prev" title="日常-2020.3.3">
+                日常-2020.3.3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先贴一道机试题"><span class="nav-number">1.</span> <span class="nav-text">首先贴一道机试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简历上的知识点"><span class="nav-number">2.</span> <span class="nav-text">简历上的知识点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

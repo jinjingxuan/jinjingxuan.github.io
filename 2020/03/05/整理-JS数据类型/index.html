@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JS基本数据类型与类型转换123ES5基本有5种简单数据类型：String，Number，Boolean，Null，undefined。一种复杂的数据类型Object。ES6新增一种简单数据类型：Symbol,还有BigIntJS是动态类型语言，所以类型不同的时候进行运算会进行类型转换。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS数据类型">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/整理-JS数据类型/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="JS基本数据类型与类型转换123ES5基本有5种简单数据类型：String，Number，Boolean，Null，undefined。一种复杂的数据类型Object。ES6新增一种简单数据类型：Symbol,还有BigIntJS是动态类型语言，所以类型不同的时候进行运算会进行类型转换。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-14T15:31:55.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS数据类型">
+<meta name="twitter:description" content="JS基本数据类型与类型转换123ES5基本有5种简单数据类型：String，Number，Boolean，Null，undefined。一种复杂的数据类型Object。ES6新增一种简单数据类型：Symbol,还有BigIntJS是动态类型语言，所以类型不同的时候进行运算会进行类型转换。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/05/整理-JS数据类型/"/>
+
+
+
+
+
+  <title>JS数据类型 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/整理-JS数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS数据类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-05T09:52:01+08:00">
+                2020-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="JS基本数据类型与类型转换"><a href="#JS基本数据类型与类型转换" class="headerlink" title="JS基本数据类型与类型转换"></a>JS基本数据类型与类型转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ES5基本有5种简单数据类型：String，Number，Boolean，Null，undefined。一种复杂的数据类型Object。</span><br><span class="line">ES6新增一种简单数据类型：Symbol,还有BigInt</span><br><span class="line">JS是动态类型语言，所以类型不同的时候进行运算会进行类型转换。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="转字符串"><a href="#转字符串" class="headerlink" title="转字符串"></a>转字符串</h3><ul>
+<li>转字符串可以理解为 + “”，底层是toString方法，其中对象转为[object object]，数组去括号+“”</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>+<span class="string">"3"</span>          <span class="comment">//Number(2).toString()+"3"</span></span><br><span class="line"><span class="literal">true</span>+<span class="string">"1"</span>       <span class="comment">//Boolean(true).toString()+"1"</span></span><br><span class="line"><span class="string">""</span>+&#123;&#125;          <span class="comment">//输出[object object]</span></span><br><span class="line"><span class="string">""</span>+&#123;<span class="attr">A</span>:<span class="number">123</span>&#125;     <span class="comment">//[object object]</span></span><br><span class="line"><span class="string">"123"</span>==&#123;toString()&#123;<span class="keyword">return</span> <span class="string">"123"</span>&#125;&#125;    <span class="comment">//true，因为重写了toString方法</span></span><br><span class="line"><span class="string">""</span>+[]          <span class="comment">//""</span></span><br><span class="line"><span class="string">""</span>+[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]     <span class="comment">//"1,2,3"</span></span><br></pre></td></tr></table></figure>
+<h3 id="转布尔型"><a href="#转布尔型" class="headerlink" title="转布尔型"></a>转布尔型</h3><p>Boolean()传入变量</p>
+<p>0，NaN，””，null，undefined，false直接转换成false，其余都是真</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!!<span class="string">"123"</span>       <span class="comment">//true</span></span><br><span class="line">!!&#123;&#125;          <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aLi = <span class="built_in">document</span>.querySelectrAll(<span class="string">"li"</span>)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item,i = <span class="number">0</span>;item = aLi[i++];)&#123;  <span class="comment">//每次赋值都返回当前值，当最后输出undefined是转布尔false</span></span><br><span class="line">        <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="转数值"><a href="#转数值" class="headerlink" title="转数值"></a>转数值</h3><p>Number()除了0，“”，false会转成0，true转成1，其余都是调用toSring若是数值形式就转数值，不然是NaN</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">NaN</span>)        <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"NaN"</span>)      <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="number">0123</span>)       <span class="comment">//83</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"0123"</span>)     <span class="comment">//123</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"Infinity"</span>) <span class="comment">//Infinity</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">123</span>])      <span class="comment">//123   [123].toString()</span></span><br><span class="line"><span class="built_in">Number</span>([<span class="number">123</span>，<span class="number">3</span>])   <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+<h3 id="运算符带来的强制类型转换"><a href="#运算符带来的强制类型转换" class="headerlink" title="运算符带来的强制类型转换"></a>运算符带来的强制类型转换</h3><p>有字符串时加法会把其余类型转换为字符串</p>
+<p>-，*，、，%优先转数值</p>
+<p>非数值类型加法会转数值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"3"</span>-<span class="string">"2"</span>            <span class="comment">//1</span></span><br><span class="line"><span class="number">3</span>+<span class="number">2</span>+<span class="string">"1"</span>            <span class="comment">//"51"</span></span><br><span class="line"><span class="string">"3"</span>+<span class="number">2</span>+<span class="number">1</span>            <span class="comment">//"321"</span></span><br><span class="line"><span class="string">"312"</span>*<span class="number">1</span>            <span class="comment">//312</span></span><br><span class="line"><span class="number">123</span>+<span class="literal">null</span>           <span class="comment">//123+Number(null)</span></span><br><span class="line">[]+&#123;&#125;              <span class="comment">//两个对象相加调用toString，""+[object object] = [object object]</span></span><br><span class="line">&#123;&#125;+[]              <span class="comment">//&#123;&#125;解析为代码块，+[]，优先转为数值，0</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>]+[<span class="number">2</span>,<span class="number">3</span>]        <span class="comment">//"1,22,3"</span></span><br></pre></td></tr></table></figure>
+<p>在js中，加法运算的规则很简单，只会触发两种情况:</p>
+<blockquote>
+<ol>
+<li>number + number</li>
+<li>string + string</li>
+</ol>
+<p>除了这两种，若：</p>
+<p>如果有一个数为string，则将另一个操作数隐式的转换为string，然后通过字符串拼接得出结果。</p>
+<p>如果为布尔值这种简单的数据类型，那么将会转换为number类型来进行运算得出结果。</p>
+<p>如果操作数为对象或者是数组这种复杂的数据类型，那么就将两个操作数都转换为字符串，进行拼接 </p>
+</blockquote>
+<h2 id="JS如何进行类型判断"><a href="#JS如何进行类型判断" class="headerlink" title="JS如何进行类型判断"></a>JS如何进行类型判断</h2><ul>
+<li>typeof关键字，存在问题</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">2</span>);               <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">true</span>);            <span class="comment">// boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">'str'</span>);           <span class="comment">// string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);              <span class="comment">// object     []数组的数据类型在 typeof 中被解释为 object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);    <span class="comment">// function</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);              <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>);       <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>);            <span class="comment">// object     null 的数据类型被 typeof 解释为 object</span></span><br><span class="line"><span class="comment">//这是js发展过程中设计者的重大失误，早期准备更改null的类型为null，由于当时已经有大量网站使用了null，如果更改，将导致很多网站的逻辑出现漏洞问题，就没有更改过来</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>));   <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>));       <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>));   <span class="comment">//object</span></span><br><span class="line"><span class="comment">//对于一些创建的对象，它们都会返回'object'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>instanceof关键字：</p>
+<p>判断对象是否是某一数据类型（如Array）的实例 ，存在问题</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>);                    <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);                <span class="comment">// false </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'str'</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>);                <span class="comment">// false  </span></span><br><span class="line"><span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);                    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Function</span>);       <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>);                   <span class="comment">// true  </span></span><br><span class="line"><span class="comment">//问题：字面值被实例化才可</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">2</span>) <span class="keyword">instanceof</span> <span class="built_in">Number</span>);                    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>) <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);                <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'str'</span>) <span class="keyword">instanceof</span> <span class="built_in">String</span>);                <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Object.prototype.toString.call()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.toString()<span class="comment">//"function Object() &#123; [native code] &#125;"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString()<span class="comment">//"[object Object]"</span></span><br><span class="line"><span class="comment">//Object对象和它的原型链上各自有一个toString()方法，第一个返回的是一个函数，第二个返回的是值类型。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="literal">true</span>));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="string">'str'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(a.call([]));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(&#123;&#125;));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="literal">undefined</span>));</span><br><span class="line"><span class="built_in">console</span>.log(a.call(<span class="literal">null</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// [object Number]</span></span><br><span class="line"><span class="comment">// [object Boolean]</span></span><br><span class="line"><span class="comment">// [object String]</span></span><br><span class="line"><span class="comment">// [object Array]</span></span><br><span class="line"><span class="comment">// [object Function]</span></span><br><span class="line"><span class="comment">// [object Object]</span></span><br><span class="line"><span class="comment">// [object Undefined]</span></span><br><span class="line"><span class="comment">// [object Null]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><ul>
+<li>为什么要用Symbol？</li>
+</ul>
+<p>ES5里面的对象的属性名是字符串，当我们使用时，若想添加一些新属性，可能会出现重名的情况，于是我们借助Symbol来生成一个独一无二的值，这样就可以防止属性名的冲突了。</p>
+<ul>
+<li>Symbol是什么</li>
+</ul>
+<p>她是ES6新引入的一种原始类型数据，使用Symbol可以直接生成一个新的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a1 = <span class="built_in">Symbol</span>(<span class="string">"a1"</span>)</span><br><span class="line"><span class="keyword">let</span> a2 = <span class="built_in">Symbol</span>(<span class="string">"a2"</span>)</span><br><span class="line">a1===a2 <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h2 id="Bigint"><a href="#Bigint" class="headerlink" title="Bigint"></a>Bigint</h2><p>JS 中的<code>Number</code>类型只能安全地表示<code>-9007199254740991 (-(2^53-1))</code> 和<code>9007199254740991(2^53-1)</code>之间的整数，任何超出此范围的整数值都可能失去精度。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">90099999999999992</span> == <span class="number">90099999999999993</span> <span class="comment">//true</span></span><br><span class="line"><span class="comment">//使用新的数据类型BigInt  直接在数字后面加n即可</span></span><br><span class="line"><span class="number">90099999999999992</span>n == <span class="number">90099999999999993</span>n <span class="comment">//false</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">90099999999999992</span>n  <span class="comment">//"bigint"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/04/日常-2020.3.4/" rel="next" title="日常-2020.3.4">
+                <i class="fa fa-chevron-left"></i> 日常-2020.3.4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/05/JS数据类型/" rel="prev" title="JS数据类型">
+                JS数据类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS基本数据类型与类型转换"><span class="nav-number">1.</span> <span class="nav-text">JS基本数据类型与类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转字符串"><span class="nav-number">1.1.</span> <span class="nav-text">转字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转布尔型"><span class="nav-number">1.2.</span> <span class="nav-text">转布尔型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一道题"><span class="nav-number">1.3.</span> <span class="nav-text">一道题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转数值"><span class="nav-number">1.4.</span> <span class="nav-text">转数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符带来的强制类型转换"><span class="nav-number">1.5.</span> <span class="nav-text">运算符带来的强制类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS如何进行类型判断"><span class="nav-number">2.</span> <span class="nav-text">JS如何进行类型判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symbol"><span class="nav-number">3.</span> <span class="nav-text">Symbol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bigint"><span class="nav-number">4.</span> <span class="nav-text">Bigint</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
