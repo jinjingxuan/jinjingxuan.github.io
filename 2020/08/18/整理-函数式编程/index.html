@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是高阶函数 lodash 纯函数与记忆函数 函数柯里化 函数组合与Point Free Functor（函子）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数式编程">
+<meta property="og:url" content="http://yoursite.com/2020/08/18/整理-函数式编程/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="什么是高阶函数 lodash 纯函数与记忆函数 函数柯里化 函数组合与Point Free Functor（函子）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-20T03:14:09.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数式编程">
+<meta name="twitter:description" content="什么是高阶函数 lodash 纯函数与记忆函数 函数柯里化 函数组合与Point Free Functor（函子）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/18/整理-函数式编程/"/>
+
+
+
+
+
+  <title>函数式编程 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/18/整理-函数式编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">函数式编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-18T09:21:01+08:00">
+                2020-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>什么是高阶函数</li>
+<li>lodash</li>
+<li>纯函数与记忆函数</li>
+<li>函数柯里化</li>
+<li>函数组合与Point Free</li>
+<li>Functor（函子）</li>
+</ul>
+<a id="more"></a>
+<h2 id="什么是高阶函数"><a href="#什么是高阶函数" class="headerlink" title="什么是高阶函数"></a>什么是高阶函数</h2><ul>
+<li>函数可以参数</li>
+<li>函数可以作为返回值</li>
+<li>作用：抽象通用的问题，例如过滤数组，可以通过函数参数任意设定过滤规则</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">forEach</span> (<span class="params">array, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">        fn(array[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">forEach(arr, <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span> (<span class="params">array, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; array.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(fn(array[i])) &#123;</span><br><span class="line">            res.push(array[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line">filter(arr, <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数作为返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">once</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> done = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!done) &#123;</span><br><span class="line">            done = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// return fn.apply(this, arguments)</span></span><br><span class="line">            <span class="comment">// return fn.apply(fn, arguments)</span></span><br><span class="line">            <span class="keyword">return</span> fn(...arguments)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> pay = once(<span class="function"><span class="keyword">function</span> (<span class="params">money</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`支付：<span class="subst">$&#123;money&#125;</span> RMB`</span>)</span><br><span class="line">&#125;)</span><br><span class="line">pay(<span class="number">5</span>)</span><br><span class="line">pay(<span class="number">5</span>)</span><br><span class="line">pay(<span class="number">5</span>)</span><br><span class="line">pay(<span class="number">5</span>) <span class="comment">//只执行一次</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>模拟常用高阶函数：map，every，some</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="function">(<span class="params">array, fn</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> array) &#123;</span><br><span class="line">        res.push(fn(value))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断数组中每一个元素是否匹配</span></span><br><span class="line"><span class="keyword">const</span> every = <span class="function">(<span class="params">array, fn</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> array) &#123;</span><br><span class="line">        res = fn(value)</span><br><span class="line">        <span class="keyword">if</span>(!res) <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line">every(arr, v =&gt; v &gt; <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断数组中的元素是否由一个匹配</span></span><br><span class="line"><span class="keyword">const</span> some = <span class="function">(<span class="params">array, fn</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> array) &#123;</span><br><span class="line">        res = fn(value)</span><br><span class="line">        <span class="keyword">if</span>(res) <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何实现求任意次方的函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 浏览器设置断点调试闭包</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makePower</span> (<span class="params">power</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.pow(number, power)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求平方</span></span><br><span class="line"><span class="keyword">let</span> power2 = makePower(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">let</span> power3 = makePower(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(power2(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="lodash-一个一致性、模块化、高性能的-JavaScript-实用工具库"><a href="#lodash-一个一致性、模块化、高性能的-JavaScript-实用工具库" class="headerlink" title="lodash:一个一致性、模块化、高性能的 JavaScript 实用工具库"></a>lodash:一个一致性、模块化、高性能的 JavaScript 实用工具库</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(_.first(array))</span><br><span class="line"><span class="built_in">console</span>.log(_.last(array))</span><br><span class="line"><span class="built_in">console</span>.log(_.toUpper(_.first(array)))</span><br></pre></td></tr></table></figure>
+<h2 id="纯函数的三个条件："><a href="#纯函数的三个条件：" class="headerlink" title="纯函数的三个条件："></a>纯函数的三个条件：</h2><ul>
+<li>给定输入，无论什么时候调用，无论调用多少次，输出总是确定的</li>
+<li>在函数内部不可以改变函数外部对象的状态</li>
+<li>不可以在函数内部共享函数外部的变量</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">0</span>,<span class="number">2</span>))  <span class="comment">//[1,2]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">0</span>,<span class="number">2</span>))  <span class="comment">//[1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>,<span class="number">2</span>)) <span class="comment">//[1,2]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>,<span class="number">2</span>)) <span class="comment">//[3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//根据第一条，slice是纯函数，splice不是</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数传进来的参数如果是对象的引用，会在内部改变该对象，则不是纯函数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数取到了函数外的变量，不是纯函数</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">20</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; num;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<p>纯函数优点：可记忆，可测试</p>
+<p><strong>使用js记忆函数来计算菲波那切数列、阶乘等，可以极大减少我们必须要做的工作，加速程序计算。</strong> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(r)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI * r *r</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> getAreaWithMemory = _.memoize(getArea)</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 50..</span></span><br><span class="line"><span class="comment">// 50..</span></span><br><span class="line"><span class="comment">// 50..</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 模拟实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cache = &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> key = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>)</span><br><span class="line">        cache[key] = cache[key] || fn(...arguments) <span class="comment">// 不必重新执行</span></span><br><span class="line">        <span class="keyword">return</span> cache[key]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getAreaWithMemory = memoize(getArea)</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><ul>
+<li>对函数参数的缓存</li>
+<li>让函数变得更灵活，让函数的粒度更小</li>
+<li>把多元函数转换成一元函数，可以组合使用函数产生强大的功能</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> curry = <span class="function">(<span class="params">fn, ...args</span>) =&gt;</span> </span><br><span class="line">	args.length &lt; fn.length</span><br><span class="line">       ? <span class="function">(<span class="params">...<span class="built_in">arguments</span></span>) =&gt;</span> curry(fn, ...args, ...arguments)</span><br><span class="line">	   : fn(...args)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">plus</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curryPlus = curry(plus)  <span class="comment">//这里给到一个有三个参数的函数</span></span><br><span class="line"><span class="built_in">console</span>.log(curryPlus(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)) <span class="comment">//返回 6</span></span><br><span class="line"><span class="built_in">console</span>.log(curryPlus(<span class="number">1</span>)(<span class="number">2</span>,<span class="number">3</span>)) <span class="comment">//返回 6</span></span><br><span class="line"><span class="built_in">console</span>.log(curryPlus(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>)) <span class="comment">//返回 6</span></span><br><span class="line"><span class="built_in">console</span>.log(curryPlus(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment">//返回 6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curryPlus = curry(plus,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) </span><br><span class="line"><span class="built_in">console</span>.log(curryPlus) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>柯里化案例：正则表达式匹配字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">match</span> (<span class="params">reg, str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.match(reg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> matchPlus = curry(match)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断空白字符</span></span><br><span class="line"><span class="keyword">const</span> haveSpace = match(<span class="regexp">/\s+/g</span>)</span><br><span class="line"><span class="built_in">console</span>.log(haveSpace(<span class="string">'hello world'</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="函数组合"><a href="#函数组合" class="headerlink" title="函数组合"></a>函数组合</h2><p>洋葱代码：<code>tOUpper(first(reverse(arr))</code></p>
+<p>可以用函数组合把细粒度的函数组合成一个新的函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span> (<span class="params">f, g</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f(g(value))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数组合求数组中最后一个元素：先反转再获取第一个</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reverse()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> last = compose(first, reverse)</span><br><span class="line"><span class="built_in">console</span>.log(last[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在lodash中调用 _.flowRight(fn1, fn2, fn3)</span></span><br></pre></td></tr></table></figure>
+<p><strong>模拟实现</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reverse()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toUpper</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = compose(toUpper, first, reverse)</span><br><span class="line"><span class="built_in">console</span>.log(f([one,two,three])) <span class="comment">//THREE</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> args.reverse().reduce(<span class="function"><span class="keyword">function</span> (<span class="params">acc, cur</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> cur(acc)</span><br><span class="line">    &#125;, value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>简化</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...args</span>) =&gt;</span> value =&gt; args.reverse().reduce(<span class="function">(<span class="params">acc,fn</span>) =&gt;</span> fn(acc),value)</span><br></pre></td></tr></table></figure>
+<h2 id="Point-Free模式：函数组合去实现"><a href="#Point-Free模式：函数组合去实现" class="headerlink" title="Point Free模式：函数组合去实现"></a>Point Free模式：函数组合去实现</h2><ul>
+<li>不需要指明处理的数据</li>
+<li>只需要合成运算过程</li>
+<li>需要定义一些辅助的基本运算函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hello World =&gt; hello_world</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> word.toLowCase().replace(<span class="regexp">/\s+/g</span>,<span class="string">'_'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Point Free 模式</span></span><br><span class="line"><span class="keyword">const</span> f = compose(replace(<span class="regexp">/\s+/g</span>, <span class="string">'_'</span>), toLower)</span><br></pre></td></tr></table></figure>
+<h2 id="Functor（函子）"><a href="#Functor（函子）" class="headerlink" title="Functor（函子）"></a>Functor（函子）</h2><ul>
+<li>函子：可以认为函子是这样一个函数，它从一个容器中取出值， 并将其加工，然后放到一个新的容器中。这个函数的第一个输入的参数是类型的态射，第二个输入的参数是容器。 </li>
+</ul>
+<p>最简单的函子<code>map</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>].map(<span class="built_in">Math</span>.sqrt); <span class="comment">// Returns: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p>如何实现？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (value) &#123;</span><br><span class="line">        <span class="keyword">this</span>._value = value</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    map (fn) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Container(fn(<span class="keyword">this</span>._value))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = <span class="keyword">new</span> Container(<span class="number">5</span>)</span><br><span class="line">            .map(<span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>)</span><br><span class="line">            .map(<span class="function"><span class="params">x</span> =&gt;</span> x * x)</span><br><span class="line"><span class="built_in">console</span>.log(res) <span class="comment">// Container &#123; _value: 36 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>为了简化可以增加静态方法（静态方法：既可以通过类调用，也可以通过实例对象调用）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">of</span>(value) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Container(value)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>._value = value</span><br><span class="line">  &#125;</span><br><span class="line">  map(fn) &#123;</span><br><span class="line">    <span class="keyword">return</span> Container.of(fn(<span class="keyword">this</span>._value))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了处理参数为null和undefined的情况</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Maybe</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">of</span>(x) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Maybe(x)</span><br><span class="line">  &#125;</span><br><span class="line">  isNothing() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._value === <span class="literal">null</span> || <span class="keyword">this</span>._value ===<span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">constructor</span>(x) &#123;</span><br><span class="line">    <span class="keyword">this</span>._value = x</span><br><span class="line">  &#125;</span><br><span class="line">  map(fn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.isNothing() ? <span class="keyword">this</span> : Maybe.of(fn(<span class="keyword">this</span>._value))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/16/整理-js内存/" rel="next" title="js内存">
+                <i class="fa fa-chevron-left"></i> js内存
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是高阶函数"><span class="nav-number">1.</span> <span class="nav-text">什么是高阶函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lodash-一个一致性、模块化、高性能的-JavaScript-实用工具库"><span class="nav-number">2.</span> <span class="nav-text">lodash:一个一致性、模块化、高性能的 JavaScript 实用工具库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#纯函数的三个条件："><span class="nav-number">3.</span> <span class="nav-text">纯函数的三个条件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数柯里化"><span class="nav-number">4.</span> <span class="nav-text">函数柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数组合"><span class="nav-number">5.</span> <span class="nav-text">函数组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Point-Free模式：函数组合去实现"><span class="nav-number">6.</span> <span class="nav-text">Point Free模式：函数组合去实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functor（函子）"><span class="nav-number">7.</span> <span class="nav-text">Functor（函子）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

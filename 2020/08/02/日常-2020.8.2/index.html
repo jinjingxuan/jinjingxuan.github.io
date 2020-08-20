@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="git回退命令 纯函数以及三个条件 el-form表单验证 请求头与响应头的字段">
+<meta name="description" content="git回退命令 el-form表单验证 请求头与响应头的字段">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-2020.8.2">
 <meta property="og:url" content="http://yoursite.com/2020/08/02/日常-2020.8.2/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="git回退命令 纯函数以及三个条件 el-form表单验证 请求头与响应头的字段">
+<meta property="og:description" content="git回退命令 el-form表单验证 请求头与响应头的字段">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5863464-eefb916cd00ff9f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/813/format/webp">
-<meta property="og:updated_time" content="2020-08-14T15:10:30.950Z">
+<meta property="og:updated_time" content="2020-08-18T01:16:32.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-2020.8.2">
-<meta name="twitter:description" content="git回退命令 纯函数以及三个条件 el-form表单验证 请求头与响应头的字段">
+<meta name="twitter:description" content="git回退命令 el-form表单验证 请求头与响应头的字段">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5863464-eefb916cd00ff9f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/813/format/webp">
 
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  821
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  3
                 </span>
               
             </div>
@@ -433,7 +433,6 @@
       
         <ul>
 <li>git回退命令</li>
-<li>纯函数以及三个条件</li>
 <li>el-form表单验证</li>
 <li>请求头与响应头的字段</li>
 </ul>
@@ -465,14 +464,6 @@
 <li>git commit -m ‘’ : 重新填写信息</li>
 <li>git push –force ：当前分支的版本低于远程分支的版本，所以要想覆盖掉它，必须使用force </li>
 </ul>
-<h2 id="纯函数的三个条件："><a href="#纯函数的三个条件：" class="headerlink" title="纯函数的三个条件："></a>纯函数的三个条件：</h2><ul>
-<li>给定输入，无论什么时候调用，无论调用多少次，输出总是确定的</li>
-<li>在函数内部不可以改变函数外部对象的状态</li>
-<li>不可以在函数内部共享函数外部的变量</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">0</span>,<span class="number">2</span>))  <span class="comment">//[1,2]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">0</span>,<span class="number">2</span>))  <span class="comment">//[1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>,<span class="number">2</span>)) <span class="comment">//[1,2]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>,<span class="number">2</span>)) <span class="comment">//[3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//根据第一条，slice是纯函数，splice不是</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数传进来的参数如果是对象的引用，会在内部改变该对象，则不是纯函数</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数取到了函数外的变量，不是纯函数</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">20</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; num;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="el-form的表单验证"><a href="#el-form的表单验证" class="headerlink" title="el-form的表单验证"></a>el-form的表单验证</h2><p>下面是一个表单，其中rules是校验规则，rules验证是对model对象的验证</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form</span> <span class="attr">:model</span>=<span class="string">"form"</span> <span class="attr">:rules</span>=<span class="string">"form"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"姓名"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>下面是校验规则和校验的对象，blur为鼠标点击别处时触发</p>
@@ -624,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -635,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -670,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git的回退命令"><span class="nav-number">1.</span> <span class="nav-text">git的回退命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#纯函数的三个条件："><span class="nav-number">2.</span> <span class="nav-text">纯函数的三个条件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#el-form的表单验证"><span class="nav-number">3.</span> <span class="nav-text">el-form的表单验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头中的contentType"><span class="nav-number">4.</span> <span class="nav-text">请求头中的contentType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头字段详解"><span class="nav-number">5.</span> <span class="nav-text">请求头字段详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应头字段详解"><span class="nav-number">6.</span> <span class="nav-text">响应头字段详解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git的回退命令"><span class="nav-number">1.</span> <span class="nav-text">git的回退命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#el-form的表单验证"><span class="nav-number">2.</span> <span class="nav-text">el-form的表单验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头中的contentType"><span class="nav-number">3.</span> <span class="nav-text">请求头中的contentType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求头字段详解"><span class="nav-number">4.</span> <span class="nav-text">请求头字段详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应头字段详解"><span class="nav-number">5.</span> <span class="nav-text">响应头字段详解</span></a></li></ol></div>
             
 
           </div>
