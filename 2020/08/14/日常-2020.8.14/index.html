@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="Maximum call stack size exceeded 拼接参数 一个示例 encodeURIComponent css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta name="description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-8.14">
 <meta property="og:url" content="http://yoursite.com/2020/08/14/日常-2020.8.14/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="Maximum call stack size exceeded 拼接参数 一个示例 encodeURIComponent css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta property="og:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-22T11:59:34.992Z">
+<meta property="og:updated_time" content="2020-08-26T02:52:46.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-8.14">
-<meta name="twitter:description" content="Maximum call stack size exceeded 拼接参数 一个示例 encodeURIComponent css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta name="twitter:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  732
+                  683
                 </span>
               
 
@@ -433,7 +433,6 @@
 <li>Maximum call stack size exceeded</li>
 <li>拼接参数</li>
 <li>一个示例</li>
-<li>encodeURIComponent</li>
 <li>css缓存问题</li>
 <li>for..of遍历对象，可迭代</li>
 <li>指数运算符 2**10</li>
@@ -446,10 +445,6 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">       <span class="string">'name'</span>: <span class="keyword">this</span>.name,</span><br><span class="line">       <span class="string">'age'</span>: <span class="keyword">this</span>.age,</span><br><span class="line">       <span class="string">'sex'</span>: <span class="keyword">this</span>.sex</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">let</span> paramsurl = <span class="string">''</span></span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">const</span> key <span class="keyword">in</span> options) &#123;</span><br><span class="line">       <span class="keyword">const</span> value = options[key]</span><br><span class="line">       value &amp;&amp;</span><br><span class="line">         (paramsurl += paramsurl ? <span class="string">`&amp;<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;value&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;value&#125;</span>`</span>)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="一个示例"><a href="#一个示例" class="headerlink" title="一个示例"></a>一个示例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    max(a,b) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(a,b)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 优化为</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    max: <span class="built_in">Math</span>.max</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="encodeURIComponent-URIstring"><a href="#encodeURIComponent-URIstring" class="headerlink" title="encodeURIComponent(URIstring)"></a>encodeURIComponent(URIstring)</h2><blockquote>
-<p> encodeURIComponent() 函数可把字符串作为 URI 组件进行编码</p>
-</blockquote>
-<p>例如当跳转参数拼接字符串时，可能有特殊字符，就需要使用encodeURIComponent来编码</p>
 <h2 id="css缓存问题"><a href="#css缓存问题" class="headerlink" title="css缓存问题"></a>css缓存问题</h2><p>修改css文件进行发布时，文件名如果不变，浏览器可能直接去取缓存，为了解决这个问题，在文件名后面加hash随机值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在webpack.prod.conf.js中的配置</span></span><br><span class="line"><span class="keyword">new</span> ExtractTextPlugin(&#123; </span><br><span class="line">      filename: utils.assetsPath(<span class="string">'css/[name].[chunkhash:8].css'</span>), <span class="comment">//css/[name].[contenthash].css</span></span><br><span class="line">	  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="for-of遍历对象，可迭代接口"><a href="#for-of遍历对象，可迭代接口" class="headerlink" title="for..of遍历对象，可迭代接口"></a>for..of遍历对象，可迭代接口</h2><p>当我们用for…of遍历对象时</p>
@@ -625,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-call-stack-size-exceeded"><span class="nav-number">1.</span> <span class="nav-text">Maximum call stack size exceeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接参数"><span class="nav-number">2.</span> <span class="nav-text">拼接参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个示例"><span class="nav-number">3.</span> <span class="nav-text">一个示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#encodeURIComponent-URIstring"><span class="nav-number">4.</span> <span class="nav-text">encodeURIComponent(URIstring)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css缓存问题"><span class="nav-number">5.</span> <span class="nav-text">css缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of遍历对象，可迭代接口"><span class="nav-number">6.</span> <span class="nav-text">for..of遍历对象，可迭代接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-call-stack-size-exceeded"><span class="nav-number">1.</span> <span class="nav-text">Maximum call stack size exceeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接参数"><span class="nav-number">2.</span> <span class="nav-text">拼接参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个示例"><span class="nav-number">3.</span> <span class="nav-text">一个示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css缓存问题"><span class="nav-number">4.</span> <span class="nav-text">css缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of遍历对象，可迭代接口"><span class="nav-number">5.</span> <span class="nav-text">for..of遍历对象，可迭代接口</span></a></li></ol></div>
             
 
           </div>

@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树">
+<meta name="description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树 判断平衡二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-二叉树相关">
 <meta property="og:url" content="http://yoursite.com/2020/03/05/算法-二叉树相关/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树">
+<meta property="og:description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树 判断平衡二叉树">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-20T14:13:45.526Z">
+<meta property="og:updated_time" content="2020-08-24T14:40:45.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-二叉树相关">
-<meta name="twitter:description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树">
+<meta name="twitter:description" content="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归 判断二叉树是否相同 判断二叉树是否对称 求二叉树的深度 二叉树的层次遍历 有序数组转二叉搜索树 判断平衡二叉树">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.5k
                 </span>
               
 
@@ -436,6 +436,7 @@
 <li>求二叉树的深度</li>
 <li>二叉树的层次遍历</li>
 <li>有序数组转二叉搜索树</li>
+<li>判断平衡二叉树</li>
 </ul>
 <a id="more"></a>
 <h2 id="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归"><a href="#二叉树的前序遍历，中序遍历，后序遍历的递归与非递归" class="headerlink" title="二叉树的前序遍历，中序遍历，后序遍历的递归与非递归"></a>二叉树的前序遍历，中序遍历，后序遍历的递归与非递归</h2><p>给一棵二叉树</p>
@@ -478,6 +479,7 @@
 <li>每次取中间的值作为根节点</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sortedArrayToBST = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    <span class="keyword">let</span> mid = <span class="built_in">parseInt</span>(nums.length / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">let</span> root = <span class="keyword">new</span> TreeNode(nums[mid])</span><br><span class="line">    root.left = sortedArrayToBST(nums.slice(<span class="number">0</span>, mid))</span><br><span class="line">    root.right = sortedArrayToBST(nums.slice(mid + <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// parseInt(nums.length / 2)      =&gt;     nums.length &gt;&gt; 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="判断平衡二叉树"><a href="#判断平衡二叉树" class="headerlink" title="判断平衡二叉树"></a>判断平衡二叉树</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isBalanced = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>; <span class="comment">// 先把所有二叉树先当做平衡二叉树</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">maxHeight</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!r) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//当节点不存在时，高度为0</span></span><br><span class="line">        <span class="keyword">let</span> left = maxHeight(r.left);</span><br><span class="line">        <span class="keyword">let</span> right = maxHeight(r.right);<span class="comment">//dfs常规操作,求出左右子树高度</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Math</span>.abs(left-right)&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            flag = <span class="literal">false</span>;<span class="comment">//高度差超过1时，非平衡二叉树，直接false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(left,right)+<span class="number">1</span> <span class="comment">// 这里加1是因为要把父节点高度算进去</span></span><br><span class="line">    &#125;;</span><br><span class="line">    maxHeight(root);</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>   -</p>
 
       
@@ -503,7 +505,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/05/JS数据类型/" rel="next" title="JS数据类型">
+              <a href="/2020/03/05/整理-JS数据类型/" rel="next" title="JS数据类型">
                 <i class="fa fa-chevron-left"></i> JS数据类型
               </a>
             
@@ -513,7 +515,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/05/整理-JS数据类型/" rel="prev" title="JS数据类型">
+              <a href="/2020/03/05/JS数据类型/" rel="prev" title="JS数据类型">
                 JS数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -642,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的前序遍历，中序遍历，后序遍历的递归与非递归"><span class="nav-number">1.</span> <span class="nav-text">二叉树的前序遍历，中序遍历，后序遍历的递归与非递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相同的树"><span class="nav-number">2.</span> <span class="nav-text">相同的树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断二叉树是否对称"><span class="nav-number">3.</span> <span class="nav-text">判断二叉树是否对称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求二叉树的深度-最大，最小"><span class="nav-number">4.</span> <span class="nav-text">求二叉树的深度(最大，最小)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的层次遍历"><span class="nav-number">5.</span> <span class="nav-text">二叉树的层次遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序数组转二叉搜索树"><span class="nav-number">6.</span> <span class="nav-text">有序数组转二叉搜索树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的前序遍历，中序遍历，后序遍历的递归与非递归"><span class="nav-number">1.</span> <span class="nav-text">二叉树的前序遍历，中序遍历，后序遍历的递归与非递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相同的树"><span class="nav-number">2.</span> <span class="nav-text">相同的树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断二叉树是否对称"><span class="nav-number">3.</span> <span class="nav-text">判断二叉树是否对称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求二叉树的深度-最大，最小"><span class="nav-number">4.</span> <span class="nav-text">求二叉树的深度(最大，最小)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的层次遍历"><span class="nav-number">5.</span> <span class="nav-text">二叉树的层次遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序数组转二叉搜索树"><span class="nav-number">6.</span> <span class="nav-text">有序数组转二叉搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断平衡二叉树"><span class="nav-number">7.</span> <span class="nav-text">判断平衡二叉树</span></a></li></ol></div>
             
 
           </div>
