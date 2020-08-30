@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="工程化和脚手架的理解 yeoman sub-generator 自定义Generator来搭建自己的脚手架 如何创建一个自定义的vue脚手架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yeoman脚手架工具">
+<meta property="og:url" content="http://yoursite.com/2020/08/28/整理-工程化与脚手架/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="工程化和脚手架的理解 yeoman sub-generator 自定义Generator来搭建自己的脚手架 如何创建一个自定义的vue脚手架">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-30T07:08:25.202Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yeoman脚手架工具">
+<meta name="twitter:description" content="工程化和脚手架的理解 yeoman sub-generator 自定义Generator来搭建自己的脚手架 如何创建一个自定义的vue脚手架">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/28/整理-工程化与脚手架/"/>
+
+
+
+
+
+  <title>yeoman脚手架工具 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/28/整理-工程化与脚手架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">yeoman脚手架工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-28T10:37:54+08:00">
+                2020-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>工程化和脚手架的理解</li>
+<li>yeoman</li>
+<li>sub-generator</li>
+<li>自定义Generator来搭建自己的脚手架</li>
+<li>如何创建一个自定义的vue脚手架</li>
+</ul>
+<a id="more"></a> 
+<h2 id="工程化和脚手架的理解"><a href="#工程化和脚手架的理解" class="headerlink" title="工程化和脚手架的理解"></a>工程化和脚手架的理解</h2><p>谈谈你对工程化的初步认识？</p>
+<blockquote>
+<p>前端工程化我认为可以提高开发效率，提高代码质量，简便流程。</p>
+<p>就目前公司所做的项目来说，工程化所带来的优点是，无论从项目的编码到编译，打包到部署，都十分方便和规范，对开发人员特别友好。</p>
+</blockquote>
+<p>你认为脚手架除了为我们创建项目结构，还有什么更深的意义？</p>
+<blockquote>
+<p>我觉得脚手架是帮我们减少「为减少重复性工作而做的重复性工作」的工具，只需要几行命令，目录结构，脚本，配置等等都已经搞好了，我们只需要写核心代码就好，而不用关心其他重复性的事情。</p>
+</blockquote>
+<h2 id="yeoman"><a href="#yeoman" class="headerlink" title="yeoman"></a>yeoman</h2><p>在谈论脚手架时，我们想到的都是<code>vue-cli</code>等比较集成的脚手架，而Yeoman是一种通用的工具，便于创建属于自己的脚手架，很值得学习。</p>
+<blockquote>
+<p>Yeoman主要有三部分组成：yo（脚手架工具）、grunt（构建工具）、bower（包管理器）。这三个工具是分别独立开发的，但是需要配合使用，来实现我们高效的工作流模式。 </p>
+</blockquote>
+<p>安装：<code>cnpm install -g yo grunt-cli bower</code></p>
+<p>安装后在命令行中输入 yo，在这里显示的是我的系统中已经安装的generator的库</p>
+<p>可以选择<code>install generator</code>，然后搜索我们想安装的generator，比如webapp，然后安装即可。</p>
+<hr>
+<p>现在我们要使用<code>generator-node</code>：creates a base template to start a new Node.js module.</p>
+<p>直接运行<code>yo node</code>，则会直接在文件夹中创建好目录结构</p>
+<h3 id="sub-generator"><a href="#sub-generator" class="headerlink" title="sub-generator"></a>sub-generator</h3><p>如果不需要生成整个项目结构，只需生成ESLint等配置文件，就可以用sub-generator,用<code>:</code>来表示</p>
+<p><code>yo node:cli</code>：其中的<code>cli</code>就是子集生成器</p>
+<h3 id="总结一下使用步骤"><a href="#总结一下使用步骤" class="headerlink" title="总结一下使用步骤"></a>总结一下使用步骤</h3><ol>
+<li>明确需求</li>
+<li>找到合适的Generator</li>
+<li>全局范围安装找到的Generator</li>
+<li>通过Yo运行对应的Generator</li>
+<li>通过命令行交互填写选项</li>
+<li>生成你所需要的项目结构</li>
+</ol>
+<h3 id="自定义Generator来搭建自己的脚手架"><a href="#自定义Generator来搭建自己的脚手架" class="headerlink" title="自定义Generator来搭建自己的脚手架"></a>自定义Generator来搭建自己的脚手架</h3><p>比如用<code>vue-cli</code>创建项目时，并没有<code>vue-router,vuex</code>等，需要手动引入，如果把这些也放入脚手架中就很方便</p>
+<p>首先使用<code>npm init</code>初始化一个<code>package.json</code>文件</p>
+<p>安装<code>cnpm install yeoman-generator</code>,提供了生成器的基类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Generator的一个基本结构如下</span><br><span class="line"></span><br><span class="line">|- generators/..........生成器目录</span><br><span class="line">|-    app/..............默认生成器目录</span><br><span class="line">|-       index.js.......默认生成器实现</span><br><span class="line">|-    templates/foo.txt..模板文件</span><br><span class="line">|-package.json..........模块包配置文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中的index.js是作为Generator 的核心入口</p>
+<p>需要导出一个继承自 Yeoman Generator 的类型</p>
+<p>Yeoman Generator 在工作时会自动调用此类型定义的方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Generator = <span class="built_in">require</span>(<span class="string">'yeoman-generator'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Generator</span> </span>&#123;</span><br><span class="line">    writing () &#123;</span><br><span class="line">        <span class="comment">// Yeoman 自动在生成文件阶段调用此方法</span></span><br><span class="line">        <span class="comment">// 我们尝试往项目目录中写入文件</span></span><br><span class="line">        <span class="keyword">this</span>.fs.write(</span><br><span class="line">        	<span class="keyword">this</span>.destinationPath(<span class="string">'temp.txt'</span>),</span><br><span class="line">            <span class="built_in">Math</span>.random().toString()</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 还可以通过模板方式写入文件到目标目录</span></span><br><span class="line">        <span class="comment">// 模板文件路径</span></span><br><span class="line">        <span class="keyword">const</span> tmpl = <span class="keyword">this</span>.templatePath(<span class="string">'foo.txt'</span>)</span><br><span class="line">        <span class="comment">// 输出目标路径</span></span><br><span class="line">        <span class="keyword">const</span> output = <span class="keyword">this</span>.destinationPath(<span class="string">'foo.txt'</span>)</span><br><span class="line">        <span class="comment">// 模板数据上下文</span></span><br><span class="line">        <span class="keyword">const</span> context = &#123; <span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">success</span>: <span class="literal">false</span> &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">this</span>.fs.copyTpl(tmpl, output, context)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写好之后使用<code>npm link</code>使其成为一个全局模块包，这样在别的地方也能使用<code>yo &#39;name&#39;</code>调用这个模块</p>
+<h4 id="使用模板文件"><a href="#使用模板文件" class="headerlink" title="使用模板文件"></a>使用模板文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">模板文件，支持 EJS 模板标记</span><br><span class="line">&lt;%= title %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (success) &#123; %&gt;</span><br><span class="line">哈哈哈</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">title和success在模板上下文中赋值</span><br></pre></td></tr></table></figure>
+<p>之后同样运行<code>yo &#39;name&#39;</code>创建模板文件，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">模板文件，支持 EJS 模板标记</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+<h3 id="如何使用命令行交互的方式实现询问用户输入"><a href="#如何使用命令行交互的方式实现询问用户输入" class="headerlink" title="如何使用命令行交互的方式实现询问用户输入"></a>如何使用命令行交互的方式实现询问用户输入</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Generator = <span class="built_in">require</span>(<span class="string">'yeoman-generator'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Generator</span> </span>&#123;</span><br><span class="line">    prompting () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.prompt([</span><br><span class="line">        &#123;</span><br><span class="line">          type: <span class="string">'input'</span>,</span><br><span class="line">          name: <span class="string">'name'</span>, <span class="comment">// 命令行需要输入的</span></span><br><span class="line">          message: <span class="string">'Your project name'</span>,</span><br><span class="line">          <span class="keyword">default</span>: <span class="keyword">this</span>.appname</span><br><span class="line">        &#125;</span><br><span class="line">      ])</span><br><span class="line">      .then(<span class="function"><span class="params">answers</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.answers = answers</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    writing () &#123;</span><br><span class="line">        <span class="comment">// 模板文件路径</span></span><br><span class="line">        <span class="keyword">const</span> tmpl = <span class="keyword">this</span>.templatePath(<span class="string">'bar.html'</span>) <span class="comment">// 在bar.html中可以写 &lt;h1&gt;&lt;%= name %&gt;&lt;/h1&gt;</span></span><br><span class="line">        <span class="comment">// 输出目标路径</span></span><br><span class="line">        <span class="keyword">const</span> output = <span class="keyword">this</span>.destinationPath(<span class="string">'bar.html'</span>)</span><br><span class="line">        <span class="comment">// 模板数据上下文</span></span><br><span class="line">        <span class="keyword">const</span> context = <span class="keyword">this</span>.answers <span class="comment">// name传进上下文</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">this</span>.fs.copyTpl(tmpl, output, context)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何创建一个自定义的vue脚手架"><a href="#如何创建一个自定义的vue脚手架" class="headerlink" title="如何创建一个自定义的vue脚手架"></a>如何创建一个自定义的vue脚手架</h3><ul>
+<li>把写好的vue文件目录结构拷贝到<code>templates</code>目录下</li>
+<li>重写<code>writing方法</code>，因为不只是创建单个文件，每一个文件都需要创建</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Generator = <span class="built_in">require</span>(<span class="string">'yeoman-generator'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Generator</span> </span>&#123;</span><br><span class="line">    prompting () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.prompt([</span><br><span class="line">        &#123;</span><br><span class="line">          type: <span class="string">'input'</span>,</span><br><span class="line">          name: <span class="string">'name'</span>, <span class="comment">// 命令行需要输入的</span></span><br><span class="line">          message: <span class="string">'Your project name'</span>,</span><br><span class="line">          <span class="keyword">default</span>: <span class="keyword">this</span>.appname</span><br><span class="line">        &#125;</span><br><span class="line">      ])</span><br><span class="line">      .then(<span class="function"><span class="params">answers</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.answers = answers</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    writing () &#123;</span><br><span class="line">        <span class="keyword">const</span> templates = [</span><br><span class="line">            <span class="string">'a.js'</span>,</span><br><span class="line">            <span class="string">'src/main.js'</span>,</span><br><span class="line">            <span class="comment">//...需要的文件</span></span><br><span class="line">        ]</span><br><span class="line">        templates.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.fs.copyTpl(</span><br><span class="line">                <span class="keyword">this</span>.templatePath(item),</span><br><span class="line">                <span class="keyword">this</span>.destinationPath(item),</span><br><span class="line">                <span class="keyword">this</span>.answers</span><br><span class="line">            )</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/26/整理-GC算法，V8引擎/" rel="next" title="GC算法，V8引擎">
+                <i class="fa fa-chevron-left"></i> GC算法，V8引擎
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工程化和脚手架的理解"><span class="nav-number">1.</span> <span class="nav-text">工程化和脚手架的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yeoman"><span class="nav-number">2.</span> <span class="nav-text">yeoman</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sub-generator"><span class="nav-number">2.1.</span> <span class="nav-text">sub-generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下使用步骤"><span class="nav-number">2.2.</span> <span class="nav-text">总结一下使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Generator来搭建自己的脚手架"><span class="nav-number">2.3.</span> <span class="nav-text">自定义Generator来搭建自己的脚手架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用模板文件"><span class="nav-number">2.3.1.</span> <span class="nav-text">使用模板文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用命令行交互的方式实现询问用户输入"><span class="nav-number">2.4.</span> <span class="nav-text">如何使用命令行交互的方式实现询问用户输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建一个自定义的vue脚手架"><span class="nav-number">2.5.</span> <span class="nav-text">如何创建一个自定义的vue脚手架</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

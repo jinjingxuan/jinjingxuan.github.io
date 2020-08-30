@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="GC算法 内存泄露 V8引擎">
+<meta name="description" content="GC算法 内存泄露 V8引擎 performance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GC算法，V8引擎">
 <meta property="og:url" content="http://yoursite.com/2020/08/26/整理-GC算法，V8引擎/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="GC算法 内存泄露 V8引擎">
+<meta property="og:description" content="GC算法 内存泄露 V8引擎 performance">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T14:32:32.597Z">
+<meta property="og:updated_time" content="2020-08-27T15:15:08.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GC算法，V8引擎">
-<meta name="twitter:description" content="GC算法 内存泄露 V8引擎">
+<meta name="twitter:description" content="GC算法 内存泄露 V8引擎 performance">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.3k
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -433,6 +433,7 @@
 <li>GC算法</li>
 <li>内存泄露</li>
 <li>V8引擎</li>
+<li>performance</li>
 </ul>
 <a id="more"></a>
 <h2 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h2><h5 id="1-标记清除"><a href="#1-标记清除" class="headerlink" title="1. 标记清除"></a>1. 标记清除</h5><p>垃圾回收器会在运行时给存储在内存中的所有变量加一个标记，然后去除环境中的变量以及被环境中的变量所引用的变量（闭包）在这些完成后仍存在标记的就是要删除的变量了，因为环境中的变量已经无法访问到这些变量了。缺点是清除的对象可能地址不连续，造成内存碎片化。</p>
@@ -442,29 +443,29 @@
 <p>优缺点：1.即时回收 2. 减少程序卡顿 3.无法解决循环引用 4. 资源消耗大：维护引用计数器</p>
 <h5 id="3-标记整理"><a href="#3-标记整理" class="headerlink" title="3. 标记整理"></a>3. 标记整理</h5><p>标记清除的升级版，清除之前先整理空间，再清除，防止内存碎片化</p>
 <h2 id="什么情况会引起内存泄漏？"><a href="#什么情况会引起内存泄漏？" class="headerlink" title="什么情况会引起内存泄漏？"></a>什么情况会引起内存泄漏？</h2><p>虽然有垃圾回收机制但是我们编写代码操作不当还是会造成内存泄漏。</p>
-<ol>
+<ul>
 <li>意外的全局变量引起的内存泄漏。</li>
-</ol>
+</ul>
 <p>原因：全局变量，不会被回收。</p>
 <p>解决：使用严格模式避免。</p>
-<ol start="2">
+<ul>
 <li>闭包引起的内存泄漏</li>
-</ol>
+</ul>
 <p>原因：闭包可以维持函数内局部变量，使其得不到释放。</p>
 <p>解决：将事件处理函数定义在外部，解除闭包,或者在定义事件处理函数的外部函数中，删除对dom的引用。</p>
-<ol start="3">
+<ul>
 <li>没有清理的DOM元素引用</li>
-</ol>
+</ul>
 <p>原因：虽然别的地方删除了，但是对象中还存在对dom的引用</p>
 <p>解决：手动删除。</p>
-<ol start="4">
+<ul>
 <li>被遗忘的定时器或者回调</li>
-</ol>
+</ul>
 <p>原因：定时器中有dom的引用，即使dom删除了，但是定时器还在，所以内存中还是有这个dom。</p>
 <p>解决：手动删除定时器和dom。</p>
-<ol start="5">
+<ul>
 <li>子元素存在引用引起的内存泄漏</li>
-</ol>
+</ul>
 <p>原因：div中的ul li  得到这个div，会间接引用某个得到的li，那么此时因为div间接引用li，即使li被清空，也还是在内存中，并且只要li不被删除，他的父元素都不会被删除。</p>
 <p>解决：手动删除清空。</p>
 <h2 id="V8引擎与垃圾回收策略"><a href="#V8引擎与垃圾回收策略" class="headerlink" title="V8引擎与垃圾回收策略"></a>V8引擎与垃圾回收策略</h2><ul>
@@ -483,7 +484,7 @@
 <p>新生代内存区分为两个相等空间</p>
 <p>使用空间为From，空闲空间为To</p>
 <p>活动对象存储于From空间</p>
-<p>标记整理后将From活动对象拷贝至To，释放From区域</p>
+<p>进行回收时，标记整理将From活动对象拷贝至To，释放From区域</p>
 <p>最后From和To交换空间</p>
 <p>空间换时间</p>
 </blockquote>
@@ -498,8 +499,16 @@
 <p>采用标记清除，标记整理，增量标记</p>
 <p>首先使用标记清除完成垃圾回收</p>
 <p>采用标记整理进行空间优化</p>
-<p>采用增量标记进行效率优化，将标记过程分段，与程序执行交替执行，提高效率</p>
+<p>采用增量标记进行效率优化，将标记过程分段，与程序执行交替执行，提高效率（垃圾回收会阻塞程序）</p>
 </blockquote>
+<h2 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h2><p>打开F12中的performance工具，点击录制，输入网址并做一些操作，点击停止就可以看到最后一个图的蓝色线条即是内存变换情况。</p>
+<p><strong>监控内存的方式</strong></p>
+<ul>
+<li>浏览器任务管理器：<code>shift+esc，</code>最后一列可看到JavaScript使用的内存</li>
+<li>Timeline时序图：蓝色线条，在其上面可定位</li>
+<li>堆快照查找分离DOM：F12中的Memory选项，Take snapshot</li>
+<li>判断是否存在频繁的垃圾回收：Timeline和任务管理器去查看</li>
+</ul>
 
       
     </div>
@@ -533,6 +542,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/28/整理-工程化与脚手架/" rel="prev" title="yeoman脚手架工具">
+                yeoman脚手架工具 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -613,7 +626,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -659,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GC算法"><span class="nav-number">1.</span> <span class="nav-text">GC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-标记清除"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 标记清除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-引用计数"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 引用计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-标记整理"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. 标记整理</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况会引起内存泄漏？"><span class="nav-number">2.</span> <span class="nav-text">什么情况会引起内存泄漏？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V8引擎与垃圾回收策略"><span class="nav-number">3.</span> <span class="nav-text">V8引擎与垃圾回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#V8内存分配与垃圾回收"><span class="nav-number">3.1.</span> <span class="nav-text">V8内存分配与垃圾回收</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GC算法"><span class="nav-number">1.</span> <span class="nav-text">GC算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-标记清除"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 标记清除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-引用计数"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 引用计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-标记整理"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. 标记整理</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况会引起内存泄漏？"><span class="nav-number">2.</span> <span class="nav-text">什么情况会引起内存泄漏？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V8引擎与垃圾回收策略"><span class="nav-number">3.</span> <span class="nav-text">V8引擎与垃圾回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#V8内存分配与垃圾回收"><span class="nav-number">3.1.</span> <span class="nav-text">V8内存分配与垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#performance"><span class="nav-number">4.</span> <span class="nav-text">performance</span></a></li></ol></div>
             
 
           </div>
