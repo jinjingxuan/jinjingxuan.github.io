@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="Webpack sideEffects Code Splitting mini-css-extract-plugin 文件名 Hash">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-10T11:11:05.509Z">
+<meta property="og:updated_time" content="2020-09-11T02:11:16.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack（四）">
 <meta name="twitter:description" content="Webpack sideEffects Code Splitting mini-css-extract-plugin 文件名 Hash">
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  934
+                  942
                 </span>
               
 
@@ -463,9 +463,9 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">'mini-css-extract-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> OptimizeCssAssetsWebpackPlugin = <span class="built_in">require</span>(<span class="string">'optimize-css-assets-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> TerserWebpackPlugin = <span class="built_in">require</span>(<span class="string">'terser-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: &#123;</span><br><span class="line">    main: <span class="string">'./src/index.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    minimizer: [</span><br><span class="line">      <span class="keyword">new</span> TerserWebpackPlugin(),</span><br><span class="line">      <span class="keyword">new</span> OptimizeCssAssetsWebpackPlugin() </span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          <span class="comment">// 'style-loader', // 将样式通过 style 标签注入</span></span><br><span class="line">          MiniCssExtractPlugin.loader, <span class="comment">// 直接通过 link 方式引入</span></span><br><span class="line">          <span class="string">'css-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>为什么插件放在这不放在 plugins 数组中呢 ?</p>
+<p>为什么ptimizeCssAssetsWebpackPlugin插件放在这不放在 plugins 数组中呢 ?</p>
 <p>因为放在 plugins 说明在任何时候都会加载这个插件，而我们放到 minimizer 中，只会在生产环境开启 minimizer 时工作</p>
-<p>但是这时会发现 js 没有压缩，因为我们设置了minimizer，webpack会认为我们自定义了压缩插件，所以我们还要添加回去。</p>
+<p>但是这时会发现 js 没有压缩，因为我们设置了minimizer，webpack会认为我们自定义了压缩插件，所以我们还要添加回去压缩 js 的插件TerserWebpackPlugin。</p>
 </blockquote>
 <h2 id="文件名-Hash"><a href="#文件名-Hash" class="headerlink" title="文件名 Hash"></a>文件名 Hash</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: <span class="string">'Dynamic import'</span>,</span><br><span class="line">      template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">      filename: <span class="string">'index.html'</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'[name]-[contenthash:8].bundle.css'</span> <span class="comment">// 文件级别的hash</span></span><br><span class="line">      <span class="comment">// filename: '[name]-[chunkhash].bundle.css'  // chunk级别</span></span><br><span class="line">      <span class="comment">// filename: '[name]-[hash].bundle.css'       // 项目级别，一个文件改变，所有hash全部改变</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -585,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="webpack初体验 如何打包css和图片 常用加载器分类 如何处理ES6语法 模块加载方式 自己创建一个loader">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-06T06:46:52.266Z">
+<meta property="og:updated_time" content="2020-09-11T01:37:08.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack（一）">
 <meta name="twitter:description" content="webpack初体验 如何打包css和图片 常用加载器分类 如何处理ES6语法 模块加载方式 自己创建一个loader">
@@ -446,13 +446,13 @@
 <p>其中<code>index.js</code>模块中引入了<code>heading.js</code>模块导出的方法，而<code>index.html</code>中又引入了<code>index.js</code>，默认入口为<code>src/index.js</code></p>
 <blockquote>
 <p>html文件中原本的引入</p>
-<script type="module" src="src/index.js"></script>
+<p>\<script type="module" src="src/index.js">\</script></p>
 </blockquote>
 <p>运行<code>webpack</code>命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|--dist</span><br><span class="line">    --main.js // 打包后的js文件</span><br><span class="line">|--src</span><br><span class="line">    --heading.js</span><br><span class="line">    --index.js</span><br><span class="line">|--index.html</span><br><span class="line">|--package.json</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>html文件中，打包之后的引入</p>
-<script src="dist/main.js"></script>
+<p>\<script src="dist/main.js">\</script></p>
 </blockquote>
 <h3 id="如何添加配置入口文件"><a href="#如何添加配置入口文件" class="headerlink" title="如何添加配置入口文件"></a>如何添加配置入口文件</h3><p>新建<code>webpack.config.js</code>文件，使用<code>common.js</code>规范</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// mode这个属性有三种取值，分别是 production、development 和 none。</span></span><br><span class="line">  <span class="comment">// 1. 生产模式下，Webpack 会自动优化打包结果；</span></span><br><span class="line">  <span class="comment">// 2. 开发模式下，Webpack 会自动优化打包速度，添加一些调试过程中的辅助；</span></span><br><span class="line">  <span class="comment">// 3. None 模式下，Webpack 就是运行最原始的打包，不做任何额外处理；</span></span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口</span></span><br><span class="line">  output: &#123; </span><br><span class="line">    filename: <span class="string">'bundle.js'</span>, </span><br><span class="line">    path: path.join(__dirname, <span class="string">'output'</span>) <span class="comment">//必须是绝对路径，__dirname为当前文件夹路径,加上output，最终输出到output中</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -608,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
