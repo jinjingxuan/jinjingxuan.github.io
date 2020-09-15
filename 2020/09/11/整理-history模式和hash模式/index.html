@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="hash模式 history模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="history模式和hash模式">
+<meta property="og:url" content="http://yoursite.com/2020/09/11/整理-history模式和hash模式/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="hash模式 history模式">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-15T09:56:51.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="history模式和hash模式">
+<meta name="twitter:description" content="hash模式 history模式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/11/整理-history模式和hash模式/"/>
+
+
+
+
+
+  <title>history模式和hash模式 | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/整理-history模式和hash模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">history模式和hash模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-11T14:47:00+08:00">
+                2020-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>hash模式</li>
+<li>history模式</li>
+</ul>
+<a id="more"></a>
+<h2 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h2><p><strong>#的涵义</strong></p>
+<ul>
+<li>#代表网页中的一个位置,右面的字符就是代表的位置</li>
+<li><code>http://localhost：8081/cbuild/index.html#first</code>就代表网页index.html的first位置。浏览器读取这个URL后，会自动将first位置滚动至可视区域。</li>
+</ul>
+<p><strong>#后的字符</strong></p>
+<ul>
+<li><p>在第一个#后面出现的任何字符，都会被浏览器解读为位置标识符。这意味着，这些字符都不会被发送到服务器端。</p>
+</li>
+<li><p>比如，下面URL的原意是指定一个颜色值：<a href="http://www.example.com/?color=#fff但是，浏览器实际发出的请求是&quot;#fff&quot;被省略了。只有将#转码为%23，浏览器才会将其作为实义字符处理。也就是说，上面的网址应该被写成：http://example.com/?color=%23fff" target="_blank" rel="noopener">http://www.example.com/?color=#fff但是，浏览器实际发出的请求是&quot;#fff&quot;被省略了。只有将#转码为%23，浏览器才会将其作为实义字符处理。也就是说，上面的网址应该被写成：http://example.com/?color=%23fff</a></p>
+</li>
+</ul>
+<p><strong>改变#不触发网页重载</strong></p>
+<ul>
+<li>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。</li>
+<li>比如，从<a href="http://www.example.com/index.html#location1改成http://www.example.com/index.html#location2浏览器不会重新向服务器请求index.html。" target="_blank" rel="noopener">http://www.example.com/index.html#location1改成http://www.example.com/index.html#location2浏览器不会重新向服务器请求index.html。</a></li>
+</ul>
+<p><strong>改变#会改变浏览器的访问历史</strong></p>
+<ul>
+<li>每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。</li>
+</ul>
+<p><strong>window.location.hash读取#值</strong></p>
+<ul>
+<li>window.location.hash这个属性可读可写。读取时，可以用来判断网页状态是否改变；写入时，则会在不重载网页的前提下，创造一条访问历史记录。</li>
+</ul>
+<p><strong>onhashchange事件</strong></p>
+<ul>
+<li>这是一个HTML 5新增的事件，当#值发生变化时，就会触发这个事件。</li>
+<li>window.addEventListener(“hashchange”,func, false);</li>
+</ul>
+<p><strong>思路</strong></p>
+<blockquote>
+<p>当URL的片段标识符更改时，将触发<strong>hashchange</strong>事件 (跟在＃符号后面的URL部分，包括＃符号),然后根据hash值做些路由跳转处理的操作.具体参数可以访问<code>location</code>查看</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/a"</span>&gt;</span>a<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/b"</span>&gt;</span>b<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/c"</span>&gt;</span>c<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> view = <span class="literal">null</span>;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 页面加载完不会触发 hashchange，这里主动触发一次 hashchange 事件</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 该事件快于onLoad,所以需要在这里操作</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        view = <span class="built_in">document</span>.querySelector(<span class="string">'#view'</span>);</span></span><br><span class="line"><span class="undefined">        viewChange();</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 监听路由变化</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, viewChange);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 渲染视图</span></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">viewChange</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">switch</span> (location.hash) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">case</span> <span class="string">'#/b'</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'b'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">case</span> <span class="string">'#/c'</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'c'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">default</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'a'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h2><p>window.history(可直接写成history)指向History对象，它表示当前窗口的浏览历史。</p>
+<p>History对象保存了当前窗口访问过的所有页面网址</p>
+<h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><ul>
+<li>history.length属性保存着历史记录的url数量，初始时该值为1，如果当前窗口先后访问了三个网址，那么history对象就包括3项，history.length=3</li>
+</ul>
+<p><strong>跳转方法</strong></p>
+<ul>
+<li><strong>go()</strong> 接受一个整数为参数，移动到该整数指定的页面，比如<code>history.go(1)</code>相当于<code>history.forward()</code>,<code>history.go(-1)</code>相当于<code>history.back()</code>,<code>history.go(0)</code>相当于刷新当前页面</li>
+<li><strong>back()</strong> 移动到上一个访问页面，等同于浏览器的后退键,常见的返回上一页就可以用<code>back()</code>，是从浏览器缓存中加载，而不是重新要求服务器发送新的网页</li>
+<li><strong>forward()</strong> 移动到下一个访问页面，等同于浏览器的前进键</li>
+</ul>
+<p>如果移动的位置超出了访问历史的边界，以上三个方法并不报错，而是默默的失败</p>
+<h3 id="history-pushState"><a href="#history-pushState" class="headerlink" title="history.pushState()"></a>history.pushState()</h3><p>history.pushstate() 方法接受三个参数，以此为：</p>
+<ul>
+<li><strong>state</strong>: 一个与指定网址相关的状态对象，popState事件触发时，该对象会传入回调函数，如果不需要这个对象，此处可填null</li>
+<li><strong>title</strong>: 新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null</li>
+<li><strong>url</strong>: 新的网址，必须与当前页面处在同一个域，浏览器的地址栏将显示这个网址</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假定当前网址是example.com/1.html，我们使用pushState方法在浏览记录(history对象)中添加一个记录</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stateObj = &#123;<span class="attr">foo</span>:<span class="string">'bar'</span>&#125;;</span><br><span class="line">history.pushState(stateObj,<span class="string">'page 2'</span>,<span class="string">'2.html'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加上边这个新纪录后，浏览器地址栏立刻显示<code>example.com/2.html</code>，但不会跳转到<code>2.html</code>，甚至也不会检查<code>2.html</code>是否存在，<strong>它只是成为浏览历史中的新纪录</strong>。这时，你在地址栏输入一个新的地址，然后点击了后退按钮，页面的<code>url</code>将显示<code>2.html</code>；你再点击以此后退按钮，<code>url</code>将显示<code>1.html</code></p>
+</blockquote>
+<p><strong>总之，pushState方法不会触发页面刷新，只是导致了history对象发生变化，地址栏会有反应</strong></p>
+<p>如果pushState的url参数，设置了一个新的锚点值（即hash），并不会触发hashChange事件，如果设置了一个跨域网址，则会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//报错</span><br><span class="line">history.pushState(null,null,&apos;https://twitter.com/hello&apos;)</span><br></pre></td></tr></table></figure>
+<p>上边代码中，pushState()想要插入一个跨域的网址，导致报错，这样设计的目的是防止恶意代码让用户以为他们是在另一个网站上.</p>
+<h3 id="history-replaceState"><a href="#history-replaceState" class="headerlink" title="history.replaceState()"></a>history.replaceState()</h3><p><strong>history.replaceState()</strong> 方法的参数和 <strong>pushState()</strong> 方法一摸一样，区别是它修改浏览器历史当中的记录</p>
+<p>假定当前页面是<code>example.com/example.html</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(&#123;<span class="attr">page</span>:<span class="number">1</span>&#125;,<span class="string">'title 1'</span>,<span class="string">'?page=1'</span>)</span><br><span class="line">history.pushState(&#123;<span class="attr">page</span>:<span class="number">2</span>&#125;,<span class="string">'title 2'</span>,<span class="string">'?page=2'</span>)</span><br><span class="line">history.replaceState(&#123;<span class="attr">page</span>:<span class="number">3</span>&#125;,<span class="string">'title 3'</span>,<span class="string">'?page=3'</span>)</span><br><span class="line"></span><br><span class="line">history.back() <span class="comment">//url显示为example.com/example.html?page=1</span></span><br><span class="line">history.back() <span class="comment">//url显示为example.com/example.html</span></span><br><span class="line">history.go(<span class="number">2</span>) <span class="comment">//url显示为example.com/example.html?page=3</span></span><br></pre></td></tr></table></figure>
+<h3 id="popState-事件"><a href="#popState-事件" class="headerlink" title="popState 事件"></a>popState 事件</h3><ul>
+<li><p>每当同一个文档的浏览历史（即history）出现变化时，就会触发popState事件</p>
+</li>
+<li><p>需要注意：仅仅调用pushState方法或replaceState方法，并不会触发该事件，只有用户点击浏览器后退和前进按钮时，或者使用js调用back、forward、go方法时才会触发。另外该事件只针对同一个文档，如果浏览历史的切换，导致加载不同的文档，该事件不会被触发</p>
+</li>
+<li><p>使用的时候，可以为popState事件指定回调函数</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'location: '</span> + <span class="built_in">document</span>.location);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state: '</span> +<span class="built_in">JSON</span>.stringify(event.state));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'location: '</span> + <span class="built_in">document</span>.location);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state: '</span> + <span class="built_in">JSON</span>.stringify(event.state));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>回调函数的参数是一个event事件对象，它的state属性指向pushState和replaceState方法为当前url所提供的状态对象（即这两个方法的第一个参数）。上边代码中的event.state就是通过pushState和replaceState方法为当前url绑定的state对象</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/a"</span>&gt;</span>a<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/b"</span>&gt;</span>b<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/c"</span>&gt;</span>c<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> view = <span class="literal">null</span>;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 页面加载完不会触发 hashchange</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 这里主动触发一次 hashchange 事件,该事件快于onLoad,所以需要在这里操作</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        view = <span class="built_in">document</span>.querySelector(<span class="string">'#view'</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span></span></span><br><span class="line"><span class="javascript">          .querySelectorAll(<span class="string">'a[href]'</span>)</span></span><br><span class="line"><span class="javascript">          .forEach(<span class="function"><span class="params">e</span> =&gt;</span> e.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">_e</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            _e.preventDefault();</span></span><br><span class="line"><span class="javascript">            history.pushState(<span class="literal">null</span>, <span class="string">''</span>, e.getAttribute(<span class="string">'href'</span>));</span></span><br><span class="line"><span class="undefined">            viewChange();</span></span><br><span class="line"><span class="undefined">          &#125;));</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        viewChange();</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 监听路由变化</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, viewChange);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 渲染视图</span></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">viewChange</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">switch</span> (location.pathname) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">case</span> <span class="string">'/b'</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'b'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">case</span> <span class="string">'/c'</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'c'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">default</span>:</span></span><br><span class="line"><span class="javascript">            view.innerHTML = <span class="string">'a'</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">break</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/10/整理-规范化标准ESLint/" rel="next" title="规范化标准ESLint">
+                <i class="fa fa-chevron-left"></i> 规范化标准ESLint
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/13/整理-Vue-Router/" rel="prev" title="Vue Router">
+                Vue Router <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hash模式"><span class="nav-number">1.</span> <span class="nav-text">hash模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history模式"><span class="nav-number">2.</span> <span class="nav-text">history模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#length"><span class="nav-number">2.1.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-pushState"><span class="nav-number">2.2.</span> <span class="nav-text">history.pushState()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-replaceState"><span class="nav-number">2.3.</span> <span class="nav-text">history.replaceState()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#popState-事件"><span class="nav-number">2.4.</span> <span class="nav-text">popState 事件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
