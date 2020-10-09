@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick">
+<meta name="description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick 关于图片处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-9.9">
 <meta property="og:url" content="http://yoursite.com/2020/09/09/日常-2020.9.9/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick">
+<meta property="og:description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick 关于图片处理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-22T15:18:28.461Z">
+<meta property="og:updated_time" content="2020-09-28T07:00:18.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-9.9">
-<meta name="twitter:description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick">
+<meta name="twitter:description" content="filter 过滤  / map 处理接口数据 margin 写3个值 vscode 折叠展开代码 如何快速的删除 node_modules $nextTick 关于图片处理">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  706
+                  1k
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -433,6 +433,7 @@
 <li>vscode 折叠展开代码</li>
 <li>如何快速的删除 node_modules</li>
 <li>$nextTick</li>
+<li>关于图片处理</li>
 </ul>
 <a id="more"></a>
 <h2 id="如何使用-filter-和-map-处理接口数据"><a href="#如何使用-filter-和-map-处理接口数据" class="headerlink" title="如何使用 filter 和 map 处理接口数据"></a>如何使用 filter 和 map 处理接口数据</h2><p>比如现在接口返回如下格式的数据：</p>
@@ -452,6 +453,16 @@
 <h2 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h2><p>Vue 在更新 DOM 时是<strong>异步</strong>执行的。只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 <code>Promise.then</code>、<code>MutationObserver</code> 和 <code>setImmediate</code>，如果执行环境不支持，则会采用 <code>setTimeout(fn, 0)</code> 代替。</p>
 <p>例如，当你设置 <code>vm.someData = &#39;new value&#39;</code>，该组件不会立即重新渲染。当刷新队列时，组件会在下一个事件循环“tick”中更新。多数情况我们不需要关心这个过程，但是如果你想基于更新后的 DOM 状态来做点什么，这就可能会有些棘手。虽然 Vue.js 通常鼓励开发人员使用“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们必须要这么做。为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code>。这样回调函数将在 DOM 更新完成后被调用。例如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'example'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'未更新'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    updateMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.message = <span class="string">'已更新'</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; '未更新'</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; '已更新'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="关于图片处理"><a href="#关于图片处理" class="headerlink" title="关于图片处理"></a>关于图片处理</h2><p>正常一个竖屏的封面图，怎么截取中间部分作为封面呢？</p>
+<p><strong>采用background属性设置</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"imagecover"</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">:style</span>=<span class="string">"&#123;'background-image': 'url(' + CoverUrl ')'&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">	<span class="selector-class">.imagecover</span> &#123;              </span></span><br><span class="line"><span class="undefined">        width: 345px;</span></span><br><span class="line"><span class="undefined">        height: 194px;</span></span><br><span class="line"><span class="undefined">        overflow: hidden;</span></span><br><span class="line"><span class="undefined">        background-size: cover;</span></span><br><span class="line"><span class="undefined">        background-position: center;</span></span><br><span class="line"><span class="undefined">        background-repeat: no-repeat;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>background-size属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cover</span><br></pre></td></tr></table></figure>
+<p>缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。和 <code>contain</code> 值相反，<code>cover</code> 值尽可能大的缩放背景图像并保持图像的宽高比例（图像不会被压扁）。该背景图以它的全部宽或者高覆盖所在容器。当容器和背景图大小不同时，背景图的 左/右 或者 上/下 部分会被裁剪。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contain</span><br></pre></td></tr></table></figure>
+<p>缩放背景图片以完全装入背景区，可能背景区部分空白。<code>contain</code> 尽可能的缩放背景并保持图像的宽高比例（图像不会被压缩）。该背景图会填充所在的容器。当背景图和容器的大小的不同时，容器的空白区域（上/下或者左/右）会显示由 background-color 设置的背景颜色。</p>
 
       
     </div>
@@ -569,7 +580,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-filter-和-map-处理接口数据"><span class="nav-number">1.</span> <span class="nav-text">如何使用 filter 和 map 处理接口数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin-写-3-个值"><span class="nav-number">2.</span> <span class="nav-text">margin 写 3 个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-折叠展开代码"><span class="nav-number">3.</span> <span class="nav-text">vscode 折叠展开代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何快速的删除-node-modules"><span class="nav-number">4.</span> <span class="nav-text">如何快速的删除 node_modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nextTick"><span class="nav-number">5.</span> <span class="nav-text">$nextTick</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-filter-和-map-处理接口数据"><span class="nav-number">1.</span> <span class="nav-text">如何使用 filter 和 map 处理接口数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin-写-3-个值"><span class="nav-number">2.</span> <span class="nav-text">margin 写 3 个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-折叠展开代码"><span class="nav-number">3.</span> <span class="nav-text">vscode 折叠展开代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何快速的删除-node-modules"><span class="nav-number">4.</span> <span class="nav-text">如何快速的删除 node_modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nextTick"><span class="nav-number">5.</span> <span class="nav-text">$nextTick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于图片处理"><span class="nav-number">6.</span> <span class="nav-text">关于图片处理</span></a></li></ol></div>
             
 
           </div>

@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="滚动加载 虚拟列表  参考：https://zhuanlan.zhihu.com/p/146791824">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-20T08:27:07.012Z">
+<meta property="og:updated_time" content="2020-09-23T10:18:34.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序长列表优化">
 <meta name="twitter:description" content="滚动加载 虚拟列表  参考：https://zhuanlan.zhihu.com/p/146791824">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  16
+                  89
                 </span>
               
 
@@ -435,6 +435,13 @@
 </li>
 </ul>
 <a id="more"></a>
+<p>思路:</p>
+<ol>
+<li>一维数组 =&gt; 二维数组，每个子数组存放十条数据（一屏）</li>
+<li>每加载一屏，计算一下高度，用一个高度数组存储</li>
+<li>监听滚动条，判断用户当前在哪一屏，渲染这一屏以及上下两屏的数据</li>
+</ol>
+
       
     </div>
     
@@ -467,6 +474,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/24/整理-Virtual-DOM-的实现原理/" rel="prev" title="Virtual DOM 与 Diff 算法">
+                Virtual DOM 与 Diff 算法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -538,7 +549,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

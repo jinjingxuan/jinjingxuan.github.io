@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件">
+<meta name="description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代码规范">
 <meta property="og:url" content="http://yoursite.com/2020/09/20/整理-代码规范/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件">
+<meta property="og:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-20T08:23:09.548Z">
+<meta property="og:updated_time" content="2020-09-23T01:48:13.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码规范">
-<meta name="twitter:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件">
+<meta name="twitter:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  251
+                  290
                 </span>
               
 
@@ -433,6 +433,7 @@
 <li>删掉注释的代码</li>
 <li>尽量不用“非”条件句</li>
 <li>使用Array.includes来处理多个条件</li>
+<li>多个类似函数</li>
 </ul>
 <a id="more"></a>
 <h2 id="使用默认值"><a href="#使用默认值" class="headerlink" title="使用默认值"></a>使用默认值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> brewryName = name || <span class="string">'Hipster Brew'</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name = <span class="string">'Hipster Brew'</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -442,6 +443,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad</span></span><br><span class="line">doStuff()</span><br><span class="line"><span class="comment">// doOtherStuff()</span></span><br><span class="line"><span class="comment">// doSomeMoreStuff()</span></span><br><span class="line"><span class="comment">// doSoMuchStuff()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line">doStuff()</span><br></pre></td></tr></table></figure>
 <h2 id="尽量不用“非”条件句"><a href="#尽量不用“非”条件句" class="headerlink" title="尽量不用“非”条件句"></a>尽量不用“非”条件句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDOMNodeNotPresent</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isDOMNodeNotPresent(node)) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDOMNodeNotPresent</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isDOMNodeNotPresent(node)) &#123;   <span class="comment">// if后面记得加空格</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="使用Array-includes来处理多个条件"><a href="#使用Array-includes来处理多个条件" class="headerlink" title="使用Array.includes来处理多个条件"></a>使用Array.includes来处理多个条件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">fruit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fruit == <span class="string">'apple'</span> || fruit == <span class="string">'banana'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(red)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果有更多的红色水果怎么办</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">fruit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> redFruits = [<span class="string">'apple'</span>, <span class="string">'strawberry'</span>, <span class="string">'cherry'</span>]</span><br><span class="line">    <span class="keyword">if</span> (redFruits.includes(fruit)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(red)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多个类似函数"><a href="#多个类似函数" class="headerlink" title="多个类似函数"></a>多个类似函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">update (node, key, attrName) &#123;</span><br><span class="line">   <span class="keyword">let</span> updateFn = <span class="keyword">this</span>[attrName + <span class="string">'Updater'</span>]</span><br><span class="line">   updateFn(node, key, attrName)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> textUpdater (node, value, key) &#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> modelUpdater (node, value, key) &#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -558,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用默认值"><span class="nav-number">1.</span> <span class="nav-text">使用默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构语法"><span class="nav-number">2.</span> <span class="nav-text">解构语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉注释的代码"><span class="nav-number">3.</span> <span class="nav-text">删掉注释的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量不用“非”条件句"><span class="nav-number">4.</span> <span class="nav-text">尽量不用“非”条件句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Array-includes来处理多个条件"><span class="nav-number">5.</span> <span class="nav-text">使用Array.includes来处理多个条件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用默认值"><span class="nav-number">1.</span> <span class="nav-text">使用默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构语法"><span class="nav-number">2.</span> <span class="nav-text">解构语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉注释的代码"><span class="nav-number">3.</span> <span class="nav-text">删掉注释的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量不用“非”条件句"><span class="nav-number">4.</span> <span class="nav-text">尽量不用“非”条件句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Array-includes来处理多个条件"><span class="nav-number">5.</span> <span class="nav-text">使用Array.includes来处理多个条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个类似函数"><span class="nav-number">6.</span> <span class="nav-text">多个类似函数</span></a></li></ol></div>
             
 
           </div>
