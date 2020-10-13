@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="调试与打包 template和render同时存在 平台无关与平台相关 Vue的构造函数 源码报错的两个小问题 Vue初始化-静态成员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue源码学习（一）">
+<meta property="og:url" content="http://yoursite.com/2020/10/13/整理-Vue源码学习（一）/index.html">
+<meta property="og:site_name" content="-Breeze&#39;s Blog">
+<meta property="og:description" content="调试与打包 template和render同时存在 平台无关与平台相关 Vue的构造函数 源码报错的两个小问题 Vue初始化-静态成员">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-10-13T13:30:29.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue源码学习（一）">
+<meta name="twitter:description" content="调试与打包 template和render同时存在 平台无关与平台相关 Vue的构造函数 源码报错的两个小问题 Vue初始化-静态成员">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/10/13/整理-Vue源码学习（一）/"/>
+
+
+
+
+
+  <title>Vue源码学习（一） | -Breeze's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <a href="https://github.com/jinjingxuan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">-Breeze's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">清风徐来 水波不兴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/13/整理-Vue源码学习（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Breeze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="-Breeze's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue源码学习（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-13T09:47:00+08:00">
+                2020-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>调试与打包</li>
+<li>template和render同时存在</li>
+<li>平台无关与平台相关</li>
+<li>Vue的构造函数</li>
+<li>源码报错的两个小问题</li>
+<li>Vue初始化-静态成员</li>
+</ul>
+<a id="more"></a>
+<h2 id="调试与打包"><a href="#调试与打包" class="headerlink" title="调试与打包"></a>调试与打包</h2><ul>
+<li>vue源码中的打包工具 Rollup<ul>
+<li>Vue.js 源码的打包工具使用的是 Rollup，比 Webpack 轻量</li>
+<li>Webpack 把所有文件当做模块，Rollup 只处理 js 文件更适合在 Vue.js 这样的库中使用</li>
+<li>Rollup 打包不会生成冗余的代码</li>
+</ul>
+</li>
+<li>安装依赖后设置 sourcemap</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"dev": "rollup -w -c scripts/config.js --sourcemap --environment TARGET:web- full-dev"</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行<code>npm run dev</code>打包，发现<code>dist</code>目录下生成许多文件</li>
+</ul>
+<p>此处参考：<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A</a></p>
+<ul>
+<li><p>推荐使用运行时版本，因为运行时版本相比完整版体积要小大约 30%</p>
+</li>
+<li><p>基于 Vue-CLI 创建的项目默认使用的是 vue.runtime.esm.js</p>
+</li>
+<li><p>*.vue 文件中的模板是在构建时预编译的，最终打包后的结果不需要编译器，只需要运行</p>
+<p>时版本即可</p>
+</li>
+</ul>
+<h2 id="通过看源码解决问题"><a href="#通过看源码解决问题" class="headerlink" title="通过看源码解决问题"></a>通过看源码解决问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123; </span><br><span class="line">    el: <span class="string">'#app'</span>, </span><br><span class="line">    template: <span class="string">'&lt;h3&gt;Hello template&lt;/h3&gt;'</span>, </span><br><span class="line">    render (h) &#123; </span><br><span class="line">        <span class="keyword">return</span> h(<span class="string">'h4'</span>, <span class="string">'Hello render'</span>) </span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同时存在template和render函数时页面输出 Hello render</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>el 不能是 body 或者 html 标签</li>
+<li>如果没有 render，把 template 转换成 render 函数</li>
+<li>如果有 render 方法，直接调用 mount 挂载 DOM</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. el 不能是 body 或者 html </span></span><br><span class="line"><span class="keyword">if</span> (el === <span class="built_in">document</span>.body || el === <span class="built_in">document</span>.documentElement) &#123; </span><br><span class="line">    process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn( </span><br><span class="line">        <span class="string">`Do not mount Vue to &lt;html&gt; or &lt;body&gt; - mount to normal elements </span></span><br><span class="line"><span class="string">instead.`</span> </span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> options = <span class="keyword">this</span>.$options </span><br><span class="line"><span class="keyword">if</span> (!options.render) </span><br><span class="line">&#123; </span><br><span class="line">    <span class="comment">// 2. 把 template/el 转换成 render 函数 </span></span><br><span class="line">    …… </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3. 调用 mount 方法，挂载 DOM </span></span><br><span class="line"><span class="keyword">return</span> mount.call(<span class="keyword">this</span>, el, hydrating)</span><br></pre></td></tr></table></figure>
+<h2 id="平台无关与平台相关"><a href="#平台无关与平台相关" class="headerlink" title="平台无关与平台相关"></a>平台无关与平台相关</h2><p>源码的<code>src</code>目录下有这样的结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|--core</span><br><span class="line">|--platforms</span><br><span class="line">	  |--web</span><br><span class="line">	  |--weex</span><br></pre></td></tr></table></figure>
+<p>其中<code>core</code>存放的就是<strong>平台无关</strong>代码，<code>platforms</code>中存放的就是<strong>平台相关</strong>代码</p>
+<p><strong>什么是平台无关性:</strong></p>
+<ul>
+<li>平台无关性就是一种语言在计算机上的运行不受平台的约束，一次编译，到处执行 。 </li>
+</ul>
+<p><strong>平台无关有两种：</strong></p>
+<ul>
+<li><p>源代码级和目标代码级。而C和C++具有一定程度的源代码级平台无关，表明用C或C++写的应用程序不用修改只需重新编译就可以在不同平台上运行。</p>
+</li>
+<li><p>而Java编译出来的是字节码，去到哪个平台都能用，只要有那个平台的JDK就可以运行，所以，Java程序的最大优势就是平台无关。</p>
+</li>
+</ul>
+<h2 id="Vue的构造函数"><a href="#Vue的构造函数" class="headerlink" title="Vue的构造函数"></a>Vue的构造函数</h2><ul>
+<li>src/platform/web中有一些<code>entry-</code>文件，引用了 ‘/runtime/index’</li>
+<li><p>src/platform/web/runtime/index.js 中引用了 ‘core/index’</p>
+</li>
+<li><p>src/core/index.js</p>
+<ul>
+<li>定义了 Vue 的静态方法</li>
+<li>initGlobalAPI(Vue)</li>
+</ul>
+</li>
+<li><p>src/core/index.js 中引用了 ‘./instance/index’</p>
+</li>
+<li><p>src/core/instance/index.js</p>
+<ul>
+<li>定义了 Vue 的构造函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp;</span><br><span class="line">    !(<span class="keyword">this</span> <span class="keyword">instanceof</span> Vue)</span><br><span class="line">  ) &#123;</span><br><span class="line">    warn(<span class="string">'Vue is a constructor and should be called with the `new` keyword'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 调用 _init() 方法</span></span><br><span class="line">  <span class="keyword">this</span>._init(options)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册 vm 的 _init() 方法，初始化 vm</span></span><br><span class="line">initMixin(Vue)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册 vm 的 $data/$props/$set/$delete/$watch</span></span><br><span class="line">stateMixin(Vue)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化事件相关方法 $on/$once/$off/$emit</span></span><br><span class="line">eventsMixin(Vue)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化生命周期相关的混入方法 _update/$forceUpdate/$destroy</span></span><br><span class="line">lifecycleMixin(Vue)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 混入 render $nextTick/_render</span></span><br><span class="line">renderMixin(Vue)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Vue</span><br></pre></td></tr></table></figure>
+<h2 id="源码报错的两个小问题"><a href="#源码报错的两个小问题" class="headerlink" title="源码报错的两个小问题"></a>源码报错的两个小问题</h2><p>例如在<code>src/core/global/index.js</code>中会有报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如此处不支持泛型会报错  </span></span><br><span class="line">Vue.observable = &lt;T&gt;(obj: T): T =&gt; &#123;</span><br><span class="line">    observe(obj)</span><br><span class="line">    return obj</span><br><span class="line">  &#125;</span><br><span class="line">// 而且这段代码之后的部分不会高亮显示</span><br></pre></td></tr></table></figure>
+<p><strong>解决：文件 =&gt; 首选项 =&gt; 设置 =&gt; 右上角json格式</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 不检查 js 语法问题</span><br><span class="line">"javascript.validate.enable": false</span><br></pre></td></tr></table></figure>
+<p>高亮显示：安装<code>Babel JavaScript</code>插件，但是之后的代码有些功能丢失了，不能跳转定义</p>
+<h2 id="Vue初始化-静态成员"><a href="#Vue初始化-静态成员" class="headerlink" title="Vue初始化-静态成员"></a>Vue初始化-静态成员</h2><p><strong>src/core/global-api/index.js</strong>：初始化 Vue 的静态方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initGlobalAPI</span> (<span class="params">Vue: GlobalAPI</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// src/core/global-api/index.js </span></span><br><span class="line">  <span class="comment">// 初始化 Vue.config 对象</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(Vue, <span class="string">'config'</span>, configDef)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// exposed util methods.</span></span><br><span class="line">  <span class="comment">// <span class="doctag">NOTE:</span> these are not considered part of the public API - avoid relying on</span></span><br><span class="line">  <span class="comment">// them unless you are aware of the risk.</span></span><br><span class="line">  Vue.util = &#123;</span><br><span class="line">    warn,</span><br><span class="line">    extend,</span><br><span class="line">    mergeOptions,</span><br><span class="line">    defineReactive</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">// 静态方法 set/delete/nextTick</span></span><br><span class="line">  Vue.set = set</span><br><span class="line">  Vue.delete = del</span><br><span class="line">  Vue.nextTick = nextTick</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2.6 explicit observable API</span></span><br><span class="line">  <span class="comment">// 让一个对象可响应</span></span><br><span class="line">  Vue.observable = &lt;T&gt;(obj: T): T =&gt; &#123;</span><br><span class="line">    observe(obj)</span><br><span class="line">    return obj</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 初始化 Vue.options 对象，并给其扩展</span><br><span class="line">  Vue.options = Object.create(null)</span><br><span class="line">  ASSET_TYPES.forEach(type =&gt; &#123;</span><br><span class="line">    Vue.options[type + 's'] = Object.create(null)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  // this is used to identify the "base" constructor to extend all plain-object</span><br><span class="line">  // components with in Weex's multi-instance scenarios.</span><br><span class="line">  Vue.options._base = Vue</span><br><span class="line"></span><br><span class="line">  // 设置 keep-alive 组件</span><br><span class="line">  extend(Vue.options.components, builtInComponents)</span><br><span class="line">  </span><br><span class="line">  // 注册 Vue.use() 用来注册插件</span><br><span class="line">  initUse(Vue)</span><br><span class="line">  // 注册 Vue.mixin() 实现混入</span><br><span class="line">  initMixin(Vue)</span><br><span class="line">  // 注册 Vue.extend() 基于传入的 options 返回一个组件的构造函数</span><br><span class="line">  initExtend(Vue)</span><br><span class="line">  // 注册 Vue.directive()、 Vue.component()、Vue.filter()</span><br><span class="line">  initAssetRegisters(Vue)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面所注册的全局API在官方文档中：<a href="https://cn.vuejs.org/v2/api/#%E5%85%A8%E5%B1%80-API" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/#%E5%85%A8%E5%B1%80-API</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/09/整理-模拟实现-snbbDom-排行实例/" rel="next" title="模拟实现snbbDom排行实例">
+                <i class="fa fa-chevron-left"></i> 模拟实现snbbDom排行实例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Breeze" />
+            
+              <p class="site-author-name" itemprop="name">Breeze</p>
+              <p class="site-description motion-element" itemprop="description">漫漫长路，伴你同行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调试与打包"><span class="nav-number">1.</span> <span class="nav-text">调试与打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过看源码解决问题"><span class="nav-number">2.</span> <span class="nav-text">通过看源码解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平台无关与平台相关"><span class="nav-number">3.</span> <span class="nav-text">平台无关与平台相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue的构造函数"><span class="nav-number">4.</span> <span class="nav-text">Vue的构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码报错的两个小问题"><span class="nav-number">5.</span> <span class="nav-text">源码报错的两个小问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue初始化-静态成员"><span class="nav-number">6.</span> <span class="nav-text">Vue初始化-静态成员</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Breeze</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>!-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>!-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
