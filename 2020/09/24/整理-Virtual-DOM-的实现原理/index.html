@@ -113,7 +113,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/09/0ri3PP.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/09/0rFz79.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/09/0rkBcT.png">
-<meta property="og:updated_time" content="2020-10-10T12:55:48.531Z">
+<meta property="og:updated_time" content="2020-10-15T09:03:17.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtual DOM 与 Diff 算法">
 <meta name="twitter:description" content="什么是虚拟DOM 使用 Snabbdom 源码解读 h函数 VNode对象 init函数   Diff 算法 v-for 带 key">
@@ -540,7 +540,7 @@
 <li>调用 patchVnode()，找节点的差异并更新 DOM</li>
 </ul>
 </li>
-<li>如果 oldVnode 是 DOM 元素<ul>
+<li>如果 oldVnode 和 vnode 不同，且oldVnode 是 DOM 元素<ul>
 <li>把 DOM 元素转换成 oldVnode</li>
 <li>调用 createElm() 把 vnode 转换为真实 DOM，记录到 vnode.elm</li>
 <li>把刚创建的 DOM 元素插入到 parent 中</li>

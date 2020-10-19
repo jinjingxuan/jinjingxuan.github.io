@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/22/wXAiCt.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/22/wXkq9x.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/24/wzIJvq.png">
-<meta property="og:updated_time" content="2020-09-24T05:44:24.764Z">
+<meta property="og:updated_time" content="2020-10-16T01:42:20.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue响应式原理（二）">
 <meta name="twitter:description" content="发布订阅模式 观察者模式 手写vue响应式">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.9k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  12
                 </span>
               
             </div>
@@ -505,9 +505,12 @@
 <li>在 <code>new Vue()</code> 后， Vue 会调用<code>_init</code> 函数进行初始化，也就是init 过程，在 这个过程Data通过Observer转换成了getter/setter的形式，来对数据追踪变化，当被设置的对象被读取的时候会执行<code>getter</code> 函数，而在当被赋值的时候会执行 <code>setter</code>函数。</li>
 <li>当外界通过Watcher读取数据时，会触发getter从而将Watcher添加到依赖中。</li>
 <li>在修改对象的值的时候，会触发对应的<code>setter</code>， <code>setter</code>通知之前<strong>依赖收集</strong>得到的 Dep 中的每一个 Watcher，告诉它们自己的值改变了，需要重新渲染视图。这时候这些 Watcher就会开始调用 <code>update</code> 来更新视图。</li>
+<li>每个组件实例都对应一个 <strong>watcher</strong> 实例，Vue源码中的Watcher是在组件的mount过程中初始化的</li>
+<li>个人理解：比如有一个Vue组件读取了data中的value值，这个时候在getter中Dep就收集了Watcher依赖，当value值改变的时候，触发依赖，执行Watcher中的update方法更新视图。</li>
 </ul>
 <p>部分参考于：<a href="https://www.cnblogs.com/fundebug/p/responsive-vue.html" target="_blank" rel="noopener">https://www.cnblogs.com/fundebug/p/responsive-vue.html</a></p>
-<h2 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h2><p>Vue 无法检测 property 的添加或移除。由于 Vue 会在<strong>初始化实例</strong>时对 property 执行 getter/setter 转化，所以 property 必须在 <code>data</code> 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
+<p>官方文档：<a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/reactivity.html</a></p>
+<h2 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h2><p>Vue 无法检测 property 的添加或移除。这是因为 Vue 通过<code>Object.defineProperty</code>来将对象的key转换成<code>getter/setter</code>的形式来追踪变化，但<code>getter/setter</code>只能追踪一个数据是否被修改，无法追踪新增属性和删除属性。由于 Vue 会在<strong>初始化实例</strong>时对 property 执行 getter/setter 转化，所以 property 必须在 <code>data</code> 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">    a:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// `vm.a` 是响应式的</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` 是非响应式的</span></span><br></pre></td></tr></table></figure>
 <p>对于已经创建的实例，Vue 不允许动态添加根级别的响应式 property。但是，可以使用 <code>Vue.set(object, propertyName, value)</code> 方法向嵌套对象添加响应式 property。例如，对于：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
@@ -517,19 +520,28 @@
 <li>给data对象的某个属性设置为一个新的对象<code>this.o = { name: &#39;xxx&#39; }</code>，此对象是响应式的</li>
 <li>给data对象的obj新增一个name属性时，<code>this.obj.name = &#39;xxx&#39;</code>，该属性不是响应式的</li>
 </ul>
-<h2 id="对于数组"><a href="#对于数组" class="headerlink" title="对于数组"></a>对于数组</h2><p>Vue 不能检测以下数组的变动：</p>
+<h2 id="对于数组"><a href="#对于数组" class="headerlink" title="对于数组"></a>对于数组</h2><p><code>Object.defineProperty</code> 不能监听数组的一些方法，push/pop/splice等等改变原数组的方法不能触发set，需要进行数组方法的重写。（Vue3中使用proxy则不存在这些问题）</p>
+<p>此外 Vue 不能检测以下数组的变动：</p>
 <ol>
 <li>当你利用索引直接设置一个数组项时，例如：<code>vm.items[indexOfItem] = newValue</code></li>
 <li>当你修改数组的长度时，例如：<code>vm.items.length = newLength</code></li>
 </ol>
 <p>举个例子：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span> <span class="comment">// 不是响应性的</span></span><br><span class="line">vm.items.length = <span class="number">2</span> <span class="comment">// 不是响应性的</span></span><br></pre></td></tr></table></figure>
-<p>为了解决第一类问题，以下两种方式都可以实现和 <code>vm.items[indexOfItem] = newValue</code> 相同的效果，同时也将在响应式系统内触发状态更新：</p>
+<p><strong>为什么数组方法可以重写，但是不去监听数组属性(索引和length)呢？</strong></p>
+<ul>
+<li>性能问题：数组数据可能有很多</li>
+</ul>
+<p>为了解决这个问题，以下两种方式都可以实现和 <code>vm.items[indexOfItem] = newValue</code> 相同的效果，同时也将在响应式系统内触发状态更新：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue.set</span></span><br><span class="line">Vue.set(vm.items, indexOfItem, newValue)</span><br><span class="line"><span class="comment">// Array.prototype.splice</span></span><br><span class="line">vm.items.splice(indexOfItem, <span class="number">1</span>, newValue)</span><br></pre></td></tr></table></figure>
 <p>你也可以使用 <a href="https://cn.vuejs.org/v2/api/#vm-set" target="_blank" rel="noopener"><code>vm.$set</code></a> 实例方法，该方法是全局方法 <code>Vue.set</code> 的一个别名：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.$set(vm.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
-<p>为了解决第二类问题，你可以使用 <code>splice</code>：</p>
+<p>为了解决不监听数组长度的问题，你可以使用 <code>splice</code>和重写数组方法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.items.splice(newLength)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Vue.set 和 vm.$set内部是同一个方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span> (<span class="params">target: Array&lt;any&gt; | Object, key: any, val: any</span>): <span class="title">any</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 判断 target 是否是对象，key 是否是合法的索引</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target) &amp;&amp; isValidArrayIndex(key)) &#123;</span><br><span class="line">    target.length = <span class="built_in">Math</span>.max(target.length, key)</span><br><span class="line">    target.splice(key, <span class="number">1</span>, val)</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果 key 在对象中已经存在直接赋值</span></span><br><span class="line">  <span class="keyword">if</span> (key <span class="keyword">in</span> target &amp;&amp; !(key <span class="keyword">in</span> <span class="built_in">Object</span>.prototype)) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 获取 target 中的 observer 对象</span></span><br><span class="line">  <span class="keyword">const</span> ob = (target: any).__ob__</span><br><span class="line">  <span class="comment">// 如果 target 是 vue 实例或者$data 直接返回</span></span><br><span class="line">  <span class="keyword">if</span> (target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果 ob 不存在，target 不是响应式对象直接赋值</span></span><br><span class="line">  <span class="keyword">if</span> (!ob) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 把 key 设置成响应式属性</span></span><br><span class="line">  defineReactive(ob.value, key, val)</span><br><span class="line">  <span class="comment">// 发送通知</span></span><br><span class="line">  ob.dep.notify()</span><br><span class="line">  <span class="keyword">return</span> val</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

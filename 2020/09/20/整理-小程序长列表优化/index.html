@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="滚动加载 虚拟列表  参考：https://zhuanlan.zhihu.com/p/146791824">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-23T10:18:34.738Z">
+<meta property="og:updated_time" content="2020-10-15T07:29:26.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序长列表优化">
 <meta name="twitter:description" content="滚动加载 虚拟列表  参考：https://zhuanlan.zhihu.com/p/146791824">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  89
+                  407
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -439,8 +439,21 @@
 <ol>
 <li>一维数组 =&gt; 二维数组，每个子数组存放十条数据（一屏）</li>
 <li>每加载一屏，计算一下高度，用一个高度数组存储</li>
-<li>监听滚动条，判断用户当前在哪一屏，渲染这一屏以及上下两屏的数据</li>
+<li>对每一屏数据位置进行监听，只有在可视范围内展示</li>
+<li>为防止过快滚动出现白屏，可视范围扩展至屏幕上下各2000高度</li>
 </ol>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><ul>
+<li>一维数组 =&gt; 二维数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :id=&quot;&apos;wrp_&apos; + index1&quot; v-for=&quot;(question, index) in questionList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">	&lt;div v-if=&quot;question.length &gt; 0&quot;&gt;</span><br><span class="line">		&lt;div v-for=&quot;item in question&quot; :key=&quot;item.questionId&quot;&gt;</span><br><span class="line">            &lt;list-item&gt;&lt;/list-item&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">     &lt;div v-else :style=&quot;&#123; height: pageHeightArr[index1] + &apos;px&apos; &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用接口</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">getQuestionList() &#123;</span><br><span class="line">          <span class="comment">// 每次调用接口获取 10 条数据，为一组</span></span><br><span class="line">          API.getList(params).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">this</span>.questionList.push(res)</span><br><span class="line">              <span class="keyword">this</span>.dataList.push(res)</span><br><span class="line">              <span class="comment">// setHeight: 获取高度</span></span><br><span class="line">              <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                      <span class="keyword">this</span>.setHeight()</span><br><span class="line">                  &#125;, <span class="number">50</span>)</span><br><span class="line">              &#125;)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取高度与监听</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">setHeight() &#123;</span><br><span class="line">	<span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">	<span class="keyword">const</span> wholePageIndex = <span class="keyword">this</span>.pageNum - <span class="number">1</span></span><br><span class="line">	<span class="keyword">this</span>.query = wx.createSelectorQuery()</span><br><span class="line">    <span class="comment">// 获取 DOM 元素</span></span><br><span class="line">	<span class="keyword">this</span>.query.select(<span class="string">`#wrp_<span class="subst">$&#123;wholePageIndex&#125;</span>`</span>).boundingClientRect()</span><br><span class="line">    <span class="comment">// 获取高度</span></span><br><span class="line">	<span class="keyword">this</span>.query.exec(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		that.pageHeightArr[wholePageIndex] = res[<span class="number">0</span>] &amp;&amp; res[<span class="number">0</span>].height</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'高度数组：'</span> + that.pageHeightArr)</span><br><span class="line">	&#125;)</span><br><span class="line">    <span class="comment">// 监听</span></span><br><span class="line">	<span class="keyword">this</span>.observePage(wholePageIndex)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observePage(pageIndex) &#123;</span><br><span class="line">    <span class="comment">// 监听可视区域上下各 1500 范围内</span></span><br><span class="line">	<span class="keyword">const</span> observerObj = wx.createIntersectionObserver().relativeToViewport(</span><br><span class="line">		&#123; <span class="attr">top</span>: <span class="number">1500</span>, <span class="attr">bottom</span>: <span class="number">1500</span> &#125;</span><br><span class="line">    )</span><br><span class="line">	observerObj.observe(<span class="string">`#wrp_<span class="subst">$&#123;pageIndex&#125;</span>`</span>, (res) =&gt; &#123;</span><br><span class="line">		<span class="keyword">if</span> (res.intersectionRatio &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 不在范围内 设置高度</span></span><br><span class="line">			<span class="keyword">this</span>.$set(<span class="keyword">this</span>.questionList, pageIndex, <span class="keyword">this</span>.pageHeightArr[pageIndex])</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 在范围内 设置数据</span></span><br><span class="line">			<span class="keyword">this</span>.$set(<span class="keyword">this</span>.questionList, pageIndex, <span class="keyword">this</span>.dataList[pageIndex])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -529,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,6 +607,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体实现"><span class="nav-number">1.</span> <span class="nav-text">具体实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
