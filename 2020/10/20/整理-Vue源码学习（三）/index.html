@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="以太网身份验证失败，联网但是打不开网页第一次拿自己的电脑用网线连接公司的网，需要验证身份。  右键桌面右下角的网络，打开网络和Internet设置 选择以太网，更改适配器选项 右键以太网，选择属性，选择身份验证 输入公司给的账号密码进行验证  还有项目打不开的原因是由于Google浏览器为保证安全，会自动跳转https">
+<meta name="description" content="Array.prototype.concat.apply 模板编译 简述 Vue 首次渲染过程 简述 Vue 首次模板编译过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日常-2020.7.18">
-<meta property="og:url" content="http://yoursite.com/2020/07/18/日常-2020.7.18/index.html">
+<meta property="og:title" content="Vue源码学习（三）">
+<meta property="og:url" content="http://yoursite.com/2020/10/20/整理-Vue源码学习（三）/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="以太网身份验证失败，联网但是打不开网页第一次拿自己的电脑用网线连接公司的网，需要验证身份。  右键桌面右下角的网络，打开网络和Internet设置 选择以太网，更改适配器选项 右键以太网，选择属性，选择身份验证 输入公司给的账号密码进行验证  还有项目打不开的原因是由于Google浏览器为保证安全，会自动跳转https">
+<meta property="og:description" content="Array.prototype.concat.apply 模板编译 简述 Vue 首次渲染过程 简述 Vue 首次模板编译过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-14T15:17:06.372Z">
+<meta property="og:updated_time" content="2020-10-20T13:18:03.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日常-2020.7.18">
-<meta name="twitter:description" content="以太网身份验证失败，联网但是打不开网页第一次拿自己的电脑用网线连接公司的网，需要验证身份。  右键桌面右下角的网络，打开网络和Internet设置 选择以太网，更改适配器选项 右键以太网，选择属性，选择身份验证 输入公司给的账号密码进行验证  还有项目打不开的原因是由于Google浏览器为保证安全，会自动跳转https">
+<meta name="twitter:title" content="Vue源码学习（三）">
+<meta name="twitter:description" content="Array.prototype.concat.apply 模板编译 简述 Vue 首次渲染过程 简述 Vue 首次模板编译过程">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/18/日常-2020.7.18/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/10/20/整理-Vue源码学习（三）/"/>
 
 
 
 
 
-  <title>日常-2020.7.18 | -Breeze's Blog</title>
+  <title>Vue源码学习（三） | -Breeze's Blog</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/日常-2020.7.18/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/20/整理-Vue源码学习（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">日常-2020.7.18</h1>
+          <h1 class="post-title" itemprop="name headline">Vue源码学习（三）</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-18T09:52:01+08:00">
-                2020-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-20T09:47:00+08:00">
+                2020-10-20
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
                   </a>
                 </span>
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  386
+                  423
                 </span>
               
 
@@ -427,30 +427,42 @@
       
 
       
-        <h2 id="以太网身份验证失败，联网但是打不开网页"><a href="#以太网身份验证失败，联网但是打不开网页" class="headerlink" title="以太网身份验证失败，联网但是打不开网页"></a>以太网身份验证失败，联网但是打不开网页</h2><p>第一次拿自己的电脑用网线连接公司的网，需要验证身份。</p>
-<ul>
-<li>右键桌面右下角的网络，打开网络和Internet设置</li>
-<li>选择以太网，更改适配器选项</li>
-<li>右键以太网，选择属性，选择身份验证</li>
-<li>输入公司给的账号密码进行验证</li>
+        <ul>
+<li>Array.prototype.concat.apply</li>
+<li>模板编译</li>
+<li>简述 Vue 首次渲染过程</li>
+<li>简述 Vue 首次模板编译过程</li>
 </ul>
-<p><strong>还有项目打不开的原因是由于Google浏览器为保证安全，会自动跳转https</strong></p>
 <a id="more"></a>
-<h2 id="mpvue项目在编译时的一个问题"><a href="#mpvue项目在编译时的一个问题" class="headerlink" title="mpvue项目在编译时的一个问题"></a>mpvue项目在编译时的一个问题</h2><p>微信语法需要提供的是 <code>wx:key=&quot;id&quot;</code> 这种形式，而mpvue/vue 的语法是 <code>wx:key=&quot;item.id&quot;</code> 的形式，mpvue 并没有处理这里的语法；</p>
-<p> <strong>解决方案</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改 mpvue-template-compiler/build.js ，添加如下代码，使得在mpvue在编译时解决</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> temp = key.split(<span class="string">'.'</span>)</span><br><span class="line">        <span class="keyword">if</span> (temp.length === <span class="number">2</span>) &#123;</span><br><span class="line">            key = temp[<span class="number">1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="刷leetcode时的几个知识点"><a href="#刷leetcode时的几个知识点" class="headerlink" title="刷leetcode时的几个知识点"></a>刷leetcode时的几个知识点</h2><ul>
-<li>Number类型的范围是<code>-9007199254740991 (-(2^53-1))到9007199254740991(2^53-1)</code></li>
-<li>字符串类型不能像数组一样直接赋值，例如str[i] = x是不可以的</li>
-<li>x=123，String(x).split(“”) = [“1”,”2”,”3”]</li>
-<li>arr = [“1”,”2”,”3”]，parseFloat(arr.join(“”)) = 123</li>
-<li>Map结构，get方法查询键对应的值</li>
+<h2 id="Array-prototype-concat-apply"><a href="#Array-prototype-concat-apply" class="headerlink" title="Array.prototype.concat.apply"></a>Array.prototype.concat.apply</h2><ul>
+<li>如果<code>concat方法</code>的<code>参数</code>是一个元素，该元素会被直接插入到新数组中；如果参数是一个<code>数组</code>，<code>该数组的各个元素</code>将被插入到<code>新数组</code>中；将该特性应用到代码中完成数组降维</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">"a"</span>,<span class="number">1</span>],</span><br><span class="line">    [<span class="string">"b"</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="string">"c"</span>,<span class="number">3</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">map.get(<span class="string">"a"</span>) <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue 源码中的一段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleNormalizeChildren</span> (<span class="params">children: any</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; children.length; i++) &#123;</span><br><span class="line">        <span class="comment">// 如果第 i 项是数组则降维</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(children[i])) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.concat.apply([], children)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> children</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> children = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]];</span><br><span class="line">simpleNormalizeChildren(children);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
+<h2 id="模板编译"><a href="#模板编译" class="headerlink" title="模板编译"></a>模板编译</h2><ul>
+<li>模板编译的主要目的是将模板 (template) 转换为渲染函数 (render)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> @<span class="attr">click</span>=<span class="string">"handler"</span>&gt;</span>title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>some content<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Map和Object区别</li>
+<li>渲染函数 render</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 Object 中， key 必须是简单数据类型（整数，字符串或者是 symbol），而在 Map 中则可以是 JavaScript 支持的所有数据类型，也就是说可以用一个 Object 来当做一个Map元素的 key。</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">render (h) &#123; </span><br><span class="line">    <span class="keyword">return</span> h(<span class="string">'div'</span>, [ </span><br><span class="line">        h(<span class="string">'h1'</span>, &#123; <span class="attr">on</span>: &#123; <span class="attr">click</span>: <span class="keyword">this</span>.handler&#125; &#125;, <span class="string">'title'</span>), </span><br><span class="line">        h(<span class="string">'p'</span>, <span class="string">'some content'</span>) </span><br><span class="line">    ]) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>模板编译的作用</p>
+<ul>
+<li>Vue 2.x 使用 VNode 描述视图以及各种交互，用户自己编写 VNode 比较复杂</li>
+<li>用户只需要编写类似 HTML 的代码 - Vue 模板，通过编译器将模板转换为返回 VNode 的 render 函数</li>
+<li>.vue 文件会被 webpack 在构建的过程中转换成 render 函数（Vue-loader）</li>
+</ul>
+</li>
+<li><p>在线编译</p>
+<ul>
+<li>vue2.xx版本在线编译:<a href="https://template-explorer.vuejs.org/#" target="_blank" rel="noopener">https://template-explorer.vuejs.org/#</a></li>
+<li>vue3.xx版本在线编译:<a href="https://vue-next-template-explorer.netlify.app/#" target="_blank" rel="noopener">https://vue-next-template-explorer.netlify.app/#</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="简述-Vue-首次渲染过程"><a href="#简述-Vue-首次渲染过程" class="headerlink" title="简述 Vue 首次渲染过程"></a>简述 Vue 首次渲染过程</h2><p>参考<a href="https://blog.csdn.net/sinat_35349493/article/details/107684898" target="_blank" rel="noopener">大前端学习-Vue首次渲染过程</a></p>
+<h2 id="简述-Vue-首次模板编译过程"><a href="#简述-Vue-首次模板编译过程" class="headerlink" title="简述 Vue 首次模板编译过程"></a>简述 Vue 首次模板编译过程</h2><p>参考<a href="https://blog.csdn.net/weixin_40599109/article/details/107645458?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.add_param_isCf" target="_blank" rel="noopener">Vue 中模板的编译过程概述</a></p>
 
       
     </div>
@@ -475,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/17/日常-2020.7.17/" rel="next" title="日常-2020.7.17">
-                <i class="fa fa-chevron-left"></i> 日常-2020.7.17
+              <a href="/2020/10/16/整理-Vue源码学习（二）/" rel="next" title="Vue源码学习（二）">
+                <i class="fa fa-chevron-left"></i> Vue源码学习（二）
               </a>
             
           </div>
@@ -484,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/19/日常-2020.7.19/" rel="prev" title="日常-2020.7.19">
-                日常-2020.7.19 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -614,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以太网身份验证失败，联网但是打不开网页"><span class="nav-number">1.</span> <span class="nav-text">以太网身份验证失败，联网但是打不开网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mpvue项目在编译时的一个问题"><span class="nav-number">2.</span> <span class="nav-text">mpvue项目在编译时的一个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷leetcode时的几个知识点"><span class="nav-number">3.</span> <span class="nav-text">刷leetcode时的几个知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-prototype-concat-apply"><span class="nav-number">1.</span> <span class="nav-text">Array.prototype.concat.apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板编译"><span class="nav-number">2.</span> <span class="nav-text">模板编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述-Vue-首次渲染过程"><span class="nav-number">3.</span> <span class="nav-text">简述 Vue 首次渲染过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述-Vue-首次模板编译过程"><span class="nav-number">4.</span> <span class="nav-text">简述 Vue 首次模板编译过程</span></a></li></ol></div>
             
 
           </div>
