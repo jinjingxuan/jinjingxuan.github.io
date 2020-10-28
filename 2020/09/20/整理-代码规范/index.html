@@ -101,17 +101,19 @@
 
 
 
-<meta name="description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
+<meta name="description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数 使用 &amp;amp;&amp;amp; 运算符化简表达式 空值合并运算符 ‘??’ 代码风格">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代码规范">
 <meta property="og:url" content="http://yoursite.com/2020/09/20/整理-代码规范/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
+<meta property="og:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数 使用 &amp;amp;&amp;amp; 运算符化简表达式 空值合并运算符 ‘??’ 代码风格">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-23T01:48:13.349Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/8/16ee5d1906e604f1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2020-10-27T10:10:08.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码规范">
-<meta name="twitter:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数">
+<meta name="twitter:description" content="使用默认值 解构语法 删掉注释的代码 尽量不用“非”条件句 使用Array.includes来处理多个条件 多个类似函数 使用 &amp;amp;&amp;amp; 运算符化简表达式 空值合并运算符 ‘??’ 代码风格">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/8/16ee5d1906e604f1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
 
 
 
@@ -390,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  290
+                  584
                 </span>
               
 
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -434,6 +436,9 @@
 <li>尽量不用“非”条件句</li>
 <li>使用Array.includes来处理多个条件</li>
 <li>多个类似函数</li>
+<li>使用 &amp;&amp; 运算符化简表达式</li>
+<li>空值合并运算符 ‘??’</li>
+<li>代码风格</li>
 </ul>
 <a id="more"></a>
 <h2 id="使用默认值"><a href="#使用默认值" class="headerlink" title="使用默认值"></a>使用默认值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> brewryName = name || <span class="string">'Hipster Brew'</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name = <span class="string">'Hipster Brew'</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -444,6 +449,28 @@
 <h2 id="尽量不用“非”条件句"><a href="#尽量不用“非”条件句" class="headerlink" title="尽量不用“非”条件句"></a>尽量不用“非”条件句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDOMNodeNotPresent</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!isDOMNodeNotPresent(node)) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDOMNodeNotPresent</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isDOMNodeNotPresent(node)) &#123;   <span class="comment">// if后面记得加空格</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="使用Array-includes来处理多个条件"><a href="#使用Array-includes来处理多个条件" class="headerlink" title="使用Array.includes来处理多个条件"></a>使用Array.includes来处理多个条件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">fruit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fruit == <span class="string">'apple'</span> || fruit == <span class="string">'banana'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(red)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果有更多的红色水果怎么办</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">fruit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> redFruits = [<span class="string">'apple'</span>, <span class="string">'strawberry'</span>, <span class="string">'cherry'</span>]</span><br><span class="line">    <span class="keyword">if</span> (redFruits.includes(fruit)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(red)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="多个类似函数"><a href="#多个类似函数" class="headerlink" title="多个类似函数"></a>多个类似函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">update (node, key, attrName) &#123;</span><br><span class="line">   <span class="keyword">let</span> updateFn = <span class="keyword">this</span>[attrName + <span class="string">'Updater'</span>]</span><br><span class="line">   updateFn(node, key, attrName)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> textUpdater (node, value, key) &#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> modelUpdater (node, value, key) &#123;</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用-amp-amp-运算符化简表达式"><a href="#使用-amp-amp-运算符化简表达式" class="headerlink" title="使用 &amp;&amp; 运算符化简表达式"></a>使用 &amp;&amp; 运算符化简表达式</h2><p>让我们考虑一个具有布尔值和函数的情况。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isPrime = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">const</span> startWatching = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Started Watching!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>像下面这样，通过检查布尔值来确定是否调用函数，代码太多了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isPrime) &#123;</span><br><span class="line">    startWatching();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>能否通过 AND（&amp;&amp;）运算符使用简写形式？是的，完全可以避免使用 if 语句。酷吧！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isPrime &amp;&amp; startWatching();</span><br></pre></td></tr></table></figure>
+<h2 id="空值合并运算符-‘-’"><a href="#空值合并运算符-‘-’" class="headerlink" title="空值合并运算符 ‘??’"></a>空值合并运算符 ‘??’</h2><p>值既不是 <code>null</code> 也不是 <code>undefined</code> 的表达式称为“已定义的（defined）”。</p>
+<p><code>a ?? b</code> 的结果是：</p>
+<ul>
+<li>如果 <code>a</code> 是已定义的，则结果为 <code>a</code>，</li>
+<li>如果 <code>a</code> 不是已定义的，则结果为 <code>b</code>。</li>
+<li>如果第一个参数不是 <code>null/undefined</code>，则 <code>??</code> 返回第一个参数。否则，返回第二个参数。</li>
+</ul>
+<p>通常 <code>??</code> 的使用场景是，为可能是未定义的变量提供一个默认值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user;</span><br><span class="line"></span><br><span class="line">alert(user ?? <span class="string">"Anonymous"</span>); <span class="comment">// Anonymous</span></span><br></pre></td></tr></table></figure>
+<h3 id="与-比较"><a href="#与-比较" class="headerlink" title="与 || 比较"></a>与 || 比较</h3><p>它们之间重要的区别是：</p>
+<ul>
+<li><code>||</code> 返回第一个 <strong>真</strong> 值。</li>
+<li><code>??</code> 返回第一个 <strong>已定义的</strong> 值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> height = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">alert(height || <span class="number">100</span>); <span class="comment">// 100</span></span><br><span class="line">alert(height ?? <span class="number">100</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><p><img src="https://user-gold-cdn.xitu.io/2019/12/8/16ee5d1906e604f1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="1"></p>
 
       
     </div>
@@ -607,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用默认值"><span class="nav-number">1.</span> <span class="nav-text">使用默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构语法"><span class="nav-number">2.</span> <span class="nav-text">解构语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉注释的代码"><span class="nav-number">3.</span> <span class="nav-text">删掉注释的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量不用“非”条件句"><span class="nav-number">4.</span> <span class="nav-text">尽量不用“非”条件句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Array-includes来处理多个条件"><span class="nav-number">5.</span> <span class="nav-text">使用Array.includes来处理多个条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个类似函数"><span class="nav-number">6.</span> <span class="nav-text">多个类似函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用默认值"><span class="nav-number">1.</span> <span class="nav-text">使用默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构语法"><span class="nav-number">2.</span> <span class="nav-text">解构语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉注释的代码"><span class="nav-number">3.</span> <span class="nav-text">删掉注释的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量不用“非”条件句"><span class="nav-number">4.</span> <span class="nav-text">尽量不用“非”条件句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Array-includes来处理多个条件"><span class="nav-number">5.</span> <span class="nav-text">使用Array.includes来处理多个条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个类似函数"><span class="nav-number">6.</span> <span class="nav-text">多个类似函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-amp-amp-运算符化简表达式"><span class="nav-number">7.</span> <span class="nav-text">使用 &amp;&amp; 运算符化简表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空值合并运算符-‘-’"><span class="nav-number">8.</span> <span class="nav-text">空值合并运算符 ‘??’</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与-比较"><span class="nav-number">8.1.</span> <span class="nav-text">与 || 比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码风格"><span class="nav-number">9.</span> <span class="nav-text">代码风格</span></a></li></ol></div>
             
 
           </div>

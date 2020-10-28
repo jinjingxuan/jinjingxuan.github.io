@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="括号匹配问题 表现良好的最长时间段">
+<meta name="description" content="括号匹配问题  表现良好的最长时间段  字符串解码  去除重复字母  移掉 k 位数字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-栈">
 <meta property="og:url" content="http://yoursite.com/2020/10/22/算法-栈/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="括号匹配问题 表现良好的最长时间段">
+<meta property="og:description" content="括号匹配问题  表现良好的最长时间段  字符串解码  去除重复字母  移掉 k 位数字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-23T08:09:24.249Z">
+<meta property="og:updated_time" content="2020-10-28T05:14:25.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-栈">
-<meta name="twitter:description" content="括号匹配问题 表现良好的最长时间段">
+<meta name="twitter:description" content="括号匹配问题  表现良好的最长时间段  字符串解码  去除重复字母  移掉 k 位数字">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  2.1k
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  8
                 </span>
               
             </div>
@@ -428,8 +428,16 @@
 
       
         <ul>
-<li>括号匹配问题</li>
-<li>表现良好的最长时间段</li>
+<li><p>括号匹配问题</p>
+</li>
+<li><p>表现良好的最长时间段</p>
+</li>
+<li><p>字符串解码</p>
+</li>
+<li><p>去除重复字母</p>
+</li>
+<li><p>移掉 k 位数字</p>
+</li>
 </ul>
 <a id="more"></a>
 <h2 id="括号匹配问题"><a href="#括号匹配问题" class="headerlink" title="括号匹配问题"></a>括号匹配问题</h2><p>大致思路是遇到左括号入栈，遇到右括号将左括号出栈，复杂度为O(n)</p>
@@ -455,6 +463,34 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; hours</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> longestWPI = <span class="function"><span class="keyword">function</span>(<span class="params">hours</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 转换成: [1,  1, -1, -1, -1, -1, 1]</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> hours) &#123;</span><br><span class="line">        <span class="keyword">if</span> (hours[i] &gt; <span class="number">8</span>) &#123;</span><br><span class="line">            hours[i] = <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            hours[i] = <span class="number">-1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 求前缀和: [0, 1, 2, 1, 0, -1, -2, -1]</span></span><br><span class="line">    <span class="keyword">let</span> presum = []</span><br><span class="line">    presum[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>;i &lt;= hours.length;i++) &#123;</span><br><span class="line">        presum[i] = presum[i<span class="number">-1</span>] + hours[i<span class="number">-1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造单调递减栈：存储的是索引 [0, 5, 6]，对应前缀和中的 [0, -1, -2]</span></span><br><span class="line">    <span class="comment">// 我们最后要求的最大的宽度坡一定是以这个序列中的某一个i为坡底的(自己理解一下)</span></span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line">    stack[<span class="number">0</span>] = presum[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>;i &lt; presum.length;i++) &#123;</span><br><span class="line">        <span class="comment">// 小于栈顶则 push</span></span><br><span class="line">        <span class="keyword">if</span> (presum[i] &lt; presum[stack[stack.length - <span class="number">1</span>]]) &#123;</span><br><span class="line">            stack.push(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  从尾部遍历presum</span></span><br><span class="line">    <span class="comment">//  如果该位置元素比stack中存储的位置的元素高，则表明为上坡路</span></span><br><span class="line">    <span class="comment">//  弹出栈顶元素（因为再往前遍历长度会减小），并记录坐标差，该坐标差即为上坡路的长度</span></span><br><span class="line">    <span class="keyword">let</span> ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = presum.length - <span class="number">1</span>;i &gt; ans;i--)&#123;</span><br><span class="line">        <span class="comment">// 注意此处是 while，满足条件 pop 之后会继续比较</span></span><br><span class="line">        <span class="keyword">while</span>(stack.length &gt; <span class="number">0</span> &amp;&amp; presum[i] &gt; presum[stack[stack.length - <span class="number">1</span>]])&#123;</span><br><span class="line">            ans = <span class="built_in">Math</span>.max(ans, i - stack.pop())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>类似题目：<a href="https://leetcode-cn.com/problems/maximum-width-ramp/" target="_blank" rel="noopener">leetcode962:最大宽度坡</a></p>
+<h2 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a>字符串解码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入：s = &quot;3[a]2[bc]&quot;</span><br><span class="line">输出：&quot;aaabcbc&quot;</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line">输入：s = &quot;3[a2[c]]&quot;</span><br><span class="line">输出：&quot;accaccacc&quot;</span><br><span class="line"></span><br><span class="line">示例 3：</span><br><span class="line">输入：s = &quot;2[abc]3[cd]ef&quot;</span><br><span class="line">输出：&quot;abcabccdcdcdef&quot;</span><br><span class="line"></span><br><span class="line">示例 4：</span><br><span class="line">输入：s = &quot;abc3[cd]xyz&quot;</span><br><span class="line">输出：&quot;abccdcdcdxyz&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>题目来源：<a href="https://leetcode-cn.com/problems/decode-string/" target="_blank" rel="noopener">leetcode394</a></li>
+<li>正则解法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">decodeString(s) &#123;</span><br><span class="line">     <span class="keyword">let</span> reg = <span class="regexp">/(\d+)\[(\w+)\]/g</span></span><br><span class="line">     <span class="keyword">while</span> (reg.test(s)) &#123;</span><br><span class="line">       <span class="comment">// replace 第二个参数可以为函数</span></span><br><span class="line">       <span class="comment">// 参数：匹配到的，$1，$2，索引，源字符串</span></span><br><span class="line">       s = s.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">matchStr, group1, group2, index, sourceStr</span>) </span>&#123;</span><br><span class="line">         <span class="keyword">let</span> str = <span class="string">""</span></span><br><span class="line">         <span class="keyword">while</span>(group1--) &#123;</span><br><span class="line">           str +=  group2</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> str;</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">console</span>.log(s)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="去除重复字母"><a href="#去除重复字母" class="headerlink" title="去除重复字母"></a>去除重复字母</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。 </span><br><span class="line"></span><br><span class="line">示例 1：</span><br><span class="line">输入：s = &quot;bcabc&quot;</span><br><span class="line">输出：&quot;abc&quot;</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line">输入：s = &quot;cbacdcbc&quot;</span><br><span class="line">输出：&quot;acdb&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="移掉-k-位数字"><a href="#移掉-k-位数字" class="headerlink" title="移掉 k 位数字"></a>移掉 k 位数字</h2><ul>
+<li>题目：<a href="https://leetcode-cn.com/problems/remove-k-digits" target="_blank" rel="noopener">leetcode402</a></li>
+<li>可参考：<a href="https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/" target="_blank" rel="noopener">一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定一个以字符串表示的非负整数 num，移除这个数中的 k 位数字，使得剩下的数字最小。</span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line">num 的长度小于 <span class="number">10002</span> 且 ≥ k。</span><br><span class="line">num 不会包含任何前导零。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">1</span> :</span><br><span class="line">输入: num = <span class="string">"1432219"</span>, k = <span class="number">3</span></span><br><span class="line">输出: <span class="string">"1219"</span></span><br><span class="line">解释: 移除掉三个数字 <span class="number">4</span>, <span class="number">3</span>, 和 <span class="number">2</span> 形成一个新的最小的数字 <span class="number">1219</span>。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span> :</span><br><span class="line">输入: num = <span class="string">"10200"</span>, k = <span class="number">1</span></span><br><span class="line">输出: <span class="string">"200"</span></span><br><span class="line">解释: 移掉首位的 <span class="number">1</span> 剩下的数字为 <span class="number">200.</span> 注意输出不能有任何前导零。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">3</span> :</span><br><span class="line">输入: num = <span class="string">"10"</span>, k = <span class="number">2</span></span><br><span class="line">输出: <span class="string">"0"</span></span><br><span class="line">解释: 从原数字移除所有的数字，剩余为空就是<span class="number">0</span>。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定一个数字序列，例如 425，如果要求我们只删除一个数字，那么从左到右，我们有 4、2 和 5 三个选择。我们将每一个数字和它的左邻居进行比较。从 2 开始，小于它的左邻居 4。则我们应该去掉数字 4。如果不这么做，则随后无论做什么，都不会得到最小数。</span><br><span class="line"></span><br><span class="line">如果我们保留数字 4，那么所有可能的组合都是以数字 4（即 42，45）开头的。相反，如果去掉 4，留下 2，我们得到的是以 2 开头的组合（即 25），这明显小于任何留下数字 4 的组合。</span><br><span class="line"></span><br><span class="line">这个问题可以用贪心算法来解决。上述规则阐明了我们如何接近最终答案的基本逻辑。一旦我们从序列中删除一个数字，剩下的数字就形成了一个新的问题，我们可以继续使用这个规则。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：从左向右遍历入栈，若下一个数更小，则上一个数出栈。</li>
+<li>问题： num 是一个增序序列，则不会出栈；是一个降序序列，则会一直出栈。</li>
+<li><p>解决：</p>
+<ul>
+<li>每次丢弃一次，k 减去 1。当 k 减到 0 ，我们可以提前终止遍历。</li>
+<li>而当遍历完成，如果 k 仍然大于 0。不妨假设最终还剩下 x 个需要丢弃，那么我们需要选择删除末尾 x 个元素。</li>
+</ul>
+</li>
+<li><p>若输入为(“1234567890”, 9)，按照以上逻辑最后输出的 stack 为 [1,2,3,4,5,6,7,8,0]，所以要设置 while 循环，当 num[i] 一直比栈顶元素小时，则继续出栈</p>
+</li>
+<li>保证数字范围使用 BigInt</li>
+<li>若 num.length === k，说明全部删除，直接返回 “0”</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeKdigits</span>(<span class="params">num, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line">    <span class="keyword">let</span> n = k</span><br><span class="line">    <span class="keyword">if</span> (num.length === k) <span class="keyword">return</span> <span class="string">"0"</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; num.length; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (n &amp;&amp; num[i] &lt; stack[stack.length - <span class="number">1</span>]) &#123;</span><br><span class="line">            stack.pop()</span><br><span class="line">            n--</span><br><span class="line">        &#125;</span><br><span class="line">        stack.push(num[i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (BigInt(stack.join(<span class="string">""</span>)) + <span class="string">""</span>).slice(<span class="number">0</span>, num.length - k)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -614,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#括号匹配问题"><span class="nav-number">1.</span> <span class="nav-text">括号匹配问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表现良好的最长时间段"><span class="nav-number">2.</span> <span class="nav-text">表现良好的最长时间段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前置知识：前缀和，单调栈"><span class="nav-number">2.1.</span> <span class="nav-text">前置知识：前缀和，单调栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归题目"><span class="nav-number">2.2.</span> <span class="nav-text">回归题目</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#括号匹配问题"><span class="nav-number">1.</span> <span class="nav-text">括号匹配问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表现良好的最长时间段"><span class="nav-number">2.</span> <span class="nav-text">表现良好的最长时间段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前置知识：前缀和，单调栈"><span class="nav-number">2.1.</span> <span class="nav-text">前置知识：前缀和，单调栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归题目"><span class="nav-number">2.2.</span> <span class="nav-text">回归题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串解码"><span class="nav-number">3.</span> <span class="nav-text">字符串解码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去除重复字母"><span class="nav-number">4.</span> <span class="nav-text">去除重复字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移掉-k-位数字"><span class="nav-number">5.</span> <span class="nav-text">移掉 k 位数字</span></a></li></ol></div>
             
 
           </div>
