@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta name="description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 for…in的坑 指数运算符 2**10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-8.14">
 <meta property="og:url" content="http://yoursite.com/2020/08/14/日常-2020.8.14/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta property="og:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 for…in的坑 指数运算符 2**10">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T02:52:46.234Z">
+<meta property="og:updated_time" content="2020-10-30T13:07:23.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-8.14">
-<meta name="twitter:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 指数运算符 2**10">
+<meta name="twitter:description" content="Maximum call stack size exceeded 拼接参数 一个示例 css缓存问题 for..of遍历对象，可迭代 for…in的坑 指数运算符 2**10">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  683
+                  712
                 </span>
               
 
@@ -433,6 +433,7 @@
 <li>一个示例</li>
 <li>css缓存问题</li>
 <li>for..of遍历对象，可迭代</li>
+<li>for…in的坑</li>
 <li>指数运算符 2**10</li>
 </ul>
 <a id="more"></a>
@@ -455,6 +456,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = &#123;</span><br><span class="line">    life: [<span class="string">'吃饭'</span>, <span class="string">'睡觉'</span>, <span class="string">'打豆豆'</span>],</span><br><span class="line">    learn: [<span class="string">'语文'</span>, <span class="string">'数学'</span>, <span class="string">'外语'</span>],</span><br><span class="line">    work: [<span class="string">'喝茶'</span>],</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">Symbol</span>.iterator]: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> all = [...this.life, ...this.learn, ...this.work]</span><br><span class="line">        <span class="keyword">let</span> index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            next: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    value: all[index]</span><br><span class="line">                    done: index++ &gt;= all.length</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">const</span> item <span class="keyword">of</span> todos) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>生成器实现迭代器</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = &#123;</span><br><span class="line">    life: [<span class="string">'吃饭'</span>, <span class="string">'睡觉'</span>, <span class="string">'打豆豆'</span>],</span><br><span class="line">    learn: [<span class="string">'语文'</span>, <span class="string">'数学'</span>, <span class="string">'外语'</span>],</span><br><span class="line">    work: [<span class="string">'喝茶'</span>],</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">Symbol</span>.iterator]: <span class="function"><span class="keyword">function</span> * (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> all = [...this.life, ...this.learn, ...this.work]</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> item <span class="keyword">of</span> all) &#123;</span><br><span class="line">            <span class="keyword">yield</span> item</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">const</span> item <span class="keyword">of</span> todos) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="for…in的坑"><a href="#for…in的坑" class="headerlink" title="for…in的坑"></a>for…in的坑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i + <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 01</span></span><br><span class="line"><span class="comment">// 11</span></span><br><span class="line"><span class="comment">// 21</span></span><br><span class="line"><span class="comment">// 31</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -618,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-call-stack-size-exceeded"><span class="nav-number">1.</span> <span class="nav-text">Maximum call stack size exceeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接参数"><span class="nav-number">2.</span> <span class="nav-text">拼接参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个示例"><span class="nav-number">3.</span> <span class="nav-text">一个示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css缓存问题"><span class="nav-number">4.</span> <span class="nav-text">css缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of遍历对象，可迭代接口"><span class="nav-number">5.</span> <span class="nav-text">for..of遍历对象，可迭代接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-call-stack-size-exceeded"><span class="nav-number">1.</span> <span class="nav-text">Maximum call stack size exceeded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接参数"><span class="nav-number">2.</span> <span class="nav-text">拼接参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个示例"><span class="nav-number">3.</span> <span class="nav-text">一个示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css缓存问题"><span class="nav-number">4.</span> <span class="nav-text">css缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of遍历对象，可迭代接口"><span class="nav-number">5.</span> <span class="nav-text">for..of遍历对象，可迭代接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…in的坑"><span class="nav-number">6.</span> <span class="nav-text">for…in的坑</span></a></li></ol></div>
             
 
           </div>

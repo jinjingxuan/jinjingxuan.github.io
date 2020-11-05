@@ -108,13 +108,10 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19506176-270a25ba8eb67ffa.png?imageMogr2/auto-orient/strip|imageView2/2/w/1105/format/webp">
-<meta property="og:updated_time" content="2020-09-13T03:06:57.187Z">
+<meta property="og:updated_time" content="2020-11-02T02:39:30.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-2020.7.27">
 <meta name="twitter:description" content="谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp">
 
 
 
@@ -436,11 +433,8 @@
 <li>Cookies without SameSite must be secure</li>
 </ul>
 <a id="more"></a>
-<h4 id="SameSite-by-default-cookies"><a href="#SameSite-by-default-cookies" class="headerlink" title="SameSite by default cookies"></a>SameSite by default cookies</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Treat cookies that don&apos;t specify a SameSite attribute as if they were SameSite=Lax. Sites must specify SameSite=None in order to enable third-party usage. – Mac, Windows, Linux, Chrome OS, Android</span><br><span class="line"></span><br><span class="line">将未指定SameSite属性的cookie视为SameSite=Lax(默认),网站必须指定SameSite=None才能启用第三方cookie。</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/19506176-3214cb164f563400.png?imageMogr2/auto-orient/strip|imageView2/2/w/1097/format/webp" alt="1"></p>
-<p>把这个设置关了就允许所有的第三方cookie</p>
+<h4 id="SameSite-by-default-cookies"><a href="#SameSite-by-default-cookies" class="headerlink" title="SameSite by default cookies"></a>SameSite by default cookies</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Treat cookies that don&apos;t specify a SameSite attribute as if they were SameSite=Lax. Sites must specify SameSite=None in order to enable third-party usage. – Mac, Windows, Linux, Chrome OS, Android</span><br><span class="line"></span><br><span class="line">将未指定SameSite属性的cookie视为SameSite=Lax(默认),网站必须指定SameSite=None才能启用第三方cookie。</span><br><span class="line">把这个设置关了就允许所有的第三方cookie</span><br></pre></td></tr></table></figure>
 <h4 id="Cookies-without-SameSite-must-be-secure"><a href="#Cookies-without-SameSite-must-be-secure" class="headerlink" title="Cookies without SameSite must be secure"></a>Cookies without SameSite must be secure</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If enabled, cookies without SameSite restrictions must also be Secure. If a cookie without SameSite restrictions is set without the Secure attribute, it will be rejected. This flag only has an effect if &quot;SameSite by default cookies&quot; is also enabled. – Mac, Windows, Linux, Chrome OS, Android</span><br><span class="line"></span><br><span class="line">如果启用，没有SameSite限制的cookie也必须是安全的。如果没有设置SameSite限制的cookie没有Secure属性，它将被拒绝。此标志仅在启用&apos;sameSite by default cookies&apos;时有效。</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/19506176-270a25ba8eb67ffa.png?imageMogr2/auto-orient/strip|imageView2/2/w/1105/format/webp" alt="2"></p>
 <p>如果你想加 SameSite=none 属性，那么该 Cookie 就必须同时加上 Secure 属性，表示只有在 HTTPS 协议下该 Cookie 才会被发送。 </p>
 <p>SameSite 可以有下面三种值：</p>
 <ol>
