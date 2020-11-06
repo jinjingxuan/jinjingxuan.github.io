@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求">
+<meta name="description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-10.21">
 <meta property="og:url" content="http://yoursite.com/2020/10/21/日常-2020.10.21/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求">
+<meta property="og:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-03T08:48:52.464Z">
+<meta property="og:updated_time" content="2020-11-05T10:13:39.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-10.21">
-<meta name="twitter:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求">
+<meta name="twitter:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  879
+                  1k
                 </span>
               
 
@@ -434,6 +434,7 @@
 <li>application/x-www-form-urlencoded 和 application/json</li>
 <li>git rebase</li>
 <li>预检请求</li>
+<li>props单向传递</li>
 </ul>
 <a id="more"></a>
 <h2 id="算法：合并区间"><a href="#算法：合并区间" class="headerlink" title="算法：合并区间"></a>算法：合并区间</h2><p>题目来源：<a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode56</a></p>
@@ -478,6 +479,12 @@
 <li>预检请求会向服务器确认跨域是否允许，服务返回的响应头里有对应字段<code>Access-Control-Allow-Origin</code>来给浏览器判断：如果允许，浏览器紧接着发送实际请求；不允许，报错并禁止客户端脚本读取响应相关的任何东西。</li>
 <li>参考<a href="https://zhuanlan.zhihu.com/p/46405073" target="_blank" rel="noopener">预检请求 OPTIONS</a></li>
 </ul>
+<h2 id="props单向传递"><a href="#props单向传递" class="headerlink" title="props单向传递"></a>props单向传递</h2><ul>
+<li>由于props是单向传递，如果在子组件中改变父组件传来的值 vue 会报出警告</li>
+<li>首先想到的办法是在子组件中声明一个局部变量存储 props 的值，可以改变这个局部变量</li>
+<li>但是会存在一个问题，如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.localData = <span class="keyword">this</span>.propData</span><br><span class="line">&#125;,</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 如果这样赋值的话，若父组件中改变 propData 的值，子组件中不会响应式改变，解决办法是</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$set(<span class="keyword">this</span>, <span class="string">'localData'</span>, <span class="keyword">this</span>.propData)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -641,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据权限动态添加路由列表"><span class="nav-number">2.</span> <span class="nav-text">根据权限动态添加路由列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置路由meta属性"><span class="nav-number">3.</span> <span class="nav-text">配置路由meta属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-x-www-form-urlencoded-和-application-json"><span class="nav-number">4.</span> <span class="nav-text">application/x-www-form-urlencoded 和 application/json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-rebase"><span class="nav-number">5.</span> <span class="nav-text">git rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预检请求"><span class="nav-number">6.</span> <span class="nav-text">预检请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据权限动态添加路由列表"><span class="nav-number">2.</span> <span class="nav-text">根据权限动态添加路由列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置路由meta属性"><span class="nav-number">3.</span> <span class="nav-text">配置路由meta属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-x-www-form-urlencoded-和-application-json"><span class="nav-number">4.</span> <span class="nav-text">application/x-www-form-urlencoded 和 application/json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-rebase"><span class="nav-number">5.</span> <span class="nav-text">git rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预检请求"><span class="nav-number">6.</span> <span class="nav-text">预检请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props单向传递"><span class="nav-number">7.</span> <span class="nav-text">props单向传递</span></a></li></ol></div>
             
 
           </div>
