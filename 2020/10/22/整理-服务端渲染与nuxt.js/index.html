@@ -101,20 +101,17 @@
 
 
 
-<meta name="description" content="什么是Sass,Less 什么是webpack webpack的核心概念">
+<meta name="description" content="服务端渲染基础 传统服务端渲染 SPA 单页应用 同构应用 如何实现同构渲染   Nuxt.js 基础 Nuxt.js 综合案例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日常-2020.4.8">
-<meta property="og:url" content="http://yoursite.com/2020/04/08/日常-2020.4.8/index.html">
+<meta property="og:title" content="服务端渲染与nuxtJs">
+<meta property="og:url" content="http://yoursite.com/2020/10/22/整理-服务端渲染与nuxt.js/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="什么是Sass,Less 什么是webpack webpack的核心概念">
+<meta property="og:description" content="服务端渲染基础 传统服务端渲染 SPA 单页应用 同构应用 如何实现同构渲染   Nuxt.js 基础 Nuxt.js 综合案例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5122957-6ae398f45b5a85e3.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp">
-<meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&fm=15&gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&fm=15&gp=0.jpg">
-<meta property="og:updated_time" content="2020-08-14T15:26:12.946Z">
+<meta property="og:updated_time" content="2020-11-06T09:55:15.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日常-2020.4.8">
-<meta name="twitter:description" content="什么是Sass,Less 什么是webpack webpack的核心概念">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5122957-6ae398f45b5a85e3.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp">
+<meta name="twitter:title" content="服务端渲染与nuxtJs">
+<meta name="twitter:description" content="服务端渲染基础 传统服务端渲染 SPA 单页应用 同构应用 如何实现同构渲染   Nuxt.js 基础 Nuxt.js 综合案例">
 
 
 
@@ -144,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/08/日常-2020.4.8/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/10/22/整理-服务端渲染与nuxt.js/"/>
 
 
 
 
 
-  <title>日常-2020.4.8 | -Breeze's Blog</title>
+  <title>服务端渲染与nuxtJs | -Breeze's Blog</title>
   
 
 
@@ -310,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/日常-2020.4.8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/22/整理-服务端渲染与nuxt.js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -327,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">日常-2020.4.8</h1>
+          <h1 class="post-title" itemprop="name headline">服务端渲染与nuxtJs</h1>
         
 
         <div class="post-meta">
@@ -339,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T09:52:01+08:00">
-                2020-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-22T11:27:54+08:00">
+                2020-10-22
               </time>
             
 
@@ -362,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
+                  <a href="/categories/整理/" itemprop="url" rel="index">
+                    <span itemprop="name">整理</span>
                   </a>
                 </span>
 
@@ -393,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  804
+                  999
                 </span>
               
 
@@ -431,41 +428,97 @@
 
       
         <ul>
-<li>什么是Sass,Less</li>
-<li>什么是webpack</li>
-<li>webpack的核心概念</li>
+<li>服务端渲染基础<ul>
+<li>传统服务端渲染</li>
+<li>SPA 单页应用</li>
+<li>同构应用</li>
+<li>如何实现同构渲染</li>
+</ul>
+</li>
+<li>Nuxt.js 基础</li>
+<li>Nuxt.js 综合案例 </li>
 </ul>
 <a id="more"></a>
-<h2 id="1-什么是Sass-Less"><a href="#1-什么是Sass-Less" class="headerlink" title="1. 什么是Sass,Less"></a>1. 什么是Sass,Less</h2><p>Sass和Less都属于Css预处理器，Css预处理器定义了一种新的语言，其基本思想是用一种专门的编程语言，为Css增加一些编程的特性，将Css作为目标生成文件，然后开发者使用这种语言进行Css编码工作(用一种专门的编程语言，进行Web网页样式设计，再通过编译器转化为正常的Css文件，以供项目使用)。</p>
-<h4 id="为什么要使用Sass、Less"><a href="#为什么要使用Sass、Less" class="headerlink" title="为什么要使用Sass、Less"></a>为什么要使用Sass、Less</h4><p>因为css只是单纯的属性描述，它并不具有变量、条件语句等，css的特性导致了它难组织和维护。</p>
-<h4 id="Less与Sass的共性："><a href="#Less与Sass的共性：" class="headerlink" title="Less与Sass的共性："></a>Less与Sass的共性：</h4><ul>
-<li>混合(Mixins):将一个定义好的classA引入到另一个classB中，从而简单实现classB继承了classA的所有属性；</li>
-<li>参数混合(Parametric):可以像函数一样传递参数的class</li>
-<li>嵌套规则：class中嵌套class,从而减少重复的代码</li>
-<li>运算：css中的数学计算</li>
-<li>颜色功能：可以编辑你的颜色</li>
-<li>命名空间：样式分组，从而方便被调用</li>
-<li>作用域：局部修改样式</li>
-<li>JavaScript表达式：在css样式中使用javaScript表达式赋值</li>
+<h2 id="服务端渲染基础"><a href="#服务端渲染基础" class="headerlink" title="服务端渲染基础"></a>服务端渲染基础</h2><h3 id="传统服务端渲染"><a href="#传统服务端渲染" class="headerlink" title="传统服务端渲染"></a>传统服务端渲染</h3><ul>
+<li><p>最早期，Web 页面渲染都是在服务端完成的，即服务端运行过程中将所需的数据结合页面模板渲染为</p>
+<p>HTML，响应给客户端浏览器。所以浏览器呈现出来的是直接包含内容的页面。</p>
+</li>
+<li><p>这种方式的代表性技术有：ASP、PHP、JSP，再到后来的一些相对高级一点的服务端框架配合一些模板</p>
+<p>引擎</p>
+</li>
+<li><p>在今天看来，这种渲染模式是不合理或者说不先进的。因为在当下这种网页越来越复杂的情况下，这种</p>
+<p>模式存在很多明显的不足：</p>
+<ul>
+<li><p>应用的前后端部分完全耦合在一起，在前后端协同开发方面会有非常大的阻力；</p>
+</li>
+<li><p>前端没有足够的发挥空间，无法充分利用现在前端生态下的一些更优秀的方案；</p>
+</li>
+<li><p>由于内容都是在服务端动态生成的，所以服务端的压力较大；</p>
+</li>
+<li><p>相比目前流行的 SPA 应用来说，用户体验一般；</p>
+</li>
 </ul>
-<h4 id="Less的使用"><a href="#Less的使用" class="headerlink" title="Less的使用"></a>Less的使用</h4><p>(此处转载于<a href="https://www.jianshu.com/p/bf641d9d979a" target="_blank" rel="noopener">https://www.jianshu.com/p/bf641d9d979a</a> )</p>
-<p>使用less，css文件的后缀名需要改为.less在html页面中加入下面代码。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5122957-6ae398f45b5a85e3.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/639/format/webp" alt="img"></p>
-<p>less定义变量</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@colors:</span><span class="number">#333</span>;</span><br><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@colors</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>less样式嵌套</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="selector-class">.div1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*可以直接嵌入.div1的样式*/</span></span><br></pre></td></tr></table></figure>
-<p>less样式的运算</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@width:</span><span class="number">10%</span></span><br><span class="line">.myP&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="variable">@width</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>-<span class="variable">@width</span>/<span class="number">2</span></span><br><span class="line">    .mixin(red,<span class="number">#657</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>less样式的传参</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div5</span>(<span class="variable">@widths</span>:<span class="number">5px</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">border-width</span>:<span class="variable">@widths</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-什么是webpack"><a href="#2-什么是webpack" class="headerlink" title="2. 什么是webpack"></a>2. 什么是webpack</h2><p>webpack是一种前端资源构建工具，一个静态模块打包器（module bundler）。在webpack看来，前端的所有资源文件（js/json/css/img/less…）都会作为模块处理。它将根据模块的依赖2关系进行静态分析，打包生成对应的静态资源（bundle）</p>
-<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&amp;fm=15&amp;gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3378498490,2105022646&amp;fm=15&amp;gp=0.jpg" alt="3"></p>
-<h2 id="3-webpack的核心概念"><a href="#3-webpack的核心概念" class="headerlink" title="3. webpack的核心概念"></a>3. webpack的核心概念</h2><h3 id="（1）入口-entry"><a href="#（1）入口-entry" class="headerlink" title="（1）入口(entry)"></a>（1）入口(entry)</h3><p>webpack 创建应用程序所有依赖的关系图。图的起点被称之为入口起点(<code>entry point</code>)。入口起点告诉 webpack 从哪里开始，并根据依赖关系图确定需要打包的内容。可以将应用程序的入口起点认为是根上下文或 APP第一个启动文件。</p>
-<p>简单规则：每个 HTML 页面都有一个入口起点。单页应用(SPA)：一个入口起点，多页应用(MPA)：多个入口起点。</p>
-<h3 id="（2）-输出-output"><a href="#（2）-输出-output" class="headerlink" title="（2） 输出(output)"></a>（2） 输出(output)</h3><p>将所有的资源(assets)归拢在一起后，还需要告诉 webpack 在哪里打包应用程序。webpack 的 <code>output</code> 属性描述了如何处理归拢在一起的代码(bundled code)。<code>output</code>选项可以控制webpack如何向硬盘写入编译文件。注意，即使可以存在多个<code>entry</code>起点，但只指定一个<code>output</code>配置。</p>
-<h3 id="（3）loader"><a href="#（3）loader" class="headerlink" title="（3）loader"></a>（3）loader</h3><p>webpack自身只理解JavaScript。Loader让webpack能够去处理那些非Javascript文件。</p>
-<h3 id="（4）Plugins"><a href="#（4）Plugins" class="headerlink" title="（4）Plugins"></a>（4）Plugins</h3><p>插件（plugins）可以用于执行范围更广的任务。插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。</p>
+</li>
+</ul>
+<h3 id="SPA单页应用"><a href="#SPA单页应用" class="headerlink" title="SPA单页应用"></a>SPA单页应用</h3><ul>
+<li>随着ajax的发展（AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下）以及前端框架的发展，Vue，React，Angular 都是基于客户端渲染的前端框架，这类框架所构建的都是单页应用（SPA）</li>
+<li>优点<ul>
+<li>用户体验好</li>
+<li>开发效率高</li>
+<li>渲染性能好</li>
+<li>可维护性好</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>首屏渲染时间长</li>
+<li>不利于 SEO</li>
+</ul>
+</li>
+</ul>
+<h3 id="同构应用"><a href="#同构应用" class="headerlink" title="同构应用"></a>同构应用</h3><ul>
+<li>同构服务端渲染首屏直出，解决 SPA 应用首屏渲染慢以及不利于 SEO 问题</li>
+<li>然后通过客户端渲染接管页面内容交互得到更好的用户体验</li>
+<li>实际是【服务端渲染】 + 【客户端渲染】的结合</li>
+<li>优点：首屏渲染速度快、有利于 SEO</li>
+<li>缺点：<ul>
+<li>开发成本高。</li>
+<li>涉及构建设置和部署的更多要求。与可以部署在任何静态文件服务器上的完全静态单页面应用程序 (SPA) 不同，服务器渲染应用程序，一般需要处于 Node.js server 运行环境。</li>
+<li>更多的服务器端负载。在 Node.js 中渲染完整的应用程序，显然会比仅仅提供静态文件的server 更加大量占用 CPU 资源 (CPU-intensive - CPU 密集)，因此如果你预料在高流量环境(high traffic) 下使用，请准备相应的服务器负载，并明智地采用缓存策略</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何实现同构渲染"><a href="#如何实现同构渲染" class="headerlink" title="如何实现同构渲染"></a>如何实现同构渲染</h3><ul>
+<li>Vue、React等框架的官方解决方案</li>
+<li>使用第三方解决方案<ul>
+<li>React 生态的 Next.js</li>
+<li>Vue 生态的 Nuxt.js</li>
+</ul>
+</li>
+</ul>
+<h2 id="Nuxt-js-基础"><a href="#Nuxt-js-基础" class="headerlink" title="Nuxt.js 基础"></a>Nuxt.js 基础</h2><p>Nuxt.js 是一个基于 Vue.js 的服务端渲染应用框架，它可以帮我们轻松的实现同构应用。</p>
+<p>通过对客户端/服务端基础架构的抽象组织，Nuxt.js 主要关注的是应用的 <strong>UI渲染</strong>。</p>
+<ul>
+<li><a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="https://github.com/nuxt/nuxt.js" target="_blank" rel="noopener">Github仓库</a></li>
+</ul>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建项目目录 </span><br><span class="line">mkdir realworld-nuxtjs </span><br><span class="line"></span><br><span class="line"># 进入项目目录 </span><br><span class="line">cd realworld-nuxtjs </span><br><span class="line"></span><br><span class="line"># 生成 package.json 文件 </span><br><span class="line">npm init -y </span><br><span class="line"></span><br><span class="line"># 安装 nuxt 依赖 </span><br><span class="line">npm install nuxt</span><br></pre></td></tr></table></figure>
+<p>在 <code>package.json</code> 中添加启动脚本：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123; </span><br><span class="line">    "dev": "nuxt" </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>npm run dev</code> 启动服务</p>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><em>Nuxt.js 依据</em> <code>pages</code> <em>目录结构自动生成</em> <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">vue-router</a> <em>模块的路由配置。</em></p>
+<p>假设 <code>pages</code> 的目录结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pages/</span><br><span class="line">--| user/</span><br><span class="line">-----| index.vue</span><br><span class="line">-----| one.vue</span><br><span class="line">--| index.vue</span><br></pre></td></tr></table></figure>
+<p>那么，Nuxt.js 自动生成的路由配置如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">router: &#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'index'</span>,</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      component: <span class="string">'pages/index.vue'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'user'</span>,</span><br><span class="line">      path: <span class="string">'/user'</span>,</span><br><span class="line">      component: <span class="string">'pages/user/index.vue'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'user-one'</span>,</span><br><span class="line">      path: <span class="string">'/user/one'</span>,</span><br><span class="line">      component: <span class="string">'pages/user/one.vue'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Nuxt-js-综合案例"><a href="#Nuxt-js-综合案例" class="headerlink" title="Nuxt.js 综合案例"></a>Nuxt.js 综合案例</h2><ul>
+<li><a href="https://github.com/gothinkster/realworld" target="_blank" rel="noopener">GitHub仓库</a></li>
+<li><a href="https://demo.realworld.io/#/" target="_blank" rel="noopener">在线示例</a></li>
+<li><a href="https://github.com/gothinkster/realworld/tree/master/api" target="_blank" rel="noopener">接口文档</a></li>
+<li><p><a href="https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md" target="_blank" rel="noopener">页面模板</a></p>
+</li>
+<li><p><a href="https://github.com/jinjingxuan/realworld-nuxtJs" target="_blank" rel="noopener">项目地址</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -490,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/06/日常-2020.4.6/" rel="next" title="日常-2020.4.6">
-                <i class="fa fa-chevron-left"></i> 日常-2020.4.6
+              <a href="/2020/10/21/日常-2020.10.21/" rel="next" title="日常-10.21">
+                <i class="fa fa-chevron-left"></i> 日常-10.21
               </a>
             
           </div>
@@ -500,8 +553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/09/日常-2020.4.9/" rel="prev" title="日常-2020.4.9">
-                日常-2020.4.9 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/10/22/整理-Vuex/" rel="prev" title="Vuex">
+                Vuex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -629,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是Sass-Less"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Sass,Less</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要使用Sass、Less"><span class="nav-number">1.0.1.</span> <span class="nav-text">为什么要使用Sass、Less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less与Sass的共性："><span class="nav-number">1.0.2.</span> <span class="nav-text">Less与Sass的共性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less的使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">Less的使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是webpack"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-webpack的核心概念"><span class="nav-number">3.</span> <span class="nav-text">3. webpack的核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）入口-entry"><span class="nav-number">3.1.</span> <span class="nav-text">（1）入口(entry)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）-输出-output"><span class="nav-number">3.2.</span> <span class="nav-text">（2） 输出(output)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（3）loader"><span class="nav-number">3.3.</span> <span class="nav-text">（3）loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）Plugins"><span class="nav-number">3.4.</span> <span class="nav-text">（4）Plugins</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端渲染基础"><span class="nav-number">1.</span> <span class="nav-text">服务端渲染基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统服务端渲染"><span class="nav-number">1.1.</span> <span class="nav-text">传统服务端渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA单页应用"><span class="nav-number">1.2.</span> <span class="nav-text">SPA单页应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同构应用"><span class="nav-number">1.3.</span> <span class="nav-text">同构应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现同构渲染"><span class="nav-number">1.4.</span> <span class="nav-text">如何实现同构渲染</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nuxt-js-基础"><span class="nav-number">2.</span> <span class="nav-text">Nuxt.js 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">3.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nuxt-js-综合案例"><span class="nav-number">4.</span> <span class="nav-text">Nuxt.js 综合案例</span></a></li></ol></div>
             
 
           </div>
