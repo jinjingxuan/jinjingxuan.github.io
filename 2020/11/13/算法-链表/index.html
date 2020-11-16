@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
+<meta name="description" content="奇偶链表 旋转链表 两两交换链表元素">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日常-2020.7.27">
-<meta property="og:url" content="http://yoursite.com/2020/07/27/日常-2020.7.27/index.html">
+<meta property="og:title" content="算法-链表">
+<meta property="og:url" content="http://yoursite.com/2020/11/13/算法-链表/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
+<meta property="og:description" content="奇偶链表 旋转链表 两两交换链表元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-02T02:39:30.349Z">
+<meta property="og:updated_time" content="2020-11-13T06:37:08.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日常-2020.7.27">
-<meta name="twitter:description" content="谷歌浏览器中对第三方的cookie设置 SameSite by default cookies Cookies without SameSite must be secure">
+<meta name="twitter:title" content="算法-链表">
+<meta name="twitter:description" content="奇偶链表 旋转链表 两两交换链表元素">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/27/日常-2020.7.27/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/13/算法-链表/"/>
 
 
 
 
 
-  <title>日常-2020.7.27 | -Breeze's Blog</title>
+  <title>算法-链表 | -Breeze's Blog</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/27/日常-2020.7.27/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/13/算法-链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Breeze">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">日常-2020.7.27</h1>
+          <h1 class="post-title" itemprop="name headline">算法-链表</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-27T09:52:01+08:00">
-                2020-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-13T16:00:54+08:00">
+                2020-11-13
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  361
+                  673
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -428,22 +428,37 @@
 
       
         <ul>
-<li>谷歌浏览器中对第三方的cookie设置</li>
-<li>SameSite by default cookies</li>
-<li>Cookies without SameSite must be secure</li>
+<li>奇偶链表</li>
+<li>旋转链表</li>
+<li>两两交换链表元素</li>
 </ul>
 <a id="more"></a>
-<h4 id="SameSite-by-default-cookies"><a href="#SameSite-by-default-cookies" class="headerlink" title="SameSite by default cookies"></a>SameSite by default cookies</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Treat cookies that don&apos;t specify a SameSite attribute as if they were SameSite=Lax. Sites must specify SameSite=None in order to enable third-party usage. – Mac, Windows, Linux, Chrome OS, Android</span><br><span class="line"></span><br><span class="line">将未指定SameSite属性的cookie视为SameSite=Lax(默认),网站必须指定SameSite=None才能启用第三方cookie。</span><br><span class="line">把这个设置关了就允许所有的第三方cookie</span><br></pre></td></tr></table></figure>
-<h4 id="Cookies-without-SameSite-must-be-secure"><a href="#Cookies-without-SameSite-must-be-secure" class="headerlink" title="Cookies without SameSite must be secure"></a>Cookies without SameSite must be secure</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If enabled, cookies without SameSite restrictions must also be Secure. If a cookie without SameSite restrictions is set without the Secure attribute, it will be rejected. This flag only has an effect if &quot;SameSite by default cookies&quot; is also enabled. – Mac, Windows, Linux, Chrome OS, Android</span><br><span class="line"></span><br><span class="line">如果启用，没有SameSite限制的cookie也必须是安全的。如果没有设置SameSite限制的cookie没有Secure属性，它将被拒绝。此标志仅在启用&apos;sameSite by default cookies&apos;时有效。</span><br></pre></td></tr></table></figure>
-<p>如果你想加 SameSite=none 属性，那么该 Cookie 就必须同时加上 Secure 属性，表示只有在 HTTPS 协议下该 Cookie 才会被发送。 </p>
-<p>SameSite 可以有下面三种值：</p>
-<ol>
-<li>Strict 仅允许一方请求携带 Cookie，即浏览器将只发送相同站点请求的 Cookie，即当前网页 URL 与请求目标 URL 完全一致。</li>
-<li>Lax 允许部分第三方请求携带 Cookie</li>
-<li>None 无论是否跨站都会发送 Cookie</li>
-</ol>
-<p>之前默认是 None 的，Chrome80 后默认是 Lax</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果允许了第三方的cookie，就不用在本地配置xxx.域名了</span><br></pre></td></tr></table></figure>
+<h2 id="奇偶链表"><a href="#奇偶链表" class="headerlink" title="奇偶链表"></a>奇偶链表</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/odd-even-linked-list" target="_blank" rel="noopener">leetcode328</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。</span><br><span class="line"></span><br><span class="line">请尝试使用原地算法完成。你的算法的空间复杂度应为 O(1)，时间复杂度应为 O(nodes)，nodes 为节点总数。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">输出: 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: 2-&gt;1-&gt;3-&gt;5-&gt;6-&gt;4-&gt;7-&gt;NULL </span><br><span class="line">输出: 2-&gt;3-&gt;6-&gt;7-&gt;1-&gt;5-&gt;4-&gt;NULL</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：拆分链表再组合</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oddEvenList = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span>) <span class="keyword">return</span> head</span><br><span class="line">    <span class="keyword">let</span> odd = head, evenHead = head.next</span><br><span class="line">    <span class="keyword">let</span> even = evenHead</span><br><span class="line">    <span class="keyword">while</span> (even !== <span class="literal">null</span> &amp;&amp; even.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        odd.next = even.next</span><br><span class="line">        odd = odd.next</span><br><span class="line">        even.next = odd.next</span><br><span class="line">        even = even.next</span><br><span class="line">    &#125;</span><br><span class="line">    odd.next = evenHead</span><br><span class="line">    <span class="keyword">return</span> head</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="旋转链表"><a href="#旋转链表" class="headerlink" title="旋转链表"></a>旋转链表</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/rotate-list" target="_blank" rel="noopener">leetcode61</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2</span><br><span class="line">输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL</span><br><span class="line">解释:</span><br><span class="line">向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL</span><br><span class="line">向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL</span><br><span class="line"></span><br><span class="line">示例 2:</span><br><span class="line">输入: 0-&gt;1-&gt;2-&gt;NULL, k = 4</span><br><span class="line">输出: 2-&gt;0-&gt;1-&gt;NULL</span><br><span class="line">解释:</span><br><span class="line">向右旋转 1 步: 2-&gt;0-&gt;1-&gt;NULL</span><br><span class="line">向右旋转 2 步: 1-&gt;2-&gt;0-&gt;NULL</span><br><span class="line">向右旋转 3 步: 0-&gt;1-&gt;2-&gt;NULL</span><br><span class="line">向右旋转 4 步: 2-&gt;0-&gt;1-&gt;NULL</span><br></pre></td></tr></table></figure>
+<ul>
+<li>思路：成环再打开</li>
+<li>遍历链表，找到链尾接环，记录链表长度 n</li>
+<li>k = k % n ，找到断开位置 n-k </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rotateRight = <span class="function"><span class="keyword">function</span>(<span class="params">head, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span>) <span class="keyword">return</span> head</span><br><span class="line">    <span class="keyword">let</span> p = head, n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (p.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        p = p.next</span><br><span class="line">        n++</span><br><span class="line">    &#125;</span><br><span class="line">    p.next = head</span><br><span class="line">    k = k % n</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n-k<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        head = head.next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> tmp = head</span><br><span class="line">    head = head.next</span><br><span class="line">    tmp.next = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> head</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="两两交换链表元素"><a href="#两两交换链表元素" class="headerlink" title="两两交换链表元素"></a>两两交换链表元素</h2><ul>
+<li><p><a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/" target="_blank" rel="noopener">leetcode24</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/shou-hua-tu-jie-24-liang-liang-jiao-huan-lian-biao/" target="_blank" rel="noopener">题解</a></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</span><br><span class="line"></span><br><span class="line">你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</span><br><span class="line"></span><br><span class="line">示例 1：</span><br><span class="line">输入：head = [1,2,3,4]</span><br><span class="line">输出：[2,1,4,3]</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line">输入：head = []</span><br><span class="line">输出：[]</span><br><span class="line"></span><br><span class="line">示例 3：</span><br><span class="line">输入：head = [1]</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> swapPairs = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>)</span><br><span class="line">    dummy.next = head</span><br><span class="line">    <span class="keyword">let</span> prev = dummy</span><br><span class="line">    <span class="keyword">while</span> (head &amp;&amp; head.next) &#123;</span><br><span class="line">        <span class="keyword">const</span> next = head.next</span><br><span class="line">        head.next = next.next</span><br><span class="line">        next.next = head</span><br><span class="line">        prev.next = next</span><br><span class="line"></span><br><span class="line">        prev = head</span><br><span class="line">        head = head.next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -468,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/23/日常-2020.7.23/" rel="next" title="日常-2020.7.23">
-                <i class="fa fa-chevron-left"></i> 日常-2020.7.23
+              <a href="/2020/11/12/整理-Vue响应式原理详解/" rel="next" title="Vue响应式原理详解">
+                <i class="fa fa-chevron-left"></i> Vue响应式原理详解
               </a>
             
           </div>
@@ -478,8 +493,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/03/算法-递归/" rel="prev" title="算法-递归">
-                算法-递归 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/16/算法-数组操作/" rel="prev" title="算法-数组操作">
+                算法-数组操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SameSite-by-default-cookies"><span class="nav-number">1.</span> <span class="nav-text">SameSite by default cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookies-without-SameSite-must-be-secure"><span class="nav-number">2.</span> <span class="nav-text">Cookies without SameSite must be secure</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#奇偶链表"><span class="nav-number">1.</span> <span class="nav-text">奇偶链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转链表"><span class="nav-number">2.</span> <span class="nav-text">旋转链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两两交换链表元素"><span class="nav-number">3.</span> <span class="nav-text">两两交换链表元素</span></a></li></ol></div>
             
 
           </div>

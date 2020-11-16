@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
 <meta property="og:description" content="发布订阅模式 观察者模式 Vue 实例初始化过程 组件渲染过程 响应式过程总结 Vue 3.0 Proxy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-12T02:42:17.370Z">
+<meta property="og:updated_time" content="2020-11-12T07:14:53.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue响应式原理详解">
 <meta name="twitter:description" content="发布订阅模式 观察者模式 Vue 实例初始化过程 组件渲染过程 响应式过程总结 Vue 3.0 Proxy">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4k
+                  4.3k
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  17
                 </span>
               
             </div>
@@ -537,6 +537,13 @@
 <li>创建<code>Watcher</code>对象，在创建<code>Watcher</code>时，传递了<code>updateComponent</code>这个函数，这个函数最终是在<code>Watcher</code>内部调用的。在<code>Watcher</code>内部会用<code>get</code>方法，当Watcher创建完成之后,会触发生命周期中的<code>mounted</code>钩子函数,在get方法中，会调用<code>updateComponent()</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Watcher(vm, updateComponent, noop, &#123;</span><br><span class="line">    before () &#123;</span><br><span class="line">      <span class="keyword">if</span> (vm._isMounted &amp;&amp; !vm._isDestroyed) &#123;</span><br><span class="line">        callHook(vm, <span class="string">'beforeUpdate'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="literal">true</span> <span class="comment">/* isRenderWatcher */</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// vm ：与Wather对应的Vue Component实例，这种对应关系通过Wather去管理</span></span><br><span class="line"><span class="comment">// updateComponent：可以理解成Vue Component的更新函数，调用实例render和update两个方法，render作用是将Vue对象渲染成虚拟DOM,update是通过虚拟DOM创建或者更新真实DOM</span></span><br></pre></td></tr></table></figure>
+<p>Watche 实例分为渲染 watcher (render watcher),计算属性 watcher (computed watcher),侦听器 watcher（user watcher）三种：</p>
+<ol>
+<li>initState 时,对 computed 属性初始化时,触发 computed watcher 依赖收集</li>
+<li>initState 时,对侦听属性初始化时,触发 user watcher 依赖收集</li>
+<li>render()的过程,触发 render watcher 依赖收集</li>
+<li>re-render 时,vm.render()再次执行,会移除所有 subs 中的 watcer 的订阅,重新赋值。</li>
+</ol>
 <p><strong>watcher类</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Watcher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (</span><br><span class="line">    vm: Component, </span><br><span class="line">    expOrFn: string | Function,</span><br><span class="line">    cb: Function,</span><br><span class="line">    options?: ?Object,</span><br><span class="line">    isRenderWatcher?: boolean</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">this</span>.vm = vm</span><br><span class="line">    <span class="keyword">if</span> (isRenderWatcher) &#123;</span><br><span class="line">      <span class="comment">// 将渲染函数的观察者存入_watcher</span></span><br><span class="line">      vm._watcher = <span class="keyword">this</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将所有观察者push到_watchers列表</span></span><br><span class="line">    vm._watchers.push(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  get () &#123; <span class="comment">// 触发取值操作，进而触发属性的getter</span></span><br><span class="line">    pushTarget(<span class="keyword">this</span>) <span class="comment">// Dep 中提到的：给 Dep.target 赋值</span></span><br><span class="line">    <span class="keyword">let</span> value</span><br><span class="line">    <span class="keyword">const</span> vm = <span class="keyword">this</span>.vm</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 核心，运行观察者表达式，进行取值，触发getter，从而在闭包中添加watcher</span></span><br><span class="line">      value = <span class="keyword">this</span>.getter.call(vm, vm)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.user) &#123;</span><br><span class="line">        handleError(e, vm, <span class="string">`getter for watcher "<span class="subst">$&#123;<span class="keyword">this</span>.expression&#125;</span>"`</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> e</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.deep) &#123; <span class="comment">// 如果要深度监测，再对 value 执行操作</span></span><br><span class="line">        traverse(value)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 清理依赖收集</span></span><br><span class="line">      popTarget()</span><br><span class="line">      <span class="keyword">this</span>.cleanupDeps()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当依赖变化时，触发更新</span></span><br><span class="line">  update () &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="响应式的整体流程"><a href="#响应式的整体流程" class="headerlink" title="响应式的整体流程"></a>响应式的整体流程</h3><p>总结一下响应式的整体流程：<br>假设有模版：</p>
@@ -559,7 +566,10 @@
 <li>data中的属性变化，会调用setter中的方法，告诉watcher有依赖发生了变化</li>
 <li>watcher收到依赖变化的消息，重新渲染虚拟dom，实现页面响应</li>
 </ul>
-<h3 id="Vue-3-0-Proxy"><a href="#Vue-3-0-Proxy" class="headerlink" title="Vue 3.0 Proxy"></a>Vue 3.0 Proxy</h3><p> Proxy可以理解成，在目标对象之前架设一层 “拦截”，当外界对该对象访问的时候，都必须经过这层拦截，而Proxy就充当了这种机制，类似于代理的含义，它可以对外界访问对象之前进行过滤和改写该对象。 </p>
+<h3 id="Vue-3-0-Proxy"><a href="#Vue-3-0-Proxy" class="headerlink" title="Vue 3.0 Proxy"></a>Vue 3.0 Proxy</h3><blockquote>
+<p> Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历。Vue 2.x 里,是通过 递归 + 遍历 data 对象来实现对数据的监控的,如果属性值也是对象那么需要深度遍历,显然如果能劫持一个完整的对象是才是更好的选择。Proxy 可以劫持整个对象,并返回一个新的对象。Proxy 不仅可以代理对象,还可以代理数组。还可以代理动态增加的属性。</p>
+</blockquote>
+<p> Proxy可以理解成，在目标对象之前架设一层 “拦截”，当外界对该对象访问的时候，都必须经过这层拦截，而Proxy就充当了这种机制，类似于代理的含义，它可以对外界访问对象之前进行过滤和改写该对象。 </p>
 <blockquote>
 <p>proxy不存在Object.defineProperty()的三个问题,并且Proxy有多达13种拦截方法 </p>
 </blockquote>
@@ -606,8 +616,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/10/算法-字符串操作/" rel="next" title="算法-字符串操作">
-                <i class="fa fa-chevron-left"></i> 算法-字符串操作
+              <a href="/2020/11/12/整理-Vue组件通信的方式/" rel="next" title="整理-Vue组件通信的方式">
+                <i class="fa fa-chevron-left"></i> 整理-Vue组件通信的方式
               </a>
             
           </div>
@@ -615,6 +625,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/13/算法-链表/" rel="prev" title="算法-链表">
+                算法-链表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>

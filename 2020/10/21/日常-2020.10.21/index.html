@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
+<meta name="description" content="根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递 (0,function) parseInt解析字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常-10.21">
 <meta property="og:url" content="http://yoursite.com/2020/10/21/日常-2020.10.21/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
+<meta property="og:description" content="根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递 (0,function) parseInt解析字符串">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-05T10:13:39.668Z">
+<meta property="og:updated_time" content="2020-11-16T08:49:09.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常-10.21">
-<meta name="twitter:description" content="算法：合并区间 根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递">
+<meta name="twitter:description" content="根据权限动态添加路由列表 配置路由meta属性 application/x-www-form-urlencoded 和 application/json git rebase 预检请求 props单向传递 (0,function) parseInt解析字符串">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  975
                 </span>
               
 
@@ -428,25 +428,16 @@
 
       
         <ul>
-<li>算法：合并区间</li>
 <li>根据权限动态添加路由列表</li>
 <li>配置路由meta属性</li>
 <li>application/x-www-form-urlencoded 和 application/json</li>
 <li>git rebase</li>
 <li>预检请求</li>
 <li>props单向传递</li>
+<li>(0,function)</li>
+<li>parseInt解析字符串</li>
 </ul>
 <a id="more"></a>
-<h2 id="算法：合并区间"><a href="#算法：合并区间" class="headerlink" title="算法：合并区间"></a>算法：合并区间</h2><p>题目来源：<a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode56</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: intervals = [[1,3],[2,6],[8,10],[15,18]]</span><br><span class="line">输出: [[1,6],[8,10],[15,18]]</span><br><span class="line">解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].</span><br><span class="line"></span><br><span class="line">示例 2:</span><br><span class="line">输入: intervals = [[1,4],[4,5]]</span><br><span class="line">输出: [[1,5]]</span><br><span class="line">解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>思路</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 先按照 intervals[i][0] 从小到大排序</span></span><br><span class="line"><span class="comment">// 2. intervals[i][1] &gt;= intervals[i+1][1] 直接取 intervals[i][1] : [1,4] [2,3] 直接取 [1,4]</span></span><br><span class="line"><span class="comment">// 3. intervals[i][1] &gt;= intervals[i+1][0] 时 intervals[i][1] = intervals[i+1][1] ：[1,4] [3,5] 取 [1,5]  </span></span><br><span class="line"><span class="comment">// 4. 设置一个 flag，如果此轮合并过，继续合并下一轮</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>个人解法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">intervals</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span> </span><br><span class="line">    intervals.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a[<span class="number">0</span>] - b[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">while</span> (flag) &#123;</span><br><span class="line">        flag = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; intervals.length - <span class="number">1</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &gt;= intervals[i+<span class="number">1</span>][<span class="number">1</span>]) &#123;</span><br><span class="line">                intervals.splice(i+<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &gt;= intervals[i+<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                intervals[i][<span class="number">1</span>] = intervals[i+<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">                intervals.splice(i+<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125;     </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> intervals</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="根据权限动态添加路由列表"><a href="#根据权限动态添加路由列表" class="headerlink" title="根据权限动态添加路由列表"></a>根据权限动态添加路由列表</h2><ul>
 <li>业务场景：不同用户调用权限接口获得的权限是不同的，根据用户权限动态展示路由列表</li>
 </ul>
@@ -485,6 +476,13 @@
 <li>但是会存在一个问题，如下：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.localData = <span class="keyword">this</span>.propData</span><br><span class="line">&#125;,</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 如果这样赋值的话，若父组件中改变 propData 的值，子组件中不会响应式改变，解决办法是</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$set(<span class="keyword">this</span>, <span class="string">'localData'</span>, <span class="keyword">this</span>.propData)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="0-function"><a href="#0-function" class="headerlink" title="(0,function)"></a>(0,function)</h2><blockquote>
+<p>逗号运算符，它将先计算左边的参数，再计算右边的参数值。然后返回最右边参数的值。 </p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">  foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">a.foo(); <span class="comment">// Returns 'false' in console</span></span><br><span class="line">(<span class="number">0</span>, a.foo)(); <span class="comment">// Returns 'true' in console</span></span><br></pre></td></tr></table></figure>
+<p>But, if you were call <code>(0, a.foo)()</code>. The expression <code>(0, a.foo)</code> will evaluate each of its operands (from left to right) and returns the value of the last operand. In other words, <code>(0, a.foo)</code> is equivalent to </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="parseInt解析字符串"><a href="#parseInt解析字符串" class="headerlink" title="parseInt解析字符串"></a>parseInt解析字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"10"</span>);			<span class="comment">//返回 10</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"19"</span>,<span class="number">10</span>);		<span class="comment">//返回 19 (10+9)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"11"</span>,<span class="number">2</span>);		<span class="comment">//返回 3 (2+1)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"17"</span>,<span class="number">8</span>);		<span class="comment">//返回 15 (8+7)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"1f"</span>,<span class="number">16</span>);		<span class="comment">//返回 31 (16+15)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"010"</span>);		<span class="comment">//未定：返回 10 或 8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//BigInt也有转换进制的功能</span></span><br><span class="line">BigInt(<span class="string">"0b"</span>+<span class="string">"10"</span>) <span class="comment">//2</span></span><br><span class="line">BigInt(<span class="string">"0o"</span>+<span class="string">"10"</span>) <span class="comment">//8</span></span><br><span class="line">BigInt(<span class="string">"0x"</span>+<span class="string">"10"</span>) <span class="comment">//16</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//那么10进制怎么转换成2进制呢</span></span><br><span class="line">NumberObject.toString(radix);</span><br><span class="line"></span><br><span class="line"><span class="comment">//parseInt还具有向下取整的功能</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">2.5</span>) <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -648,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据权限动态添加路由列表"><span class="nav-number">2.</span> <span class="nav-text">根据权限动态添加路由列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置路由meta属性"><span class="nav-number">3.</span> <span class="nav-text">配置路由meta属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-x-www-form-urlencoded-和-application-json"><span class="nav-number">4.</span> <span class="nav-text">application/x-www-form-urlencoded 和 application/json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-rebase"><span class="nav-number">5.</span> <span class="nav-text">git rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预检请求"><span class="nav-number">6.</span> <span class="nav-text">预检请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props单向传递"><span class="nav-number">7.</span> <span class="nav-text">props单向传递</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据权限动态添加路由列表"><span class="nav-number">1.</span> <span class="nav-text">根据权限动态添加路由列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置路由meta属性"><span class="nav-number">2.</span> <span class="nav-text">配置路由meta属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application-x-www-form-urlencoded-和-application-json"><span class="nav-number">3.</span> <span class="nav-text">application/x-www-form-urlencoded 和 application/json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-rebase"><span class="nav-number">4.</span> <span class="nav-text">git rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预检请求"><span class="nav-number">5.</span> <span class="nav-text">预检请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props单向传递"><span class="nav-number">6.</span> <span class="nav-text">props单向传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-function"><span class="nav-number">7.</span> <span class="nav-text">(0,function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parseInt解析字符串"><span class="nav-number">8.</span> <span class="nav-text">parseInt解析字符串</span></a></li></ol></div>
             
 
           </div>

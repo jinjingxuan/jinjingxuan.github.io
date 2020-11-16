@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="下一个排列">
+<meta name="description" content="下一个排列 对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’ 外观数列 最长公共前缀">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-字符串操作">
 <meta property="og:url" content="http://yoursite.com/2020/11/10/算法-字符串操作/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="下一个排列">
+<meta property="og:description" content="下一个排列 对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’ 外观数列 最长公共前缀">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-10T03:56:33.692Z">
+<meta property="og:updated_time" content="2020-11-16T08:55:53.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-字符串操作">
-<meta name="twitter:description" content="下一个排列">
+<meta name="twitter:description" content="下一个排列 对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’ 外观数列 最长公共前缀">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  426
+                  1k
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -429,6 +429,9 @@
       
         <ul>
 <li>下一个排列</li>
+<li>对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</li>
+<li>外观数列</li>
+<li>最长公共前缀</li>
 </ul>
 <a id="more"></a>
 <h2 id="下一个排列"><a href="#下一个排列" class="headerlink" title="下一个排列"></a>下一个排列</h2><ul>
@@ -449,6 +452,30 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nextPermutation = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = nums.length; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &lt; nums[i+<span class="number">1</span>]) &#123;</span><br><span class="line">            flag = <span class="literal">false</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> j = nums.length; j &gt; i; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j] &gt; nums[i]) &#123;</span><br><span class="line">                    <span class="keyword">let</span> tmp = nums[j]</span><br><span class="line">                    nums[j] = nums [i]</span><br><span class="line">                    nums[i] = tmp</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> a = nums.splice(<span class="number">0</span>, i+<span class="number">1</span>)</span><br><span class="line">            nums.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a-b)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = a.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                nums.unshift(a[i])</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        nums.reverse()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"><a href="#对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’" class="headerlink" title="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"></a>对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;aacbd&apos; =&gt; &apos;ad&apos;</span><br><span class="line">&apos;aabcd&apos; =&gt; &apos;ad&apos;</span><br><span class="line">&apos;aaabbccc&apos; =&gt; &apos;&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正则解决</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res= str.replace(<span class="regexp">/b+/g</span>,<span class="string">''</span>)</span><br><span class="line">    <span class="keyword">while</span>(res.match(<span class="regexp">/(ac)+/</span>))&#123;</span><br><span class="line">        res = res.replace(<span class="regexp">/ac/</span>,<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="外观数列"><a href="#外观数列" class="headerlink" title="外观数列"></a>外观数列</h2><h3 id="正则表达式：-1捕获"><a href="#正则表达式：-1捕获" class="headerlink" title="正则表达式：\1捕获"></a>正则表达式：\1捕获</h3><blockquote>
+<p>\1表示匹配第一个括号里的内容</p>
+<p>利用这个\1，可以获取一个长字符串中的最长相同子串</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//寻找连续相同的最长子串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"ABCCCDDDDDEFFFFFFFFFFFFGGGGHHIIII"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w)\1+/g</span>;</span><br><span class="line"><span class="keyword">var</span> arr = str.match(reg);</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// ["CCC", "DDDDD", "FFFFFFFFFFFF", "GGGG", "HH", "IIII"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="外观数列-1"><a href="#外观数列-1" class="headerlink" title="外观数列"></a>外观数列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.     1</span><br><span class="line">2.     11</span><br><span class="line">3.     21</span><br><span class="line">4.     1211</span><br><span class="line">5.     111221</span><br><span class="line"></span><br><span class="line">给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用正则表达式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> countAndSay = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pre = <span class="string">'1'</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        pre = pre.replace(<span class="regexp">/(\d)\1*/g</span>, item =&gt;<span class="string">`<span class="subst">$&#123;item.length&#125;</span><span class="subst">$&#123;item[<span class="number">0</span>]&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  \1*代表出现任意次</span></span><br><span class="line"><span class="comment">// $&#123;&#125;代表字符串拼接</span></span><br><span class="line"><span class="comment">// replace第二个参数为函数例如</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">'abbcbca'</span></span><br><span class="line">str1.replace(<span class="regexp">/(b)/g</span>,item =&gt; item+<span class="string">'*'</span>)  <span class="comment">//ab*b*cb*ca</span></span><br></pre></td></tr></table></figure>
+<h2 id="算法：最长公共前缀"><a href="#算法：最长公共前缀" class="headerlink" title="算法：最长公共前缀"></a>算法：最长公共前缀</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">编写一个函数来查找字符串数组中的最长公共前缀。</span><br><span class="line"></span><br><span class="line">如果不存在公共前缀，返回空字符串 &quot;&quot;。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出: &quot;fl&quot;</span><br><span class="line"></span><br><span class="line">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">输出: &quot;&quot;</span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当字符串数组长度为 0 时则公共前缀为空，直接返回</li>
+<li>令最长公共前缀 ans 的值为第一个字符串，进行初始化</li>
+<li>遍历后面的字符串，依次将其与 ans 进行比较，两两找出公共前缀，最终结果即为最长公共前缀</li>
+<li>如果查找过程中出现了 ans 为空的情况，则公共前缀不存在直接返回</li>
+<li>时间复杂度：O(s)，s 为所有字符串的长度之和</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    <span class="keyword">let</span> ans = strs[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;strs.length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;ans.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[i][j]!==ans[j])&#123;</span><br><span class="line">                ans = ans.slice(<span class="number">0</span>,j)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -483,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/12/整理-Vue响应式原理详解/" rel="prev" title="Vue响应式原理详解">
-                Vue响应式原理详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/12/整理-Vue组件通信的方式/" rel="prev" title="整理-Vue组件通信的方式">
+                整理-Vue组件通信的方式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下一个排列"><span class="nav-number">1.</span> <span class="nav-text">下一个排列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下一个排列"><span class="nav-number">1.</span> <span class="nav-text">下一个排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"><span class="nav-number">2.</span> <span class="nav-text">对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外观数列"><span class="nav-number">3.</span> <span class="nav-text">外观数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式：-1捕获"><span class="nav-number">3.1.</span> <span class="nav-text">正则表达式：\1捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外观数列-1"><span class="nav-number">3.2.</span> <span class="nav-text">外观数列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：最长公共前缀"><span class="nav-number">4.</span> <span class="nav-text">算法：最长公共前缀</span></a></li></ol></div>
             
 
           </div>
