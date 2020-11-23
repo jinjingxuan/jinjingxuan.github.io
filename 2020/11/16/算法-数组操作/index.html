@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="合并区间">
+<meta name="description" content="合并区间 只出现一次的数字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-数组操作">
 <meta property="og:url" content="http://yoursite.com/2020/11/16/算法-数组操作/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="合并区间">
+<meta property="og:description" content="合并区间 只出现一次的数字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-16T08:48:56.754Z">
+<meta property="og:updated_time" content="2020-11-23T15:48:20.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-数组操作">
-<meta name="twitter:description" content="合并区间">
+<meta name="twitter:description" content="合并区间 只出现一次的数字">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  258
+                  441
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -429,6 +429,7 @@
       
         <ul>
 <li>合并区间</li>
+<li>只出现一次的数字</li>
 </ul>
 <a id="more"></a>
 <h2 id="算法：合并区间"><a href="#算法：合并区间" class="headerlink" title="算法：合并区间"></a>算法：合并区间</h2><p>题目来源：<a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode56</a></p>
@@ -441,6 +442,16 @@
 <li>个人解法</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">intervals</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span> </span><br><span class="line">    intervals.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a[<span class="number">0</span>] - b[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">while</span> (flag) &#123;</span><br><span class="line">        flag = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; intervals.length - <span class="number">1</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &gt;= intervals[i+<span class="number">1</span>][<span class="number">1</span>]) &#123;</span><br><span class="line">                intervals.splice(i+<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &gt;= intervals[i+<span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                intervals[i][<span class="number">1</span>] = intervals[i+<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">                intervals.splice(i+<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125;     </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> intervals</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/single-number/" target="_blank" rel="noopener">leetcode136</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [2,2,1]</span><br><span class="line">输出: 1</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [4,1,2,1,2]</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>任何数和 0 做异或运算，结果仍然是原来的数，</li>
+<li>任何数和其自身做异或运算，结果是 0</li>
+<li>异或运算满足交换律和结合律</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nums.reduce(<span class="function">(<span class="params">pre, item</span>) =&gt;</span> pre ^ item, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -558,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">115</span>
+                  <span class="site-state-item-count">116</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只出现一次的数字"><span class="nav-number">2.</span> <span class="nav-text">只出现一次的数字</span></a></li></ol></div>
             
 
           </div>
