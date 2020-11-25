@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly">
+<meta name="description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly flex布局实例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整理-flex">
 <meta property="og:url" content="http://yoursite.com/2020/11/22/整理-flex/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly">
+<meta property="og:description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly flex布局实例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-22T15:48:03.379Z">
+<meta property="og:updated_time" content="2020-11-25T13:20:28.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="整理-flex">
-<meta name="twitter:description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly">
+<meta name="twitter:description" content="flex常见属性 flex-grow，flex-shrink，flex-basis flex:1 space-evenly flex布局实例">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  260
+                  382
                 </span>
               
 
@@ -432,6 +432,7 @@
 <li>flex-grow，flex-shrink，flex-basis</li>
 <li>flex:1</li>
 <li>space-evenly</li>
+<li>flex布局实例</li>
 </ul>
 <a id="more"></a>
 <hr>
@@ -446,6 +447,15 @@
 <ul>
 <li>space-evenly为项目之间间距与项目与容器间距相等，相当于除去项目宽度，平均分配了剩余宽度作为项目左右margin。</li>
 </ul>
+<h2 id="flex-布局实例"><a href="#flex-布局实例" class="headerlink" title="flex 布局实例"></a>flex 布局实例</h2><ul>
+<li>场景：一行5个卡片，卡片数量不限，自动换行，从左到右排列，比如现在有9个卡片：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 如下效果</span><br><span class="line">1 1 1 1 1</span><br><span class="line">1 1 1 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每一行子元素的总基准值是：20% * n</li>
+<li>flex-grow 和 flex-shrink 都是 0，不允许放大和缩小，除基准值之外的剩余空间不会被分配</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: row wrap;</span><br><span class="line">  <span class="attribute">justify-content</span>: start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">20%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -470,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/16/算法-动态规划/" rel="next" title="算法-动态规划">
-                <i class="fa fa-chevron-left"></i> 算法-动态规划
+              <a href="/2020/11/16/整理-移动端适配/" rel="next" title="整理-移动端适配">
+                <i class="fa fa-chevron-left"></i> 整理-移动端适配
               </a>
             
           </div>
@@ -534,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -554,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">116</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,6 +609,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-布局实例"><span class="nav-number">1.</span> <span class="nav-text">flex 布局实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
