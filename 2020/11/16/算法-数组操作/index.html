@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="合并区间 只出现一次的数字">
+<meta name="description" content="合并区间 只出现一次的数字 找到所有数组中消失的数字 三数之和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-数组操作">
 <meta property="og:url" content="http://yoursite.com/2020/11/16/算法-数组操作/index.html">
 <meta property="og:site_name" content="-Breeze&#39;s Blog">
-<meta property="og:description" content="合并区间 只出现一次的数字">
+<meta property="og:description" content="合并区间 只出现一次的数字 找到所有数组中消失的数字 三数之和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-23T15:48:20.406Z">
+<meta property="og:updated_time" content="2020-11-26T15:50:41.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-数组操作">
-<meta name="twitter:description" content="合并区间 只出现一次的数字">
+<meta name="twitter:description" content="合并区间 只出现一次的数字 找到所有数组中消失的数字 三数之和">
 
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441
+                  965
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -430,6 +430,8 @@
         <ul>
 <li>合并区间</li>
 <li>只出现一次的数字</li>
+<li>找到所有数组中消失的数字</li>
+<li>三数之和</li>
 </ul>
 <a id="more"></a>
 <h2 id="算法：合并区间"><a href="#算法：合并区间" class="headerlink" title="算法：合并区间"></a>算法：合并区间</h2><p>题目来源：<a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode56</a></p>
@@ -452,6 +454,23 @@
 <li>异或运算满足交换律和结合律</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nums.reduce(<span class="function">(<span class="params">pre, item</span>) =&gt;</span> pre ^ item, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="找到所有数组中消失的数字"><a href="#找到所有数组中消失的数字" class="headerlink" title="找到所有数组中消失的数字"></a>找到所有数组中消失的数字</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/" target="_blank" rel="noopener">leetcode448</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">给定一个范围在  1 ≤ a[i] ≤ n ( n = 数组大小 ) 的 整型数组，数组中的元素一些出现了两次，另一些只出现一次。</span><br><span class="line"></span><br><span class="line">找到所有在 [1, n] 范围之间没有出现在数组中的数字。</span><br><span class="line"></span><br><span class="line">您能在不使用额外空间且时间复杂度为O(n)的情况下完成这个任务吗? 你可以假定返回的数组不算在额外空间内。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[4,3,2,7,8,2,3,1]</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">[5,6]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>值表示索引</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findDisappearedNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [], res = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        arr[nums[i]<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] !== <span class="number">1</span>) &#123;</span><br><span class="line">            res.push(i+<span class="number">1</span>)</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">leetcode15</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。</span><br><span class="line"></span><br><span class="line">注意：答案中不可以包含重复的三元组。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">给定数组 nums = [-1, 0, 1, 2, -1, -4]，</span><br><span class="line"></span><br><span class="line">满足要求的三元组集合为：</span><br><span class="line">[</span><br><span class="line">  [-1, 0, 1],</span><br><span class="line">  [-1, -1, 2]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>双指针讲思路</li>
+<li><a href="https://leetcode-cn.com/problems/3sum/solution/man-hua-jue-bu-wu-ren-zi-di-xiang-kuai-su-kan-dong/" target="_blank" rel="noopener">题解</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> threeSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    nums.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b) <span class="comment">// 排序</span></span><br><span class="line">    <span class="keyword">let</span> ans = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> flag = <span class="number">0</span>; flag &lt; nums.length - <span class="number">2</span>; flag++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[flag] &gt; <span class="number">0</span>) <span class="keyword">break</span> <span class="comment">// 基准值大于0时相加不可能等于0</span></span><br><span class="line">        <span class="keyword">let</span> i = flag + <span class="number">1</span></span><br><span class="line">        <span class="keyword">let</span> j = nums.length - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[flag] + nums[i] + nums[j] &gt; <span class="number">0</span>) j--</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (nums[flag] + nums[i] + nums[j] &lt; <span class="number">0</span>) i++</span><br><span class="line">            <span class="comment">// 相加等于0时，需要去重</span></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (ans.length === <span class="number">0</span>) &#123;</span><br><span class="line">                    ans.push([nums[flag], nums[i], nums[j]])</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> boolean = <span class="literal">true</span></span><br><span class="line">                    <span class="comment">// ans中向前遍历，判断有没有一样的，有一样的就不 push 了</span></span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> k = ans.length<span class="number">-1</span>; k &gt;= <span class="number">0</span> &amp;&amp; ans[k][<span class="number">0</span>] === nums[flag]; k--) &#123;</span><br><span class="line">                        <span class="keyword">let</span> tmp = ans[k]</span><br><span class="line">                        <span class="keyword">if</span> (tmp[<span class="number">0</span>] === nums[flag] &amp;&amp; tmp[<span class="number">1</span>] === nums[i] &amp;&amp; tmp[<span class="number">2</span>] === nums[j]) &#123;</span><br><span class="line">                            boolean = <span class="literal">false</span></span><br><span class="line">                        &#125; </span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (boolean) &#123;</span><br><span class="line">                         ans.push([nums[flag], nums[i], nums[j]])</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                i++</span><br><span class="line">                j--</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -615,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只出现一次的数字"><span class="nav-number">2.</span> <span class="nav-text">只出现一次的数字</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法：合并区间"><span class="nav-number">1.</span> <span class="nav-text">算法：合并区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只出现一次的数字"><span class="nav-number">2.</span> <span class="nav-text">只出现一次的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到所有数组中消失的数字"><span class="nav-number">3.</span> <span class="nav-text">找到所有数组中消失的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三数之和"><span class="nav-number">4.</span> <span class="nav-text">三数之和</span></a></li></ol></div>
             
 
           </div>
