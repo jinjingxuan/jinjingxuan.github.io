@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2018-10-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    21.4k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    21.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    88 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    87 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -472,21 +404,32 @@
 <li>案例分析</li>
 </ol>
 <h3 id="1-两种模糊匹配"><a href="#1-两种模糊匹配" class="headerlink" title="1 两种模糊匹配"></a>1 两种模糊匹配</h3><p>如果正则只有精确匹配是没多大意义的，比如<code>/hello/</code>，也只能匹配字符串中的”hello”这个子串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /hello/;</span><br><span class="line">console.log( regex.test(&quot;hello&quot;) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>正则表达式之所以强大，是因为其能实现模糊匹配。</p>
+<pre><code>var regex = /hello/;
+console.log( regex.test(&quot;hello&quot;) ); 
+// =&gt; true
+复制代码
+</code></pre><p>正则表达式之所以强大，是因为其能实现模糊匹配。</p>
 <p>而模糊匹配，有两个方向上的“模糊”：横向模糊和纵向模糊。</p>
 <p><strong>1.1 横向模糊匹配</strong></p>
 <p>横向模糊指的是，一个正则可匹配的字符串的长度不是固定的，可以是多种情况的。</p>
 <p>其实现的方式是使用量词。譬如<code>{m,n}</code>，表示连续出现最少m次，最多n次。</p>
 <p>比如<code>/ab{2,5}c/</code>表示匹配这样一个字符串：第一个字符是“a”，接下来是2到5个字符“b”，最后是字符“c”。测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /ab&#123;2,5&#125;c/g;</span><br><span class="line">var string = &quot;abc abbc abbbc abbbbc abbbbbc abbbbbbc&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;abbc&quot;, &quot;abbbc&quot;, &quot;abbbbc&quot;, &quot;abbbbbc&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>注意：案例中用的正则是<code>/ab{2,5}c/g</code>，后面多了<code>g</code>，它是正则的一个修饰符。表示全局匹配，即在目标字符串中按顺序找到满足匹配模式的所有子串，强调的是“所有”，而不只是“第一个”。g是单词global的首字母。</p>
+<pre><code>var regex = /ab{2,5}c/g;
+var string = &quot;abc abbc abbbc abbbbc abbbbbc abbbbbbc&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;abbc&quot;, &quot;abbbc&quot;, &quot;abbbbc&quot;, &quot;abbbbbc&quot;]
+复制代码
+</code></pre><p>注意：案例中用的正则是<code>/ab{2,5}c/g</code>，后面多了<code>g</code>，它是正则的一个修饰符。表示全局匹配，即在目标字符串中按顺序找到满足匹配模式的所有子串，强调的是“所有”，而不只是“第一个”。g是单词global的首字母。</p>
 <p><strong>1.2 纵向模糊匹配</strong></p>
 <p>纵向模糊指的是，一个正则匹配的字符串，具体到某一位字符时，它可以不是某个确定的字符，可以有多种可能。</p>
 <p>其实现的方式是使用字符组。譬如<code>[abc]</code>，表示该字符是可以字符“a”、“b”、“c”中的任何一个。</p>
 <p>比如<code>/a[123]b/</code>可以匹配如下三种字符串：”a1b”、”a2b”、”a3b”。测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /a[123]b/g;</span><br><span class="line">var string = &quot;a0b a1b a2b a3b a4b&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;a1b&quot;, &quot;a2b&quot;, &quot;a3b&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>以上就是本章讲的主体内容，只要掌握横向和纵向模糊匹配，就能解决很大部分正则匹配问题。</p>
+<pre><code>var regex = /a[123]b/g;
+var string = &quot;a0b a1b a2b a3b a4b&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;a1b&quot;, &quot;a2b&quot;, &quot;a3b&quot;]
+复制代码
+</code></pre><p>以上就是本章讲的主体内容，只要掌握横向和纵向模糊匹配，就能解决很大部分正则匹配问题。</p>
 <p>接下来的内容就是展开说了，如果对此都比较熟悉的话，可以跳过，直接看本章案例那节。</p>
 <h3 id="2-字符组"><a href="#2-字符组" class="headerlink" title="2. 字符组"></a>2. 字符组</h3><p>需要强调的是，虽叫字符组（字符类），但只是其中一个字符。例如<code>[abc]</code>，表示匹配一个字符，它可以是“a”、“b”、“c”之一。</p>
 <p><strong>2.1 范围表示法</strong></p>
@@ -522,12 +465,20 @@
 </blockquote>
 <p><strong>3.2 贪婪匹配和惰性匹配</strong></p>
 <p>看如下的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d&#123;2,5&#125;/g;</span><br><span class="line">var string = &quot;123 1234 12345 123456&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;123&quot;, &quot;1234&quot;, &quot;12345&quot;, &quot;12345&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中正则<code>/\d{2,5}/</code>，表示数字连续出现2到5次。会匹配2位、3位、4位、5位连续数字。</p>
+<pre><code>var regex = /\d{2,5}/g;
+var string = &quot;123 1234 12345 123456&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;123&quot;, &quot;1234&quot;, &quot;12345&quot;, &quot;12345&quot;]
+复制代码
+</code></pre><p>其中正则<code>/\d{2,5}/</code>，表示数字连续出现2到5次。会匹配2位、3位、4位、5位连续数字。</p>
 <p>但是其是贪婪的，它会尽可能多的匹配。你能给我6个，我就要5个。你能给我3个，我就3要个。反正只要在能力范围内，越多越好。</p>
 <p>我们知道有时贪婪不是一件好事（请看文章最后一个例子）。而惰性匹配，就是尽可能少的匹配：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d&#123;2,5&#125;?/g;</span><br><span class="line">var string = &quot;123 1234 12345 123456&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;12&quot;, &quot;12&quot;, &quot;34&quot;, &quot;12&quot;, &quot;34&quot;, &quot;12&quot;, &quot;34&quot;, &quot;56&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>/\d{2,5}?/</code>表示，虽然2到5次都行，当2个就够的时候，就不在往下尝试了。</p>
+<pre><code>var regex = /\d{2,5}?/g;
+var string = &quot;123 1234 12345 123456&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;12&quot;, &quot;12&quot;, &quot;34&quot;, &quot;12&quot;, &quot;34&quot;, &quot;12&quot;, &quot;34&quot;, &quot;56&quot;]
+复制代码
+</code></pre><p>其中<code>/\d{2,5}?/</code>表示，虽然2到5次都行，当2个就够的时候，就不在往下尝试了。</p>
 <p>通过在量词后面加个问号就能实现惰性匹配，因此所有惰性匹配情形如下：</p>
 <blockquote>
 <p><code>**{m,n}?**</code><br><code>**{m,}?**</code><br><code>**??**</code><br><code>**+?**</code><br><code>***?**</code></p>
@@ -536,12 +487,24 @@
 <h3 id="4-多选分支"><a href="#4-多选分支" class="headerlink" title="4. 多选分支"></a>4. 多选分支</h3><p>一个模式可以实现横向和纵向模糊匹配。而多选分支可以支持多个子模式任选其一。</p>
 <p>具体形式如下：<code>(p1|p2|p3)</code>，其中<code>p1</code>、<code>p2</code>和<code>p3</code>是子模式，用<code>|</code>（管道符）分隔，表示其中任何之一。</p>
 <p>例如要匹配”good”和”nice”可以使用<code>/good|nice/</code>。测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /good|nice/g;</span><br><span class="line">var string = &quot;good idea, nice try.&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;good&quot;, &quot;nice&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>但有个事实我们应该注意，比如我用<code>/good|goodbye/</code>，去匹配”goodbye”字符串时，结果是”good”：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /good|goodbye/g;</span><br><span class="line">var string = &quot;goodbye&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;good&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>而把正则改成<code>/goodbye|good/</code>，结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /goodbye|good/g;</span><br><span class="line">var string = &quot;goodbye&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;goodbye&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>也就是说，分支结构也是惰性的，即当前面的匹配上了，后面的就不再尝试了。</p>
+<pre><code>var regex = /good|nice/g;
+var string = &quot;good idea, nice try.&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;good&quot;, &quot;nice&quot;]
+复制代码
+</code></pre><p>但有个事实我们应该注意，比如我用<code>/good|goodbye/</code>，去匹配”goodbye”字符串时，结果是”good”：</p>
+<pre><code>var regex = /good|goodbye/g;
+var string = &quot;goodbye&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;good&quot;]
+复制代码
+</code></pre><p>而把正则改成<code>/goodbye|good/</code>，结果是：</p>
+<pre><code>var regex = /goodbye|good/g;
+var string = &quot;goodbye&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;goodbye&quot;]
+复制代码
+</code></pre><p>也就是说，分支结构也是惰性的，即当前面的匹配上了，后面的就不再尝试了。</p>
 <h3 id="5-案例分析"><a href="#5-案例分析" class="headerlink" title="5. 案例分析"></a>5. 案例分析</h3><p>匹配字符，无非就是字符组、量词和分支结构的组合使用罢了。</p>
 <p>下面找几个例子演练一下（其中，每个正则并不是只有唯一写法）：</p>
 <p><strong>5.1 匹配16进制颜色值</strong></p>
@@ -557,8 +520,12 @@
 <p>其中字符可以出现3或6次，需要是用量词和分支结构。</p>
 <p>使用分支结构时，需要注意顺序。</p>
 <p>正则如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /#([0-9a-fA-F]&#123;6&#125;|[0-9a-fA-F]&#123;3&#125;)/g;</span><br><span class="line">var string = &quot;#ffbbad #Fc01DF #FFF #ffE&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;#ffbbad&quot;, &quot;#Fc01DF&quot;, &quot;#FFF&quot;, &quot;#ffE&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>5.2 匹配时间</strong></p>
+<pre><code>var regex = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/g;
+var string = &quot;#ffbbad #Fc01DF #FFF #ffE&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;#ffbbad&quot;, &quot;#Fc01DF&quot;, &quot;#FFF&quot;, &quot;#ffE&quot;]
+复制代码
+</code></pre><p><strong>5.2 匹配时间</strong></p>
 <p>以24小时制为例。</p>
 <p>要求匹配：</p>
 <blockquote>
@@ -570,11 +537,21 @@
 <p>当第1位为2时，第2位可以为<code>[0-3]</code>，其他情况时，第2位为<code>[0-9]</code>。</p>
 <p>第3位数字为<code>[0-5]</code>，第4位为<code>[0-9]</code></p>
 <p>正则如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^([01][0-9]|[2][0-3]):[0-5][0-9]$/;</span><br><span class="line">console.log( regex.test(&quot;23:59&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;02:07&quot;) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true复制代码</span><br></pre></td></tr></table></figure>
-<p>如果也要求匹配7:9，也就是说时分前面的0可以省略。</p>
+<pre><code>var regex = /^([01][0-9]|[2][0-3]):[0-5][0-9]$/;
+console.log( regex.test(&quot;23:59&quot;) ); 
+console.log( regex.test(&quot;02:07&quot;) ); 
+// =&gt; true
+// =&gt; true复制代码
+</code></pre><p>如果也要求匹配7:9，也就是说时分前面的0可以省略。</p>
 <p>此时正则变成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(0?[0-9]|1[0-9]|[2][0-3]):(0?[0-9]|[1-5][0-9])$/;</span><br><span class="line">console.log( regex.test(&quot;23:59&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;02:07&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;7:9&quot;) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>5.3 匹配日期</strong></p>
+<pre><code>var regex = /^(0?[0-9]|1[0-9]|[2][0-3]):(0?[0-9]|[1-5][0-9])$/;
+console.log( regex.test(&quot;23:59&quot;) ); 
+console.log( regex.test(&quot;02:07&quot;) ); 
+console.log( regex.test(&quot;7:9&quot;) ); 
+// =&gt; true
+// =&gt; true
+// =&gt; true复制代码
+</code></pre><p><strong>5.3 匹配日期</strong></p>
 <p>比如yyyy-mm-dd格式为例。</p>
 <p>要求匹配：</p>
 <blockquote>
@@ -585,8 +562,11 @@
 <p>月，共12个月，分两种情况01、02、……、09和10、11、12，可用<code>(0[1-9]|1[0-2])</code>。</p>
 <p>日，最大31天，可用<code>(0[1-9]|[12][0-9]|3[01])</code>。</p>
 <p>正则如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^[0-9]&#123;4&#125;-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;</span><br><span class="line">console.log( regex.test(&quot;2017-06-10&quot;) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>5.4 window操作系统文件路径</strong></p>
+<pre><code>var regex = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+console.log( regex.test(&quot;2017-06-10&quot;) ); 
+// =&gt; true
+复制代码
+</code></pre><p><strong>5.4 window操作系统文件路径</strong></p>
 <p>要求匹配：</p>
 <blockquote>
 <p>F:\study\javascript\regex\regular expression.pdf</p>
@@ -601,8 +581,16 @@
 <p>另外“文件夹\”，可以出现任意次。也就是<code>([^\\:*&lt;&gt;|&quot;?\r\n/]+\\)*</code>。其中括号提供子表达式。</p>
 <p>路径的最后一部分可以是“文件夹”，没有<code>\</code>，因此需要添加<code>([^\\:*&lt;&gt;|&quot;?\r\n/]+)?</code>。</p>
 <p>最后拼接成了一个看起来比较复杂的正则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^[a-zA-Z]:\\([^\\:*&lt;&gt;|&quot;?\r\n/]+\\)*([^\\:*&lt;&gt;|&quot;?\r\n/]+)?$/;</span><br><span class="line">console.log( regex.test(&quot;F:\\study\\javascript\\regex\\regular expression.pdf&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;F:\\study\\javascript\\regex\\&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;F:\\study\\javascript&quot;) ); </span><br><span class="line">console.log( regex.test(&quot;F:\\&quot;) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true复制代码</span><br></pre></td></tr></table></figure>
-<p>其中，JS中字符串表示<code>\</code>时，也要转义。</p>
+<pre><code>var regex = /^[a-zA-Z]:\\([^\\:*&lt;&gt;|&quot;?\r\n/]+\\)*([^\\:*&lt;&gt;|&quot;?\r\n/]+)?$/;
+console.log( regex.test(&quot;F:\\study\\javascript\\regex\\regular expression.pdf&quot;) ); 
+console.log( regex.test(&quot;F:\\study\\javascript\\regex\\&quot;) ); 
+console.log( regex.test(&quot;F:\\study\\javascript&quot;) ); 
+console.log( regex.test(&quot;F:\\&quot;) ); 
+// =&gt; true
+// =&gt; true
+// =&gt; true
+// =&gt; true复制代码
+</code></pre><p>其中，JS中字符串表示<code>\</code>时，也要转义。</p>
 <p><strong>5.5 匹配id</strong></p>
 <p>要求从</p>
 <blockquote>
@@ -610,13 +598,24 @@
 </blockquote>
 <p>提取出id=”container”。</p>
 <p>可能最开始想到的正则是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /id=&quot;.*&quot;/</span><br><span class="line">var string = &apos;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">console.log(string.match(regex)[0]); </span><br><span class="line">// =&gt; id=&quot;container&quot; class=&quot;main&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>因为<code>.</code>是通配符，本身就匹配双引号的，而量词<code>*</code>又是贪婪的，当遇到container后面双引号时，不会停下来，会继续匹配，直到遇到最后一个双引号为止。</p>
+<pre><code>var regex = /id=&quot;.*&quot;/
+var string = &#39;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&#39;;
+console.log(string.match(regex)[0]); 
+// =&gt; id=&quot;container&quot; class=&quot;main&quot;
+复制代码
+</code></pre><p>因为<code>.</code>是通配符，本身就匹配双引号的，而量词<code>*</code>又是贪婪的，当遇到container后面双引号时，不会停下来，会继续匹配，直到遇到最后一个双引号为止。</p>
 <p>解决之道，可以使用惰性匹配：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /id=&quot;.*?&quot;/</span><br><span class="line">var string = &apos;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">console.log(string.match(regex)[0]); </span><br><span class="line">// =&gt; id=&quot;container&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>当然，这样也会有个问题。效率比较低，因为其匹配原理会涉及到“回溯”这个概念（这里也只是顺便提一下，第四章会详细说明）。可以优化如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /id=&quot;[^&quot;]*&quot;/</span><br><span class="line">var string = &apos;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">console.log(string.match(regex)[0]); </span><br><span class="line">// =&gt; id=&quot;container&quot;复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="第1章-小结"><a href="#第1章-小结" class="headerlink" title="第1章 小结"></a>第1章 小结</h3><p>字符匹配相关的案例，挺多的，不一而足。</p>
+<pre><code>var regex = /id=&quot;.*?&quot;/
+var string = &#39;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&#39;;
+console.log(string.match(regex)[0]); 
+// =&gt; id=&quot;container&quot;
+复制代码
+</code></pre><p>当然，这样也会有个问题。效率比较低，因为其匹配原理会涉及到“回溯”这个概念（这里也只是顺便提一下，第四章会详细说明）。可以优化如下：</p>
+<pre><code>var regex = /id=&quot;[^&quot;]*&quot;/
+var string = &#39;&lt;div id=&quot;container&quot; class=&quot;main&quot;&gt;&lt;/div&gt;&#39;;
+console.log(string.match(regex)[0]); 
+// =&gt; id=&quot;container&quot;复制代码
+</code></pre><h3 id="第1章-小结"><a href="#第1章-小结" class="headerlink" title="第1章 小结"></a>第1章 小结</h3><p>字符匹配相关的案例，挺多的，不一而足。</p>
 <p>掌握字符组和量词就能解决大部分常见的情形，也就是说，当你会了这二者，JS正则算是入门了。</p>
 <h2 id="第二章-正则表达式位置匹配攻略"><a href="#第二章-正则表达式位置匹配攻略" class="headerlink" title="第二章 正则表达式位置匹配攻略"></a>第二章 正则表达式位置匹配攻略</h2><p>正则表达式是匹配模式，要么匹配字符，要么匹配位置。请记住这句话。</p>
 <p>然而大部分人学习正则时，对于匹配位置的重视程度没有那么高。</p>
@@ -638,14 +637,27 @@
 <p><code>^</code>（脱字符）匹配开头，在多行匹配中匹配行开头。</p>
 <p><code>$</code>（美元符号）匹配结尾，在多行匹配中匹配行结尾。</p>
 <p>比如我们把字符串的开头和结尾用”#”替换（位置可以替换成字符的！）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;hello&quot;.replace(/^|$/g, &apos;#&apos;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;#hello#&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>多行匹配模式时，二者是行的概念，这个需要我们的注意：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;I\nlove\njavascript&quot;.replace(/^|$/gm, &apos;#&apos;);</span><br><span class="line">console.log(result);</span><br><span class="line">/*</span><br><span class="line">#I#</span><br><span class="line">#love#</span><br><span class="line">#javascript#</span><br><span class="line">*/</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.2 \b和\B</strong></p>
+<pre><code>var result = &quot;hello&quot;.replace(/^|$/g, &#39;#&#39;);
+console.log(result); 
+// =&gt; &quot;#hello#&quot;
+复制代码
+</code></pre><p>多行匹配模式时，二者是行的概念，这个需要我们的注意：</p>
+<pre><code>var result = &quot;I\nlove\njavascript&quot;.replace(/^|$/gm, &#39;#&#39;);
+console.log(result);
+/*
+#I#
+#love#
+#javascript#
+*/
+复制代码
+</code></pre><p><strong>2.2 \b和\B</strong></p>
 <p><code>\b</code>是单词边界，具体就是<code>\w</code>和<code>\W</code>之间的位置，也包括<code>\w</code>和<code>^</code>之间的位置，也包括<code>\w</code>和<code>$</code>之间的位置。</p>
 <p>比如一个文件名是”[JS] Lesson_01.mp4”中的<code>\b</code>，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;[JS] Lesson_01.mp4&quot;.replace(/\b/g, &apos;#&apos;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;[#JS#] #Lesson_01#.#mp4#&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>为什么是这样呢？这需要仔细看看。</p>
+<pre><code>var result = &quot;[JS] Lesson_01.mp4&quot;.replace(/\b/g, &#39;#&#39;);
+console.log(result); 
+// =&gt; &quot;[#JS#] #Lesson_01#.#mp4#&quot;
+复制代码
+</code></pre><p>为什么是这样呢？这需要仔细看看。</p>
 <p>首先，我们知道，<code>\w</code>是字符组<code>[0-9a-zA-Z_]</code>的简写形式，即<code>\w</code>是字母数字或者下划线的中任何一个字符。而<code>\W</code>是排除字符组<code>[^0-9a-zA-Z_]</code>的简写形式，即<code>\W</code>是<code>\w</code>以外的任何一个字符。</p>
 <p>此时我们可以看看”[#JS#] #Lesson_01#.#mp4#”中的每一个”#”，是怎么来的。</p>
 <ul>
@@ -660,14 +672,24 @@
 <p><code>\B</code>就是<code>\b</code>的反面的意思，非单词边界。例如在字符串中所有位置中，扣掉<code>\b</code>，剩下的都是<code>\B</code>的。</p>
 <p>具体说来就是<code>\w</code>与<code>\w</code>、<code>\W</code>与<code>\W</code>、<code>^</code>与<code>\W</code>，<code>\W</code>与<code>$</code>之间的位置。</p>
 <p>比如上面的例子，把所有<code>\B</code>替换成”#”：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;[JS] Lesson_01.mp4&quot;.replace(/\B/g, &apos;#&apos;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;#[J#S]# L#e#s#s#o#n#_#0#1.m#p#4&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.3 (?=p)和(?!p)</strong></p>
+<pre><code>var result = &quot;[JS] Lesson_01.mp4&quot;.replace(/\B/g, &#39;#&#39;);
+console.log(result); 
+// =&gt; &quot;#[J#S]# L#e#s#s#o#n#_#0#1.m#p#4&quot;
+复制代码
+</code></pre><p><strong>2.3 (?=p)和(?!p)</strong></p>
 <p><code>(?=p)</code>，其中<code>p</code>是一个子模式，即<code>p</code>前面的位置。</p>
 <p>比如<code>(?=l)</code>，表示’l’字符前面的位置，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;hello&quot;.replace(/(?=l)/g, &apos;#&apos;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;he#l#lo&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>而<code>(?!p)</code>就是<code>(?=p)</code>的反面意思，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;hello&quot;.replace(/(?!l)/g, &apos;#&apos;);</span><br><span class="line"></span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;#h#ell#o#&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>二者的学名分别是positive lookahead和negative lookahead。</p>
+<pre><code>var result = &quot;hello&quot;.replace(/(?=l)/g, &#39;#&#39;);
+console.log(result); 
+// =&gt; &quot;he#l#lo&quot;
+复制代码
+</code></pre><p>而<code>(?!p)</code>就是<code>(?=p)</code>的反面意思，比如：</p>
+<pre><code>var result = &quot;hello&quot;.replace(/(?!l)/g, &#39;#&#39;);
+
+console.log(result); 
+// =&gt; &quot;#h#ell#o#&quot;
+复制代码
+</code></pre><p>二者的学名分别是positive lookahead和negative lookahead。</p>
 <p>中文翻译分别是正向先行断言和负向先行断言。</p>
 <p>ES6中，还支持positive lookbehind和negative lookbehind。</p>
 <p>具体是<code>(?&lt;=p)</code>和<code>(?&lt;!p)</code>。</p>
@@ -677,14 +699,22 @@
 <p>而在本人看来<code>(?=p)</code>就与<code>^</code>一样好理解，就是<code>p</code>前面的那个位置。</p>
 <h3 id="3-位置的特性"><a href="#3-位置的特性" class="headerlink" title="3. 位置的特性"></a>3. 位置的特性</h3><p>对于位置的理解，我们可以理解成空字符””。</p>
 <p>比如”hello”字符串等价于如下的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;hello&quot; == &quot;&quot; + &quot;h&quot; + &quot;&quot; + &quot;e&quot; + &quot;&quot; + &quot;l&quot; + &quot;&quot; + &quot;l&quot; + &quot;o&quot; + &quot;&quot;;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>也等价于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;hello&quot; == &quot;&quot; + &quot;&quot; + &quot;hello&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>因此，把<code>/^hello$/</code>写成<code>/^^hello$$$/</code>，是没有任何问题的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = /^^hello$$$/.test(&quot;hello&quot;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>甚至可以写成更复杂的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = /(?=he)^^he(?=\w)llo$\b\b$/.test(&quot;hello&quot;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>也就是说字符之间的位置，可以写成多个。</p>
+<pre><code>&quot;hello&quot; == &quot;&quot; + &quot;h&quot; + &quot;&quot; + &quot;e&quot; + &quot;&quot; + &quot;l&quot; + &quot;&quot; + &quot;l&quot; + &quot;o&quot; + &quot;&quot;;
+复制代码
+</code></pre><p>也等价于：</p>
+<pre><code>&quot;hello&quot; == &quot;&quot; + &quot;&quot; + &quot;hello&quot;
+复制代码
+</code></pre><p>因此，把<code>/^hello$/</code>写成<code>/^^hello$$$/</code>，是没有任何问题的：</p>
+<pre><code>var result = /^^hello$$$/.test(&quot;hello&quot;);
+console.log(result); 
+// =&gt; true
+复制代码
+</code></pre><p>甚至可以写成更复杂的:</p>
+<pre><code>var result = /(?=he)^^he(?=\w)llo$\b\b$/.test(&quot;hello&quot;);
+console.log(result); 
+// =&gt; true
+复制代码
+</code></pre><p>也就是说字符之间的位置，可以写成多个。</p>
 <p>把位置理解空字符，是对位置非常有效的理解方式。</p>
 <h3 id="4-相关案例"><a href="#4-相关案例" class="headerlink" title="4. 相关案例"></a>4. 相关案例</h3><p><strong>4.1 不匹配任何东西的正则</strong></p>
 <p>让你写个正则不匹配任何东西</p>
@@ -696,24 +726,50 @@
 <p>思路是什么呢？</p>
 <p><strong>4.2.1 弄出最后一个逗号</strong></p>
 <p>使用<code>(?=\d{3}$)</code>就可以做到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;12345678&quot;.replace(/(?=\d&#123;3&#125;$)/g, &apos;,&apos;)</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;12345,678&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.2.2 弄出所有的逗号</strong></p>
+<pre><code>var result = &quot;12345678&quot;.replace(/(?=\d{3}$)/g, &#39;,&#39;)
+console.log(result); 
+// =&gt; &quot;12345,678&quot;
+复制代码
+</code></pre><p><strong>4.2.2 弄出所有的逗号</strong></p>
 <p>因为逗号出现的位置，要求后面3个数字一组，也就是<code>\d{3}</code>至少出现一次。</p>
 <p>此时可以使用量词<code>+</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;12345678&quot;.replace(/(?=(\d&#123;3&#125;)+$)/g, &apos;,&apos;)</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;12,345,678&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.2.3 匹配其余案例</strong></p>
+<pre><code>var result = &quot;12345678&quot;.replace(/(?=(\d{3})+$)/g, &#39;,&#39;)
+console.log(result); 
+// =&gt; &quot;12,345,678&quot;
+复制代码
+</code></pre><p><strong>4.2.3 匹配其余案例</strong></p>
 <p>写完正则后，要多验证几个案例，此时我们会发现问题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;123456789&quot;.replace(/(?=(\d&#123;3&#125;)+$)/g, &apos;,&apos;)</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;,123,456,789&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>因为上面的正则，仅仅表示把从结尾向前数，一但是3的倍数，就把其前面的位置替换成逗号。因此才会出现这个问题。</p>
+<pre><code>var result = &quot;123456789&quot;.replace(/(?=(\d{3})+$)/g, &#39;,&#39;)
+console.log(result); 
+// =&gt; &quot;,123,456,789&quot;
+复制代码
+</code></pre><p>因为上面的正则，仅仅表示把从结尾向前数，一但是3的倍数，就把其前面的位置替换成逗号。因此才会出现这个问题。</p>
 <p>怎么解决呢？我们要求匹配的到这个位置不能是开头。</p>
 <p>我们知道匹配开头可以使用<code>^</code>，但要求这个位置不是开头怎么办？</p>
 <p>easy，<code>(?!^)</code>，你想到了吗？测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var string1 = &quot;12345678&quot;,</span><br><span class="line">string2 = &quot;123456789&quot;;</span><br><span class="line">reg = /(?!^)(?=(\d&#123;3&#125;)+$)/g;</span><br><span class="line"></span><br><span class="line">var result = string1.replace(reg, &apos;,&apos;)</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;12,345,678&quot;</span><br><span class="line"></span><br><span class="line">result = string2.replace(reg, &apos;,&apos;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;123,456,789&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.2.4 支持其他形式</strong></p>
+<pre><code>var string1 = &quot;12345678&quot;,
+string2 = &quot;123456789&quot;;
+reg = /(?!^)(?=(\d{3})+$)/g;
+
+var result = string1.replace(reg, &#39;,&#39;)
+console.log(result); 
+// =&gt; &quot;12,345,678&quot;
+
+result = string2.replace(reg, &#39;,&#39;);
+console.log(result); 
+// =&gt; &quot;123,456,789&quot;
+复制代码
+</code></pre><p><strong>4.2.4 支持其他形式</strong></p>
 <p>如果要把”12345678 123456789”替换成”12,345,678 123,456,789”。</p>
 <p>此时我们需要修改正则，把里面的开头<code>^</code>和结尾<code>$</code>，替换成<code>\b</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;12345678 123456789&quot;,</span><br><span class="line">reg = /(?!\b)(?=(\d&#123;3&#125;)+\b)/g;</span><br><span class="line"></span><br><span class="line">var result = string.replace(reg, &apos;,&apos;)</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;12,345,678 123,456,789&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>(?!\b)</code>怎么理解呢？</p>
+<pre><code>var string = &quot;12345678 123456789&quot;,
+reg = /(?!\b)(?=(\d{3})+\b)/g;
+
+var result = string.replace(reg, &#39;,&#39;)
+console.log(result); 
+// =&gt; &quot;12,345,678 123,456,789&quot;
+复制代码
+</code></pre><p>其中<code>(?!\b)</code>怎么理解呢？</p>
 <p>要求当前是一个位置，但不是<code>\b</code>前面的位置，其实<code>(?!\b)</code>说的就是<code>\B</code>。</p>
 <p>因此最终正则变成了：<code>/\B(?=(\d{3})+\b)/g</code>。</p>
 <p><strong>4.3 验证密码问题</strong></p>
@@ -722,16 +778,19 @@
 <p>那么，我们就来挑战一下。看看我们对位置的理解是否深刻。</p>
 <p><strong>4.3.1 简化</strong></p>
 <p>不考虑“但必须至少包括2种字符”这一条件。我们可以容易写出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var reg = /^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.3.2 判断是否包含有某一种字符</strong></p>
+<pre><code>var reg = /^[0-9A-Za-z]{6,12}$/;
+复制代码
+</code></pre><p><strong>4.3.2 判断是否包含有某一种字符</strong></p>
 <p>假设，要求的必须包含数字，怎么办？此时我们可以使用<code>(?=.*[0-9])</code>来做。</p>
 <p>因此正则变成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var reg = /(?=.*[0-9])^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.3.3 同时包含具体两种字符</strong></p>
+<pre><code>var reg = /(?=.*[0-9])^[0-9A-Za-z]{6,12}$/;
+复制代码
+</code></pre><p><strong>4.3.3 同时包含具体两种字符</strong></p>
 <p>比如同时包含数字和小写字母，可以用<code>(?=.*[0-9])(?=.*[a-z])</code>来做。</p>
 <p>因此正则变成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var reg = /(?=.*[0-9])(?=.*[a-z])^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.3.4 解答</strong></p>
+<pre><code>var reg = /(?=.*[0-9])(?=.*[a-z])^[0-9A-Za-z]{6,12}$/;
+复制代码
+</code></pre><p><strong>4.3.4 解答</strong></p>
 <p>我们可以把原题变成下列几种情况之一：</p>
 <ol>
 <li>同时包含数字和小写字母</li>
@@ -741,8 +800,15 @@
 </ol>
 <p>以上的4种情况是或的关系（实际上，可以不用第4条）。</p>
 <p>最终答案是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var reg = /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[a-z])(?=.*[A-Z]))^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">console.log( reg.test(&quot;1234567&quot;) ); // false 全是数字</span><br><span class="line">console.log( reg.test(&quot;abcdef&quot;) ); // false 全是小写字母</span><br><span class="line">console.log( reg.test(&quot;ABCDEFGH&quot;) ); // false 全是大写字母</span><br><span class="line">console.log( reg.test(&quot;ab23C&quot;) ); // false 不足6位</span><br><span class="line">console.log( reg.test(&quot;ABCDEF234&quot;) ); // true 大写字母和数字</span><br><span class="line">console.log( reg.test(&quot;abcdEF234&quot;) ); // true 三者都有</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>4.3.5 解惑</strong></p>
+<pre><code>var reg = /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[a-z])(?=.*[A-Z]))^[0-9A-Za-z]{6,12}$/;
+console.log( reg.test(&quot;1234567&quot;) ); // false 全是数字
+console.log( reg.test(&quot;abcdef&quot;) ); // false 全是小写字母
+console.log( reg.test(&quot;ABCDEFGH&quot;) ); // false 全是大写字母
+console.log( reg.test(&quot;ab23C&quot;) ); // false 不足6位
+console.log( reg.test(&quot;ABCDEF234&quot;) ); // true 大写字母和数字
+console.log( reg.test(&quot;abcdEF234&quot;) ); // true 三者都有
+复制代码
+</code></pre><p><strong>4.3.5 解惑</strong></p>
 <p>上面的正则看起来比较复杂，只要理解了第二步，其余就全部理解了。</p>
 <p><code>/(?=.*[0-9])^[0-9A-Za-z]{6,12}$/</code></p>
 <p>对于这个正则，我们只需要弄明白<code>(?=.*[0-9])^</code>即可。</p>
@@ -754,11 +820,19 @@
 <p>“至少包含两种字符”的意思就是说，不能全部都是数字，也不能全部都是小写字母，也不能全部都是大写字母。</p>
 <p>那么要求“不能全部都是数字”，怎么做呢？<code>(?!p)</code>出马！</p>
 <p>对应的正则是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var reg = /(?!^[0-9]&#123;6,12&#125;$)^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>三种“都不能”呢？</p>
+<pre><code>var reg = /(?!^[0-9]{6,12}$)^[0-9A-Za-z]{6,12}$/;
+复制代码
+</code></pre><p>三种“都不能”呢？</p>
 <p>最终答案是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var reg = /(?!^[0-9]&#123;6,12&#125;$)(?!^[a-z]&#123;6,12&#125;$)(?!^[A-Z]&#123;6,12&#125;$)^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">console.log( reg.test(&quot;1234567&quot;) ); // false 全是数字</span><br><span class="line">console.log( reg.test(&quot;abcdef&quot;) ); // false 全是小写字母</span><br><span class="line">console.log( reg.test(&quot;ABCDEFGH&quot;) ); // false 全是大写字母</span><br><span class="line">console.log( reg.test(&quot;ab23C&quot;) ); // false 不足6位</span><br><span class="line">console.log( reg.test(&quot;ABCDEF234&quot;) ); // true 大写字母和数字</span><br><span class="line">console.log( reg.test(&quot;abcdEF234&quot;) ); // true 三者都有</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="第二章小结"><a href="#第二章小结" class="headerlink" title="第二章小结"></a>第二章小结</h3><p>位置匹配相关的案例，挺多的，不一而足。</p>
+<pre><code>var reg = /(?!^[0-9]{6,12}$)(?!^[a-z]{6,12}$)(?!^[A-Z]{6,12}$)^[0-9A-Za-z]{6,12}$/;
+console.log( reg.test(&quot;1234567&quot;) ); // false 全是数字
+console.log( reg.test(&quot;abcdef&quot;) ); // false 全是小写字母
+console.log( reg.test(&quot;ABCDEFGH&quot;) ); // false 全是大写字母
+console.log( reg.test(&quot;ab23C&quot;) ); // false 不足6位
+console.log( reg.test(&quot;ABCDEF234&quot;) ); // true 大写字母和数字
+console.log( reg.test(&quot;abcdEF234&quot;) ); // true 三者都有
+复制代码
+</code></pre><h3 id="第二章小结"><a href="#第二章小结" class="headerlink" title="第二章小结"></a>第二章小结</h3><p>位置匹配相关的案例，挺多的，不一而足。</p>
 <p>掌握匹配位置的这6个锚字符，给我们解决正则问题一个新工具。</p>
 <h2 id="第三章-正则表达式括号的作用"><a href="#第三章-正则表达式括号的作用" class="headerlink" title="第三章 正则表达式括号的作用"></a>第三章 正则表达式括号的作用</h2><p>不管哪门语言中都有括号。正则表达式也是一门语言，而括号的存在使这门语言更为强大。</p>
 <p>对括号的使用是否得心应手，是衡量对正则的掌握水平的一个侧面标准。</p>
@@ -777,8 +851,12 @@
 <p><strong>1.1 分组</strong></p>
 <p>我们知道<code>/a+/</code>匹配连续出现的“a”，而要匹配连续出现的“ab”时，需要使用<code>/(ab)+/</code>。</p>
 <p>其中括号是提供分组功能，使量词<code>+</code>作用于“ab”这个整体，测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(ab)+/g;</span><br><span class="line">var string = &quot;ababa abbb ababab&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;abab&quot;, &quot;ab&quot;, &quot;ababab&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>1.2 分支结构</strong></p>
+<pre><code>var regex = /(ab)+/g;
+var string = &quot;ababa abbb ababab&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;abab&quot;, &quot;ab&quot;, &quot;ababab&quot;]
+复制代码
+</code></pre><p><strong>1.2 分支结构</strong></p>
 <p>而在多选分支结构<code>(p1|p2)</code>中，此处括号的作用也是不言而喻的，提供了子表达式的所有可能。</p>
 <p>比如，要匹配如下的字符串：</p>
 <blockquote>
@@ -786,31 +864,74 @@
 <p>I love Regular Expression</p>
 </blockquote>
 <p>可以使用正则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^I love (JavaScript|Regular Expression)$/;</span><br><span class="line">console.log( regex.test(&quot;I love JavaScript&quot;) );</span><br><span class="line">console.log( regex.test(&quot;I love Regular Expression&quot;) );</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true复制代码</span><br></pre></td></tr></table></figure>
-<p>如果去掉正则中的括号，即<code>/^I love JavaScript|Regular Expression$/</code>，匹配字符串是”I love JavaScript”和”Regular Expression”，当然这不是我们想要的。</p>
+<pre><code>var regex = /^I love (JavaScript|Regular Expression)$/;
+console.log( regex.test(&quot;I love JavaScript&quot;) );
+console.log( regex.test(&quot;I love Regular Expression&quot;) );
+// =&gt; true
+// =&gt; true复制代码
+</code></pre><p>如果去掉正则中的括号，即<code>/^I love JavaScript|Regular Expression$/</code>，匹配字符串是”I love JavaScript”和”Regular Expression”，当然这不是我们想要的。</p>
 <h3 id="2-引用分组"><a href="#2-引用分组" class="headerlink" title="2. 引用分组"></a>2. 引用分组</h3><p>这是括号一个重要的作用，有了它，我们就可以进行数据提取，以及更强大的替换操作。</p>
 <p>而要使用它带来的好处，必须配合使用实现环境的API。</p>
 <p>以日期为例。假设格式是yyyy-mm-dd的，我们可以先写一个简单的正则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>然后再修改成括号版的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>为什么要使用这个正则呢？</p>
+<pre><code>var regex = /\d{4}-\d{2}-\d{2}/;
+复制代码
+</code></pre><p>然后再修改成括号版的：</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+复制代码
+</code></pre><p>为什么要使用这个正则呢？</p>
 <p><strong>2.1 提取数据</strong></p>
 <p>比如提取出年、月、日，可以这么做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><code>match</code>返回的一个数组，第一个元素是整体匹配结果，然后是各个分组（括号里）匹配的内容，然后是匹配下标，最后是输入的文本。（注意：如果正则是否有修饰符<code>g</code>，<code>match</code>返回的数组格式是不一样的）。</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]
+复制代码
+</code></pre><p><code>match</code>返回的一个数组，第一个元素是整体匹配结果，然后是各个分组（括号里）匹配的内容，然后是匹配下标，最后是输入的文本。（注意：如果正则是否有修饰符<code>g</code>，<code>match</code>返回的数组格式是不一样的）。</p>
 <p>另外也可以使用正则对象的<code>exec</code>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line">console.log( regex.exec(string) ); </span><br><span class="line">// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>同时，也可以使用构造函数的全局属性<code>$1</code>至<code>$9</code>来获取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line"></span><br><span class="line">regex.test(string); // 正则操作即可，例如</span><br><span class="line">//regex.exec(string);</span><br><span class="line">//string.match(regex);</span><br><span class="line"></span><br><span class="line">console.log(RegExp.$1); // &quot;2017&quot;</span><br><span class="line">console.log(RegExp.$2); // &quot;06&quot;</span><br><span class="line">console.log(RegExp.$3); // &quot;12&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.2 替换</strong></p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+console.log( regex.exec(string) ); 
+// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]
+复制代码
+</code></pre><p>同时，也可以使用构造函数的全局属性<code>$1</code>至<code>$9</code>来获取：</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+
+regex.test(string); // 正则操作即可，例如
+//regex.exec(string);
+//string.match(regex);
+
+console.log(RegExp.$1); // &quot;2017&quot;
+console.log(RegExp.$2); // &quot;06&quot;
+console.log(RegExp.$3); // &quot;12&quot;
+复制代码
+</code></pre><p><strong>2.2 替换</strong></p>
 <p>比如，想把yyyy-mm-dd格式，替换成mm/dd/yyyy怎么做？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line">var result = string.replace(regex, &quot;$2/$3/$1&quot;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;06/12/2017&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>replace</code>中的，第二个参数里用<code>$1</code>、<code>$2</code>、<code>$3</code>指代相应的分组。等价于如下的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line">var result = string.replace(regex, function() &#123;</span><br><span class="line">	return RegExp.$2 + &quot;/&quot; + RegExp.$3 + &quot;/&quot; + RegExp.$1;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;06/12/2017&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>也等价于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">var string = &quot;2017-06-12&quot;;</span><br><span class="line">var result = string.replace(regex, function(match, year, month, day) &#123;</span><br><span class="line">	return month + &quot;/&quot; + day + &quot;/&quot; + year;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(result); </span><br><span class="line">// =&gt; &quot;06/12/2017&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="3-反向引用"><a href="#3-反向引用" class="headerlink" title="3. 反向引用"></a>3. 反向引用</h3><p>除了使用相应API来引用分组，也可以在正则本身里引用分组。但只能引用之前出现的分组，即反向引用。</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, &quot;$2/$3/$1&quot;);
+console.log(result); 
+// =&gt; &quot;06/12/2017&quot;
+复制代码
+</code></pre><p>其中<code>replace</code>中的，第二个参数里用<code>$1</code>、<code>$2</code>、<code>$3</code>指代相应的分组。等价于如下的形式：</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, function() {
+    return RegExp.$2 + &quot;/&quot; + RegExp.$3 + &quot;/&quot; + RegExp.$1;
+});
+console.log(result); 
+// =&gt; &quot;06/12/2017&quot;
+复制代码
+</code></pre><p>也等价于：</p>
+<pre><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, function(match, year, month, day) {
+    return month + &quot;/&quot; + day + &quot;/&quot; + year;
+});
+console.log(result); 
+// =&gt; &quot;06/12/2017&quot;
+复制代码
+</code></pre><h3 id="3-反向引用"><a href="#3-反向引用" class="headerlink" title="3. 反向引用"></a>3. 反向引用</h3><p>除了使用相应API来引用分组，也可以在正则本身里引用分组。但只能引用之前出现的分组，即反向引用。</p>
 <p>还是以日期为例。</p>
 <p>比如要写一个正则支持匹配如下三种格式：</p>
 <blockquote>
@@ -819,17 +940,42 @@
 <p>2016.06.12</p>
 </blockquote>
 <p>最先可能想到的正则是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d&#123;4&#125;(-|\/|\.)\d&#123;2&#125;(-|\/|\.)\d&#123;2&#125;/;</span><br><span class="line">var string1 = &quot;2017-06-12&quot;;</span><br><span class="line">var string2 = &quot;2017/06/12&quot;;</span><br><span class="line">var string3 = &quot;2017.06.12&quot;;</span><br><span class="line">var string4 = &quot;2016-06/12&quot;;</span><br><span class="line">console.log( regex.test(string1) ); // true</span><br><span class="line">console.log( regex.test(string2) ); // true</span><br><span class="line">console.log( regex.test(string3) ); // true</span><br><span class="line">console.log( regex.test(string4) ); // true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>/</code>和<code>.</code>需要转义。虽然匹配了要求的情况，但也匹配”2016-06/12”这样的数据。</p>
+<pre><code>var regex = /\d{4}(-|\/|\.)\d{2}(-|\/|\.)\d{2}/;
+var string1 = &quot;2017-06-12&quot;;
+var string2 = &quot;2017/06/12&quot;;
+var string3 = &quot;2017.06.12&quot;;
+var string4 = &quot;2016-06/12&quot;;
+console.log( regex.test(string1) ); // true
+console.log( regex.test(string2) ); // true
+console.log( regex.test(string3) ); // true
+console.log( regex.test(string4) ); // true
+复制代码
+</code></pre><p>其中<code>/</code>和<code>.</code>需要转义。虽然匹配了要求的情况，但也匹配”2016-06/12”这样的数据。</p>
 <p>假设我们想要求分割符前后一致怎么办？此时需要使用反向引用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d&#123;4&#125;(-|\/|\.)\d&#123;2&#125;\1\d&#123;2&#125;/;</span><br><span class="line">var string1 = &quot;2017-06-12&quot;;</span><br><span class="line">var string2 = &quot;2017/06/12&quot;;</span><br><span class="line">var string3 = &quot;2017.06.12&quot;;</span><br><span class="line">var string4 = &quot;2016-06/12&quot;;</span><br><span class="line">console.log( regex.test(string1) ); // true</span><br><span class="line">console.log( regex.test(string2) ); // true</span><br><span class="line">console.log( regex.test(string3) ); // true</span><br><span class="line">console.log( regex.test(string4) ); // false</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>注意里面的<code>\1</code>，表示的引用之前的那个分组<code>(-|\/|\.)</code>。不管它匹配到什么（比如-），<code>\1</code>都匹配那个同样的具体某个字符。</p>
+<pre><code>var regex = /\d{4}(-|\/|\.)\d{2}\1\d{2}/;
+var string1 = &quot;2017-06-12&quot;;
+var string2 = &quot;2017/06/12&quot;;
+var string3 = &quot;2017.06.12&quot;;
+var string4 = &quot;2016-06/12&quot;;
+console.log( regex.test(string1) ); // true
+console.log( regex.test(string2) ); // true
+console.log( regex.test(string3) ); // true
+console.log( regex.test(string4) ); // false
+复制代码
+</code></pre><p>注意里面的<code>\1</code>，表示的引用之前的那个分组<code>(-|\/|\.)</code>。不管它匹配到什么（比如-），<code>\1</code>都匹配那个同样的具体某个字符。</p>
 <p>我们知道了<code>\1</code>的含义后，那么<code>\2</code>和<code>\3</code>的概念也就理解了，即分别指代第二个和第三个分组。</p>
 <p>看到这里，此时，恐怕你会有三个问题。</p>
 <p><strong>3.1 括号嵌套怎么办？</strong></p>
 <p>以左括号（开括号）为准。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^((\d)(\d(\d)))\1\2\3\4$/;</span><br><span class="line">var string = &quot;1231231233&quot;;</span><br><span class="line">console.log( regex.test(string) ); // true</span><br><span class="line">console.log( RegExp.$1 ); // 123</span><br><span class="line">console.log( RegExp.$2 ); // 1</span><br><span class="line">console.log( RegExp.$3 ); // 23</span><br><span class="line">console.log( RegExp.$4 ); // 3</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>我们可以看看这个正则匹配模式：</p>
+<pre><code>var regex = /^((\d)(\d(\d)))\1\2\3\4$/;
+var string = &quot;1231231233&quot;;
+console.log( regex.test(string) ); // true
+console.log( RegExp.$1 ); // 123
+console.log( RegExp.$2 ); // 1
+console.log( RegExp.$3 ); // 23
+console.log( RegExp.$4 ); // 3
+复制代码
+</code></pre><p>我们可以看看这个正则匹配模式：</p>
 <ul>
 <li>第一个字符是数字，比如说1，</li>
 <li>第二个字符是数字，比如说2，</li>
@@ -843,39 +989,124 @@
 <p><strong>3.2 \10表示什么呢？</strong></p>
 <p>另外一个疑问可能是，即<code>\10</code>是表示第10个分组，还是<code>\1</code>和<code>0</code>呢？</p>
 <p>答案是前者，虽然一个正则里出现<code>\10</code>比较罕见。测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(1)(2)(3)(4)(5)(6)(7)(8)(9)(#) \10+/;</span><br><span class="line">var string = &quot;123456789# ######&quot;</span><br><span class="line">console.log( regex.test(string) );</span><br><span class="line">// =&gt; true复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>3.3 引用不存在的分组会怎样？</strong></p>
+<pre><code>var regex = /(1)(2)(3)(4)(5)(6)(7)(8)(9)(#) \10+/;
+var string = &quot;123456789# ######&quot;
+console.log( regex.test(string) );
+// =&gt; true复制代码
+</code></pre><p><strong>3.3 引用不存在的分组会怎样？</strong></p>
 <p>因为反向引用，是引用前面的分组，但我们在正则里引用了不存在的分组时，此时正则不会报错，只是匹配反向引用的字符本身。例如<code>\2</code>，就匹配”\2”。注意”\2”表示对”2”进行了转意。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\1\2\3\4\5\6\7\8\9/;</span><br><span class="line">console.log( regex.test(&quot;\1\2\3\4\5\6\7\8\9&quot;) ); </span><br><span class="line">console.log( &quot;\1\2\3\4\5\6\7\8\9&quot;.split(&quot;&quot;) );</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>chrome浏览器打印的结果：</p>
+<pre><code>var regex = /\1\2\3\4\5\6\7\8\9/;
+console.log( regex.test(&quot;\1\2\3\4\5\6\7\8\9&quot;) ); 
+console.log( &quot;\1\2\3\4\5\6\7\8\9&quot;.split(&quot;&quot;) );
+复制代码
+</code></pre><p>chrome浏览器打印的结果：</p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/7/19/f75ad2642625466dd5adcad3e2a4c51a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <h3 id="4-非捕获分组"><a href="#4-非捕获分组" class="headerlink" title="4. 非捕获分组"></a>4. 非捕获分组</h3><p>之前文中出现的分组，都会捕获它们匹配到的数据，以便后续引用，因此也称他们是捕获型分组。</p>
 <p>如果只想要括号最原始的功能，但不会引用它，即，既不在API里引用，也不在正则里反向引用。此时可以使用非捕获分组<code>(?:p)</code>，例如本文第一个例子可以修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /(?:ab)+/g;</span><br><span class="line">var string = &quot;ababa abbb ababab&quot;;</span><br><span class="line">console.log( string.match(regex) ); </span><br><span class="line">// =&gt; [&quot;abab&quot;, &quot;ab&quot;, &quot;ababab&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="5-相关案例"><a href="#5-相关案例" class="headerlink" title="5. 相关案例"></a>5. 相关案例</h3><p>至此括号的作用已经讲完了，总结一句话，就是提供了可供我们使用的分组，如何用就看我们的了。</p>
+<pre><code>var regex = /(?:ab)+/g;
+var string = &quot;ababa abbb ababab&quot;;
+console.log( string.match(regex) ); 
+// =&gt; [&quot;abab&quot;, &quot;ab&quot;, &quot;ababab&quot;]
+复制代码
+</code></pre><h3 id="5-相关案例"><a href="#5-相关案例" class="headerlink" title="5. 相关案例"></a>5. 相关案例</h3><p>至此括号的作用已经讲完了，总结一句话，就是提供了可供我们使用的分组，如何用就看我们的了。</p>
 <p><strong>5.1 字符串trim方法模拟</strong></p>
 <p><code>trim</code>方法是去掉字符串的开头和结尾的空白符。有两种思路去做。</p>
 <p>第一种，匹配到开头和结尾的空白符，然后替换成空字符。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function trim(str) &#123;</span><br><span class="line">	return str.replace(/^\s+|\s+$/g, &apos;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( trim(&quot;  foobar   &quot;) ); </span><br><span class="line">// =&gt; &quot;foobar&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>第二种，匹配整个字符串，然后用引用来提取出相应的数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function trim(str) &#123;</span><br><span class="line">	return str.replace(/^\s*(.*?)\s*$/g, &quot;$1&quot;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( trim(&quot;  foobar   &quot;) ); </span><br><span class="line">// =&gt; &quot;foobar&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>这里使用了惰性匹配<code>*?</code>，不然也会匹配最后一个空格之前的所有空格的。</p>
+<pre><code>function trim(str) {
+    return str.replace(/^\s+|\s+$/g, &#39;&#39;);
+}
+console.log( trim(&quot;  foobar   &quot;) ); 
+// =&gt; &quot;foobar&quot;
+复制代码
+</code></pre><p>第二种，匹配整个字符串，然后用引用来提取出相应的数据：</p>
+<pre><code>function trim(str) {
+    return str.replace(/^\s*(.*?)\s*$/g, &quot;$1&quot;);
+}
+console.log( trim(&quot;  foobar   &quot;) ); 
+// =&gt; &quot;foobar&quot;
+复制代码
+</code></pre><p>这里使用了惰性匹配<code>*?</code>，不然也会匹配最后一个空格之前的所有空格的。</p>
 <p>当然，前者效率高。</p>
 <p><strong>5.2 将每个单词的首字母转换为大写</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function titleize(str) &#123;</span><br><span class="line">	return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) &#123;</span><br><span class="line">		return c.toUpperCase();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( titleize(&apos;my name is epeli&apos;) ); </span><br><span class="line">// =&gt; &quot;My Name Is Epeli&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>思路是找到每个单词的首字母，当然这里不使用非捕获匹配也是可以的。</p>
+<pre><code>function titleize(str) {
+    return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
+        return c.toUpperCase();
+    });
+}
+console.log( titleize(&#39;my name is epeli&#39;) ); 
+// =&gt; &quot;My Name Is Epeli&quot;
+复制代码
+</code></pre><p>思路是找到每个单词的首字母，当然这里不使用非捕获匹配也是可以的。</p>
 <p><strong>5.3 驼峰化</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function camelize(str) &#123;</span><br><span class="line">	return str.replace(/[-_\s]+(.)?/g, function(match, c) &#123;</span><br><span class="line">		return c ? c.toUpperCase() : &apos;&apos;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( camelize(&apos;-moz-transform&apos;) ); </span><br><span class="line">// =&gt; &quot;MozTransform&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中分组<code>(.)</code>表示首字母。单词的界定是，前面的字符可以是多个连字符、下划线以及空白符。正则后面的?的目的，是为了应对<code>str</code>尾部的字符可能不是单词字符，比如<code>str</code>是’-moz-transform    ‘。</p>
+<pre><code>function camelize(str) {
+    return str.replace(/[-_\s]+(.)?/g, function(match, c) {
+        return c ? c.toUpperCase() : &#39;&#39;;
+    });
+}
+console.log( camelize(&#39;-moz-transform&#39;) ); 
+// =&gt; &quot;MozTransform&quot;
+复制代码
+</code></pre><p>其中分组<code>(.)</code>表示首字母。单词的界定是，前面的字符可以是多个连字符、下划线以及空白符。正则后面的?的目的，是为了应对<code>str</code>尾部的字符可能不是单词字符，比如<code>str</code>是’-moz-transform    ‘。</p>
 <p><strong>5.4 中划线化</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dasherize(str) &#123;</span><br><span class="line">	return str.replace(/([A-Z])/g, &apos;-$1&apos;).replace(/[-_\s]+/g, &apos;-&apos;).toLowerCase();</span><br><span class="line">&#125;</span><br><span class="line">console.log( dasherize(&apos;MozTransform&apos;) ); </span><br><span class="line">// =&gt; &quot;-moz-transform&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>驼峰化的逆过程。</p>
+<pre><code>function dasherize(str) {
+    return str.replace(/([A-Z])/g, &#39;-$1&#39;).replace(/[-_\s]+/g, &#39;-&#39;).toLowerCase();
+}
+console.log( dasherize(&#39;MozTransform&#39;) ); 
+// =&gt; &quot;-moz-transform&quot;
+复制代码
+</code></pre><p>驼峰化的逆过程。</p>
 <p><strong>5.5 html转义和反转义</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 将HTML特殊字符转换成等值的实体</span><br><span class="line">function escapeHTML(str) &#123;</span><br><span class="line">	var escapeChars = &#123;</span><br><span class="line">	  &apos;¢&apos; : &apos;cent&apos;,</span><br><span class="line">	  &apos;£&apos; : &apos;pound&apos;,</span><br><span class="line">	  &apos;¥&apos; : &apos;yen&apos;,</span><br><span class="line">	  &apos;€&apos;: &apos;euro&apos;,</span><br><span class="line">	  &apos;©&apos; :&apos;copy&apos;,</span><br><span class="line">	  &apos;®&apos; : &apos;reg&apos;,</span><br><span class="line">	  &apos;&lt;&apos; : &apos;lt&apos;,</span><br><span class="line">	  &apos;&gt;&apos; : &apos;gt&apos;,</span><br><span class="line">	  &apos;&quot;&apos; : &apos;quot&apos;,</span><br><span class="line">	  &apos;&amp;&apos; : &apos;amp&apos;,</span><br><span class="line">	  &apos;\&apos;&apos; : &apos;#39&apos;</span><br><span class="line">	&#125;;</span><br><span class="line">	return str.replace(new RegExp(&apos;[&apos; + Object.keys(escapeChars).join(&apos;&apos;) +&apos;]&apos;, &apos;g&apos;), function(match) &#123;</span><br><span class="line">		return &apos;&amp;&apos; + escapeChars[match] + &apos;;&apos;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( escapeHTML(&apos;&lt;div&gt;Blah blah blah&lt;/div&gt;&apos;) );</span><br><span class="line">// =&gt; &quot;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt&quot;;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中使用了用构造函数生成的正则，然后替换相应的格式就行了，这个跟本章没多大关系。</p>
+<pre><code>// 将HTML特殊字符转换成等值的实体
+function escapeHTML(str) {
+    var escapeChars = {
+      &#39;¢&#39; : &#39;cent&#39;,
+      &#39;£&#39; : &#39;pound&#39;,
+      &#39;¥&#39; : &#39;yen&#39;,
+      &#39;€&#39;: &#39;euro&#39;,
+      &#39;©&#39; :&#39;copy&#39;,
+      &#39;®&#39; : &#39;reg&#39;,
+      &#39;&lt;&#39; : &#39;lt&#39;,
+      &#39;&gt;&#39; : &#39;gt&#39;,
+      &#39;&quot;&#39; : &#39;quot&#39;,
+      &#39;&amp;&#39; : &#39;amp&#39;,
+      &#39;\&#39;&#39; : &#39;#39&#39;
+    };
+    return str.replace(new RegExp(&#39;[&#39; + Object.keys(escapeChars).join(&#39;&#39;) +&#39;]&#39;, &#39;g&#39;), function(match) {
+        return &#39;&amp;&#39; + escapeChars[match] + &#39;;&#39;;
+    });
+}
+console.log( escapeHTML(&#39;&lt;div&gt;Blah blah blah&lt;/div&gt;&#39;) );
+// =&gt; &quot;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt&quot;;
+复制代码
+</code></pre><p>其中使用了用构造函数生成的正则，然后替换相应的格式就行了，这个跟本章没多大关系。</p>
 <p>倒是它的逆过程，使用了括号，以便提供引用，也很简单，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 实体字符转换为等值的HTML。</span><br><span class="line">function unescapeHTML(str) &#123;</span><br><span class="line">	var htmlEntities = &#123;</span><br><span class="line">	  nbsp: &apos; &apos;,</span><br><span class="line">	  cent: &apos;¢&apos;,</span><br><span class="line">	  pound: &apos;£&apos;,</span><br><span class="line">	  yen: &apos;¥&apos;,</span><br><span class="line">	  euro: &apos;€&apos;,</span><br><span class="line">	  copy: &apos;©&apos;,</span><br><span class="line">	  reg: &apos;®&apos;,</span><br><span class="line">	  lt: &apos;&lt;&apos;,</span><br><span class="line">	  gt: &apos;&gt;&apos;,</span><br><span class="line">	  quot: &apos;&quot;&apos;,</span><br><span class="line">	  amp: &apos;&amp;&apos;,</span><br><span class="line">	  apos: &apos;\&apos;&apos;</span><br><span class="line">	&#125;;</span><br><span class="line">	return str.replace(/\&amp;([^;]+);/g, function(match, key) &#123;</span><br><span class="line">		if (key in htmlEntities) &#123;</span><br><span class="line">			return htmlEntities[key];</span><br><span class="line">		&#125;</span><br><span class="line">		return match;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">console.log( unescapeHTML(&apos;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;&apos;) );</span><br><span class="line">// =&gt; &quot;&lt;div&gt;Blah blah blah&lt;/div&gt;&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>通过<code>key</code>获取相应的分组引用，然后作为对象的键。</p>
+<pre><code>// 实体字符转换为等值的HTML。
+function unescapeHTML(str) {
+    var htmlEntities = {
+      nbsp: &#39; &#39;,
+      cent: &#39;¢&#39;,
+      pound: &#39;£&#39;,
+      yen: &#39;¥&#39;,
+      euro: &#39;€&#39;,
+      copy: &#39;©&#39;,
+      reg: &#39;®&#39;,
+      lt: &#39;&lt;&#39;,
+      gt: &#39;&gt;&#39;,
+      quot: &#39;&quot;&#39;,
+      amp: &#39;&amp;&#39;,
+      apos: &#39;\&#39;&#39;
+    };
+    return str.replace(/\&amp;([^;]+);/g, function(match, key) {
+        if (key in htmlEntities) {
+            return htmlEntities[key];
+        }
+        return match;
+    });
+}
+console.log( unescapeHTML(&#39;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;&#39;) );
+// =&gt; &quot;&lt;div&gt;Blah blah blah&lt;/div&gt;&quot;
+复制代码
+</code></pre><p>通过<code>key</code>获取相应的分组引用，然后作为对象的键。</p>
 <p><strong>5.6 匹配成对标签</strong></p>
 <p>要求匹配：</p>
 <blockquote>
@@ -890,8 +1121,15 @@
 <p>匹配一个开标签，可以使用正则<code>&lt;[^&gt;]+&gt;</code>，</p>
 <p>匹配一个闭标签，可以使用<code>&lt;\/[^&gt;]+&gt;</code>，</p>
 <p>但是要求匹配成对标签，那就需要使用反向引用，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /&lt;([^&gt;]+)&gt;[\d\D]*&lt;\/\1&gt;/;</span><br><span class="line">var string1 = &quot;&lt;title&gt;regular expression&lt;/title&gt;&quot;;</span><br><span class="line">var string2 = &quot;&lt;p&gt;laoyao bye bye&lt;/p&gt;&quot;;</span><br><span class="line">var string3 = &quot;&lt;title&gt;wrong!&lt;/p&gt;&quot;;</span><br><span class="line">console.log( regex.test(string1) ); // true</span><br><span class="line">console.log( regex.test(string2) ); // true</span><br><span class="line">console.log( regex.test(string3) ); // false</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中开标签<code>&lt;[^&gt;]+&gt;</code>改成<code>&lt;([^&gt;]+)&gt;</code>，使用括号的目的是为了后面使用反向引用，而提供分组。闭标签使用了反向引用，<code>&lt;\/\1&gt;</code>。</p>
+<pre><code>var regex = /&lt;([^&gt;]+)&gt;[\d\D]*&lt;\/\1&gt;/;
+var string1 = &quot;&lt;title&gt;regular expression&lt;/title&gt;&quot;;
+var string2 = &quot;&lt;p&gt;laoyao bye bye&lt;/p&gt;&quot;;
+var string3 = &quot;&lt;title&gt;wrong!&lt;/p&gt;&quot;;
+console.log( regex.test(string1) ); // true
+console.log( regex.test(string2) ); // true
+console.log( regex.test(string3) ); // false
+复制代码
+</code></pre><p>其中开标签<code>&lt;[^&gt;]+&gt;</code>改成<code>&lt;([^&gt;]+)&gt;</code>，使用括号的目的是为了后面使用反向引用，而提供分组。闭标签使用了反向引用，<code>&lt;\/\1&gt;</code>。</p>
 <p>另外<code>[\d\D]</code>的意思是，这个字符是数字或者不是数字，因此，也就是匹配任意字符的意思。</p>
 <h3 id="第三章小结"><a href="#第三章小结" class="headerlink" title="第三章小结"></a>第三章小结</h3><p>正则中使用括号的例子那可是太多了，不一而足。</p>
 <p>重点理解括号可以提供分组，我们可以提取数据，应该就可以了。</p>
@@ -935,12 +1173,20 @@
 <p>虽然局部匹配是贪婪的，但也要满足整体能正确匹配。否则，皮之不存，毛将焉附？</p>
 <p>此时我们不禁会问，如果当多个贪婪量词挨着存在，并相互有冲突时，此时会是怎样？</p>
 <p>答案是，先下手为强！因为深度优先搜索。测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;12345&quot;;</span><br><span class="line">var regex = /(\d&#123;1,3&#125;)(\d&#123;1,3&#125;)/;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;12345&quot;, &quot;123&quot;, &quot;45&quot;, index: 0, input: &quot;12345&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中，前面的<code>\d{1,3}</code>匹配的是”123”，后面的<code>\d{1,3}</code>匹配的是”45”。</p>
+<pre><code>var string = &quot;12345&quot;;
+var regex = /(\d{1,3})(\d{1,3})/;
+console.log( string.match(regex) );
+// =&gt; [&quot;12345&quot;, &quot;123&quot;, &quot;45&quot;, index: 0, input: &quot;12345&quot;]
+复制代码
+</code></pre><p>其中，前面的<code>\d{1,3}</code>匹配的是”123”，后面的<code>\d{1,3}</code>匹配的是”45”。</p>
 <p><strong>3.2 惰性量词</strong></p>
 <p>惰性量词就是在贪婪量词后面加个问号。表示尽可能少的匹配，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;12345&quot;;</span><br><span class="line">var regex = /(\d&#123;1,3&#125;?)(\d&#123;1,3&#125;)/;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;234&quot;, index: 0, input: &quot;12345&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>\d{1,3}?</code>只匹配到一个字符”1”，而后面的<code>\d{1,3}</code>匹配了”234”。</p>
+<pre><code>var string = &quot;12345&quot;;
+var regex = /(\d{1,3}?)(\d{1,3})/;
+console.log( string.match(regex) );
+// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;234&quot;, index: 0, input: &quot;12345&quot;]
+复制代码
+</code></pre><p>其中<code>\d{1,3}?</code>只匹配到一个字符”1”，而后面的<code>\d{1,3}</code>匹配了”234”。</p>
 <p>虽然惰性量词不贪，但也会有回溯的现象。比如正则是：</p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/7/19/0e29c26dd50349760d05935c5e93f07b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <p>目标字符串是”12345”，匹配过程是：</p>
@@ -1031,23 +1277,43 @@
 <p><code>**^**</code> <code>**$**</code> <code>**.**</code> <code>*****</code> <code>**+**</code> <code>**?**</code> <code>**|**</code> <code>**\**</code> <code>**/**</code> <code>**(**</code> <code>**)**</code> <code>**[**</code> <code>**]**</code> <code>**{**</code> <code>**}**</code> <code>**=**</code> <code>**!**</code> <code>**:**</code> <code>**-**</code> <code>**,**</code></p>
 </blockquote>
 <p>当匹配上面的字符本身时，可以一律转义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;^$.*+?|\\/[]&#123;&#125;=!:-,&quot;;</span><br><span class="line">var regex = /\^\$\.\*\+\?\|\\\/\[\]\&#123;\&#125;\=\!\:\-\,/;</span><br><span class="line">console.log( regex.test(string) ); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中<code>string</code>中的<code>\</code>字符也要转义的。</p>
+<pre><code>var string = &quot;^$.*+?|\\/[]{}=!:-,&quot;;
+var regex = /\^\$\.\*\+\?\|\\\/\[\]\{\}\=\!\:\-\,/;
+console.log( regex.test(string) ); 
+// =&gt; true
+复制代码
+</code></pre><p>其中<code>string</code>中的<code>\</code>字符也要转义的。</p>
 <p>另外，在<code>string</code>中，也可以把每个字符转义，当然，转义后的结果仍是本身：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;^$.*+?|\\/[]&#123;&#125;=!:-,&quot;;</span><br><span class="line">var string2 = &quot;\^\$\.\*\+\?\|\\\/\[\]\&#123;\&#125;\=\!\:\-\,&quot;;</span><br><span class="line">console.log( string == string2 ); </span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>现在的问题是，是不是每个字符都需要转义呢？否，看情况。</p>
+<pre><code>var string = &quot;^$.*+?|\\/[]{}=!:-,&quot;;
+var string2 = &quot;\^\$\.\*\+\?\|\\\/\[\]\{\}\=\!\:\-\,&quot;;
+console.log( string == string2 ); 
+// =&gt; true
+复制代码
+</code></pre><p>现在的问题是，是不是每个字符都需要转义呢？否，看情况。</p>
 <p><strong>2.3.1 字符组中的元字符</strong></p>
 <p>跟字符组相关的元字符有<code>[]</code>、<code>^</code>、<code>-</code>。因此在会引起歧义的地方进行转义。例如开头的<code>^</code>必须转义，不然会把整个字符组，看成反义字符组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;^$.*+?|\\/[]&#123;&#125;=!:-,&quot;;</span><br><span class="line">var regex = /[\^$.*+?|\\/\[\]&#123;&#125;=!:\-,]/g;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;^&quot;, &quot;$&quot;, &quot;.&quot;, &quot;*&quot;, &quot;+&quot;, &quot;?&quot;, &quot;|&quot;, &quot;\&quot;, &quot;/&quot;, &quot;[&quot;, &quot;]&quot;, &quot;&#123;&quot;, &quot;&#125;&quot;, &quot;=&quot;, &quot;!&quot;, &quot;:&quot;, &quot;-&quot;, &quot;,&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.3.2 匹配“[abc]”和“{3,5}”</strong></p>
+<pre><code>var string = &quot;^$.*+?|\\/[]{}=!:-,&quot;;
+var regex = /[\^$.*+?|\\/\[\]{}=!:\-,]/g;
+console.log( string.match(regex) );
+// =&gt; [&quot;^&quot;, &quot;$&quot;, &quot;.&quot;, &quot;*&quot;, &quot;+&quot;, &quot;?&quot;, &quot;|&quot;, &quot;\&quot;, &quot;/&quot;, &quot;[&quot;, &quot;]&quot;, &quot;{&quot;, &quot;}&quot;, &quot;=&quot;, &quot;!&quot;, &quot;:&quot;, &quot;-&quot;, &quot;,&quot;]
+复制代码
+</code></pre><p><strong>2.3.2 匹配“[abc]”和“{3,5}”</strong></p>
 <p>我们知道<code>[abc]</code>，是个字符组。如果要匹配字符串”[abc]”时，该怎么办？</p>
 <p>可以写成<code>/\[abc\]/</code>，也可以写成<code>/\[abc]/</code>，测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;[abc]&quot;;</span><br><span class="line">var regex = /\[abc]/g;</span><br><span class="line">console.log( string.match(regex)[0] ); </span><br><span class="line">// =&gt; &quot;[abc]&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>只需要在第一个方括号转义即可，因为后面的方括号构不成字符组，正则不会引发歧义，自然不需要转义。</p>
+<pre><code>var string = &quot;[abc]&quot;;
+var regex = /\[abc]/g;
+console.log( string.match(regex)[0] ); 
+// =&gt; &quot;[abc]&quot;
+复制代码
+</code></pre><p>只需要在第一个方括号转义即可，因为后面的方括号构不成字符组，正则不会引发歧义，自然不需要转义。</p>
 <p>同理，要匹配字符串”{3,5}”，只需要把正则写成<code>/\{3,5}/</code>即可。</p>
 <p>另外，我们知道量词有简写形式<code>{m,}</code>，却没有<code>{,n}</code>的情况。虽然后者不构成量词的形式，但此时并不会报错。当然，匹配的字符串也是”{,n}”，测试如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;&#123;,3&#125;&quot;;</span><br><span class="line">var regex = /&#123;,3&#125;/g;</span><br><span class="line">console.log( string.match(regex)[0] ); </span><br><span class="line">// =&gt; &quot;&#123;,3&#125;&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.3.3 其余情况</strong></p>
+<pre><code>var string = &quot;{,3}&quot;;
+var regex = /{,3}/g;
+console.log( string.match(regex)[0] ); 
+// =&gt; &quot;{,3}&quot;
+复制代码
+</code></pre><p><strong>2.3.3 其余情况</strong></p>
 <p>比如<code>=</code> <code>!</code> <code>:</code> <code>-</code> <code>,</code>等符号，只要不在特殊结构中，也不需要转义。</p>
 <p>但是，括号需要前后都转义的，如<code>/\(123\)/</code>。</p>
 <p>至于剩下的<code>^</code> <code>$</code> <code>.</code> <code>*</code> <code>+</code> <code>?</code> <code>|</code> <code>\</code> <code>/</code>等字符，只要不在字符组内，都需要转义的。</p>
@@ -1115,28 +1381,59 @@
 <ul>
 <li>比如，从日期中提取出年月日，虽然可以使用正则：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017-07-01&quot;;</span><br><span class="line">var regex = /^(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;2017-07-01&quot;, &quot;2017&quot;, &quot;07&quot;, &quot;01&quot;, index: 0, input: &quot;2017-07-01&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其实，可以使用字符串的<code>split</code>方法来做，即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017-07-01&quot;;</span><br><span class="line">var result = string.split(&quot;-&quot;);</span><br><span class="line">console.log( result );</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;07&quot;, &quot;01&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var string = &quot;2017-07-01&quot;;
+var regex = /^(\d{4})-(\d{2})-(\d{2})/;
+console.log( string.match(regex) );
+// =&gt; [&quot;2017-07-01&quot;, &quot;2017&quot;, &quot;07&quot;, &quot;01&quot;, index: 0, input: &quot;2017-07-01&quot;]
+复制代码
+</code></pre><p>其实，可以使用字符串的<code>split</code>方法来做，即可：</p>
+<pre><code>var string = &quot;2017-07-01&quot;;
+var result = string.split(&quot;-&quot;);
+console.log( result );
+// =&gt; [&quot;2017&quot;, &quot;07&quot;, &quot;01&quot;]
+复制代码
+</code></pre><ul>
 <li>比如，判断是否有问号，虽然可以使用：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;?id=xx&amp;act=search&quot;;</span><br><span class="line">console.log( string.search(/\?/) );</span><br><span class="line">// =&gt; 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其实，可以使用字符串的<code>indexOf</code>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;?id=xx&amp;act=search&quot;;</span><br><span class="line">console.log( string.indexOf(&quot;?&quot;) );</span><br><span class="line">// =&gt; 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var string = &quot;?id=xx&amp;act=search&quot;;
+console.log( string.search(/\?/) );
+// =&gt; 0
+复制代码
+</code></pre><p>其实，可以使用字符串的<code>indexOf</code>方法：</p>
+<pre><code>var string = &quot;?id=xx&amp;act=search&quot;;
+console.log( string.indexOf(&quot;?&quot;) );
+// =&gt; 0
+复制代码
+</code></pre><ul>
 <li>比如获取子串，虽然可以使用正则：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;JavaScript&quot;;</span><br><span class="line">console.log( string.match(/.&#123;4&#125;(.+)/)[1] );</span><br><span class="line">// =&gt; Script</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其实，可以直接使用字符串的<code>substring</code>或<code>substr</code>方法来做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;JavaScript&quot;;</span><br><span class="line">console.log( string.substring(4) );</span><br><span class="line">// =&gt; Script</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.3 是否有必要构建一个复杂的正则</strong></p>
+<pre><code>var string = &quot;JavaScript&quot;;
+console.log( string.match(/.{4}(.+)/)[1] );
+// =&gt; Script
+复制代码
+</code></pre><p>其实，可以直接使用字符串的<code>substring</code>或<code>substr</code>方法来做：</p>
+<pre><code>var string = &quot;JavaScript&quot;;
+console.log( string.substring(4) );
+// =&gt; Script
+复制代码
+</code></pre><p><strong>2.3 是否有必要构建一个复杂的正则</strong></p>
 <p>比如密码匹配问题，要求密码长度6-12位，由数字、小写字符和大写字母组成，但必须至少包括2种字符。</p>
 <p>在第2章里，我们写出了正则是：</p>
 <p><code>/(?!^[0-9]{6,12}$)(?!^[a-z]{6,12}$)(?!^[A-Z]{6,12}$)^[0-9A-Za-z]{6,12}$/</code></p>
 <p>其实可以使用多个小正则来做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var regex1 = /^[0-9A-Za-z]&#123;6,12&#125;$/;</span><br><span class="line">var regex2 = /^[0-9]&#123;6,12&#125;$/;</span><br><span class="line">var regex3 = /^[A-Z]&#123;6,12&#125;$/;</span><br><span class="line">var regex4 = /^[a-z]&#123;6,12&#125;$/;</span><br><span class="line">function checkPassword(string) &#123;</span><br><span class="line">	if (!regex1.test(string)) return false;</span><br><span class="line">	if (regex2.test(string)) return false;</span><br><span class="line">	if (regex3.test(string)) return false;</span><br><span class="line">	if (regex4.test(string)) return false;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="3-准确性"><a href="#3-准确性" class="headerlink" title="3. 准确性"></a>3. 准确性</h3><p>所谓准确性，就是能匹配预期的目标，并且不匹配非预期的目标。</p>
+<pre><code>var regex1 = /^[0-9A-Za-z]{6,12}$/;
+var regex2 = /^[0-9]{6,12}$/;
+var regex3 = /^[A-Z]{6,12}$/;
+var regex4 = /^[a-z]{6,12}$/;
+function checkPassword(string) {
+    if (!regex1.test(string)) return false;
+    if (regex2.test(string)) return false;
+    if (regex3.test(string)) return false;
+    if (regex4.test(string)) return false;
+    return true;
+}
+复制代码
+</code></pre><h3 id="3-准确性"><a href="#3-准确性" class="headerlink" title="3. 准确性"></a>3. 准确性</h3><p>所谓准确性，就是能匹配预期的目标，并且不匹配非预期的目标。</p>
 <p>这里提到了“预期”二字，那么我们就需要知道目标的组成规则。</p>
 <p>不然没法界定什么样的目标字符串是符合预期的，什么样的又不是符合预期的。</p>
 <p>下面将举例说明，当目标字符串构成比较复杂时，该如何构建正则，并考虑到哪些平衡。</p>
@@ -1209,12 +1506,22 @@
 <li>最终结果：匹配成功或失败</li>
 </ol>
 <p>下面以代码为例，来看看这几个阶段都做了什么：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d+/g;</span><br><span class="line">console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );</span><br><span class="line">console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );</span><br><span class="line">console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );</span><br><span class="line">console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );</span><br><span class="line">// =&gt; 0 [&quot;123&quot;, index: 0, input: &quot;123abc34def&quot;]</span><br><span class="line">// =&gt; 3 [&quot;34&quot;, index: 6, input: &quot;123abc34def&quot;]</span><br><span class="line">// =&gt; 8 null</span><br><span class="line">// =&gt; 0 [&quot;123&quot;, index: 0, input: &quot;123abc34def&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>具体分析如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d+/g;复制代码</span><br></pre></td></tr></table></figure>
-<p>当生成一个正则时，引擎会对其进行编译。报错与否出现这这个阶段。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">regex.exec(&quot;123abc34def&quot;)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>当尝试匹配时，需要确定从哪一位置开始匹配。一般情形都是字符串的开头，即第0位。</p>
+<pre><code>var regex = /\d+/g;
+console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );
+console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );
+console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );
+console.log( regex.lastIndex, regex.exec(&quot;123abc34def&quot;) );
+// =&gt; 0 [&quot;123&quot;, index: 0, input: &quot;123abc34def&quot;]
+// =&gt; 3 [&quot;34&quot;, index: 6, input: &quot;123abc34def&quot;]
+// =&gt; 8 null
+// =&gt; 0 [&quot;123&quot;, index: 0, input: &quot;123abc34def&quot;]
+复制代码
+</code></pre><p>具体分析如下：</p>
+<pre><code>var regex = /\d+/g;复制代码
+</code></pre><p>当生成一个正则时，引擎会对其进行编译。报错与否出现这这个阶段。</p>
+<pre><code>regex.exec(&quot;123abc34def&quot;)
+复制代码
+</code></pre><p>当尝试匹配时，需要确定从哪一位置开始匹配。一般情形都是字符串的开头，即第0位。</p>
 <p>但当使用<code>test</code>和<code>exec</code>方法，且正则有<code>g</code>时，起始位置是从正则对象的<code>lastIndex</code>属性开始。</p>
 <p>因此第一次<code>exec</code>是从第0位开始，而第二次是从3开始的。</p>
 <p>设定好起始位置后，就开始尝试匹配了。</p>
@@ -1276,63 +1583,120 @@
 <ul>
 <li>使用<code>search</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d/;</span><br><span class="line">var string = &quot;abc123&quot;;</span><br><span class="line">console.log( !!~string.search(regex) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /\d/;
+var string = &quot;abc123&quot;;
+console.log( !!~string.search(regex) );
+// =&gt; true
+复制代码
+</code></pre><ul>
 <li>使用<code>test</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d/;</span><br><span class="line">var string = &quot;abc123&quot;;</span><br><span class="line">console.log( regex.test(string) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /\d/;
+var string = &quot;abc123&quot;;
+console.log( regex.test(string) );
+// =&gt; true
+复制代码
+</code></pre><ul>
 <li>使用<code>match</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d/;</span><br><span class="line">var string = &quot;abc123&quot;;</span><br><span class="line">console.log( !!string.match(regex) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /\d/;
+var string = &quot;abc123&quot;;
+console.log( !!string.match(regex) );
+// =&gt; true
+复制代码
+</code></pre><ul>
 <li>使用<code>exec</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\d/;</span><br><span class="line">var string = &quot;abc123&quot;;</span><br><span class="line">console.log( !!regex.exec(string) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中，最常用的是<code>test</code>。</p>
+<pre><code>var regex = /\d/;
+var string = &quot;abc123&quot;;
+console.log( !!regex.exec(string) );
+// =&gt; true
+复制代码
+</code></pre><p>其中，最常用的是<code>test</code>。</p>
 <p><strong>1.2 切分</strong></p>
 <p>匹配上了，我们就可以进行一些操作，比如切分。</p>
 <p>所谓“切分”，就是把目标字符串，切成一段一段的。在JS中使用的是<code>split</code>。</p>
 <p>比如，目标字符串是”html,css,javascript”，按逗号来切分：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /,/;</span><br><span class="line">var string = &quot;html,css,javascript&quot;;</span><br><span class="line">console.log( string.split(regex) );</span><br><span class="line">// =&gt; [&quot;html&quot;, &quot;css&quot;, &quot;javascript&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>又比如，如下的日期格式：</p>
+<pre><code>var regex = /,/;
+var string = &quot;html,css,javascript&quot;;
+console.log( string.split(regex) );
+// =&gt; [&quot;html&quot;, &quot;css&quot;, &quot;javascript&quot;]
+复制代码
+</code></pre><p>又比如，如下的日期格式：</p>
 <blockquote>
 <p>2017/06/26</p>
 <p>2017.06.26</p>
 <p>2017-06-26</p>
 </blockquote>
 <p>可以使用<code>split</code>“切出”年月日：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\D/;</span><br><span class="line">console.log( &quot;2017/06/26&quot;.split(regex) );</span><br><span class="line">console.log( &quot;2017.06.26&quot;.split(regex) );</span><br><span class="line">console.log( &quot;2017-06-26&quot;.split(regex) );</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>1.3 提取</strong></p>
+<pre><code>var regex = /\D/;
+console.log( &quot;2017/06/26&quot;.split(regex) );
+console.log( &quot;2017.06.26&quot;.split(regex) );
+console.log( &quot;2017-06-26&quot;.split(regex) );
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]
+复制代码
+</code></pre><p><strong>1.3 提取</strong></p>
 <p>虽然整体匹配上了，但有时需要提取部分匹配的数据。</p>
 <p>此时正则通常要使用分组引用（分组捕获）功能，还需要配合使用相关API。</p>
 <p>这里，还是以日期为例，提取出年月日。注意下面正则中的括号：</p>
 <ul>
 <li><code>match</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(\d&#123;4&#125;)\D(\d&#123;2&#125;)\D(\d&#123;2&#125;)$/;</span><br><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt;[&quot;2017-06-26&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;26&quot;, index: 0, input: &quot;2017-06-26&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+var string = &quot;2017-06-26&quot;;
+console.log( string.match(regex) );
+// =&gt;[&quot;2017-06-26&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;26&quot;, index: 0, input: &quot;2017-06-26&quot;]
+复制代码
+</code></pre><ul>
 <li><code>exec</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(\d&#123;4&#125;)\D(\d&#123;2&#125;)\D(\d&#123;2&#125;)$/;</span><br><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">console.log( regex.exec(string) );</span><br><span class="line">// =&gt;[&quot;2017-06-26&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;26&quot;, index: 0, input: &quot;2017-06-26&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+var string = &quot;2017-06-26&quot;;
+console.log( regex.exec(string) );
+// =&gt;[&quot;2017-06-26&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;26&quot;, index: 0, input: &quot;2017-06-26&quot;]
+复制代码
+</code></pre><ul>
 <li><code>test</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(\d&#123;4&#125;)\D(\d&#123;2&#125;)\D(\d&#123;2&#125;)$/;</span><br><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">regex.test(string);</span><br><span class="line">console.log( RegExp.$1, RegExp.$2, RegExp.$3 );</span><br><span class="line">// =&gt; &quot;2017&quot; &quot;06&quot; &quot;26&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+var string = &quot;2017-06-26&quot;;
+regex.test(string);
+console.log( RegExp.$1, RegExp.$2, RegExp.$3 );
+// =&gt; &quot;2017&quot; &quot;06&quot; &quot;26&quot;
+复制代码
+</code></pre><ul>
 <li><code>search</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(\d&#123;4&#125;)\D(\d&#123;2&#125;)\D(\d&#123;2&#125;)$/;</span><br><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">string.search(regex);</span><br><span class="line">console.log( RegExp.$1, RegExp.$2, RegExp.$3 );</span><br><span class="line">// =&gt; &quot;2017&quot; &quot;06&quot; &quot;26&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+var string = &quot;2017-06-26&quot;;
+string.search(regex);
+console.log( RegExp.$1, RegExp.$2, RegExp.$3 );
+// =&gt; &quot;2017&quot; &quot;06&quot; &quot;26&quot;
+复制代码
+</code></pre><ul>
 <li><code>replace</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var regex = /^(\d&#123;4&#125;)\D(\d&#123;2&#125;)\D(\d&#123;2&#125;)$/;</span><br><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">var date = [];</span><br><span class="line">string.replace(regex, function(match, year, month, day) &#123;</span><br><span class="line">	date.push(year, month, day);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(date);</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中，最常用的是<code>match</code>。</p>
+<pre><code>var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/;
+var string = &quot;2017-06-26&quot;;
+var date = [];
+string.replace(regex, function(match, year, month, day) {
+    date.push(year, month, day);
+});
+console.log(date);
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;26&quot;]
+复制代码
+</code></pre><p>其中，最常用的是<code>match</code>。</p>
 <p><strong>1.4 替换</strong></p>
 <p>找，往往不是目的，通常下一步是为了替换。在JS中，使用<code>replace</code>进行替换。</p>
 <p>比如把日期格式，从yyyy-mm-dd替换成yyyy/mm/dd：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017-06-26&quot;;</span><br><span class="line">var today = new Date( string.replace(/-/g, &quot;/&quot;) );</span><br><span class="line">console.log( today );</span><br><span class="line">// =&gt; Mon Jun 26 2017 00:00:00 GMT+0800 (中国标准时间)</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>这里只是简单地应用了一下<code>replace</code>。但，<code>replace</code>方法是强大的，是需要重点掌握的。</p>
+<pre><code>var string = &quot;2017-06-26&quot;;
+var today = new Date( string.replace(/-/g, &quot;/&quot;) );
+console.log( today );
+// =&gt; Mon Jun 26 2017 00:00:00 GMT+0800 (中国标准时间)
+复制代码
+</code></pre><p>这里只是简单地应用了一下<code>replace</code>。但，<code>replace</code>方法是强大的，是需要重点掌握的。</p>
 <h3 id="2-相关API注意要点"><a href="#2-相关API注意要点" class="headerlink" title="2. 相关API注意要点"></a>2. 相关API注意要点</h3><p>从上面可以看出用于正则操作的方法，共有6个，字符串实例4个，正则实例2个：</p>
 <blockquote>
 <p>String#search</p>
@@ -1346,40 +1710,123 @@
 <p><strong>2.1 search和match的参数问题</strong></p>
 <p>我们知道字符串实例的那4个方法参数都支持正则和字符串。</p>
 <p>但<code>search</code>和<code>match</code>，会把字符串转换为正则的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017.06.27&quot;;</span><br><span class="line"></span><br><span class="line">console.log( string.search(&quot;.&quot;) );</span><br><span class="line">// =&gt; 0</span><br><span class="line">//需要修改成下列形式之一</span><br><span class="line">console.log( string.search(&quot;\\.&quot;) );</span><br><span class="line">console.log( string.search(/\./) );</span><br><span class="line">// =&gt; 4</span><br><span class="line">// =&gt; 4</span><br><span class="line"></span><br><span class="line">console.log( string.match(&quot;.&quot;) );</span><br><span class="line">// =&gt; [&quot;2&quot;, index: 0, input: &quot;2017.06.27&quot;]</span><br><span class="line">//需要修改成下列形式之一</span><br><span class="line">console.log( string.match(&quot;\\.&quot;) );</span><br><span class="line">console.log( string.match(/\./) );</span><br><span class="line">// =&gt; [&quot;.&quot;, index: 4, input: &quot;2017.06.27&quot;]</span><br><span class="line">// =&gt; [&quot;.&quot;, index: 4, input: &quot;2017.06.27&quot;]</span><br><span class="line"></span><br><span class="line">console.log( string.split(&quot;.&quot;) );</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;27&quot;]</span><br><span class="line"></span><br><span class="line">console.log( string.replace(&quot;.&quot;, &quot;/&quot;) );</span><br><span class="line">// =&gt; &quot;2017/06.27&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.2 match返回结果的格式问题</strong></p>
+<pre><code>var string = &quot;2017.06.27&quot;;
+
+console.log( string.search(&quot;.&quot;) );
+// =&gt; 0
+//需要修改成下列形式之一
+console.log( string.search(&quot;\\.&quot;) );
+console.log( string.search(/\./) );
+// =&gt; 4
+// =&gt; 4
+
+console.log( string.match(&quot;.&quot;) );
+// =&gt; [&quot;2&quot;, index: 0, input: &quot;2017.06.27&quot;]
+//需要修改成下列形式之一
+console.log( string.match(&quot;\\.&quot;) );
+console.log( string.match(/\./) );
+// =&gt; [&quot;.&quot;, index: 4, input: &quot;2017.06.27&quot;]
+// =&gt; [&quot;.&quot;, index: 4, input: &quot;2017.06.27&quot;]
+
+console.log( string.split(&quot;.&quot;) );
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;27&quot;]
+
+console.log( string.replace(&quot;.&quot;, &quot;/&quot;) );
+// =&gt; &quot;2017/06.27&quot;
+复制代码
+</code></pre><p><strong>2.2 match返回结果的格式问题</strong></p>
 <p><code>match</code>返回结果的格式，与正则对象是否有修饰符<code>g</code>有关。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017.06.27&quot;;</span><br><span class="line">var regex1 = /\b(\d+)\b/;</span><br><span class="line">var regex2 = /\b(\d+)\b/g;</span><br><span class="line">console.log( string.match(regex1) );</span><br><span class="line">console.log( string.match(regex2) );</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;]</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;27&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>没有<code>g</code>，返回的是标准匹配格式，即，数组的第一个元素是整体匹配的内容，接下来是分组捕获的内容，然后是整体匹配的第一个下标，最后是输入的目标字符串。</p>
+<pre><code>var string = &quot;2017.06.27&quot;;
+var regex1 = /\b(\d+)\b/;
+var regex2 = /\b(\d+)\b/g;
+console.log( string.match(regex1) );
+console.log( string.match(regex2) );
+// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;]
+// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;27&quot;]
+复制代码
+</code></pre><p>没有<code>g</code>，返回的是标准匹配格式，即，数组的第一个元素是整体匹配的内容，接下来是分组捕获的内容，然后是整体匹配的第一个下标，最后是输入的目标字符串。</p>
 <p>有<code>g</code>，返回的是所有匹配的内容。</p>
 <p>当没有匹配时，不管有无<code>g</code>，都返回<code>null</code>。</p>
 <p><strong>2.3 exec比match更强大</strong></p>
 <p>当正则没有<code>g</code>时，使用<code>match</code>返回的信息比较多。但是有<code>g</code>后，就没有关键的信息<code>index</code>了。</p>
 <p>而<code>exec</code>方法就能解决这个问题，它能接着上一次匹配后继续匹配：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017.06.27&quot;;</span><br><span class="line">var regex2 = /\b(\d+)\b/g;</span><br><span class="line">console.log( regex2.exec(string) );</span><br><span class="line">console.log( regex2.lastIndex);</span><br><span class="line">console.log( regex2.exec(string) );</span><br><span class="line">console.log( regex2.lastIndex);</span><br><span class="line">console.log( regex2.exec(string) );</span><br><span class="line">console.log( regex2.lastIndex);</span><br><span class="line">console.log( regex2.exec(string) );</span><br><span class="line">console.log( regex2.lastIndex);</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;]</span><br><span class="line">// =&gt; 4</span><br><span class="line">// =&gt; [&quot;06&quot;, &quot;06&quot;, index: 5, input: &quot;2017.06.27&quot;]</span><br><span class="line">// =&gt; 7</span><br><span class="line">// =&gt; [&quot;27&quot;, &quot;27&quot;, index: 8, input: &quot;2017.06.27&quot;]</span><br><span class="line">// =&gt; 10</span><br><span class="line">// =&gt; null</span><br><span class="line">// =&gt; 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>其中正则实例<code>lastIndex</code>属性，表示下一次匹配开始的位置。</p>
+<pre><code>var string = &quot;2017.06.27&quot;;
+var regex2 = /\b(\d+)\b/g;
+console.log( regex2.exec(string) );
+console.log( regex2.lastIndex);
+console.log( regex2.exec(string) );
+console.log( regex2.lastIndex);
+console.log( regex2.exec(string) );
+console.log( regex2.lastIndex);
+console.log( regex2.exec(string) );
+console.log( regex2.lastIndex);
+// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;]
+// =&gt; 4
+// =&gt; [&quot;06&quot;, &quot;06&quot;, index: 5, input: &quot;2017.06.27&quot;]
+// =&gt; 7
+// =&gt; [&quot;27&quot;, &quot;27&quot;, index: 8, input: &quot;2017.06.27&quot;]
+// =&gt; 10
+// =&gt; null
+// =&gt; 0
+复制代码
+</code></pre><p>其中正则实例<code>lastIndex</code>属性，表示下一次匹配开始的位置。</p>
 <p>比如第一次匹配了“2017”，开始下标是0，共4个字符，因此这次匹配结束的位置是3，下一次开始匹配的位置是4。</p>
 <p>从上述代码看出，在使用<code>exec</code>时，经常需要配合使用<code>while</code>循环：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017.06.27&quot;;</span><br><span class="line">var regex2 = /\b(\d+)\b/g;</span><br><span class="line">var result;</span><br><span class="line">while ( result = regex2.exec(string) ) &#123;</span><br><span class="line">	console.log( result, regex2.lastIndex );</span><br><span class="line">&#125;</span><br><span class="line">// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;] 4</span><br><span class="line">// =&gt; [&quot;06&quot;, &quot;06&quot;, index: 5, input: &quot;2017.06.27&quot;] 7</span><br><span class="line">// =&gt; [&quot;27&quot;, &quot;27&quot;, index: 8, input: &quot;2017.06.27&quot;] 10</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.4 修饰符g，对exex和test的影响</strong></p>
+<pre><code>var string = &quot;2017.06.27&quot;;
+var regex2 = /\b(\d+)\b/g;
+var result;
+while ( result = regex2.exec(string) ) {
+    console.log( result, regex2.lastIndex );
+}
+// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;] 4
+// =&gt; [&quot;06&quot;, &quot;06&quot;, index: 5, input: &quot;2017.06.27&quot;] 7
+// =&gt; [&quot;27&quot;, &quot;27&quot;, index: 8, input: &quot;2017.06.27&quot;] 10
+复制代码
+</code></pre><p><strong>2.4 修饰符g，对exex和test的影响</strong></p>
 <p>上面提到了正则实例的<code>lastIndex</code>属性，表示尝试匹配时，从字符串的<code>lastIndex</code>位开始去匹配。</p>
 <p>字符串的四个方法，每次匹配时，都是从0开始的，即<code>lastIndex</code>属性始终不变。</p>
 <p>而正则实例的两个方法<code>exec</code>、<code>test</code>，当正则是全局匹配时，每一次匹配完成后，都会修改<code>lastIndex</code>。下面让我们以<code>test</code>为例，看看你是否会迷糊：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /a/g;</span><br><span class="line">console.log( regex.test(&quot;a&quot;), regex.lastIndex );</span><br><span class="line">console.log( regex.test(&quot;aba&quot;), regex.lastIndex );</span><br><span class="line">console.log( regex.test(&quot;ababc&quot;), regex.lastIndex );</span><br><span class="line">// =&gt; true 1</span><br><span class="line">// =&gt; true 3</span><br><span class="line">// =&gt; false 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>注意上面代码中的第三次调用<code>test</code>，因为这一次尝试匹配，开始从下标<code>lastIndex</code>即3位置处开始查找，自然就找不到了。</p>
+<pre><code>var regex = /a/g;
+console.log( regex.test(&quot;a&quot;), regex.lastIndex );
+console.log( regex.test(&quot;aba&quot;), regex.lastIndex );
+console.log( regex.test(&quot;ababc&quot;), regex.lastIndex );
+// =&gt; true 1
+// =&gt; true 3
+// =&gt; false 0
+复制代码
+</code></pre><p>注意上面代码中的第三次调用<code>test</code>，因为这一次尝试匹配，开始从下标<code>lastIndex</code>即3位置处开始查找，自然就找不到了。</p>
 <p>如果没有<code>g</code>，自然都是从字符串第0个字符处开始尝试匹配：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /a/;</span><br><span class="line">console.log( regex.test(&quot;a&quot;), regex.lastIndex );</span><br><span class="line">console.log( regex.test(&quot;aba&quot;), regex.lastIndex );</span><br><span class="line">console.log( regex.test(&quot;ababc&quot;), regex.lastIndex );</span><br><span class="line">// =&gt; true 0</span><br><span class="line">// =&gt; true 0</span><br><span class="line">// =&gt; true 0</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.5 test整体匹配时需要使用^和$</strong></p>
+<pre><code>var regex = /a/;
+console.log( regex.test(&quot;a&quot;), regex.lastIndex );
+console.log( regex.test(&quot;aba&quot;), regex.lastIndex );
+console.log( regex.test(&quot;ababc&quot;), regex.lastIndex );
+// =&gt; true 0
+// =&gt; true 0
+// =&gt; true 0
+复制代码
+</code></pre><p><strong>2.5 test整体匹配时需要使用^和$</strong></p>
 <p>这个相对容易理解，因为<code>test</code>是看目标字符串中是否有子串匹配正则，即有部分匹配即可。</p>
 <p>如果，要整体匹配，正则前后需要添加开头和结尾：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log( /123/.test(&quot;a123b&quot;) );</span><br><span class="line">// =&gt; true</span><br><span class="line">console.log( /^123$/.test(&quot;a123b&quot;) );</span><br><span class="line">// =&gt; false</span><br><span class="line">console.log( /^123$/.test(&quot;123&quot;) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.6 split相关注意事项</strong></p>
+<pre><code>console.log( /123/.test(&quot;a123b&quot;) );
+// =&gt; true
+console.log( /^123$/.test(&quot;a123b&quot;) );
+// =&gt; false
+console.log( /^123$/.test(&quot;123&quot;) );
+// =&gt; true
+复制代码
+</code></pre><p><strong>2.6 split相关注意事项</strong></p>
 <p><code>split</code>方法看起来不起眼，但要注意的地方有两个的。</p>
 <p>第一，它可以有第二个参数，表示结果数组的最大长度：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;html,css,javascript&quot;;</span><br><span class="line">console.log( string.split(/,/, 2) );</span><br><span class="line">// =&gt;[&quot;html&quot;, &quot;css&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>第二，正则使用分组时，结果数组中是包含分隔符的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;html,css,javascript&quot;;</span><br><span class="line">console.log( string.split(/(,)/) );</span><br><span class="line">// =&gt;[&quot;html&quot;, &quot;,&quot;, &quot;css&quot;, &quot;,&quot;, &quot;javascript&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.7 replace是很强大的</strong></p>
+<pre><code>var string = &quot;html,css,javascript&quot;;
+console.log( string.split(/,/, 2) );
+// =&gt;[&quot;html&quot;, &quot;css&quot;]
+复制代码
+</code></pre><p>第二，正则使用分组时，结果数组中是包含分隔符的：</p>
+<pre><code>var string = &quot;html,css,javascript&quot;;
+console.log( string.split(/(,)/) );
+// =&gt;[&quot;html&quot;, &quot;,&quot;, &quot;css&quot;, &quot;,&quot;, &quot;javascript&quot;]
+复制代码
+</code></pre><p><strong>2.7 replace是很强大的</strong></p>
 <p>《JavaScript权威指南》认为<code>exec</code>是这6个API中最强大的，而我始终认为<code>replace</code>才是最强大的。因为它也能拿到该拿到的信息，然后可以假借替换之名，做些其他事情。</p>
 <p>总体来说<code>replace</code>有两种使用形式，这是因为它的第二个参数，可以是字符串，也可以是函数。</p>
 <p>当第二个参数是字符串时，如下的字符有特殊的含义：</p>
@@ -1387,18 +1834,41 @@
 <p><code>$1</code>,<code>$2</code>,…,<code>$99</code>匹配第1~99个分组里捕获的文本<br><code>$&amp;</code> 匹配到的子串文本<br><code>$`</code> 匹配到的子串的左边文本<br><code>$&#39;</code> 匹配到的子串的右边文本<br><code>$$</code> 美元符号</p>
 </blockquote>
 <p>例如，把”2,3,5”，变成”5=2+3”：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;2,3,5&quot;.replace(/(\d+),(\d+),(\d+)/, &quot;$3=$1+$2&quot;);</span><br><span class="line">console.log(result);</span><br><span class="line">// =&gt; &quot;5=2+3&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>又例如，把”2,3,5”，变成”222,333,555”:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;2,3,5&quot;.replace(/(\d+)/g, &quot;$&amp;$&amp;$&amp;&quot;);</span><br><span class="line">console.log(result);</span><br><span class="line">// =&gt; &quot;222,333,555&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>再例如，把”2+3=5”，变成”2+3=2+3=5=5”:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = &quot;2+3=5&quot;.replace(/=/, &quot;$&amp;$`$&amp;$&apos;$&amp;&quot;);</span><br><span class="line">console.log(result);</span><br><span class="line">// =&gt; &quot;2+3=2+3=5=5&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>当第二个参数是函数时，我们需要注意该回调函数的参数具体是什么：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;1234 2345 3456&quot;.replace(/(\d)\d&#123;2&#125;(\d)/g, function(match, $1, $2, index, input) &#123;</span><br><span class="line">	console.log([match, $1, $2, index, input]);</span><br><span class="line">&#125;);</span><br><span class="line">// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;4&quot;, 0, &quot;1234 2345 3456&quot;]</span><br><span class="line">// =&gt; [&quot;2345&quot;, &quot;2&quot;, &quot;5&quot;, 5, &quot;1234 2345 3456&quot;]</span><br><span class="line">// =&gt; [&quot;3456&quot;, &quot;3&quot;, &quot;6&quot;, 10, &quot;1234 2345 3456&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>此时我们可以看到<code>replace</code>拿到的信息，并不比<code>exec</code>少。</p>
+<pre><code>var result = &quot;2,3,5&quot;.replace(/(\d+),(\d+),(\d+)/, &quot;$3=$1+$2&quot;);
+console.log(result);
+// =&gt; &quot;5=2+3&quot;
+复制代码
+</code></pre><p>又例如，把”2,3,5”，变成”222,333,555”:</p>
+<pre><code>var result = &quot;2,3,5&quot;.replace(/(\d+)/g, &quot;$&amp;$&amp;$&amp;&quot;);
+console.log(result);
+// =&gt; &quot;222,333,555&quot;
+复制代码
+</code></pre><p>再例如，把”2+3=5”，变成”2+3=2+3=5=5”:</p>
+<pre><code>var result = &quot;2+3=5&quot;.replace(/=/, &quot;$&amp;$`$&amp;$&#39;$&amp;&quot;);
+console.log(result);
+// =&gt; &quot;2+3=2+3=5=5&quot;
+复制代码
+</code></pre><p>当第二个参数是函数时，我们需要注意该回调函数的参数具体是什么：</p>
+<pre><code>&quot;1234 2345 3456&quot;.replace(/(\d)\d{2}(\d)/g, function(match, $1, $2, index, input) {
+    console.log([match, $1, $2, index, input]);
+});
+// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;4&quot;, 0, &quot;1234 2345 3456&quot;]
+// =&gt; [&quot;2345&quot;, &quot;2&quot;, &quot;5&quot;, 5, &quot;1234 2345 3456&quot;]
+// =&gt; [&quot;3456&quot;, &quot;3&quot;, &quot;6&quot;, 10, &quot;1234 2345 3456&quot;]
+复制代码
+</code></pre><p>此时我们可以看到<code>replace</code>拿到的信息，并不比<code>exec</code>少。</p>
 <p><strong>2.8 使用构造函数需要注意的问题</strong></p>
 <p>一般不推荐使用构造函数生成正则，而应该优先使用字面量。因为用构造函数会多写很多<code>\</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var string = &quot;2017-06-27 2017.06.27 2017/06/27&quot;;</span><br><span class="line">var regex = /\d&#123;4&#125;(-|\.|\/)\d&#123;2&#125;\1\d&#123;2&#125;/g;</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;2017-06-27&quot;, &quot;2017.06.27&quot;, &quot;2017/06/27&quot;]</span><br><span class="line"></span><br><span class="line">regex = new RegExp(&quot;\\d&#123;4&#125;(-|\\.|\\/)\\d&#123;2&#125;\\1\\d&#123;2&#125;&quot;, &quot;g&quot;);</span><br><span class="line">console.log( string.match(regex) );</span><br><span class="line">// =&gt; [&quot;2017-06-27&quot;, &quot;2017.06.27&quot;, &quot;2017/06/27&quot;]</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.9 修饰符</strong></p>
+<pre><code>var string = &quot;2017-06-27 2017.06.27 2017/06/27&quot;;
+var regex = /\d{4}(-|\.|\/)\d{2}\1\d{2}/g;
+console.log( string.match(regex) );
+// =&gt; [&quot;2017-06-27&quot;, &quot;2017.06.27&quot;, &quot;2017/06/27&quot;]
+
+regex = new RegExp(&quot;\\d{4}(-|\\.|\\/)\\d{2}\\1\\d{2}&quot;, &quot;g&quot;);
+console.log( string.match(regex) );
+// =&gt; [&quot;2017-06-27&quot;, &quot;2017.06.27&quot;, &quot;2017/06/27&quot;]
+复制代码
+</code></pre><p><strong>2.9 修饰符</strong></p>
 <p>ES5中修饰符，共3个：</p>
 <blockquote>
 <p><code>g</code> 全局匹配，即找到所有匹配的，单词是global</p>
@@ -1406,20 +1876,53 @@
 <p><code>m</code> 多行匹配，只影响<code>^</code>和<code>$</code>，二者变成行的概念，即行开头和行结尾。单词是multiline</p>
 </blockquote>
 <p>当然正则对象也有相应的只读属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var regex = /\w/img;</span><br><span class="line">console.log( regex.global );</span><br><span class="line">console.log( regex.ignoreCase );</span><br><span class="line">console.log( regex.multiline );</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.10 source属性</strong></p>
+<pre><code>var regex = /\w/img;
+console.log( regex.global );
+console.log( regex.ignoreCase );
+console.log( regex.multiline );
+// =&gt; true
+// =&gt; true
+// =&gt; true
+复制代码
+</code></pre><p><strong>2.10 source属性</strong></p>
 <p>正则实例对象属性，除了<code>global</code>、<code>ingnoreCase</code>、<code>multiline</code>、<code>lastIndex</code>属性之外，还有一个<code>source</code>属性。</p>
 <p>它什么时候有用呢？</p>
 <p>比如，在构建动态的正则表达式时，可以通过查看该属性，来确认构建出的正则到底是什么：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var className = &quot;high&quot;;</span><br><span class="line">var regex = new RegExp(&quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;);</span><br><span class="line">console.log( regex.source )</span><br><span class="line">// =&gt; (^|\s)high(\s|$) 即字符串&quot;(^|\\s)high(\\s|$)&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>2.11 构造函数属性</strong></p>
+<pre><code>var className = &quot;high&quot;;
+var regex = new RegExp(&quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;);
+console.log( regex.source )
+// =&gt; (^|\s)high(\s|$) 即字符串&quot;(^|\\s)high(\\s|$)&quot;
+复制代码
+</code></pre><p><strong>2.11 构造函数属性</strong></p>
 <p>构造函数的静态属性基于所执行的最近一次正则操作而变化。除了是<code>$1</code>,…,<code>$9</code>之外，还有几个不太常用的属性（有兼容性问题）：</p>
 <blockquote>
 <p><code>RegExp.input</code> 最近一次目标字符串，简写成<code>RegExp[&quot;$_&quot;]</code><br><code>RegExp.lastMatch</code> 最近一次匹配的文本，简写成<code>RegExp[&quot;$&amp;&quot;]</code><br><code>RegExp.lastParen</code> 最近一次捕获的文本，简写成<code>RegExp[&quot;$+&quot;]</code><br><code>RegExp.leftContext</code> 目标字符串中<code>lastMatch</code>之前的文本，简写成<code>RegExp[&quot;$</code>“]<code></code>RegExp.rightContext <code>目标字符串中</code>lastMatch<code>之后的文本，简写成</code>RegExp[“$’”]`</p>
 </blockquote>
 <p>测试代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var regex = /([abc])(\d)/g;</span><br><span class="line">var string = &quot;a1b2c3d4e5&quot;;</span><br><span class="line">string.match(regex);</span><br><span class="line"></span><br><span class="line">console.log( RegExp.input );</span><br><span class="line">console.log( RegExp[&quot;$_&quot;]);</span><br><span class="line">// =&gt; &quot;a1b2c3d4e5&quot;</span><br><span class="line"></span><br><span class="line">console.log( RegExp.lastMatch );</span><br><span class="line">console.log( RegExp[&quot;$&amp;&quot;] );</span><br><span class="line">// =&gt; &quot;c3&quot;</span><br><span class="line"></span><br><span class="line">console.log( RegExp.lastParen );</span><br><span class="line">console.log( RegExp[&quot;$+&quot;] );</span><br><span class="line">// =&gt; &quot;3&quot;</span><br><span class="line"></span><br><span class="line">console.log( RegExp.leftContext );</span><br><span class="line">console.log( RegExp[&quot;$`&quot;] );</span><br><span class="line">// =&gt; &quot;a1b2&quot;</span><br><span class="line"></span><br><span class="line">console.log( RegExp.rightContext );</span><br><span class="line">console.log( RegExp[&quot;$&apos;&quot;] );</span><br><span class="line">// =&gt; &quot;d4e5&quot;复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="3-真实案例"><a href="#3-真实案例" class="headerlink" title="3. 真实案例"></a>3. 真实案例</h3><p><strong>3.1 使用构造函数生成正则表达式</strong></p>
+<pre><code>var regex = /([abc])(\d)/g;
+var string = &quot;a1b2c3d4e5&quot;;
+string.match(regex);
+
+console.log( RegExp.input );
+console.log( RegExp[&quot;$_&quot;]);
+// =&gt; &quot;a1b2c3d4e5&quot;
+
+console.log( RegExp.lastMatch );
+console.log( RegExp[&quot;$&amp;&quot;] );
+// =&gt; &quot;c3&quot;
+
+console.log( RegExp.lastParen );
+console.log( RegExp[&quot;$+&quot;] );
+// =&gt; &quot;3&quot;
+
+console.log( RegExp.leftContext );
+console.log( RegExp[&quot;$`&quot;] );
+// =&gt; &quot;a1b2&quot;
+
+console.log( RegExp.rightContext );
+console.log( RegExp[&quot;$&#39;&quot;] );
+// =&gt; &quot;d4e5&quot;复制代码
+</code></pre><h3 id="3-真实案例"><a href="#3-真实案例" class="headerlink" title="3. 真实案例"></a>3. 真实案例</h3><p><strong>3.1 使用构造函数生成正则表达式</strong></p>
 <p>我们知道要优先使用字面量来创建正则，但有时正则表达式的主体是不确定的，此时可以使用构造函数来创建。模拟<code>getElementsByClassName</code>方法，就是很能说明该问题的一个例子。</p>
 <p>这里<code>getElementsByClassName</code>函数的实现思路是：</p>
 <ul>
@@ -1428,25 +1931,195 @@
 <li>然后再用其逐一验证页面上的所有dom元素的类名，拿到满足匹配的元素即可。</li>
 </ul>
 <p>代码如下(可以直接复制到本地查看运行效果)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class=&quot;high&quot;&gt;1111&lt;/p&gt;</span><br><span class="line">&lt;p class=&quot;high&quot;&gt;2222&lt;/p&gt;</span><br><span class="line">&lt;p&gt;3333&lt;/p&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">function getElementsByClassName(className) &#123;</span><br><span class="line">	var elements = document.getElementsByTagName(&quot;*&quot;);</span><br><span class="line">	var regex = new RegExp(&quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;);</span><br><span class="line">	var result = [];</span><br><span class="line">	for (var i = 0; i &lt; elements.length; i++) &#123;</span><br><span class="line">		var element = elements[i];</span><br><span class="line">		if (regex.test(element.className)) &#123;</span><br><span class="line">			result.push(element)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br><span class="line">var highs = getElementsByClassName(&apos;high&apos;);</span><br><span class="line">highs.forEach(function(item) &#123;</span><br><span class="line">	item.style.color = &apos;red&apos;;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>3.2 使用字符串保存数据</strong></p>
+<pre><code>&lt;p class=&quot;high&quot;&gt;1111&lt;/p&gt;
+&lt;p class=&quot;high&quot;&gt;2222&lt;/p&gt;
+&lt;p&gt;3333&lt;/p&gt;
+&lt;script&gt;
+function getElementsByClassName(className) {
+    var elements = document.getElementsByTagName(&quot;*&quot;);
+    var regex = new RegExp(&quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;);
+    var result = [];
+    for (var i = 0; i &lt; elements.length; i++) {
+        var element = elements[i];
+        if (regex.test(element.className)) {
+            result.push(element)
+        }
+    }
+    return result;
+}
+var highs = getElementsByClassName(&#39;high&#39;);
+highs.forEach(function(item) {
+    item.style.color = &#39;red&#39;;
+});
+&lt;/script&gt;
+复制代码
+</code></pre><p><strong>3.2 使用字符串保存数据</strong></p>
 <p>一般情况下，我们都愿意使用数组来保存数据。但我看到有的框架中，使用的却是字符串。</p>
 <p>使用时，仍需要把字符串切分成数组。虽然不一定用到正则，但总感觉酷酷的，这里分享如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var utils = &#123;&#125;;</span><br><span class="line">&quot;Boolean|Number|String|Function|Array|Date|RegExp|Object|Error&quot;.split(&quot;|&quot;).forEach(function(item) &#123;</span><br><span class="line">	utils[&quot;is&quot; + item] = function(obj) &#123;</span><br><span class="line">		return &#123;&#125;.toString.call(obj) == &quot;[object &quot; + item + &quot;]&quot;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;);</span><br><span class="line">console.log( utils.isArray([1, 2, 3]) );</span><br><span class="line">// =&gt; true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>3.3 if语句中使用正则替代&amp;&amp;</strong></p>
+<pre><code>var utils = {};
+&quot;Boolean|Number|String|Function|Array|Date|RegExp|Object|Error&quot;.split(&quot;|&quot;).forEach(function(item) {
+    utils[&quot;is&quot; + item] = function(obj) {
+        return {}.toString.call(obj) == &quot;[object &quot; + item + &quot;]&quot;;
+    };
+});
+console.log( utils.isArray([1, 2, 3]) );
+// =&gt; true
+复制代码
+</code></pre><p><strong>3.3 if语句中使用正则替代&amp;&amp;</strong></p>
 <p>比如，模拟<code>ready</code>函数，即加载完毕后再执行回调（不兼容ie的）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var readyRE = /complete|loaded|interactive/;</span><br><span class="line"></span><br><span class="line">function ready(callback) &#123;</span><br><span class="line">	if (readyRE.test(document.readyState) &amp;&amp; document.body) &#123;</span><br><span class="line">		callback()</span><br><span class="line">	&#125; </span><br><span class="line">	else &#123;</span><br><span class="line">		document.addEventListener(</span><br><span class="line">			&apos;DOMContentLoaded&apos;, </span><br><span class="line">			function () &#123;</span><br><span class="line">				callback()</span><br><span class="line">			&#125;,</span><br><span class="line">			false</span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">ready(function() &#123;</span><br><span class="line">	alert(&quot;加载完毕！&quot;)</span><br><span class="line">&#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>3.4 使用强大的replace</strong></p>
+<pre><code>var readyRE = /complete|loaded|interactive/;
+
+function ready(callback) {
+    if (readyRE.test(document.readyState) &amp;&amp; document.body) {
+        callback()
+    } 
+    else {
+        document.addEventListener(
+            &#39;DOMContentLoaded&#39;, 
+            function () {
+                callback()
+            },
+            false
+        );
+    }
+};
+ready(function() {
+    alert(&quot;加载完毕！&quot;)
+});
+复制代码
+</code></pre><p><strong>3.4 使用强大的replace</strong></p>
 <p>因为<code>replace</code>方法比较强大，有时用它根本不是为了替换，只是拿其匹配到的信息来做文章。</p>
 <p>这里以查询字符串（querystring）压缩技术为例，注意下面<code>replace</code>方法中，回调函数根本没有返回任何东西。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function compress(source) &#123;</span><br><span class="line">	var keys = &#123;&#125;;</span><br><span class="line">	source.replace(/([^=&amp;]+)=([^&amp;]*)/g, function(full, key, value) &#123;</span><br><span class="line">		keys[key] = (keys[key] ? keys[key] + &apos;,&apos; : &apos;&apos;) + value;</span><br><span class="line">	&#125;);</span><br><span class="line">	var result = [];</span><br><span class="line">	for (var key in keys) &#123;</span><br><span class="line">		result.push(key + &apos;=&apos; + keys[key]);</span><br><span class="line">	&#125;</span><br><span class="line">	return result.join(&apos;&amp;&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log( compress(&quot;a=1&amp;b=2&amp;a=3&amp;b=4&quot;) );</span><br><span class="line">// =&gt; &quot;a=1,3&amp;b=2,4&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p><strong>3.5 综合运用</strong></p>
+<pre><code>function compress(source) {
+    var keys = {};
+    source.replace(/([^=&amp;]+)=([^&amp;]*)/g, function(full, key, value) {
+        keys[key] = (keys[key] ? keys[key] + &#39;,&#39; : &#39;&#39;) + value;
+    });
+    var result = [];
+    for (var key in keys) {
+        result.push(key + &#39;=&#39; + keys[key]);
+    }
+    return result.join(&#39;&amp;&#39;);
+}
+
+console.log( compress(&quot;a=1&amp;b=2&amp;a=3&amp;b=4&quot;) );
+// =&gt; &quot;a=1,3&amp;b=2,4&quot;
+复制代码
+</code></pre><p><strong>3.5 综合运用</strong></p>
 <p>最后这里再做个简单实用的正则测试器。</p>
 <p>具体效果如下：<img src="https://user-gold-cdn.xitu.io/2017/9/30/d3c3b86f36bf9d9b98509f1c7a7a921a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/7/12/f56c1319ec49ee892bb73819e9ddefd9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <p>代码，直接贴了，相信你能看得懂：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">	&lt;div id=&quot;err&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;input id=&quot;regex&quot; placeholder=&quot;请输入正则表达式&quot;&gt;</span><br><span class="line">	&lt;input id=&quot;text&quot; placeholder=&quot;请输入测试文本&quot;&gt;</span><br><span class="line">	&lt;button id=&quot;run&quot;&gt;测试一下&lt;/button&gt;</span><br><span class="line">	&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">section&#123;</span><br><span class="line">	display:flex;</span><br><span class="line">	flex-direction:column;</span><br><span class="line">	justify-content:space-around;</span><br><span class="line">	height:300px;</span><br><span class="line">	padding:0 200px;</span><br><span class="line">&#125;</span><br><span class="line">section *&#123;</span><br><span class="line">	min-height:30px;</span><br><span class="line">&#125;</span><br><span class="line">#err &#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line">#result&#123;</span><br><span class="line">	line-height:30px;</span><br><span class="line">&#125;</span><br><span class="line">.info &#123;</span><br><span class="line">	background:#00c5ff;</span><br><span class="line">	padding:2px;</span><br><span class="line">	margin:2px;</span><br><span class="line">	display:inline-block;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">(function() &#123;</span><br><span class="line">	// 获取相应dom元素</span><br><span class="line">	var regexInput = document.getElementById(&quot;regex&quot;);</span><br><span class="line">	var textInput = document.getElementById(&quot;text&quot;);</span><br><span class="line">	var runBtn = document.getElementById(&quot;run&quot;);</span><br><span class="line">	var errBox = document.getElementById(&quot;err&quot;);</span><br><span class="line">	var resultBox = document.getElementById(&quot;result&quot;);</span><br><span class="line">	</span><br><span class="line">	// 绑定点击事件</span><br><span class="line">	runBtn.onclick = function() &#123;</span><br><span class="line">		// 清除错误和结果</span><br><span class="line">		errBox.innerHTML = &quot;&quot;;</span><br><span class="line">		resultBox.innerHTML = &quot;&quot;;</span><br><span class="line">		</span><br><span class="line">		// 获取正则和文本</span><br><span class="line">		var text = textInput.value;</span><br><span class="line">		var regex = regexInput.value;</span><br><span class="line">		</span><br><span class="line">		if (regex == &quot;&quot;) &#123;</span><br><span class="line">			errBox.innerHTML = &quot;请输入正则表达式&quot;;</span><br><span class="line">		&#125; else if (text == &quot;&quot;) &#123;</span><br><span class="line">			errBox.innerHTML = &quot;请输入测试文本&quot;;</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			regex = createRegex(regex);</span><br><span class="line">			if (!regex) return;</span><br><span class="line">			var result, results = [];</span><br><span class="line">			</span><br><span class="line">			// 没有修饰符g的话，会死循环</span><br><span class="line">			if (regex.global) &#123;</span><br><span class="line">				while(result = regex.exec(text)) &#123;</span><br><span class="line">					results.push(result);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				results.push(regex.exec(text));</span><br><span class="line">			&#125;</span><br><span class="line">						</span><br><span class="line">			if (results[0] == null) &#123;</span><br><span class="line">				resultBox.innerHTML = &quot;匹配到0个结果&quot;;</span><br><span class="line">				return;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			// 倒序是有必要的</span><br><span class="line">			for (var i = results.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">				var result = results[i];</span><br><span class="line">				var match = result[0];</span><br><span class="line">				var prefix = text.substr(0, result.index);</span><br><span class="line">				var suffix = text.substr(result.index + match.length);</span><br><span class="line">				text = prefix </span><br><span class="line">					+ &apos;&lt;span class=&quot;info&quot;&gt;&apos;</span><br><span class="line">					+ match</span><br><span class="line">					+ &apos;&lt;/span&gt;&apos;</span><br><span class="line">					+ suffix;</span><br><span class="line">			&#125;</span><br><span class="line">			resultBox.innerHTML = &quot;匹配到&quot; + results.length + &quot;个结果:&lt;br&gt;&quot; + text;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	// 生成正则表达式，核心函数</span><br><span class="line">	function createRegex(regex) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			if (regex[0] == &quot;/&quot;) &#123;</span><br><span class="line">				regex = regex.split(&quot;/&quot;);</span><br><span class="line">				regex.shift();</span><br><span class="line">				var flags = regex.pop();</span><br><span class="line">				regex = regex.join(&quot;/&quot;);</span><br><span class="line">				regex = new RegExp(regex, flags);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				regex = new RegExp(regex, &quot;g&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			return regex;</span><br><span class="line">		&#125; catch(e) &#123;</span><br><span class="line">			errBox.innerHTML = &quot;无效的正则表达式&quot;;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)();</span><br><span class="line">&lt;/script&gt;复制代码</span><br></pre></td></tr></table></figure>
-<h3 id="第七章小结"><a href="#第七章小结" class="headerlink" title="第七章小结"></a>第七章小结</h3><p>相关API的注意点，本章基本上算是一网打尽了。</p>
+<pre><code>&lt;section&gt;
+    &lt;div id=&quot;err&quot;&gt;&lt;/div&gt;
+    &lt;input id=&quot;regex&quot; placeholder=&quot;请输入正则表达式&quot;&gt;
+    &lt;input id=&quot;text&quot; placeholder=&quot;请输入测试文本&quot;&gt;
+    &lt;button id=&quot;run&quot;&gt;测试一下&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+&lt;style&gt;
+section{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:300px;
+    padding:0 200px;
+}
+section *{
+    min-height:30px;
+}
+#err {
+    color:red;
+}
+#result{
+    line-height:30px;
+}
+.info {
+    background:#00c5ff;
+    padding:2px;
+    margin:2px;
+    display:inline-block;
+}
+&lt;/style&gt;
+&lt;script&gt;
+(function() {
+    // 获取相应dom元素
+    var regexInput = document.getElementById(&quot;regex&quot;);
+    var textInput = document.getElementById(&quot;text&quot;);
+    var runBtn = document.getElementById(&quot;run&quot;);
+    var errBox = document.getElementById(&quot;err&quot;);
+    var resultBox = document.getElementById(&quot;result&quot;);
+
+    // 绑定点击事件
+    runBtn.onclick = function() {
+        // 清除错误和结果
+        errBox.innerHTML = &quot;&quot;;
+        resultBox.innerHTML = &quot;&quot;;
+
+        // 获取正则和文本
+        var text = textInput.value;
+        var regex = regexInput.value;
+
+        if (regex == &quot;&quot;) {
+            errBox.innerHTML = &quot;请输入正则表达式&quot;;
+        } else if (text == &quot;&quot;) {
+            errBox.innerHTML = &quot;请输入测试文本&quot;;
+        } else {
+            regex = createRegex(regex);
+            if (!regex) return;
+            var result, results = [];
+
+            // 没有修饰符g的话，会死循环
+            if (regex.global) {
+                while(result = regex.exec(text)) {
+                    results.push(result);
+                }
+            } else {
+                results.push(regex.exec(text));
+            }
+
+            if (results[0] == null) {
+                resultBox.innerHTML = &quot;匹配到0个结果&quot;;
+                return;
+            }
+
+            // 倒序是有必要的
+            for (var i = results.length - 1; i &gt;= 0; i--) {
+                var result = results[i];
+                var match = result[0];
+                var prefix = text.substr(0, result.index);
+                var suffix = text.substr(result.index + match.length);
+                text = prefix 
+                    + &#39;&lt;span class=&quot;info&quot;&gt;&#39;
+                    + match
+                    + &#39;&lt;/span&gt;&#39;
+                    + suffix;
+            }
+            resultBox.innerHTML = &quot;匹配到&quot; + results.length + &quot;个结果:&lt;br&gt;&quot; + text;
+        }
+    };
+
+    // 生成正则表达式，核心函数
+    function createRegex(regex) {
+        try {
+            if (regex[0] == &quot;/&quot;) {
+                regex = regex.split(&quot;/&quot;);
+                regex.shift();
+                var flags = regex.pop();
+                regex = regex.join(&quot;/&quot;);
+                regex = new RegExp(regex, flags);
+            } else {
+                regex = new RegExp(regex, &quot;g&quot;);
+            }
+            return regex;
+        } catch(e) {
+            errBox.innerHTML = &quot;无效的正则表达式&quot;;
+            return false;
+        }
+    }
+})();
+&lt;/script&gt;复制代码
+</code></pre><h3 id="第七章小结"><a href="#第七章小结" class="headerlink" title="第七章小结"></a>第七章小结</h3><p>相关API的注意点，本章基本上算是一网打尽了。</p>
 <p>至于文中的例子，都是点睛之笔，没有详细解析。如有理解不透的，建议自己敲一敲。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实本文首发于：<a href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F27653434" target="_blank" rel="noopener">正则表达式系列总结 - 知乎专栏</a></p>
 <p>原文是一个系列。一直等到老姚成为掘金的专栏作者，经过仔细考虑，在掘金平台没有采用系列形式，而是合成为了一篇文章。这样既便于读者阅读，最起码能一气呵成地阅读。同时也便于作者统一回复留言。</p>
@@ -1743,7 +2416,10 @@
                         
                             一、场景除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝
 将一个对象赋值给另外一个对象。
-1234var a = [1,2,3];var b = a;b.push(4); // b中添加了一个4alert
+var a = [1,2,3];
+var b = a;
+b.push(4); // b中添加了一个4
+alert(
                         
                     </div>
                     <div class="publish-info">
@@ -1783,12 +2459,8 @@
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1961,7 +2633,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

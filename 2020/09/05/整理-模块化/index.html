@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-09-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     5 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -460,7 +392,26 @@
 <p>对于需要暴露给外部的成员，通过挂在到全局对象上的方式实现</p>
 <p>有了私有成员的概念，私有成员只能在模块成员内通过闭包的形式访问。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module a 相关状态数据和功能函数，IIFE</span></span><br><span class="line"></span><br><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'module-a'</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">method1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name + <span class="string">'#method1'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">method2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name + <span class="string">'#method2'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.moduleA = &#123;</span><br><span class="line">    method1: method1,</span><br><span class="line">    method2: method2</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// module a 相关状态数据和功能函数，IIFE</span>
+
+<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'module-a'</span>
+
+  <span class="token keyword">function</span> method1 <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">'#method1'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> method2 <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">'#method2'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  window<span class="token punctuation">.</span>moduleA <span class="token operator">=</span> <span class="token punctuation">{</span>
+    method1<span class="token punctuation">:</span> method1<span class="token punctuation">,</span>
+    method2<span class="token punctuation">:</span> method2
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre>
 <ol start="4">
 <li>CommonJS规范（node环境）</li>
 </ol>
@@ -497,9 +448,98 @@
 <li>ESM 是通过 CORS 的方式请求外部 JS 模块的</li>
 <li>ESM 的 script 标签会延迟执行脚本</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 通过给 script 添加 type = module 的属性，就可以以 ES Module 的标准执行其中的 JS 代码了 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">'this is es module'</span>)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 1. ESM 自动采用严格模式，忽略 'use strict' --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">// undefined</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 2. 每个 ES Module 都是运行在单独的私有作用域中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> foo = <span class="number">100</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(foo)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(foo)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 3. ESM 是通过 CORS 的方式请求外部 JS 模块的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 4. ESM 的 script 标签会延迟执行脚本,此处会先执行p标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"demo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>需要显示的内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ES-Modules-的导入导出"><a href="#ES-Modules-的导入导出" class="headerlink" title="ES Modules 的导入导出"></a>ES Modules 的导入导出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> fooName, fooHello, Person &#125; <span class="keyword">from</span> <span class="string">'./module.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> height23 <span class="keyword">from</span> <span class="string">'./module.js'</span> <span class="comment">// 接收default</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fooName, fooHello, Person)</span><br><span class="line"></span><br><span class="line"><span class="comment">// modeule.js</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'foo module'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> height = <span class="number">180</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hello'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; name <span class="keyword">as</span> <span class="keyword">default</span>, hello <span class="keyword">as</span> fooHello, Person &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> height</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.html</span></span><br><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"app.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="几点注意事项"><a href="#几点注意事项" class="headerlink" title="几点注意事项"></a>几点注意事项</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; name &#125; <span class="keyword">from</span> <span class="string">'./module.js'</span> <span class="comment">// 不能省略.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; lowercase &#125; <span class="keyword">from</span> <span class="string">'./utils/index.js'</span> <span class="comment">// 不能省略index.js，否则找不到</span></span><br><span class="line"><span class="keyword">import</span> &#123; name &#125; <span class="keyword">from</span> <span class="string">'./module.js'</span> <span class="comment">// 不能省略./，否则认为加载第三方模块</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./module.js'</span> <span class="comment">// 加载这个模块但是不提取</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> mod <span class="keyword">from</span> <span class="string">'./module.js'</span> <span class="comment">// 提取所有放入mod对象中</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面这两种方式不正确，不能动态条件导入</span></span><br><span class="line"><span class="keyword">var</span> modulePath = <span class="string">'./module.js'</span></span><br><span class="line"><span class="keyword">import</span> &#123; name &#125; <span class="keyword">from</span> modulePath</span><br><span class="line"><span class="built_in">console</span>.log(name)</span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">   <span class="keyword">import</span> &#123; name &#125; <span class="keyword">from</span> <span class="string">'./module.js'</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 那怎么动态导入呢</span></span><br><span class="line"> <span class="keyword">import</span>(<span class="string">'./module.js'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params">module</span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="built_in">module</span>)</span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取默认成员和正常成员</span></span><br><span class="line"><span class="keyword">import</span> abc, &#123; name, age &#125; <span class="keyword">from</span> <span class="string">'./module.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(name, age, abc)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接导出导入成员</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// button.js</span></span><br><span class="line"><span class="keyword">var</span> Button = <span class="string">'Button Component'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Button</span><br><span class="line"></span><br><span class="line"><span class="comment">// avatar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> Avatar = <span class="string">'Avatar Component'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> Button &#125; <span class="keyword">from</span> <span class="string">'./button.js'</span></span><br><span class="line"><span class="keyword">export</span> &#123; Avatar &#125; <span class="keyword">from</span> <span class="string">'./avatar.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三方模块都是导出默认成员</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span></span><br><span class="line"><span class="keyword">import</span> &#123; camelCase &#125; <span class="keyword">from</span> <span class="string">'lodash'</span> <span class="comment">// 不正确</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-html"><code class="language-html">  <span class="token comment" spellcheck="true">&lt;!-- 通过给 script 添加 type = module 的属性，就可以以 ES Module 的标准执行其中的 JS 代码了 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'this is es module'</span><span class="token punctuation">)</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+  <span class="token comment" spellcheck="true">&lt;!-- 1. ESM 自动采用严格模式，忽略 'use strict' --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// undefined</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+  <span class="token comment" spellcheck="true">&lt;!-- 2. 每个 ES Module 都是运行在单独的私有作用域中 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token number">100</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+  <span class="token comment" spellcheck="true">&lt;!-- 3. ESM 是通过 CORS 的方式请求外部 JS 模块的 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/jquery@3.4.1/dist/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> 
+
+  <span class="token comment" spellcheck="true">&lt;!-- 4. ESM 的 script 标签会延迟执行脚本,此处会先执行p标签 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">defer</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>需要显示的内容<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span> 
+</code></pre>
+<h3 id="ES-Modules-的导入导出"><a href="#ES-Modules-的导入导出" class="headerlink" title="ES Modules 的导入导出"></a>ES Modules 的导入导出</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token keyword">as</span> fooName<span class="token punctuation">,</span> fooHello<span class="token punctuation">,</span> Person <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./module.js'</span>
+
+<span class="token keyword">import</span> height23 <span class="token keyword">from</span> <span class="token string">'./module.js'</span> <span class="token comment" spellcheck="true">// 接收default</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fooName<span class="token punctuation">,</span> fooHello<span class="token punctuation">,</span> Person<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// modeule.js</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'foo module'</span>
+
+<span class="token keyword">var</span> height <span class="token operator">=</span> <span class="token number">180</span>
+
+<span class="token keyword">function</span> hello <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> name <span class="token keyword">as</span> <span class="token keyword">default</span><span class="token punctuation">,</span> hello <span class="token keyword">as</span> fooHello<span class="token punctuation">,</span> Person <span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> height
+
+<span class="token comment" spellcheck="true">// index.html</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span> src<span class="token operator">=</span><span class="token string">"app.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h3 id="几点注意事项"><a href="#几点注意事项" class="headerlink" title="几点注意事项"></a>几点注意事项</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./module.js'</span> <span class="token comment" spellcheck="true">// 不能省略.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> lowercase <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./utils/index.js'</span> <span class="token comment" spellcheck="true">// 不能省略index.js，否则找不到</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./module.js'</span> <span class="token comment" spellcheck="true">// 不能省略./，否则认为加载第三方模块</span>
+<span class="token keyword">import</span> <span class="token string">'./module.js'</span> <span class="token comment" spellcheck="true">// 加载这个模块但是不提取</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> mod <span class="token keyword">from</span> <span class="token string">'./module.js'</span> <span class="token comment" spellcheck="true">// 提取所有放入mod对象中</span>
+
+<span class="token comment" spellcheck="true">// 下面这两种方式不正确，不能动态条件导入</span>
+<span class="token keyword">var</span> modulePath <span class="token operator">=</span> <span class="token string">'./module.js'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token keyword">from</span> modulePath
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">import</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./module.js'</span>
+ <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 那怎么动态导入呢</span>
+ <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>module<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 提取默认成员和正常成员</span>
+<span class="token keyword">import</span> abc<span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./module.js'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> abc<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 直接导出导入成员</span>
+
+<span class="token comment" spellcheck="true">// button.js</span>
+<span class="token keyword">var</span> Button <span class="token operator">=</span> <span class="token string">'Button Component'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Button
+
+<span class="token comment" spellcheck="true">// avatar.js</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> Avatar <span class="token operator">=</span> <span class="token string">'Avatar Component'</span>
+
+<span class="token comment" spellcheck="true">// index.js</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token keyword">as</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./button.js'</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> Avatar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./avatar.js'</span>
+
+<span class="token comment" spellcheck="true">// 第三方模块都是导出默认成员</span>
+<span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> camelCase <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span> <span class="token comment" spellcheck="true">// 不正确</span>
+</code></pre>
 <h2 id="Polyfill"><a href="#Polyfill" class="headerlink" title="Polyfill"></a>Polyfill</h2><p><code>ie</code>浏览器不兼容<code>ES Modules</code></p>
 <p>Polyfill 是一块代码（通常是 Web 上的 JavaScript），用来为旧浏览器提供它没有原生支持的较新的功能。</p>
 <h2 id="ES-Module与CommonJS交互"><a href="#ES-Module与CommonJS交互" class="headerlink" title="ES Module与CommonJS交互"></a>ES Module与CommonJS交互</h2><p>在node原生环境中</p>
@@ -510,9 +550,32 @@
 <li>注意import不是解构对象</li>
 </ul>
 <p><code>es-module.mjs</code>    文件名要改成.mjs</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES Module 中可以导入 CommonJS 模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> mod <span class="keyword">from</span> <span class="string">'./commonjs.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(mod)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能直接提取成员，注意 import 不是解构导出对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">'./commonjs.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(foo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> foo = <span class="string">'es module export value'</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ES Module 中可以导入 CommonJS 模块</span>
+
+<span class="token keyword">import</span> mod <span class="token keyword">from</span> <span class="token string">'./commonjs.js'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 不能直接提取成员，注意 import 不是解构导出对象</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./commonjs.js'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'es module export value'</span>
+</code></pre>
 <p><code>commonjs.js</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS 模块始终只会导出一个默认成员</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  foo: <span class="string">'commonjs exports value'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.foo = <span class="string">'commonjs exports value'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能在 CommonJS 模块中通过 require 载入 ES Module</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mod = <span class="built_in">require</span>(<span class="string">'./es-module.mjs'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(mod)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// CommonJS 模块始终只会导出一个默认成员</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  foo<span class="token punctuation">:</span> <span class="token string">'commonjs exports value'</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token string">'commonjs exports value'</span>
+
+<span class="token comment" spellcheck="true">// 不能在 CommonJS 模块中通过 require 载入 ES Module</span>
+
+<span class="token keyword">const</span> mod <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./es-module.mjs'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">)</span>
+</code></pre>
 
                 
             </div>
@@ -809,12 +872,6 @@ webpack初体验
                     <div class="summary block-with-text">
                         
                             
-什么是gulp
-gulp初体验
-压缩过程实现
-构建实例
-怎么实现热更新
-
                         
                     </div>
                     <div class="publish-info">
@@ -854,12 +911,8 @@ gulp初体验
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1032,7 +1085,7 @@ gulp初体验
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2018-08-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
                     1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     5 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -433,30 +365,163 @@
 <li>Date.parse（）</li>
 </ul>
 <a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();<span class="comment">//返回时间；</span></span><br><span class="line">      <span class="keyword">var</span> YY = date.getFullYear(); <span class="comment">//返回年</span></span><br><span class="line">      <span class="keyword">var</span> MM = date.getMonth() + <span class="number">1</span>  ;<span class="comment">//返回月</span></span><br><span class="line">      <span class="keyword">var</span> Day = date.getDay();<span class="comment">//返回星期 【注意 ：每个星期第一天是星期日】</span></span><br><span class="line">      <span class="keyword">var</span> DD = date.getDate();<span class="comment">//返回天 </span></span><br><span class="line">      <span class="keyword">var</span> hh = date.getHours(); <span class="comment">//返回时</span></span><br><span class="line">      <span class="keyword">var</span> mm = date.getMinutes();<span class="comment">//返回分</span></span><br><span class="line">      <span class="keyword">var</span> ss = date.getSeconds();<span class="comment">//返回秒</span></span><br><span class="line">      <span class="keyword">var</span> ms = date.getMilliseconds();<span class="comment">//返回秒</span></span><br><span class="line">      <span class="keyword">var</span> Time = date.getTime();<span class="comment">//返回 1970 年 1 月 1 日至今的毫秒数 </span></span><br><span class="line">      <span class="keyword">var</span> Now = <span class="built_in">Date</span>.now(); <span class="comment">//返回 1970 年 1 月 1 日至今的毫秒数  【不兼容IE】</span></span><br><span class="line">      <span class="keyword">var</span> a = date.toLocaleString() <span class="comment">//返回年月日，时分秒；</span></span><br><span class="line">      <span class="keyword">var</span> b = date.toLocaleDateString(); <span class="comment">//返回年月日</span></span><br><span class="line">      <span class="keyword">var</span> c = date.toLocaleTimeString(); <span class="comment">//返回时分秒</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//返回指定的时间 【注意：月份会加1，所以我们设置的时候要减1】</span></span><br><span class="line"><span class="keyword">var</span> date1 = <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="string">'2018/8/20'</span> );</span><br><span class="line"><span class="keyword">var</span> date2 = <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="number">2018</span>,<span class="number">7</span> );</span><br><span class="line"><span class="keyword">var</span> date3 = <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="number">2018</span> );</span><br><span class="line"><span class="keyword">var</span> date4 = <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="string">'9'</span> );</span><br><span class="line"><span class="built_in">console</span>.log( date ) <span class="comment">//当前时间</span></span><br><span class="line"><span class="built_in">console</span>.log( date1 )<span class="comment">//Mon Aug 20 2018 00:00:00</span></span><br><span class="line"><span class="built_in">console</span>.log( date2 )<span class="comment">//Wed Aug 01 2018 00:00:00</span></span><br><span class="line"><span class="built_in">console</span>.log( date3 )<span class="comment">//Thu Jan 01 1970 08:00:02</span></span><br><span class="line"><span class="built_in">console</span>.log( date4 )<span class="comment">//Sat Sep 01 2001 00:00:00</span></span><br><span class="line"><span class="comment">//getTimezoneOffset() 世界时（东八区） - 本地时间（ 当前的时间 ）</span></span><br><span class="line"><span class="built_in">console</span>.log( date.getTimezoneOffset() ) <span class="comment">//480/8 60分钟</span></span><br></pre></td></tr></table></figure>
-<h2 id="案例一：输出北京时间"><a href="#案例一：输出北京时间" class="headerlink" title="案例一：输出北京时间"></a>案例一：输出北京时间</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">		现在是北京时间：</span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>),</span></span><br><span class="line"><span class="javascript">		p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">		arr = [<span class="string">'星期日'</span>,<span class="string">'星期一'</span>,<span class="string">'星期二'</span>,<span class="string">'星期三'</span>,<span class="string">'星期四'</span>,<span class="string">'星期五'</span>,<span class="string">'星期六'</span>];</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();<span class="comment">//返回时间；</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> YY = date.getFullYear(); <span class="comment">//返回年</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> MM = date.getMonth() + <span class="number">1</span>  ;<span class="comment">//返回月</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> Day = date.getDay();<span class="comment">//返回星期 【注意 ：每个星期第一天是星期日】</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> DD = date.getDate();<span class="comment">//返回天 </span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> hh = addZero(date.getHours()); <span class="comment">//返回时</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> mm = addZero(date.getMinutes());<span class="comment">//返回分</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> ss = addZero(date.getSeconds());<span class="comment">//返回秒</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> str = YY+<span class="string">'年'</span>+MM+<span class="string">'月'</span>+DD+<span class="string">'日'</span>+arr[Day]+<span class="string">':'</span>+hh+<span class="string">'时'</span>+mm+<span class="string">'分'</span>+ss+<span class="string">'秒'</span>;</span></span><br><span class="line"><span class="undefined">            p.innerHTML = str;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        fn();<span class="comment">//先执行一次，避免出现延迟加载</span></span></span><br><span class="line"><span class="undefined">        setInterval(fn,1000);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">addZero</span>(<span class="params">n</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> n &lt; <span class="number">10</span> ? <span class="string">'0'</span> + n : n;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="案例二：距离过年时间"><a href="#案例二：距离过年时间" class="headerlink" title="案例二：距离过年时间"></a>案例二：距离过年时间</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>距离过年还有：</span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> newYear = <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="string">'2019/2/5'</span> ),</span></span><br><span class="line"><span class="javascript">       p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">       <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> date = newYear - <span class="built_in">Date</span>.now(),<span class="comment">//返回毫秒为距离明年过年要多少毫秒;</span></span></span><br><span class="line"><span class="javascript">               DD = <span class="built_in">Math</span>.floor(date/<span class="number">1000</span>/<span class="number">60</span>/<span class="number">60</span>/<span class="number">24</span>), <span class="comment">//返回天</span></span></span><br><span class="line"><span class="javascript">               hh = <span class="built_in">Math</span>.floor(date/<span class="number">1000</span>/<span class="number">60</span>/<span class="number">60</span>)%<span class="number">24</span>,</span></span><br><span class="line"><span class="javascript">               mm = <span class="built_in">Math</span>.floor(date/<span class="number">1000</span>/<span class="number">60</span>)%<span class="number">60</span>,</span></span><br><span class="line"><span class="javascript">               ss = <span class="built_in">Math</span>.floor(date/<span class="number">1000</span>)%<span class="number">60</span>;</span></span><br><span class="line"><span class="javascript">           <span class="built_in">console</span>.log( DD ,hh,mm, ss)</span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> str =  DD +<span class="string">'日'</span>+<span class="string">':'</span>+hh+<span class="string">'时'</span>+mm+<span class="string">'分'</span>+ss+<span class="string">'秒'</span>;</span></span><br><span class="line"><span class="undefined">           p.innerHTML = str;</span></span><br><span class="line"><span class="undefined">       &#125;</span></span><br><span class="line"><span class="undefined">       fn()</span></span><br><span class="line"><span class="undefined">       setInterval( fn ,1000 )</span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">        <span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回时间；</span>
+        <span class="token keyword">var</span> YY <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回年</span>
+        <span class="token keyword">var</span> MM <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>  <span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回月</span>
+        <span class="token keyword">var</span> Day <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回星期 【注意 ：每个星期第一天是星期日】</span>
+        <span class="token keyword">var</span> DD <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回天 </span>
+        <span class="token keyword">var</span> hh <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回时</span>
+        <span class="token keyword">var</span> mm <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getMinutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回分</span>
+        <span class="token keyword">var</span> ss <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回秒</span>
+        <span class="token keyword">var</span> ms <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getMilliseconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回秒</span>
+        <span class="token keyword">var</span> Time <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回 1970 年 1 月 1 日至今的毫秒数 </span>
+        <span class="token keyword">var</span> Now <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回 1970 年 1 月 1 日至今的毫秒数  【不兼容IE】</span>
+        <span class="token keyword">var</span> a <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//返回年月日，时分秒；</span>
+        <span class="token keyword">var</span> b <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toLocaleDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回年月日</span>
+        <span class="token keyword">var</span> c <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toLocaleTimeString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回时分秒</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js">
+        <span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回指定的时间 【注意：月份会加1，所以我们设置的时候要减1】</span>
+        <span class="token keyword">var</span> date1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span> <span class="token string">'2018/8/20'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> date2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span> <span class="token number">2018</span><span class="token punctuation">,</span><span class="token number">7</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> date3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span> <span class="token number">2018</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> date4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span> <span class="token string">'9'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//当前时间</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date1 <span class="token punctuation">)</span><span class="token comment" spellcheck="true">//Mon Aug 20 2018 00:00:00</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date2 <span class="token punctuation">)</span><span class="token comment" spellcheck="true">//Wed Aug 01 2018 00:00:00</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date3 <span class="token punctuation">)</span><span class="token comment" spellcheck="true">//Thu Jan 01 1970 08:00:02</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date4 <span class="token punctuation">)</span><span class="token comment" spellcheck="true">//Sat Sep 01 2001 00:00:00</span>
+        <span class="token comment" spellcheck="true">//getTimezoneOffset() 世界时（东八区） - 本地时间（ 当前的时间 ）</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> date<span class="token punctuation">.</span><span class="token function">getTimezoneOffset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//480/8 60分钟</span>
+</code></pre>
+<h2 id="案例一：输出北京时间"><a href="#案例一：输出北京时间" class="headerlink" title="案例一：输出北京时间"></a>案例一：输出北京时间</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        现在是北京时间：
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token keyword">var</span> box <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'box'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        p <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'星期日'</span><span class="token punctuation">,</span><span class="token string">'星期一'</span><span class="token punctuation">,</span><span class="token string">'星期二'</span><span class="token punctuation">,</span><span class="token string">'星期三'</span><span class="token punctuation">,</span><span class="token string">'星期四'</span><span class="token punctuation">,</span><span class="token string">'星期五'</span><span class="token punctuation">,</span><span class="token string">'星期六'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回时间；</span>
+            <span class="token keyword">var</span> YY <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回年</span>
+            <span class="token keyword">var</span> MM <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>  <span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回月</span>
+            <span class="token keyword">var</span> Day <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回星期 【注意 ：每个星期第一天是星期日】</span>
+            <span class="token keyword">var</span> DD <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回天 </span>
+            <span class="token keyword">var</span> hh <span class="token operator">=</span> <span class="token function">addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回时</span>
+            <span class="token keyword">var</span> mm <span class="token operator">=</span> <span class="token function">addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getMinutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回分</span>
+            <span class="token keyword">var</span> ss <span class="token operator">=</span> <span class="token function">addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回秒</span>
+
+            <span class="token keyword">var</span> str <span class="token operator">=</span> YY<span class="token operator">+</span><span class="token string">'年'</span><span class="token operator">+</span>MM<span class="token operator">+</span><span class="token string">'月'</span><span class="token operator">+</span>DD<span class="token operator">+</span><span class="token string">'日'</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>Day<span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>hh<span class="token operator">+</span><span class="token string">'时'</span><span class="token operator">+</span>mm<span class="token operator">+</span><span class="token string">'分'</span><span class="token operator">+</span>ss<span class="token operator">+</span><span class="token string">'秒'</span><span class="token punctuation">;</span>
+            p<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> str<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//先执行一次，避免出现延迟加载</span>
+        <span class="token function">setInterval</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">addZero</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> n <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'0'</span> <span class="token operator">+</span> n <span class="token punctuation">:</span> n<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="案例二：距离过年时间"><a href="#案例二：距离过年时间" class="headerlink" title="案例二：距离过年时间"></a>案例二：距离过年时间</h2><pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>距离过年还有：
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token keyword">var</span> newYear <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span> <span class="token string">'2019/2/5'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        p <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">var</span> date <span class="token operator">=</span> newYear <span class="token operator">-</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//返回毫秒为距离明年过年要多少毫秒;</span>
+                DD <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>date<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//返回天</span>
+                hh <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>date<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">24</span><span class="token punctuation">,</span>
+                mm <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>date<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">60</span><span class="token punctuation">,</span>
+                ss <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>date<span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">60</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> DD <span class="token punctuation">,</span>hh<span class="token punctuation">,</span>mm<span class="token punctuation">,</span> ss<span class="token punctuation">)</span>
+            <span class="token keyword">var</span> str <span class="token operator">=</span>  DD <span class="token operator">+</span><span class="token string">'日'</span><span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>hh<span class="token operator">+</span><span class="token string">'时'</span><span class="token operator">+</span>mm<span class="token operator">+</span><span class="token string">'分'</span><span class="token operator">+</span>ss<span class="token operator">+</span><span class="token string">'秒'</span><span class="token punctuation">;</span>
+            p<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> str<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">setInterval</span><span class="token punctuation">(</span> fn <span class="token punctuation">,</span><span class="token number">1000</span> <span class="token punctuation">)</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
 <h2 id="关于时间戳处理"><a href="#关于时间戳处理" class="headerlink" title="关于时间戳处理"></a>关于时间戳处理</h2><p>在前后端接口开发时，时间对象的处理往往处理成13位的时间戳形式。</p>
 <p>一般时间选择器拿到的都是<code>Thu Jul 04 2019 23:59:59 GMT+0800 (中国标准时间)</code>即日期对象的格式</p>
 <ul>
 <li>时间对象转换为时间戳</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个时间对象 dt，然后依次演示各种将 dt 转换为时间戳的写法</span></span><br><span class="line"><span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2019-07-04 23:59:59.999"</span>);</span><br><span class="line"><span class="comment">// Thu Jul 04 2019 23:59:59 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法一，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(dt.getTime());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(dt.valueOf());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法三，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(dt));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法四，精确到毫秒，得到 13 位时间戳 1562255999999</span></span><br><span class="line"><span class="built_in">console</span>.log(+dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法五，精确到秒，得到 13 位时间戳 1562255999000，后三位固定为 000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.parse(dt));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是如果这样写，还是可以的</span></span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">"2019-07-04 23:59:59.999"</span>)</span><br><span class="line"><span class="comment">// 1562255999999</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 定义一个时间对象 dt，然后依次演示各种将 dt 转换为时间戳的写法</span>
+<span class="token keyword">var</span> dt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">"2019-07-04 23:59:59.999"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Thu Jul 04 2019 23:59:59 GMT+0800 (中国标准时间)</span>
+
+<span class="token comment" spellcheck="true">// 写法一，精确到毫秒，得到 13 位时间戳 1562255999999</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dt<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 写法二，精确到毫秒，得到 13 位时间戳 1562255999999</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dt<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 写法三，精确到毫秒，得到 13 位时间戳 1562255999999</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">Number</span><span class="token punctuation">(</span>dt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 写法四，精确到毫秒，得到 13 位时间戳 1562255999999</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">+</span>dt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 写法五，精确到秒，得到 13 位时间戳 1562255999000，后三位固定为 000</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>dt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 但是如果这样写，还是可以的</span>
+Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"2019-07-04 23:59:59.999"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 1562255999999</span>
+</code></pre>
 <ul>
 <li>时间戳转换为时间对象</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：参数中的时间戳必须是 13 位的，多一位或少一位都不行</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1562169599000</span>); <span class="comment">// Wed Jul 03 2019 23:59:59 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将时间戳转换为更加直观形象的本地时间</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1562169599000</span>).toLocaleString() <span class="comment">// "2019/7/3 下午11:59:59"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断两个时间差是否超过一天</span></span><br><span class="line">(<span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-08-06 21:33:00'</span>)) - <span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-08-05 21:33:00'</span>)))</span><br><span class="line">/<span class="number">1000</span>/<span class="number">3600</span>/<span class="number">24</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 后三位是精确到毫秒，一般不用考虑</span></span><br><span class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2019-07-04 23:59:59.999"</span>)</span><br><span class="line"><span class="comment">// 1562255999999</span></span><br><span class="line"></span><br><span class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2019-07-04 23:59:59"</span>)</span><br><span class="line"><span class="comment">// 1562255999000</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 注意：参数中的时间戳必须是 13 位的，多一位或少一位都不行</span>
+<span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">1562169599000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Wed Jul 03 2019 23:59:59 GMT+0800 (中国标准时间)</span>
+
+<span class="token comment" spellcheck="true">// 将时间戳转换为更加直观形象的本地时间</span>
+<span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">1562169599000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// "2019/7/3 下午11:59:59"</span>
+
+<span class="token comment" spellcheck="true">// 判断两个时间差是否超过一天</span>
+<span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'2020-08-06 21:33:00'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'2020-08-05 21:33:00'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">3600</span><span class="token operator">/</span><span class="token number">24</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment" spellcheck="true">// 后三位是精确到毫秒，一般不用考虑</span>
+<span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">"2019-07-04 23:59:59.999"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 1562255999999</span>
+
+<span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">"2019-07-04 23:59:59"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 1562255999000</span>
+</code></pre>
 <h2 id="一个兼容性问题"><a href="#一个兼容性问题" class="headerlink" title="一个兼容性问题"></a>一个兼容性问题</h2><blockquote>
 <p>时间格式为2020-08-09具有兼容性问题，正确用法是 new Date(‘2020/08/-09 21:33:00’)</p>
 </blockquote>
 <p><code>str.replace(/-/g,&quot;/&quot;)</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-08-06 21:33:00'</span>)) - <span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>((<span class="string">'2020-08-05 21:33:00'</span>).replace(<span class="regexp">/-/g</span>,<span class="string">"/"</span>))))/<span class="number">1000</span>/<span class="number">3600</span>/<span class="number">24</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'2020-08-06 21:33:00'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'2020-08-05 21:33:00'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/-/g</span><span class="token punctuation">,</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">3600</span><span class="token operator">/</span><span class="token number">24</span> <span class="token operator">=</span> <span class="token number">1</span>
+</code></pre>
 <h2 id="一个函数"><a href="#一个函数" class="headerlink" title="一个函数"></a>一个函数</h2><ul>
 <li>选择日期：比如说选择日期<code>10.23-10.24</code>，组件返回的是<code>23号0点到24号零点</code>，所以需要加一天时间</li>
 <li>但是如果组件是精确到秒的话直接用<code>getTime</code>就行了</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">disposeTime(start, end) &#123;</span><br><span class="line">          <span class="keyword">let</span> startDate, endDate</span><br><span class="line">          <span class="keyword">if</span> (start.getTime) &#123;</span><br><span class="line">              startDate = start.getTime()</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              startDate = moment(start).valueOf()</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (end.getTime) &#123;</span><br><span class="line">              endDate = end.getTime()</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              endDate = moment(end).valueOf()</span><br><span class="line">          &#125;</span><br><span class="line">          endDate += <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span> - <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">              startDate,</span><br><span class="line">              endDate</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">        <span class="token function">disposeTime</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> startDate<span class="token punctuation">,</span> endDate
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>start<span class="token punctuation">.</span>getTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                startDate <span class="token operator">=</span> start<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                startDate <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span>start<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>end<span class="token punctuation">.</span>getTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                endDate <span class="token operator">=</span> end<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                endDate <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span>end<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            endDate <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                startDate<span class="token punctuation">,</span>
+                endDate
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
 <ul>
 <li>其中的<code>moment</code>是一个时间格式化的插件</li>
 <li>可以参考：<a href="https://blog.csdn.net/fu983531588/article/details/89330929" target="_blank" rel="noopener">Vue使用Moment插件格式化时间</a></li>
@@ -792,12 +857,8 @@ W3C和菜鸟教程：JavaScript 变量可以是局部变量或全局变量。私
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -970,7 +1031,7 @@ W3C和菜鸟教程：JavaScript 变量可以是局部变量或全局变量。私
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

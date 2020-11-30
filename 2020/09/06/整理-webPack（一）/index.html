@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-09-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     4 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -440,33 +372,114 @@
 <p> webpack是一种前端资源构建工具，一个静态模块打包器（module bundler）。在webpack看来，前端的所有资源文件（js/json/css/img/less…）都会作为模块处理。它将根据模块的依赖关系进行静态分析，打包生成对应的静态资源（bundle）</p>
 </blockquote>
 <p>安装：<code>cnpm install -D webpack webpack-cli</code>，举例：比如此时有如下的目录结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|--src</span><br><span class="line">    --heading.js  // 遵循ES Modules</span><br><span class="line">    --index.js</span><br><span class="line">|--index.html</span><br><span class="line">|--package.json</span><br></pre></td></tr></table></figure>
-<p>其中<code>index.js</code>模块中引入了<code>heading.js</code>模块导出的方法，而<code>index.html</code>中又引入了<code>index.js</code>，默认入口为<code>src/index.js</code></p>
+<pre><code>|--src
+    --heading.js  // 遵循ES Modules
+    --index.js
+|--index.html
+|--package.json
+</code></pre><p>其中<code>index.js</code>模块中引入了<code>heading.js</code>模块导出的方法，而<code>index.html</code>中又引入了<code>index.js</code>，默认入口为<code>src/index.js</code></p>
 <blockquote>
 <p>html文件中原本的引入</p>
 <p>script type=”module” src=”src/index.js”</p>
 </blockquote>
 <p>运行<code>webpack</code>命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|--dist</span><br><span class="line">    --main.js // 打包后的js文件</span><br><span class="line">|--src</span><br><span class="line">    --heading.js</span><br><span class="line">    --index.js</span><br><span class="line">|--index.html</span><br><span class="line">|--package.json</span><br></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>|--dist
+    --main.js // 打包后的js文件
+|--src
+    --heading.js
+    --index.js
+|--index.html
+|--package.json
+</code></pre><blockquote>
 <p>html文件中，打包之后的引入</p>
 <p>script src=”dist/main.js”</p>
 </blockquote>
 <h3 id="如何添加配置入口文件"><a href="#如何添加配置入口文件" class="headerlink" title="如何添加配置入口文件"></a>如何添加配置入口文件</h3><p>新建<code>webpack.config.js</code>文件，使用<code>common.js</code>规范</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// mode这个属性有三种取值，分别是 production、development 和 none。</span></span><br><span class="line">  <span class="comment">// 1. 生产模式下，Webpack 会自动优化打包结果；</span></span><br><span class="line">  <span class="comment">// 2. 开发模式下，Webpack 会自动优化打包速度，添加一些调试过程中的辅助；</span></span><br><span class="line">  <span class="comment">// 3. None 模式下，Webpack 就是运行最原始的打包，不做任何额外处理；</span></span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>, <span class="comment">// 入口</span></span><br><span class="line">  output: &#123; </span><br><span class="line">    filename: <span class="string">'bundle.js'</span>, </span><br><span class="line">    path: path.join(__dirname, <span class="string">'output'</span>) <span class="comment">//必须是绝对路径，__dirname为当前文件夹路径,加上output，最终输出到output中</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// mode这个属性有三种取值，分别是 production、development 和 none。</span>
+  <span class="token comment" spellcheck="true">// 1. 生产模式下，Webpack 会自动优化打包结果；</span>
+  <span class="token comment" spellcheck="true">// 2. 开发模式下，Webpack 会自动优化打包速度，添加一些调试过程中的辅助；</span>
+  <span class="token comment" spellcheck="true">// 3. None 模式下，Webpack 就是运行最原始的打包，不做任何额外处理；</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 入口</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span> 
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'output'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//必须是绝对路径，__dirname为当前文件夹路径,加上output，最终输出到output中</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="如何打包css文件"><a href="#如何打包css文件" class="headerlink" title="如何打包css文件"></a>如何打包css文件</h2><p>因为webpack默认打包js文件，所以我们需要额外的loader来处理，<code>cnpm install -D style-loader css-loader</code></p>
 <ul>
 <li>css-loader：处理css文件，将其打包至js文件中</li>
 <li>style-loader：用于展示打包后的css文件</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在webpack.config.js中新增</span></span><br><span class="line"> <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/.css$/</span>, <span class="comment">// 遇到css文件时</span></span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'style-loader'</span>, <span class="comment">// 采用如下loader，从后向前调用</span></span><br><span class="line">          <span class="string">'css-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后比如在main.js中通过import的方式引入main.css文件</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./main.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时运行webpack就会打包css文件</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 在webpack.config.js中新增</span>
+ module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/.css$/</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 遇到css文件时</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'style-loader'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 采用如下loader，从后向前调用</span>
+          <span class="token string">'css-loader'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 然后比如在main.js中通过import的方式引入main.css文件</span>
+<span class="token keyword">import</span> <span class="token string">'./main.css'</span>
+
+<span class="token comment" spellcheck="true">// 此时运行webpack就会打包css文件</span>
+</code></pre>
 <h3 id="如何打包图片"><a href="#如何打包图片" class="headerlink" title="如何打包图片"></a>如何打包图片</h3><p><code>cnpm install -D file-loader url-loader</code>，首先在<code>main.js</code>使用import的方式中导入<code>./icon.png</code></p>
 <ul>
 <li>超出10KB的文件单独提取存放在dist中</li>
 <li>小于10KB的文件转换为 Data URLs 嵌入代码中（base64编码）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|--dist</span><br><span class="line">    --bundle.js </span><br><span class="line">    --aaa0e...png // 打包后的图片</span><br><span class="line">|--src</span><br><span class="line">    --heading.js</span><br><span class="line">    --main.js</span><br><span class="line">    --main.css</span><br><span class="line">    --icon.png</span><br><span class="line">|--index.html</span><br><span class="line">|--package.json</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span>,</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    publicPath: <span class="string">'dist/'</span>                 <span class="comment">// 因为index.html在根目录，所以图片也从根目录加载，不会显示，要加上dist</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/.css$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'style-loader'</span>,</span><br><span class="line">          <span class="string">'css-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/.png$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'url-loader'</span>, <span class="comment">// 大于10KB的还会使用file-loader</span></span><br><span class="line">          options: &#123;</span><br><span class="line">            limit: <span class="number">10</span> * <span class="number">1024</span> <span class="comment">// 10 KB</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>|--dist
+    --bundle.js 
+    --aaa0e...png // 打包后的图片
+|--src
+    --heading.js
+    --main.js
+    --main.css
+    --icon.png
+|--index.html
+|--package.json
+</code></pre><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'dist/'</span>                 <span class="token comment" spellcheck="true">// 因为index.html在根目录，所以图片也从根目录加载，不会显示，要加上dist</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/.css$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+          <span class="token string">'css-loader'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/.png$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 大于10KB的还会使用file-loader</span>
+          options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            limit<span class="token punctuation">:</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token comment" spellcheck="true">// 10 KB</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="常用加载器分类"><a href="#常用加载器分类" class="headerlink" title="常用加载器分类"></a>常用加载器分类</h2><ul>
 <li>编译转换类：比如css-loader将css编译并嵌入在bundle.js</li>
 <li>文件操作类：比如file-loader</li>
@@ -474,7 +487,17 @@
 </ul>
 <h2 id="如何处理ES6语法"><a href="#如何处理ES6语法" class="headerlink" title="如何处理ES6语法"></a>如何处理ES6语法</h2><p>虽然webpack支持import和export模块化，但并不支持ES6语法</p>
 <p><code>cnpm install -D babel-loader @babel/core @babel/preset-env</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// rules新增</span><br><span class="line">	&#123;</span><br><span class="line">        test: /.js$/,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: 'babel-loader',</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: ['@babel/preset-env']</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-json"><code class="language-json">// rules新增
+    <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> /.js$/<span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> 'babel-loader'<span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">{</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span>'@babel/preset-env'<span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+</code></pre>
 <h2 id="模块加载方式"><a href="#模块加载方式" class="headerlink" title="模块加载方式"></a>模块加载方式</h2><ul>
 <li>遵循 ES Modules 标准的 import 声明（非特殊情况只用这一种）</li>
 <li>遵循 CommonJS 标准的 require函数</li>
@@ -485,10 +508,58 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html中的a标签的href属性需要配置</span></span><br><span class="line">	 &#123;</span><br><span class="line">        test: <span class="regexp">/.html$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'html-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            attrs: [<span class="string">'img:src'</span>, <span class="string">'a:href'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// html中的a标签的href属性需要配置</span>
+     <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/.html$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'html-loader'</span><span class="token punctuation">,</span>
+          options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            attrs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'img:src'</span><span class="token punctuation">,</span> <span class="token string">'a:href'</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+</code></pre>
 <h2 id="自己创建一个loader"><a href="#自己创建一个loader" class="headerlink" title="自己创建一个loader"></a>自己创建一个loader</h2><p>根目录下新建一个<code>markdown-loader.js</code>作为处理<code>md</code>文件的<code>loader</code>，然后在<code>webpack.config.js</code>中配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span>,</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    publicPath: <span class="string">'dist/'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/.md$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'html-loader'</span>,</span><br><span class="line">          <span class="string">'./markdown-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// markdown-loader.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> marked = <span class="built_in">require</span>(<span class="string">'marked'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">source</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">const</span> html = marked(source)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回 html 字符串交给下一个 loader 处理</span></span><br><span class="line">  <span class="keyword">return</span> html</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// loader管道示意</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Source =&gt; md-loader =&gt; loader2 =&gt; loader3 =&gt; Result （js文件）</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'dist/'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/.md$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'html-loader'</span><span class="token punctuation">,</span>
+          <span class="token string">'./markdown-loader'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// markdown-loader.js</span>
+
+<span class="token keyword">const</span> marked <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'marked'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> source <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">const</span> html <span class="token operator">=</span> <span class="token function">marked</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// 返回 html 字符串交给下一个 loader 处理</span>
+  <span class="token keyword">return</span> html
+<span class="token punctuation">}</span>
+
+
+<span class="token comment" spellcheck="true">// loader管道示意</span>
+
+<span class="token comment" spellcheck="true">// Source => md-loader => loader2 => loader3 => Result （js文件） </span>
+</code></pre>
 
                 
             </div>
@@ -826,12 +897,8 @@ ES Module与CommonJS交互
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1004,7 +1071,7 @@ ES Module与CommonJS交互
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

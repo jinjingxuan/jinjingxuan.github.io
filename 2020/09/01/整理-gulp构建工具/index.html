@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-09-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-11-29
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -427,25 +359,140 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>什么是gulp</li>
-<li>gulp初体验</li>
-<li>压缩过程实现</li>
-<li>构建实例</li>
-<li>怎么实现热更新</li>
-</ul>
-<a id="more"></a> 
-<h2 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h2><p><a href="http://gulpjs.com/" target="_blank" rel="noopener">gulpjs</a>是一个前端构建工具，与<a href="http://gruntjs.com/" target="_blank" rel="noopener">gruntjs</a>相比，gulpjs无需写一大堆繁杂的配置参数，API也非常简单，学习起来很容易，而且gulpjs使用的是nodejs中<a href="http://nodejs.org/api/stream.html" target="_blank" rel="noopener">stream</a>来读取和操作数据，其速度更快。 </p>
+                <h2 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h2><p><a href="http://gulpjs.com/" target="_blank" rel="noopener">gulpjs</a>是一个前端构建工具，与<a href="http://gruntjs.com/" target="_blank" rel="noopener">gruntjs</a>相比，gulpjs无需写一大堆繁杂的配置参数，API也非常简单，学习起来很容易，而且gulpjs使用的是nodejs中<a href="http://nodejs.org/api/stream.html" target="_blank" rel="noopener">stream</a>来读取和操作数据，其速度更快。 </p>
 <p><strong>gulp：The streaming build system</strong></p>
 <h2 id="gulp初体验"><a href="#gulp初体验" class="headerlink" title="gulp初体验"></a>gulp初体验</h2><p>初始一个项目文件夹叫<code>gulp</code>，使用<code>npm init</code>初始化<code>package.json</code>文件，然后使用<code>cnpm install -g gulp</code>安装</p>
 <p>依赖，<code>code gulpfile.js</code>新建一个<code>gulpfile.js</code>文件，作为入口文件，示例如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">exports.foo = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo task working~'</span>)</span><br><span class="line">  done() <span class="comment">// 标识任务完成</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.default = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'default task working~'</span>)</span><br><span class="line">  done() <span class="comment">// 标识任务完成</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'bar'</span>, done =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'bar working'</span>)</span><br><span class="line">  done()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 分别运行如下：</span></span><br><span class="line"><span class="comment">// gulp foo</span></span><br><span class="line"><span class="comment">// gulp</span></span><br><span class="line"><span class="comment">// gulp bar</span></span><br></pre></td></tr></table></figure>
-<h3 id="组合任务（串行，并行）"><a href="#组合任务（串行，并行）" class="headerlink" title="组合任务（串行，并行）"></a>组合任务（串行，并行）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; series, parallel &#125; = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> task1 = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'task1'</span>)</span><br><span class="line">    done()</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> task2 = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'task2'</span>)</span><br><span class="line">    done()</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> task3 = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'task3'</span>)</span><br><span class="line">    done()</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.foo = series(task1, task2, task3)   <span class="comment">// 串行</span></span><br><span class="line">exports.bar = parallel(task1, task2, task3) <span class="comment">// 并行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行 gulp foo, gulp bar</span></span><br></pre></td></tr></table></figure>
-<h3 id="gulp处理异步任务"><a href="#gulp处理异步任务" class="headerlink" title="gulp处理异步任务"></a>gulp处理异步任务</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">exports.callback = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'callback'</span>)</span><br><span class="line">  done()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.callback_error = <span class="function"><span class="params">done</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'callback error'</span>)</span><br><span class="line">  done(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'task failed'</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.promise = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise task'</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.promise_error = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise task'</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">'task failed'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> timeout = <span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, time)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.async = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> timeout(<span class="number">1000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async task'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理文件 stream</span></span><br><span class="line">exports.stream = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> readStream = fs.createReadStream(<span class="string">'package.json'</span>)</span><br><span class="line">  <span class="keyword">const</span> writeStream = fs.createWriteStream(<span class="string">'temp.txt'</span>)</span><br><span class="line">  readStream.pipe(writeStream)</span><br><span class="line">  <span class="keyword">return</span> readStream</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="压缩过程实现"><a href="#压缩过程实现" class="headerlink" title="压缩过程实现"></a>压缩过程实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; Transform &#125; = <span class="built_in">require</span>(<span class="string">'stream'</span>)</span><br><span class="line"></span><br><span class="line">exports.default = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 文件读取流</span></span><br><span class="line">  <span class="keyword">const</span> read = fs.createReadStream(<span class="string">'foo.css'</span>)</span><br><span class="line">  <span class="comment">// 文件写入流</span></span><br><span class="line">  <span class="keyword">const</span> write = fs.createWriteStream(<span class="string">'foo.min.css'</span>)</span><br><span class="line">  <span class="comment">// 文件转换流</span></span><br><span class="line">  <span class="keyword">const</span> transform = <span class="keyword">new</span> Transform(&#123;</span><br><span class="line">    transform: <span class="function">(<span class="params">chunk, encoding, callback</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 核心转换过程实现</span></span><br><span class="line">      <span class="comment">// chunk =&gt; 读取流中读取到的内容</span></span><br><span class="line">      <span class="keyword">const</span> input = chunk.toString()</span><br><span class="line">      <span class="keyword">const</span> output = input.replace(<span class="regexp">/\s+/g</span>, <span class="string">''</span>).replace(<span class="regexp">/\/\*.+?\*\//g</span>, <span class="string">''</span>)</span><br><span class="line">      callback(<span class="literal">null</span>, output)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  read</span><br><span class="line">    .pipe(transform) <span class="comment">// 转换</span></span><br><span class="line">    .pipe(write) <span class="comment">// 写入</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> read</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="利用gulp的API来简化"><a href="#利用gulp的API来简化" class="headerlink" title="利用gulp的API来简化"></a>利用gulp的API来简化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; src, dest &#125; = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"><span class="keyword">const</span> cleanCss = <span class="built_in">require</span>(<span class="string">'gulp-clean-css'</span>)</span><br><span class="line"><span class="keyword">const</span> rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>)</span><br><span class="line"></span><br><span class="line">exports.default = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> src(<span class="string">'src/*.css'</span>)</span><br><span class="line">    .pipe(cleanCss())</span><br><span class="line">    .pipe(rename(&#123; <span class="attr">extname</span>: <span class="string">'.min.css'</span> &#125;))</span><br><span class="line">    .pipe(dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">exports<span class="token punctuation">.</span>foo <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo task working~'</span><span class="token punctuation">)</span>
+  <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 标识任务完成</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span><span class="token keyword">default</span> <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'default task working~'</span><span class="token punctuation">)</span>
+  <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 标识任务完成</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">,</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bar working'</span><span class="token punctuation">)</span>
+  <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 分别运行如下：</span>
+<span class="token comment" spellcheck="true">// gulp foo</span>
+<span class="token comment" spellcheck="true">// gulp</span>
+<span class="token comment" spellcheck="true">// gulp bar</span>
+</code></pre>
+<h3 id="组合任务（串行，并行）"><a href="#组合任务（串行，并行）" class="headerlink" title="组合任务（串行，并行）"></a>组合任务（串行，并行）</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> series<span class="token punctuation">,</span> parallel <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> task1 <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'task1'</span><span class="token punctuation">)</span>
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> task2 <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'task2'</span><span class="token punctuation">)</span>
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> task3 <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'task3'</span><span class="token punctuation">)</span>
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token function">series</span><span class="token punctuation">(</span>task1<span class="token punctuation">,</span> task2<span class="token punctuation">,</span> task3<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 串行</span>
+exports<span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token function">parallel</span><span class="token punctuation">(</span>task1<span class="token punctuation">,</span> task2<span class="token punctuation">,</span> task3<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 并行</span>
+
+<span class="token comment" spellcheck="true">// 执行 gulp foo, gulp bar</span>
+</code></pre>
+<h3 id="gulp处理异步任务"><a href="#gulp处理异步任务" class="headerlink" title="gulp处理异步任务"></a>gulp处理异步任务</h3><pre class=" language-js"><code class="language-js">exports<span class="token punctuation">.</span>callback <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'callback'</span><span class="token punctuation">)</span>
+  <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>callback_error <span class="token operator">=</span> done <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'callback error'</span><span class="token punctuation">)</span>
+  <span class="token function">done</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'task failed'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>promise <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise task'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>promise_error <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise task'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'task failed'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> timeout <span class="token operator">=</span> time <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> time<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span><span class="token keyword">async</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async task'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 处理文件 stream</span>
+exports<span class="token punctuation">.</span>stream <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> readStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'package.json'</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> writeStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'temp.txt'</span><span class="token punctuation">)</span>
+  readStream<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writeStream<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> readStream
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="压缩过程实现"><a href="#压缩过程实现" class="headerlink" title="压缩过程实现"></a>压缩过程实现</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> Transform <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'stream'</span><span class="token punctuation">)</span>
+
+exports<span class="token punctuation">.</span><span class="token keyword">default</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 文件读取流</span>
+  <span class="token keyword">const</span> read <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'foo.css'</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 文件写入流</span>
+  <span class="token keyword">const</span> write <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'foo.min.css'</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 文件转换流</span>
+  <span class="token keyword">const</span> transform <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Transform</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    transform<span class="token punctuation">:</span> <span class="token punctuation">(</span>chunk<span class="token punctuation">,</span> encoding<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 核心转换过程实现</span>
+      <span class="token comment" spellcheck="true">// chunk => 读取流中读取到的内容</span>
+      <span class="token keyword">const</span> input <span class="token operator">=</span> chunk<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">const</span> output <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\s+/g</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\/\*.+?\*\//g</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> output<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  read
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>transform<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 转换</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>write<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 写入</span>
+
+  <span class="token keyword">return</span> read
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="利用gulp的API来简化"><a href="#利用gulp的API来简化" class="headerlink" title="利用gulp的API来简化"></a>利用gulp的API来简化</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span> dest <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> cleanCss <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-clean-css'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> rename <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-rename'</span><span class="token punctuation">)</span>
+
+exports<span class="token punctuation">.</span><span class="token keyword">default</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/*.css'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token punctuation">{</span> extname<span class="token punctuation">:</span> <span class="token string">'.min.css'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="构建实例"><a href="#构建实例" class="headerlink" title="构建实例"></a>构建实例</h2><p>现在有一个目录结构，如何实现构建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">── src</span><br><span class="line">    ├── about.html</span><br><span class="line">    ├── index.html</span><br><span class="line">    ├── assets</span><br><span class="line">        └── styles</span><br><span class="line">            ├── demo.scss</span><br><span class="line">            ├── main.scss</span><br><span class="line">            ├── _icons.scss</span><br><span class="line">            └── _variables.scss</span><br><span class="line">        └── scripts</span><br><span class="line">            ├── main.js</span><br><span class="line">        └── images</span><br><span class="line">            ├── logo.png</span><br><span class="line">            ├── a.svg</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>── src<br>    ├── about.html<br>    ├── index.html<br>    ├── assets<br>        └── styles<br>            ├── demo.scss<br>            ├── main.scss<br>            ├── _icons.scss<br>            └── _variables.scss<br>        └── scripts<br>            ├── main.js<br>        └── images<br>            ├── logo.png<br>            ├── a.svg</p>
+</blockquote>
 <ul>
 <li>需要在src的同级目录下创建dist目录，且保留src的目录结构</li>
 <li>scss编译成css</li>
@@ -453,25 +500,184 @@
 <li>png，svg图片进行压缩要先</li>
 <li>每次构建要先删除原有的dist</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gulpfile.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; src, dest, parallel, series &#125; = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>) <span class="comment">// cnpm install -D gulp-sass</span></span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>)</span><br><span class="line"><span class="keyword">const</span> swig = <span class="built_in">require</span>(<span class="string">'gulp-swig'</span>) <span class="comment">// html模板引擎 cnpm install -D gulp-swig </span></span><br><span class="line"><span class="keyword">const</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>) <span class="comment">// 删除功能的插件 cnpm install -D del</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123; <span class="comment">// 模板数据</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> clean = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> del([<span class="string">'dist'</span>])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> style = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">'src/assets/styles/*.scss'</span>, &#123; <span class="attr">base</span>: <span class="string">'src'</span> &#125;) <span class="comment">// base 基准目录</span></span><br><span class="line">    	.pipe(sass())</span><br><span class="line">    	.pipe(dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> script = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">'src/assets/scripts/*.js'</span>, &#123; <span class="attr">base</span>: <span class="string">'src'</span> &#125;)</span><br><span class="line">    	.pipe(babel(&#123; <span class="attr">presets</span>: [<span class="string">'@babel/preset-env'</span>] &#125;)) <span class="comment">//babel只是平台，需要安装</span></span><br><span class="line">		.pipe(dest(<span class="string">'dist'</span>))                             <span class="comment">// @babel/core 和 @babel/preset-env</span></span><br><span class="line">&#125;                </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> page = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">'src/*.html, &#123; base: '</span>src<span class="string">' &#125;）</span></span><br><span class="line"><span class="string">         .pipe(swig(&#123; data &#125;))</span></span><br><span class="line"><span class="string">    	 .pipe(dest('</span>dist<span class="string">'))</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">const image = () =&gt; &#123;</span></span><br><span class="line"><span class="string">     return src('</span>src/assets/images<span class="comment">/**', &#123; base: 'src' &#125;)</span></span><br><span class="line"><span class="comment">         .pipe(imagemin())</span></span><br><span class="line"><span class="comment">    	 .pipe(dest('dist'))</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">// public目录的拷贝</span></span><br><span class="line"><span class="comment">const extra = () =&gt; &#123;</span></span><br><span class="line"><span class="comment">  return src('public/**', &#123; base: 'public' &#125;)</span></span><br><span class="line"><span class="comment">    .pipe(dest('dist'))</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">const compile = parallel(style, script, page, image) // compile只执行src的处理</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">const build = series(clean, parallel(compile, extra)) // 先删除</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">module.exports = &#123;</span></span><br><span class="line"><span class="comment">  compile,</span></span><br><span class="line"><span class="comment">  build</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// gulpfile.js</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span> dest<span class="token punctuation">,</span> parallel<span class="token punctuation">,</span> series <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> sass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-sass'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cnpm install -D gulp-sass</span>
+<span class="token keyword">const</span> babel <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-babel'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> swig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-swig'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// html模板引擎 cnpm install -D gulp-swig </span>
+<span class="token keyword">const</span> imagemin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-imagemin'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> del <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'del'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 删除功能的插件 cnpm install -D del</span>
+
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 模板数据</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> clean <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> style <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/assets/styles/*.scss'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'src'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// base 基准目录</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> script <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/assets/scripts/*.js'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'src'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">babel</span><span class="token punctuation">(</span><span class="token punctuation">{</span> presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//babel只是平台，需要安装</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                             <span class="token comment" spellcheck="true">// @babel/core 和 @babel/preset-env</span>
+<span class="token punctuation">}</span>                
+
+<span class="token keyword">const</span> page <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/*.html, { base: '</span>src' <span class="token punctuation">}</span>）
+         <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">swig</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+         <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> image <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/assets/images/**'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'src'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+         <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">imagemin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+         <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// public目录的拷贝</span>
+<span class="token keyword">const</span> extra <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'public/**'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'public'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> compile <span class="token operator">=</span> <span class="token function">parallel</span><span class="token punctuation">(</span>style<span class="token punctuation">,</span> script<span class="token punctuation">,</span> page<span class="token punctuation">,</span> image<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// compile只执行src的处理</span>
+
+<span class="token keyword">const</span> build <span class="token operator">=</span> <span class="token function">series</span><span class="token punctuation">(</span>clean<span class="token punctuation">,</span> <span class="token function">parallel</span><span class="token punctuation">(</span>compile<span class="token punctuation">,</span> extra<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 先删除</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  compile<span class="token punctuation">,</span>
+  build
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="插件越来越多怎么办"><a href="#插件越来越多怎么办" class="headerlink" title="插件越来越多怎么办"></a>插件越来越多怎么办</h3><p><code>cnpm install -D gulp-load-plugins</code> 使用这个插件自动加载插件所有</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gulpfile.js</span></span><br><span class="line"><span class="keyword">const</span> loadPlugins = <span class="built_in">require</span>(<span class="string">'gulp-load-plugins'</span>)</span><br><span class="line"><span class="keyword">const</span> plugins = loadPlugins()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> style = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> src(<span class="string">'src/assets/styles/*.scss'</span>, &#123; <span class="attr">base</span>: <span class="string">'src'</span> &#125;) </span><br><span class="line">    .pipe(plugins.sass()) <span class="comment">// 所有插件使用plugin.sass()去使用</span></span><br><span class="line">    .pipe(dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// gulpfile.js</span>
+<span class="token keyword">const</span> loadPlugins <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-load-plugins'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> plugins <span class="token operator">=</span> <span class="token function">loadPlugins</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> style <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/assets/styles/*.scss'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'src'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 所有插件使用plugin.sass()去使用</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="怎么实现热更新"><a href="#怎么实现热更新" class="headerlink" title="怎么实现热更新"></a>怎么实现热更新</h2><ul>
 <li>会自动打开浏览器</li>
 <li>修改<code>dist</code>下的文件，页面会自动更新</li>
 </ul>
 <hr>
 <p>安装<code>browser-sync</code>插件：<code>cnpm install -D browser-sync</code> </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gulpfile.js中增加以下内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>)</span><br><span class="line"><span class="keyword">const</span> bs = browserSync.create()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> serve = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  bs.init(&#123;</span><br><span class="line">    notify: <span class="literal">false</span>,</span><br><span class="line">    files: <span class="string">'dist/**'</span>,    <span class="comment">// 热更新文件</span></span><br><span class="line">    port: <span class="number">2080</span>,</span><br><span class="line">    server: &#123;</span><br><span class="line">      baseDir: <span class="string">'dist'</span>    <span class="comment">// 基准目录</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  compile,</span><br><span class="line">  build,</span><br><span class="line">  serve  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// gulpfile.js中增加以下内容</span>
+
+<span class="token keyword">const</span> browserSync <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'browser-sync'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> bs <span class="token operator">=</span> browserSync<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> serve <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  bs<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    notify<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    files<span class="token punctuation">:</span> <span class="token string">'dist/**'</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 热更新文件</span>
+    port<span class="token punctuation">:</span> <span class="token number">2080</span><span class="token punctuation">,</span>
+    server<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      baseDir<span class="token punctuation">:</span> <span class="token string">'dist'</span>    <span class="token comment" spellcheck="true">// 基准目录</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  compile<span class="token punctuation">,</span>
+  build<span class="token punctuation">,</span>
+  serve  
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="怎么实现修改src下面的文件，自动执行编译过程，再更新到页面"><a href="#怎么实现修改src下面的文件，自动执行编译过程，再更新到页面" class="headerlink" title="怎么实现修改src下面的文件，自动执行编译过程，再更新到页面"></a>怎么实现修改<code>src</code>下面的文件，自动执行编译过程，再更新到页面</h3><p>使用<code>watch</code>插件来监听，同时优化一下组合任务</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; src, dest, parallel, series, watch &#125; = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> serve = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  watch(<span class="string">'src/assets/styles/*.scss'</span>, style)</span><br><span class="line">  watch(<span class="string">'src/assets/scripts/*.js'</span>, script)</span><br><span class="line">  watch(<span class="string">'src/*.html'</span>, page)</span><br><span class="line">    </span><br><span class="line">  watch([</span><br><span class="line">    <span class="string">'src/assets/images/**'</span>,</span><br><span class="line">    <span class="string">'public/**'</span></span><br><span class="line">  ], bs.reload)</span><br><span class="line"></span><br><span class="line">  bs.init(&#123;</span><br><span class="line">    notify: <span class="literal">false</span>,</span><br><span class="line">    files: <span class="string">'dist/**'</span>,</span><br><span class="line">    server: &#123;</span><br><span class="line">      baseDir: [<span class="string">'dist'</span>, <span class="string">'src'</span>, <span class="string">'public'</span>] <span class="comment">// 起服务时按顺序找文件，dist找不到就找src,图片就在src中</span></span><br><span class="line">      routes: &#123;</span><br><span class="line">        <span class="string">'/node_modules'</span>: <span class="string">'node_modules'</span> <span class="comment">// html文件中</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译源文件到dist目录</span></span><br><span class="line"><span class="keyword">const</span> compile = parallel(style, script, page)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上线之前执行的任务：包括对图片的压缩等只需执行一次的任务</span></span><br><span class="line"><span class="keyword">const</span> build = series(clean, parallel(compile, image, extra))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开发过程中的任务，先编译再起服务器</span></span><br><span class="line"><span class="keyword">const</span> develop = series(compile, serve)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  compile,</span><br><span class="line">  build,</span><br><span class="line">  serve,</span><br><span class="line">  develop</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span> dest<span class="token punctuation">,</span> parallel<span class="token punctuation">,</span> series<span class="token punctuation">,</span> watch <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> serve <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'src/assets/styles/*.scss'</span><span class="token punctuation">,</span> style<span class="token punctuation">)</span>
+  <span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'src/assets/scripts/*.js'</span><span class="token punctuation">,</span> script<span class="token punctuation">)</span>
+  <span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'src/*.html'</span><span class="token punctuation">,</span> page<span class="token punctuation">)</span>
+
+  <span class="token function">watch</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token string">'src/assets/images/**'</span><span class="token punctuation">,</span>
+    <span class="token string">'public/**'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span> bs<span class="token punctuation">.</span>reload<span class="token punctuation">)</span>
+
+  bs<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    notify<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    files<span class="token punctuation">:</span> <span class="token string">'dist/**'</span><span class="token punctuation">,</span>
+    server<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      baseDir<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// 起服务时按顺序找文件，dist找不到就找src,图片就在src中</span>
+      routes<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'/node_modules'</span><span class="token punctuation">:</span> <span class="token string">'node_modules'</span> <span class="token comment" spellcheck="true">// html文件中</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 编译源文件到dist目录</span>
+<span class="token keyword">const</span> compile <span class="token operator">=</span> <span class="token function">parallel</span><span class="token punctuation">(</span>style<span class="token punctuation">,</span> script<span class="token punctuation">,</span> page<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 上线之前执行的任务：包括对图片的压缩等只需执行一次的任务</span>
+<span class="token keyword">const</span> build <span class="token operator">=</span> <span class="token function">series</span><span class="token punctuation">(</span>clean<span class="token punctuation">,</span> <span class="token function">parallel</span><span class="token punctuation">(</span>compile<span class="token punctuation">,</span> image<span class="token punctuation">,</span> extra<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 开发过程中的任务，先编译再起服务器</span>
+<span class="token keyword">const</span> develop <span class="token operator">=</span> <span class="token function">series</span><span class="token punctuation">(</span>compile<span class="token punctuation">,</span> serve<span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  compile<span class="token punctuation">,</span>
+  build<span class="token punctuation">,</span>
+  serve<span class="token punctuation">,</span>
+  develop
+<span class="token punctuation">}</span>
+</code></pre>
 <p><strong>现在html文件中存在引用外部文件的方式</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- build:css assets/styles/main.css --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"assets/styles/main.css"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- endbuild --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 处理成下面这种 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"assets/styles/vendor.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-html"><code class="language-html">  <span class="token comment" spellcheck="true">&lt;!-- build:css assets/styles/main.css --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>assets/styles/main.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- endbuild --></span>
+
+  <span class="token comment" spellcheck="true">&lt;!-- 处理成下面这种 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>assets/styles/vendor.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
 <p><strong>需要安装<code>useref</code>插件：<code>cnpm install -D gulp-useref</code></strong>，在<code>gulpfile.js</code>中创建一个新任务</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> useref = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> src(<span class="string">'dist/*.html'</span>, &#123; <span class="attr">base</span>: <span class="string">'dist'</span> &#125;)</span><br><span class="line">    .pipe(plugins.useref(&#123; <span class="attr">searchPath</span>: [<span class="string">'dist'</span>, <span class="string">'.'</span>] &#125;))</span><br><span class="line">    .pipe(dest(<span class="string">'dist'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> useref <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'dist/*.html'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'dist'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token function">useref</span><span class="token punctuation">(</span><span class="token punctuation">{</span> searchPath<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="压缩文件"><a href="#压缩文件" class="headerlink" title="压缩文件"></a>压缩文件</h3><p>安装<code>cnpm install -D gulp-htmlmin gulp-uglify gulp-clean-css</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> min = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> src(<span class="string">'dist/**'</span>, &#123; <span class="attr">base</span>: <span class="string">'dist'</span> &#125;)</span><br><span class="line">    .pipe(plugins.if(<span class="regexp">/\.js$/</span>, plugins.uglify()))</span><br><span class="line">    .pipe(plugins.if(<span class="regexp">/\.css$/</span>, plugins.cleanCss()))</span><br><span class="line">    .pipe(plugins.if(<span class="regexp">/\.html$/</span>, plugins.htmlmin(&#123;</span><br><span class="line">      collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">      minifyCSS: <span class="literal">true</span>,</span><br><span class="line">      minifyJS: <span class="literal">true</span></span><br><span class="line">    &#125;)))</span><br><span class="line">    .pipe(dest(<span class="string">'release'</span>)) <span class="comment">// 如果写dist会有文件冲突</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法是把目前的dist改为temp，作为中间文件，最后再压缩到dist中</span></span><br></pre></td></tr></table></figure>
-<h3 id="构建完成的处理"><a href="#构建完成的处理" class="headerlink" title="构建完成的处理"></a>构建完成的处理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 选择需要导出的任务</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  build,</span><br><span class="line">  develop</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把他写在package.json中</span></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"gulp build"</span>,</span><br><span class="line">    <span class="string">"develop"</span>: <span class="string">"gulp develop"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> min <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'dist/**'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'dist'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/\.js$/</span><span class="token punctuation">,</span> plugins<span class="token punctuation">.</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span> plugins<span class="token punctuation">.</span><span class="token function">cleanCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/\.html$/</span><span class="token punctuation">,</span> plugins<span class="token punctuation">.</span><span class="token function">htmlmin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      collapseWhitespace<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      minifyCSS<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      minifyJS<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'release'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 如果写dist会有文件冲突</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 解决办法是把目前的dist改为temp，作为中间文件，最后再压缩到dist中</span>
+</code></pre>
+<h3 id="构建完成的处理"><a href="#构建完成的处理" class="headerlink" title="构建完成的处理"></a>构建完成的处理</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 选择需要导出的任务</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  build<span class="token punctuation">,</span>
+  develop
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 把他写在package.json中</span>
+<span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"gulp build"</span><span class="token punctuation">,</span>
+    <span class="token string">"develop"</span><span class="token punctuation">:</span> <span class="token string">"gulp develop"</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="封装工作流"><a href="#封装工作流" class="headerlink" title="封装工作流"></a>封装工作流</h3><p><strong>将构建过程封装，发布并使用模块，就不必在每个项目中单独去重复写<code>gulpfile.js</code></strong></p>
 
                 
@@ -767,10 +973,6 @@ ES Module与CommonJS交互
                     <div class="summary block-with-text">
                         
                             
-自动化构建
-grunt
-grunt的使用和插件
-
                         
                     </div>
                     <div class="publish-info">
@@ -810,12 +1012,8 @@ grunt的使用和插件
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -988,7 +1186,7 @@ grunt的使用和插件
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

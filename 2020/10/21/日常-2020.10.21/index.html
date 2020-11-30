@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-10-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    975
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    911
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -441,15 +373,78 @@
 <h2 id="根据权限动态添加路由列表"><a href="#根据权限动态添加路由列表" class="headerlink" title="根据权限动态添加路由列表"></a>根据权限动态添加路由列表</h2><ul>
 <li>业务场景：不同用户调用权限接口获得的权限是不同的，根据用户权限动态展示路由列表</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">api.getAuditInfo(&#123;</span><br><span class="line">          account: username,</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'权限代码:'</span>, res)</span><br><span class="line">          <span class="comment">// 高级权限：可以查看某一块路由</span></span><br><span class="line">          <span class="keyword">if</span> (res.includes(<span class="string">'auth0'</span>)) &#123;</span><br><span class="line">              <span class="built_in">window</span>.authInfo = <span class="literal">true</span></span><br><span class="line">              <span class="comment">// 添加路由</span></span><br><span class="line">              <span class="keyword">this</span>.$router.addRoutes(videoRoutes)</span><br><span class="line">              <span class="keyword">this</span>.$router.options.routes.push(...videoRoutes)</span><br><span class="line">          <span class="comment">// 普通权限</span></span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.includes(<span class="string">'auth1'</span>) &amp;&amp; !res.includes(<span class="string">'auth0'</span>)) &#123;</span><br><span class="line">              <span class="built_in">window</span>.authInfo = <span class="literal">false</span></span><br><span class="line">          <span class="comment">// 没有权限时返回</span></span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="built_in">window</span>.location.href = <span class="string">`</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">      &#125;)</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">         api<span class="token punctuation">.</span><span class="token function">getAuditInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+             account<span class="token punctuation">:</span> username<span class="token punctuation">,</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'权限代码:'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span>
+             <span class="token comment" spellcheck="true">// 高级权限：可以查看某一块路由</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>authInfo <span class="token operator">=</span> <span class="token boolean">true</span>
+                 <span class="token comment" spellcheck="true">// 添加路由</span>
+                 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span>videoRoutes<span class="token punctuation">)</span>
+                 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span>options<span class="token punctuation">.</span>routes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>videoRoutes<span class="token punctuation">)</span>
+             <span class="token comment" spellcheck="true">// 普通权限</span>
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth1'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>authInfo <span class="token operator">=</span> <span class="token boolean">false</span>
+             <span class="token comment" spellcheck="true">// 没有权限时返回</span>
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> `
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="配置路由meta属性"><a href="#配置路由meta属性" class="headerlink" title="配置路由meta属性"></a>配置路由meta属性</h2><ul>
 <li>业务场景：同一个组件在不同路由下的展示状态是不同的，这时可以配置路由meta属性来实现</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'/audit/video'</span>,</span><br><span class="line">        name: <span class="string">'视频管理'</span>,</span><br><span class="line">        component: Layout,</span><br><span class="line">        children: [</span><br><span class="line">            &#123;</span><br><span class="line">                path: <span class="string">'videoList'</span>,</span><br><span class="line">                name: <span class="string">'视频列表'</span>,</span><br><span class="line">                meta: &#123;</span><br><span class="line">                    noCache: <span class="literal">true</span>,</span><br><span class="line">                    cityChange: <span class="literal">true</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                component: auditvideoList</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path: <span class="string">'auditList'</span>,</span><br><span class="line">                name: <span class="string">'审核列表'</span>,</span><br><span class="line">                <span class="comment">// 配置 meta 属性</span></span><br><span class="line">                meta: &#123;</span><br><span class="line">                    noCache: <span class="literal">true</span>,</span><br><span class="line">                    cityDefault: <span class="literal">true</span> </span><br><span class="line">                &#125;,</span><br><span class="line">                component: auditList</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'*'</span>,</span><br><span class="line">        redirect: <span class="string">'/audit/agent'</span>,</span><br><span class="line">        hidden: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">'/audit/video'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'视频管理'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> Layout<span class="token punctuation">,</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">'videoList'</span><span class="token punctuation">,</span>
+                name<span class="token punctuation">:</span> <span class="token string">'视频列表'</span><span class="token punctuation">,</span>
+                meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    noCache<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    cityChange<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> auditvideoList
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">'auditList'</span><span class="token punctuation">,</span>
+                name<span class="token punctuation">:</span> <span class="token string">'审核列表'</span><span class="token punctuation">,</span>
+                <span class="token comment" spellcheck="true">// 配置 meta 属性</span>
+                meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    noCache<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    cityDefault<span class="token punctuation">:</span> <span class="token boolean">true</span> 
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> auditList
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span>
+        redirect<span class="token punctuation">:</span> <span class="token string">'/audit/agent'</span><span class="token punctuation">,</span>
+        hidden<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
 <ul>
 <li>比如说 header 中的一个组件，不同路由页面均展示，只是状态不同</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div v-if=&quot;!cityDefault&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;div v-else &gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;	</span><br><span class="line">	</span><br><span class="line">&lt;script&gt;</span><br><span class="line">computed: &#123;</span><br><span class="line">        cityDefault() &#123;</span><br><span class="line">            return this.$route.meta.cityDefault;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre class=" language-vue"><code class="language-vue"><template>
+    <div v-if="!cityDefault"></div>
+    <div v-else ></div>
+</template>    
+
+<script>
+computed: {
+        cityDefault() {
+            return this.$route.meta.cityDefault;
+        }
+    },
+</script>
+</code></pre>
 <h2 id="application-x-www-form-urlencoded-和-application-json"><a href="#application-x-www-form-urlencoded-和-application-json" class="headerlink" title="application/x-www-form-urlencoded 和 application/json"></a>application/x-www-form-urlencoded 和 application/json</h2><ul>
 <li>application/x-www-form-urlencoded<ul>
 <li>HTTP会将请求参数用key1=val1&amp;key2=val2的方式进行组织，并放到请求实体里面</li>
@@ -475,14 +470,51 @@
 <li>首先想到的办法是在子组件中声明一个局部变量存储 props 的值，可以改变这个局部变量</li>
 <li>但是会存在一个问题，如下：</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.localData = <span class="keyword">this</span>.propData</span><br><span class="line">&#125;,</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 如果这样赋值的话，若父组件中改变 propData 的值，子组件中不会响应式改变，解决办法是</span></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$set(<span class="keyword">this</span>, <span class="string">'localData'</span>, <span class="keyword">this</span>.propData)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 子组件</span>
+<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>localData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>propData
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">// 如果这样赋值的话，若父组件中改变 propData 的值，子组件中不会响应式改变，解决办法是</span>
+<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$<span class="token keyword">set</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">'localData'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>propData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
 <h2 id="0-function"><a href="#0-function" class="headerlink" title="(0,function)"></a>(0,function)</h2><blockquote>
 <p>逗号运算符，它将先计算左边的参数，再计算右边的参数值。然后返回最右边参数的值。 </p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">  foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">a.foo(); <span class="comment">// Returns 'false' in console</span></span><br><span class="line">(<span class="number">0</span>, a.foo)(); <span class="comment">// Returns 'true' in console</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+  foo<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">===</span> window<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+a<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Returns 'false' in console</span>
+<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Returns 'true' in console</span>
+</code></pre>
 <p>But, if you were call <code>(0, a.foo)()</code>. The expression <code>(0, a.foo)</code> will evaluate each of its operands (from left to right) and returns the value of the last operand. In other words, <code>(0, a.foo)</code> is equivalent to </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="parseInt解析字符串"><a href="#parseInt解析字符串" class="headerlink" title="parseInt解析字符串"></a>parseInt解析字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"10"</span>);			<span class="comment">//返回 10</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"19"</span>,<span class="number">10</span>);		<span class="comment">//返回 19 (10+9)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"11"</span>,<span class="number">2</span>);		<span class="comment">//返回 3 (2+1)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"17"</span>,<span class="number">8</span>);		<span class="comment">//返回 15 (8+7)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"1f"</span>,<span class="number">16</span>);		<span class="comment">//返回 31 (16+15)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"010"</span>);		<span class="comment">//未定：返回 10 或 8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//BigInt也有转换进制的功能</span></span><br><span class="line">BigInt(<span class="string">"0b"</span>+<span class="string">"10"</span>) <span class="comment">//2</span></span><br><span class="line">BigInt(<span class="string">"0o"</span>+<span class="string">"10"</span>) <span class="comment">//8</span></span><br><span class="line">BigInt(<span class="string">"0x"</span>+<span class="string">"10"</span>) <span class="comment">//16</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//那么10进制怎么转换成2进制呢</span></span><br><span class="line">NumberObject.toString(radix);</span><br><span class="line"></span><br><span class="line"><span class="comment">//parseInt还具有向下取整的功能</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">2.5</span>) <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">===</span> window<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+</code></pre>
+<h2 id="parseInt解析字符串"><a href="#parseInt解析字符串" class="headerlink" title="parseInt解析字符串"></a>parseInt解析字符串</h2><pre class=" language-js"><code class="language-js"><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//返回 10</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"19"</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//返回 19 (10+9)</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"11"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//返回 3 (2+1)</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"17"</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//返回 15 (8+7)</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"1f"</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//返回 31 (16+15)</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"010"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//未定：返回 10 或 8</span>
+
+<span class="token comment" spellcheck="true">//BigInt也有转换进制的功能</span>
+<span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token string">"0b"</span><span class="token operator">+</span><span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//2</span>
+<span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token string">"0o"</span><span class="token operator">+</span><span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//8</span>
+<span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token string">"0x"</span><span class="token operator">+</span><span class="token string">"10"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//16</span>
+
+<span class="token comment" spellcheck="true">//那么10进制怎么转换成2进制呢</span>
+NumberObject<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>radix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//parseInt还具有向下取整的功能</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token number">2.5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//2</span>
+</code></pre>
 
                 
             </div>
@@ -821,12 +853,8 @@ Array.prototype.concat.apply
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -999,7 +1027,7 @@ Array.prototype.concat.apply
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

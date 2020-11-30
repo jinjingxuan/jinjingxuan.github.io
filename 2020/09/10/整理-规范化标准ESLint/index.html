@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-09-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-11-29
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    739
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    668
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     3 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -427,36 +359,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>ESLint 安装与配置</li>
-<li>配置注释</li>
-<li>ESLint 结合自动化工具</li>
-<li>Stylelint</li>
-<li>Prettier </li>
-<li>Git Hooks</li>
-</ul>
-<a id="more"></a>
-<h2 id="ESLint-安装与配置"><a href="#ESLint-安装与配置" class="headerlink" title="ESLint 安装与配置"></a>ESLint 安装与配置</h2><p>安装：<code>npm init --yes</code>，<code>npm intall eslint --save-dev</code></p>
+                <h2 id="ESLint-安装与配置"><a href="#ESLint-安装与配置" class="headerlink" title="ESLint 安装与配置"></a>ESLint 安装与配置</h2><p>安装：<code>npm init --yes</code>，<code>npm intall eslint --save-dev</code></p>
 <p>配置：<code>eslint --init</code>，此时会有一些问题，按需回答即可，一般选用 Standard 规范，安装一些依赖之后</p>
 <p>使用<code>eslint foo.js</code>检查目标文件即可</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: <span class="literal">true</span>, <span class="comment">// 运行环境 browser/node/commonjs等，可以同时使用</span></span><br><span class="line">    es6: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [ <span class="comment">// 继承公共配置</span></span><br><span class="line">    <span class="string">'standard'</span></span><br><span class="line">  ],</span><br><span class="line">  parserOptions: &#123; <span class="comment">// 语法解析器，只是检测语法，env中的 es6 设置了 false，还是不可用</span></span><br><span class="line">    ecmaVersion: <span class="number">2015</span></span><br><span class="line">  &#125;,</span><br><span class="line">  rules: &#123; <span class="comment">// 校验规则</span></span><br><span class="line">    <span class="string">'no-alert'</span>: <span class="string">"error"</span> <span class="comment">// 有 off/warn/error 选项</span></span><br><span class="line">  &#125;,</span><br><span class="line">  globals: &#123; <span class="comment">// 声明可以使用的全局成员</span></span><br><span class="line">    <span class="string">"jQuery"</span>: <span class="string">"readonly"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// .eslintrc.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    browser<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 运行环境 browser/node/commonjs等，可以同时使用</span>
+    es6<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment" spellcheck="true">// 继承公共配置</span>
+    <span class="token string">'standard'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  parserOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 语法解析器，只是检测语法，env中的 es6 设置了 false，还是不可用</span>
+    ecmaVersion<span class="token punctuation">:</span> <span class="token number">2015</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 校验规则</span>
+    <span class="token string">'no-alert'</span><span class="token punctuation">:</span> <span class="token string">"error"</span> <span class="token comment" spellcheck="true">// 有 off/warn/error 选项</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  globals<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 声明可以使用的全局成员</span>
+    <span class="token string">"jQuery"</span><span class="token punctuation">:</span> <span class="token string">"readonly"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="配置注释"><a href="#配置注释" class="headerlink" title="配置注释"></a>配置注释</h2><blockquote>
 <p>standard 标准不支持 模板字符串语法，但是在项目中某一行我还是想用一下怎么办，可以通过配置注释</p>
 <p>禁用规则：no-template-curly-in-string</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = <span class="string">'$&#123;name&#125; is a coder'</span> <span class="comment">// eslint-disable-line no-template-curly-in-string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str1)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> str1 <span class="token operator">=</span> <span class="token string">'${name} is a coder'</span> <span class="token comment" spellcheck="true">// eslint-disable-line no-template-curly-in-string</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+</code></pre>
 <h2 id="ESLint-结合自动化工具"><a href="#ESLint-结合自动化工具" class="headerlink" title="ESLint 结合自动化工具"></a>ESLint 结合自动化工具</h2><h4 id="ESLint-结合-gulp"><a href="#ESLint-结合-gulp" class="headerlink" title="ESLint 结合 gulp"></a>ESLint 结合 gulp</h4><p>在已经配置好 gulp 的项目中安装<code>gulp-eslint</code>：<code>yarn add gulp-eslint --save-dev</code></p>
 <p>初始化<code>.eslintrc.js</code>配置文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gulpfile.js</span></span><br><span class="line"><span class="keyword">const</span> script = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> src(<span class="string">'src/assets/scripts/*.js'</span>, &#123; <span class="attr">base</span>: <span class="string">'src'</span> &#125;)</span><br><span class="line">    .pipe(plugins.eslint()) <span class="comment">// 如果只加入这一行只会检查错误，而不会抛出错误</span></span><br><span class="line">    .pipe(plugins.eslint.format())</span><br><span class="line">    .pipe(plugins.eslint.failAfterError())</span><br><span class="line">    .pipe(plugins.babel(&#123; <span class="attr">presets</span>: [<span class="string">'@babel/preset-env'</span>] &#125;))</span><br><span class="line">    .pipe(dest(<span class="string">'temp'</span>))</span><br><span class="line">    .pipe(bs.reload(&#123; <span class="attr">stream</span>: <span class="literal">true</span> &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// gulpfile.js</span>
+<span class="token keyword">const</span> script <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/assets/scripts/*.js'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> base<span class="token punctuation">:</span> <span class="token string">'src'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token function">eslint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 如果只加入这一行只会检查错误，而不会抛出错误</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span>eslint<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span>eslint<span class="token punctuation">.</span><span class="token function">failAfterError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>plugins<span class="token punctuation">.</span><span class="token function">babel</span><span class="token punctuation">(</span><span class="token punctuation">{</span> presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'temp'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>bs<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">{</span> stream<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h4 id="ESLint-结合-webpack"><a href="#ESLint-结合-webpack" class="headerlink" title="ESLint 结合 webpack"></a>ESLint 结合 webpack</h4><p>安装<code>eslint-loader</code>，初始化<code>.eslintrc.js</code>配置文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>, </span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>, </span><br><span class="line">        use: <span class="string">'babel-loader'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>, </span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>, </span><br><span class="line">        use: <span class="string">'eslint-loader'</span>,</span><br><span class="line">        enfore: <span class="string">'pre'</span> <span class="comment">// 优先级最高</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>, </span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'style-loader'</span>,</span><br><span class="line">          <span class="string">'css-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: <span class="string">'src/index.html'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// webpack.config.js</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span> 
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span> 
+        use<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span> 
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span> 
+        use<span class="token punctuation">:</span> <span class="token string">'eslint-loader'</span><span class="token punctuation">,</span>
+        enfore<span class="token punctuation">:</span> <span class="token string">'pre'</span> <span class="token comment" spellcheck="true">// 优先级最高</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span> 
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+          <span class="token string">'css-loader'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      template<span class="token punctuation">:</span> <span class="token string">'src/index.html'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <blockquote>
 <p>vue-cli 在安装过程中有选项会自动集成 eslint 配置</p>
 </blockquote>
 <h3 id="eslint-检查-TypeScript"><a href="#eslint-检查-TypeScript" class="headerlink" title="eslint 检查 TypeScript"></a>eslint 检查 TypeScript</h3><ul>
 <li>eslint 初始化时选择 TypeScript</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: <span class="literal">true</span>,</span><br><span class="line">    es2020: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [</span><br><span class="line">    <span class="string">'standard'</span></span><br><span class="line">  ],</span><br><span class="line">  parser: <span class="string">'@typescript-eslint/parser'</span>,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    ecmaVersion: <span class="number">11</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="string">'@typescript-eslint'</span></span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// .eslintrc.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    browser<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    es2020<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'standard'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  parser<span class="token punctuation">:</span> <span class="token string">'@typescript-eslint/parser'</span><span class="token punctuation">,</span>
+  parserOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    ecmaVersion<span class="token punctuation">:</span> <span class="token number">11</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'@typescript-eslint'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="Stylelint"><a href="#Stylelint" class="headerlink" title="Stylelint"></a>Stylelint</h2><ul>
 <li>提供默认的代码检查规则</li>
 <li>提供CLI工具，快速调用</li>
@@ -466,7 +475,11 @@
 <p>安装 stylelint ：<code>yarn add stylelint -D</code></p>
 <p>安装配置模块：<code>stylelint-config-standard</code></p>
 <p>sass配置模块：<code>stylelint-config-sass-guidelines</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .stylelintrc.js</span></span><br><span class="line">modules.exports = &#123;</span><br><span class="line">    extends: [<span class="string">"stylelint-config-standard"</span>, <span class="string">"stylelint-config-sass-guidelines"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// .stylelintrc.js</span>
+modules<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"stylelint-config-standard"</span><span class="token punctuation">,</span> <span class="token string">"stylelint-config-sass-guidelines"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>执行检查：<code>stylelint ./index.sass</code></p>
 <h2 id="Prettier"><a href="#Prettier" class="headerlink" title="Prettier"></a>Prettier</h2><p>安装：<code>yarn add prettier -D</code></p>
 <p>运行：<code>prettier style.css --write</code>可以自动将格式化后的文件覆盖源文件</p>
@@ -477,7 +490,16 @@
 <p><code>.git/hooks/pre-commit.sample</code>为<code>commit</code>之前的钩子函数，可以新建一个<code>pre-commit</code>文件写一些操作</p>
 <p><code>Husky</code>可以实现<code>Git Hooks</code>的使用需求</p>
 <p> 安装：<code>yarn add Husky -D</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 在package.json中配置</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"husky"</span>: &#123;</span><br><span class="line">        <span class="attr">"hooks"</span>: &#123;</span><br><span class="line">            <span class="attr">"pre-commit"</span>: <span class="string">"eslint ./index.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-json"><code class="language-json">// 在package.json中配置
+
+<span class="token punctuation">{</span>
+    <span class="token property">"husky"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"hooks"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"pre-commit"</span><span class="token operator">:</span> <span class="token string">"eslint ./index.js"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>   
+<span class="token punctuation">}</span>
+</code></pre>
 <p>此外还有<code>lint-staged</code>模块等</p>
 
                 
@@ -771,12 +793,6 @@ history模式
                     <div class="summary block-with-text">
                         
                             
-Rollup快速上手
-Rollup配置文件 
-Rollup使用插件
-代码拆分多入口打包
-优缺点
-
                         
                     </div>
                     <div class="publish-info">
@@ -816,12 +832,8 @@ Rollup使用插件
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -994,7 +1006,7 @@ Rollup使用插件
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

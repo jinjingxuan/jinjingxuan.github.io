@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-11-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    768
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -438,17 +370,124 @@
 <li>v-model</li>
 </ul>
 <a id="more"></a>
-<h2 id="root"><a href="#root" class="headerlink" title="$root"></a>$root</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">      小型应用中可以在 vue 根实例里存储共享数据</span><br><span class="line">      组件中可以通过 $root 访问根实例</span><br><span class="line">    --&gt;</span><br><span class="line">    $root.title：&#123;&#123; $root.title &#125;&#125;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;button @click=&quot;$root.title = &apos;Hello $root&apos;&quot;&gt;改变 title&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="root"><a href="#root" class="headerlink" title="$root"></a>$root</h2><pre class=" language-vue"><code class="language-vue"><template>
+  <div>
+    <!--
+      小型应用中可以在 vue 根实例里存储共享数据
+      组件中可以通过 $root 访问根实例
+    -->
+    $root.title：{{ $root.title }}
+    <br>
+    <button @click="$root.title = 'Hello $root'">改变 title</button>
+  </div>
+</template>
+</code></pre>
 <h2 id="parent-children"><a href="#parent-children" class="headerlink" title="$parent/$children"></a>$parent/$children</h2><p>指定已创建的实例之父实例，在两者之间建立父子关系。子实例可以用 <code>this.$parent</code> 访问父实例，子实例被推入父实例的 <code>$children</code> 数组中。</p>
 <p>节制地使用 <code>$parent</code> 和 <code>$children</code> - 它们的主要目的是作为访问组件的应急方法。更推荐用 props 和 events 实现父子组件通信</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- parent.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">    parent</span><br><span class="line">    &lt;child&gt;&lt;/child&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &apos;获取父组件实例&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handle () &#123;</span><br><span class="line">      console.log(this.title)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- children.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;child&quot;&gt;</span><br><span class="line">    child&lt;br&gt;</span><br><span class="line">    $parent.title：&#123;&#123; $parent.title &#125;&#125;&lt;br&gt;</span><br><span class="line">    &lt;button @click=&quot;$parent.handle&quot;&gt;获取 $parent.title&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;$parent.title = &apos;Hello $parent.title&apos;&quot;&gt;改变 $parent.title&lt;/button&gt;</span><br><span class="line">  </span><br><span class="line">    &lt;grandson&gt;&lt;/grandson&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="refs"><a href="#refs" class="headerlink" title="$refs"></a>$refs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- parent.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;myinput ref=&quot;mytxt&quot;&gt;&lt;/myinput&gt;</span><br><span class="line">    &lt;button @click=&quot;focus&quot;&gt;获取焦点&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    myinput</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    focus () &#123;</span><br><span class="line">      this.$refs.mytxt.focus() // 调用的是子组件的 focus 方法</span><br><span class="line">      this.$refs.mytxt.value = &apos;hello&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- myinput.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input v-model=&quot;value&quot; type=&quot;text&quot; ref=&quot;txt&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      value: &apos;default&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    focus () &#123;</span><br><span class="line">      this.$refs.txt.focus() // this.$refs.txt 获取 DOM 对象，focus 方法获取焦点</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre class=" language-vue"><code class="language-vue"><!-- parent.vue -->
+<template>
+  <div class="parent">
+    parent
+    <child></child>
+  </div>
+</template>
+
+<script>
+export default {
+  components: {
+    child
+  },
+  data () {
+    return {
+      title: '获取父组件实例'
+    }
+  },
+  methods: {
+    handle () {
+      console.log(this.title)
+    }
+  }
+}
+</script>
+
+<!-- children.vue -->
+<template>
+  <div class="child">
+    child<br>
+    $parent.title：{{ $parent.title }}<br>
+    <button @click="$parent.handle">获取 $parent.title</button>
+    <button @click="$parent.title = 'Hello $parent.title'">改变 $parent.title</button>
+
+    <grandson></grandson>
+  </div>
+</template>
+</code></pre>
+<h2 id="refs"><a href="#refs" class="headerlink" title="$refs"></a>$refs</h2><pre class=" language-vue"><code class="language-vue"><!-- parent.vue -->
+<template>
+  <div>
+    <myinput ref="mytxt"></myinput>
+    <button @click="focus">获取焦点</button>
+  </div>
+</template>
+
+<script>
+export default {
+  components: {
+    myinput
+  },
+  methods: {
+    focus () {
+      this.$refs.mytxt.focus() // 调用的是子组件的 focus 方法
+      this.$refs.mytxt.value = 'hello'
+    }
+  }
+}
+</script>
+
+<!-- myinput.vue -->
+<template>
+  <div>
+    <input v-model="value" type="text" ref="txt">
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      value: 'default'
+    }
+  },
+  methods: {
+    focus () {
+      this.$refs.txt.focus() // this.$refs.txt 获取 DOM 对象，focus 方法获取焦点
+    }
+  }
+}
+</script>
+</code></pre>
 <h2 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide/inject"></a>provide/inject</h2><blockquote>
 <p><code>provide</code> 和 <code>inject</code> 主要在开发高阶插件/组件库时使用。并不推荐用于普通应用程序代码中。</p>
 </blockquote>
 <p>这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在其上下游关系成立的时间里始终生效。如果你熟悉 React，这与 React 的上下文特性很相似。</p>
 <p><strong>提示：<code>provide</code> 和 <code>inject</code> 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的 property 还是可响应的。并且在子组件中不可修改</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父级组件提供 'foo'</span></span><br><span class="line"><span class="keyword">var</span> Provider = &#123;</span><br><span class="line">  provide: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子组件注入 'foo'</span></span><br><span class="line"><span class="keyword">var</span> Child = &#123;</span><br><span class="line">  inject: [<span class="string">'foo'</span>],</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.foo) <span class="comment">// =&gt; "bar"</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 父级组件提供 'foo'</span>
+<span class="token keyword">var</span> Provider <span class="token operator">=</span> <span class="token punctuation">{</span>
+  provide<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token string">'bar'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 子组件注入 'foo'</span>
+<span class="token keyword">var</span> Child <span class="token operator">=</span> <span class="token punctuation">{</span>
+  inject<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  created <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>foo<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// => "bar"</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="attrs-listeners"><a href="#attrs-listeners" class="headerlink" title="$attrs / $listeners"></a>$attrs / $listeners</h2><ul>
 <li>$attrs ：把父组件中非 prop 属性绑定到内部组件</li>
 <li><p>$listeners：把父组件中的 DOM 对象的原生事件绑定到内部组件</p>
@@ -456,16 +495,151 @@
 <li><p>可查看文章<a href="https://www.cnblogs.com/chanwahfung/p/11520909.html" target="_blank" rel="noopener">Vue - 组件通信之$attrs、$listeners</a></p>
 </li>
 </ul>
-<h2 id="props-emit"><a href="#props-emit" class="headerlink" title="props / $emit"></a>props / $emit</h2><h4 id="父组件传子组件：通过props"><a href="#父组件传子组件：通过props" class="headerlink" title="父组件传子组件：通过props"></a>父组件传子组件：通过props</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;我是父组件,我的值是&#123;&#123; msg &#125;&#125;</span><br><span class="line">        &lt;child :logo=&quot;msg&quot;&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./child&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;123&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--子组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;div&gt;我是子组件,这是父组件的值：&#123;&#123; logo &#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;child&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: [&apos;logo&apos;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">	我是父组件,我的值是123</span><br><span class="line">	我是子组件,这是父组件的值：123</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="props-emit"><a href="#props-emit" class="headerlink" title="props / $emit"></a>props / $emit</h2><h4 id="父组件传子组件：通过props"><a href="#父组件传子组件：通过props" class="headerlink" title="父组件传子组件：通过props"></a>父组件传子组件：通过props</h4><pre class=" language-vue"><code class="language-vue"><!--父组件-->
+<template>
+    <div>我是父组件,我的值是{{ msg }}
+        <child :logo="msg"></child>
+    </div>
+</template>
+
+<script>
+import child from './child'
+export default {
+  data () {
+    return {
+      msg: '123'
+    }
+  },
+  components: {
+    child
+  }
+}
+</script>
+
+
+<!--子组件-->
+<template>
+    <div>
+      <div>我是子组件,这是父组件的值：{{ logo }}</div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'child',
+  data () {
+    return {
+    }
+  },
+  props: ['logo']
+}
+</script>
+
+<!--
+    我是父组件,我的值是123
+    我是子组件,这是父组件的值：123
+-->
+</code></pre>
 <h4 id="子组件传父组件：-emit"><a href="#子组件传父组件：-emit" class="headerlink" title="子组件传父组件：$emit"></a>子组件传父组件：$emit</h4><ul>
 <li>输入框的onchange事件，要在 input 失去焦点的时候才会触发；</li>
 <li>oninput 事件在用户输入时触发，它是在元素值发生变化时立即触发；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;child @transfer=&quot;get&quot;&gt;&lt;/child&gt;</span><br><span class="line">        &lt;div&gt;我是父组件：这是子组件传来的值：&#123;&#123; msg &#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./child&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    get (msg) &#123;</span><br><span class="line">      this.msg = msg</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--子组件--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; @input=&quot;set&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;child&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    set: function () &#123;</span><br><span class="line">      this.$emit(&apos;transfer&apos;, this.msg)</span><br><span class="line">      console.log(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">    23131 //输入框</span><br><span class="line">    我是父组件：这是子组件传来的值：23131</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<pre class=" language-vue"><code class="language-vue"><!--父组件-->
+<template>
+    <div>
+        <child @transfer="get"></child>
+        <div>我是父组件：这是子组件传来的值：{{ msg }}</div>
+    </div>
+
+</template>
+
+<script>
+import child from './child'
+export default {
+  data () {
+    return {
+      msg: ''
+    }
+  },
+  components: {
+    child
+  },
+  methods: {
+    get (msg) {
+      this.msg = msg
+    }
+  }
+}
+</script>
+
+<!--子组件-->
+<template>
+    <div>
+        <input type="text" v-model="msg" @input="set">
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'child',
+  data () {
+    return {
+      msg: ''
+    }
+  },
+  methods: {
+    set: function () {
+      this.$emit('transfer', this.msg)
+      console.log(1)
+    }
+  }
+}
+</script>
+
+<!--
+    23131 //输入框
+    我是父组件：这是子组件传来的值：23131
+-->
+</code></pre>
 <h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p><a href="https://www.jinjingxuan.com/2020/10/22/%E6%95%B4%E7%90%86-Vuex/#more" target="_blank" rel="noopener">vuex</a></p>
 <h2 id="event-bus"><a href="#event-bus" class="headerlink" title="event bus"></a>event bus</h2><p>一个完整的eventBus主要分为三个部分：<strong>eventBus组件、注册事件（$on）、发送事件（$emit）</strong></p>
 <h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>父组件通过v-model传递值给子组件时，会自动传递一个value的prop属性，在子组件中通过this.$emit(‘input’,val)自动修改v-model绑定的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;child&apos;,&#123;</span><br><span class="line">    props:&#123;</span><br><span class="line">      value:String, //v-model会自动传递一个字段为value的prop属性</span><br><span class="line">    &#125;,</span><br><span class="line">    data()&#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        mymessage:this.value</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      changeValue()&#123;</span><br><span class="line">        this.$emit(&apos;input&apos;,this.mymessage);//通过如此调用可以改变父组件上v-model绑定的值</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template:`</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; v-model=&quot;mymessage&quot; @change=&quot;changeValue&quot;&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  Vue.component(&apos;parent&apos;,&#123;</span><br><span class="line">    template:`</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;this is parent compoent!&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;child v-model=&quot;message&quot;&gt;&lt;/child&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">    data()&#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        message:&apos;hello&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<pre class=" language-vue"><code class="language-vue">Vue.component('child',{
+    props:{
+      value:String, //v-model会自动传递一个字段为value的prop属性
+    },
+    data(){
+      return {
+        mymessage:this.value
+      }
+    },
+    methods:{
+      changeValue(){
+        this.$emit('input',this.mymessage);//通过如此调用可以改变父组件上v-model绑定的值
+      }
+    },
+    template:`
+      <div>
+        <input type="text" v-model="mymessage" @change="changeValue">
+      </div>
+  })
+
+
+  Vue.component('parent',{
+    template:`
+      <div>
+        <p>this is parent compoent!</p>
+        <p>{{message}}</p>
+        <child v-model="message"></child>
+      </div>
+    `,
+    data(){
+      return {
+        message:'hello'
+      }
+    }
+  })
+</code></pre>
 
                 
             </div>
@@ -714,13 +888,6 @@
                     <div class="summary block-with-text">
                         
                             
-发布订阅模式
-观察者模式
-Vue 实例初始化过程
-组件渲染过程
-响应式过程总结
-Vue 3.0 Proxy
-
                         
                     </div>
                     <div class="publish-info">
@@ -806,12 +973,8 @@ Vue 3.0 Proxy
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -984,7 +1147,7 @@ Vue 3.0 Proxy
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

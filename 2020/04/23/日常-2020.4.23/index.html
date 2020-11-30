@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-04-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-08-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
                     1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     4 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -448,7 +380,12 @@
 <p>虚拟DOM就是为了<strong>解决浏览器性能问题</strong>而被设计出来的。<strong>如前</strong>，若一次操作中有10次更新DOM的动作，虚拟DOM不会立即操作DOM，而是将这10次更新的diff内容保存到本地一个JS对象中，最终将这个JS对象一次性attch到DOM树上，再进行后续操作，避免大量无谓的计算量。</p>
 </blockquote>
 <p>也就是说，可以把虚拟DOM理解为一个简单的JS对象，并且最少包含标签名( tag)、属性(attrs)和子元素对象( children)三个属性,就比如像下面这样。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vnode = &#123;</span><br><span class="line">  tag:<span class="string">'div'</span>,</span><br><span class="line">  attrs:&#123;<span class="attr">id</span>:<span class="string">'app'</span>&#125;,</span><br><span class="line">  children:[&#123; <span class="attr">tag</span>:<span class="string">'span'</span>,<span class="attr">attrs</span>:&#123;<span class="attr">id</span>:<span class="string">'child'</span>&#125;,<span class="attr">children</span>:[<span class="string">'1'</span>]&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> vnode <span class="token operator">=</span> <span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span><span class="token string">'div'</span><span class="token punctuation">,</span>
+  attrs<span class="token punctuation">:</span><span class="token punctuation">{</span>id<span class="token punctuation">:</span><span class="token string">'app'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  children<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span> tag<span class="token punctuation">:</span><span class="token string">'span'</span><span class="token punctuation">,</span>attrs<span class="token punctuation">:</span><span class="token punctuation">{</span>id<span class="token punctuation">:</span><span class="token string">'child'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>children<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="Vue的渲染流程"><a href="#Vue的渲染流程" class="headerlink" title="Vue的渲染流程"></a>Vue的渲染流程</h3><p><img src="https://image.fundebug.com/2019-06-26-01.png" alt="1"></p>
 <ul>
 <li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制。</li>
@@ -467,7 +404,23 @@
 <li>先判断一方有子节点，另一方没有的情况，直接更新</li>
 <li>若都有子节点，递归比较</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diff</span>(<span class="params">vnode, newVnode</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> children = vnode.children || []</span><br><span class="line">    <span class="keyword">var</span> newChildren = newVnode.children || []</span><br><span class="line">  <span class="comment">// 遍历现有的children</span></span><br><span class="line">    children.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">childVnode, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> newChildVnode = newChildren[index]</span><br><span class="line">  <span class="comment">// 两者tag一样</span></span><br><span class="line">        <span class="keyword">if</span> (childVnode.tag === newChildVnode.tag) &#123;</span><br><span class="line">            <span class="comment">// 深层次对比，递归</span></span><br><span class="line">            diff(childVnode, newChildVnode)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">  <span class="comment">// 两者tag不一样</span></span><br><span class="line">           replaceNode(childVnode, newChildVnode) </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">diff</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> newVnode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> children <span class="token operator">=</span> vnode<span class="token punctuation">.</span>children <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">var</span> newChildren <span class="token operator">=</span> newVnode<span class="token punctuation">.</span>children <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">// 遍历现有的children</span>
+    children<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>childVnode<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> newChildVnode <span class="token operator">=</span> newChildren<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">// 两者tag一样</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>childVnode<span class="token punctuation">.</span>tag <span class="token operator">===</span> newChildVnode<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 深层次对比，递归</span>
+            <span class="token function">diff</span><span class="token punctuation">(</span>childVnode<span class="token punctuation">,</span> newChildVnode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+  <span class="token comment" spellcheck="true">// 两者tag不一样</span>
+           <span class="token function">replaceNode</span><span class="token punctuation">(</span>childVnode<span class="token punctuation">,</span> newChildVnode<span class="token punctuation">)</span> 
+       <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">}</span>
+</code></pre>
 <p>然后我去看了一下源码中的diff算法，在<code>src/vdom/patch.js</code>中，说实话emmm，没看懂，等以后学到位了再详细看把，先在这记录一下。</p>
 <h2 id="小程序的页面栈"><a href="#小程序的页面栈" class="headerlink" title="小程序的页面栈"></a>小程序的页面栈</h2><table>
 <thead>
@@ -511,9 +464,53 @@
 <li><p>调用页面路由带的参数可以在目标页面的<code>onLoad</code>中获取。</p>
 <h2 id="小程序的生命周期"><a href="#小程序的生命周期" class="headerlink" title="小程序的生命周期"></a>小程序的生命周期</h2></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">onLaunch() &#123;</span><br><span class="line">  console.log(&apos;onLaunch监听小程序初始化&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onShow() &#123;</span><br><span class="line">  console.log(&apos;onShow监听小程序显示&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onHide() &#123;</span><br><span class="line">  console.log(&apos;onLaunch监听小程序隐藏&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onLoad监听页面加载'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onReady() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onReady监听页面初次渲染完成'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onShow() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onShow监听页面显示'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onHide() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onHide监听页面隐藏'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> onUnload() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'onUnload监听页面卸载'</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="一次踩坑经历（异步执行顺序）"><a href="#一次踩坑经历（异步执行顺序）" class="headerlink" title="一次踩坑经历（异步执行顺序）"></a>一次踩坑经历（异步执行顺序）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">getDataFromDb()&#123;<span class="comment">//从数据库中获取</span></span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        setData()<span class="comment">//获取的值设置到页面中</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()&#123;</span><br><span class="line">    getDataFromDb()</span><br><span class="line">    getData()<span class="comment">//从页面中取值，发现取不到</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2,1</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js]"><code class="language-js]">onLaunch() {
+  console.log('onLaunch监听小程序初始化');
+}
+
+onShow() {
+  console.log('onShow监听小程序显示');
+}
+
+onHide() {
+  console.log('onLaunch监听小程序隐藏');
+}
+</code></pre>
+<h2 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h2><pre class=" language-js"><code class="language-js"> <span class="token function">onLoad</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onLoad监听页面加载'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onReady监听页面初次渲染完成'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">onShow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onShow监听页面显示'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">onHide</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onHide监听页面隐藏'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">onUnload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'onUnload监听页面卸载'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="一次踩坑经历（异步执行顺序）"><a href="#一次踩坑经历（异步执行顺序）" class="headerlink" title="一次踩坑经历（异步执行顺序）"></a>一次踩坑经历（异步执行顺序）</h2><pre class=" language-js"><code class="language-js"><span class="token function">getDataFromDb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//从数据库中获取</span>
+    success<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//获取的值设置到页面中</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">getDataFromDb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//从页面中取值，发现取不到</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//2,1</span>
+</code></pre>
 
                 
             </div>
@@ -854,12 +851,8 @@ vue的生命周期与钩子函数
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1032,7 +1025,7 @@ vue的生命周期与钩子函数
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

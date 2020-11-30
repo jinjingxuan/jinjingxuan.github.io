@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2018-10-31
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     4 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -429,23 +361,116 @@
             <div id="articleContent">
                 <h1 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h1><ol>
 <li><p>普通函数指向函数的调用者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有个简便的方法就是看函数前面有没有点,如果有点,那么就指向点前面的那个值;</span><br><span class="line">也就是说this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>有个简便的方法就是看函数前面有没有点,如果有点,那么就指向点前面的那个值;
+也就是说this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象 
+</code></pre></li>
 <li><p>箭头函数指向函数所在的所用域:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意理解作用域,只有函数的&#123;&#125;构成作用域,对象的&#123;&#125;以及 if()&#123;&#125;都不构成作用域;</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>注意理解作用域,只有函数的{}构成作用域,对象的{}以及 if(){}都不构成作用域;
+</code></pre></li>
 </ol>
 <a id="more"></a>
-<h2 id="1-普通函数与箭头函数this指向的区别"><a href="#1-普通函数与箭头函数this指向的区别" class="headerlink" title="1.普通函数与箭头函数this指向的区别"></a>1.普通函数与箭头函数this指向的区别</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'objName'</span>,</span><br><span class="line">    say() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    read: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say(); <span class="comment">// objName,函数被obj对象调用，所以this指向obj</span></span><br><span class="line">obj.read(); <span class="comment">// undefined，此时函数的作用域为全局环境，window.name未定义</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-普通函数与作为对象方法函数this指向的区别"><a href="#2-普通函数与作为对象方法函数this指向的区别" class="headerlink" title="2.普通函数与作为对象方法函数this指向的区别"></a>2.普通函数与作为对象方法函数this指向的区别</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.val = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    val: <span class="number">2</span>,</span><br><span class="line">    dbl: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.val *= <span class="number">2</span>;</span><br><span class="line">        val *= <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(val);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//作为对象方法</span></span><br><span class="line">obj.dbl(); <span class="comment">// 2 4,this指的是obj，所以this.val值为4，val相当于window.val值为2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//普通函数</span></span><br><span class="line"><span class="keyword">var</span> func = obj.dbl;</span><br><span class="line">func(); <span class="comment">// 8 8，func()没有任何前缀，this指的是window.func();所以此时this值得是window，值均为8</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-普通函数与箭头函数this指向的区别"><a href="#1-普通函数与箭头函数this指向的区别" class="headerlink" title="1.普通函数与箭头函数this指向的区别"></a>1.普通函数与箭头函数this指向的区别</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'objName'</span><span class="token punctuation">,</span>
+    <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    read<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// objName,函数被obj对象调用，所以this指向obj</span>
+obj<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined，此时函数的作用域为全局环境，window.name未定义</span>
+</code></pre>
+<h2 id="2-普通函数与作为对象方法函数this指向的区别"><a href="#2-普通函数与作为对象方法函数this指向的区别" class="headerlink" title="2.普通函数与作为对象方法函数this指向的区别"></a>2.普通函数与作为对象方法函数this指向的区别</h2><pre class=" language-js"><code class="language-js">window<span class="token punctuation">.</span>val <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    val<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    dbl<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        val <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//作为对象方法</span>
+obj<span class="token punctuation">.</span><span class="token function">dbl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2 4,this指的是obj，所以this.val值为4，val相当于window.val值为2</span>
+
+<span class="token comment" spellcheck="true">//普通函数</span>
+<span class="token keyword">var</span> func <span class="token operator">=</span> obj<span class="token punctuation">.</span>dbl<span class="token punctuation">;</span>
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 8 8，func()没有任何前缀，this指的是window.func();所以此时this值得是window，值均为8</span>
+</code></pre>
 <h2 id="3-如何解决函数体内的函数绑定到全局对象的问题"><a href="#3-如何解决函数体内的函数绑定到全局对象的问题" class="headerlink" title="3.如何解决函数体内的函数绑定到全局对象的问题"></a>3.如何解决函数体内的函数绑定到全局对象的问题</h2><p>我们希望在 moveTo 方法内定义两个函数，分别将 x，y 坐标进行平移。结果可能出乎大家意料，不仅 point 对象没有移动，反而多出两个全局变量 x，y。 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> point = &#123; </span><br><span class="line">	x : <span class="number">0</span>, </span><br><span class="line">	y : <span class="number">0</span>, </span><br><span class="line">	moveTo : <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; </span><br><span class="line"></span><br><span class="line">	    <span class="keyword">var</span> moveX = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">	    	<span class="keyword">this</span>.x = x;</span><br><span class="line">	    &#125;; </span><br><span class="line"></span><br><span class="line">	    <span class="keyword">var</span> moveY = <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123; </span><br><span class="line">	   		<span class="keyword">this</span>.y = y;</span><br><span class="line">	    &#125;; </span><br><span class="line">	 </span><br><span class="line">              <span class="comment">//moveX(x)函数前面没有对象，默认为window.moveX(x),所以this指向window</span></span><br><span class="line">	   moveX(x); </span><br><span class="line">	   moveY(y); </span><br><span class="line">	&#125; </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line">point.moveTo(<span class="number">1</span>, <span class="number">1</span>); </span><br><span class="line"><span class="built_in">console</span>.log(point.x); <span class="comment">//==&gt;0 </span></span><br><span class="line"><span class="built_in">console</span>.log(point.y); <span class="comment">//==&gt;0 </span></span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">//==&gt;1 </span></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">//==&gt;1</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">        <span class="token keyword">var</span> point <span class="token operator">=</span> <span class="token punctuation">{</span> 
+            x <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+            y <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+            moveTo <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+
+                <span class="token keyword">var</span> moveX <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+
+                <span class="token keyword">var</span> moveY <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                       <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+
+                <span class="token comment" spellcheck="true">//moveX(x)函数前面没有对象，默认为window.moveX(x),所以this指向window</span>
+               <span class="token function">moveX</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+               <span class="token function">moveY</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> 
+        <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+
+        point<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>point<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>0 </span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>point<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>0 </span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>1 </span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>1</span>
+</code></pre>
 <p>这属于 JavaScript 的设计缺陷，正确的设计方式是内部函数的 this 应该绑定到其外层函数对应的对象上，为了规避这一设计缺陷，聪明的 JavaScript 程序员想出了变量替代的方法，约定俗成，该变量一般被命名为 that。 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> point = &#123; </span><br><span class="line">    x : <span class="number">0</span>, </span><br><span class="line">    y : <span class="number">0</span>, </span><br><span class="line">    moveTo : <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; </span><br><span class="line">        <span class="comment">//调用move函数To的对象为point,所以这里的that和this指向point</span></span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> moveX = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">            that.x = x; </span><br><span class="line">        &#125;; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> moveY = <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123; </span><br><span class="line">            that.y = y; </span><br><span class="line">        &#125; </span><br><span class="line">        moveX(x); </span><br><span class="line">        moveY(y); </span><br><span class="line">   &#125; </span><br><span class="line">&#125;; </span><br><span class="line">point.moveTo(<span class="number">1</span>, <span class="number">1</span>); </span><br><span class="line">point.x; <span class="comment">//==&gt;1 </span></span><br><span class="line">point.y; <span class="comment">//==&gt;1</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">        <span class="token keyword">var</span> point <span class="token operator">=</span> <span class="token punctuation">{</span> 
+            x <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+            y <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+            moveTo <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                <span class="token comment" spellcheck="true">//调用move函数To的对象为point,所以这里的that和this指向point</span>
+                <span class="token keyword">var</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span> 
+
+                <span class="token keyword">var</span> moveX <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                    that<span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span> 
+                <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+
+                <span class="token keyword">var</span> moveY <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                    that<span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span> 
+                <span class="token punctuation">}</span> 
+                <span class="token function">moveX</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                <span class="token function">moveY</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+           <span class="token punctuation">}</span> 
+        <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+        point<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        point<span class="token punctuation">.</span>x<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>1 </span>
+        point<span class="token punctuation">.</span>y<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//==>1</span>
+</code></pre>
 <h2 id="4-构造函数中this的指向"><a href="#4-构造函数中this的指向" class="headerlink" title="4. 构造函数中this的指向"></a>4. 构造函数中this的指向</h2><p>JavaScript 支持面向对象式编程，与主流的面向对象式编程语言不同，JavaScript 并没有类（class）的概念，而是使用基于原型（prototype）的继承方式。相应的，JavaScript 中的构造函数也很特殊，如果不使用 new 调用，则和普通函数一样。作为又一项约定俗成的准则，构造函数以大写字母开头，提醒调用者使用正确的方式调用。如果调用正确，this 绑定到新创建的对象上。 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>)</span>&#123; </span><br><span class="line">	<span class="keyword">this</span>.x = x; </span><br><span class="line">	<span class="keyword">this</span>.y = y; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p.x);<span class="comment">//==&gt;1,this指向对象p</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Point</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span> 
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//==>1,this指向对象p</span>
+</code></pre>
 <h2 id="5-apply或call调用"><a href="#5-apply或call调用" class="headerlink" title="5. apply或call调用"></a>5. apply或call调用</h2><p>在 JavaScript 中函数也是对象，对象则有方法，apply 和 call 就是函数对象的方法。这两个方法异常强大，他们允许切换函数执行的上下文环境（context），即 this 绑定的对象。很多 JavaScript 中的技巧以及类库都用到了该方法。 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>)</span>&#123; </span><br><span class="line">   <span class="keyword">this</span>.x = x; </span><br><span class="line">   <span class="keyword">this</span>.y = y; </span><br><span class="line">   <span class="keyword">this</span>.moveTo = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123; </span><br><span class="line">       <span class="keyword">this</span>.x = x; </span><br><span class="line">       <span class="keyword">this</span>.y = y; </span><br><span class="line">   &#125; </span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>); </span><br><span class="line"><span class="keyword">var</span> p2 = &#123;<span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span>&#125;; </span><br><span class="line">p1.moveTo(<span class="number">1</span>, <span class="number">1</span>); </span><br><span class="line">p1.moveTo.apply(p2, [<span class="number">10</span>, <span class="number">10</span>]);</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Point</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span> 
+   <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span> 
+   <span class="token keyword">this</span><span class="token punctuation">.</span>moveTo <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+       <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span> 
+       <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">var</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> p2 <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+p1<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+p1<span class="token punctuation">.</span>moveTo<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>p2<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>在上面的例子中，我们使用构造函数生成了一个对象 p1，该对象同时具有 moveTo 方法；使用对象字面量创建了另一个对象 p2，我们看到使用 apply 可以将 p1 的方法应用到 p2 上，这时候 this 也被绑定到对象 p2 上。另一个方法 call 也具备同样功能，不同的是最后的参数不是作为一个数组统一传入，而是分开传入的。 </p>
 <p>部分转载自<a href="https://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html，" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html，</a></p>
 <p><a href="https://juejin.im/post/5a0d9ff4f265da432e5b91da" target="_blank" rel="noopener">https://juejin.im/post/5a0d9ff4f265da432e5b91da</a></p>
@@ -784,12 +809,8 @@
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -962,7 +983,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

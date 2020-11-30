@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-03-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-08-14
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.7k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    13 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -427,22 +359,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-回顾"><a href="#一-回顾" class="headerlink" title="一.回顾"></a>一.回顾</h2><p>昨天我们从cooike记住用户名密码为起点，谈到了以下：</p>
-<ul>
-<li>Cooike,sessionStorge,localStorge的区别</li>
-<li>Cooike始终在同源的HTTP请求中携带，什么为同源HTTP</li>
-<li>同源是指协议，域名，端口号相同，又可继续延伸</li>
-<li>协议：HTTP协议和HTTPS协议，SSL，非对称加密算法（RSA）</li>
-<li>OSI中的7层协议，TCP/IP的4层协议，以及我们常学的5层协议</li>
-</ul>
-<a id="more"></a>
-<h2 id="二-今日列表"><a href="#二-今日列表" class="headerlink" title="二.今日列表"></a>二.今日列表</h2><ul>
+                <ul>
 <li>关于HTTP，几次握手，返回码</li>
 <li>前端安全问题，几种攻击</li>
 <li>域名，经典问题：浏览器输入网址到页面展示发生了什么</li>
 <li>端口标志了一个进程，浏览器的多进程架构</li>
 </ul>
-<h2 id="三-让我们开始愉快地学习吧"><a href="#三-让我们开始愉快地学习吧" class="headerlink" title="三.让我们开始愉快地学习吧"></a>三.让我们开始愉快地学习吧</h2><h3 id="1-关于HTTP协议"><a href="#1-关于HTTP协议" class="headerlink" title="1.关于HTTP协议"></a>1.关于HTTP协议</h3><ul>
+<h3 id="1-关于HTTP协议"><a href="#1-关于HTTP协议" class="headerlink" title="1.关于HTTP协议"></a>1.关于HTTP协议</h3><ul>
 <li>其实协议就相当于一种语言，两个不同国家的人可以用英语交流，英语就相当于这种协议。</li>
 <li>HTTP的全称是HyperText Transfer Protocol,是应用层的协议之一，其他还有FTP（文件）,SMTP（邮件）等</li>
 <li>HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。</li>
@@ -457,36 +380,62 @@
 <li>http请求报文由3部分组成（请求行，请求头，请求体）</li>
 </ol>
 <p><img src="https://img-blog.csdn.net/20170707143243946?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGV5dWVfOTk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="1"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">请求行：</span><br><span class="line">①是请求方法，GET和POST是最常见的HTTP方法，除此以外还包括DELETE、HEAD、OPTIONS、PUT、TRACE。</span><br><span class="line">②为请求对应的URL地址，它和报文头的Host属性组成完整的请求URL。</span><br><span class="line">③是协议名称及版本号。</span><br><span class="line"></span><br><span class="line">请求头：</span><br><span class="line">Accept ，请求报文可通过一个“Accept”报文头属性告诉服务端 客户端接受什么类型的响应。</span><br><span class="line">Referer，表示这个请求是从哪个URL过来的</span><br><span class="line">cooike，客户端的Cookie就是通过这个报文头属性传给服务端的</span><br><span class="line"></span><br><span class="line">请求体：</span><br><span class="line"></span><br><span class="line">⑤是报文体，它将一个页面表单中的组件值通过param1=value1&amp;param2=value2的键值对形式编码成一个格式化串，它承载多个请求参数的数据。不但报文体可以传递请求参数，请求URL也可以通过类似于“/chapter15/user.html? param1=value1&amp;param2=value2”的方式传递请求参数。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请求行：<br>①是请求方法，GET和POST是最常见的HTTP方法，除此以外还包括DELETE、HEAD、OPTIONS、PUT、TRACE。<br>②为请求对应的URL地址，它和报文头的Host属性组成完整的请求URL。<br>③是协议名称及版本号。</p>
+<p>请求头：<br>Accept ，请求报文可通过一个“Accept”报文头属性告诉服务端 客户端接受什么类型的响应。<br>Referer，表示这个请求是从哪个URL过来的<br>cooike，客户端的Cookie就是通过这个报文头属性传给服务端的</p>
+<p>请求体：</p>
+<p>⑤是报文体，它将一个页面表单中的组件值通过param1=value1&amp;param2=value2的键值对形式编码成一个格式化串，它承载多个请求参数的数据。不但报文体可以传递请求参数，请求URL也可以通过类似于“/chapter15/user.html? param1=value1&amp;param2=value2”的方式传递请求参数。</p>
+</blockquote>
 <ol start="2">
 <li>HTTP的响应报文也由三部分组成（响应行+响应头+响应体） </li>
 </ol>
 <p><img src="https://img-blog.csdn.net/20170707145557633?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGV5dWVfOTk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="2"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">响应行：</span><br><span class="line">①报文协议及版本； </span><br><span class="line">②状态码及状态描述；</span><br><span class="line">响应头：也是由多个属性组成；</span><br><span class="line">响应体：需要的数据</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>响应行：
+①报文协议及版本； 
+②状态码及状态描述；
+响应头：也是由多个属性组成；
+响应体：需要的数据
+</code></pre><ul>
 <li>请求方法get与post的区别</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.顾名思意，POST可能会修改服务器上的资源的请求</span><br><span class="line">2.来看一下实例</span><br><span class="line">GET http://weibo.com/signup/signup.php?inviteCode=2388493434</span><br><span class="line">POST /inventory-check.cgi HTTP/1.1</span><br><span class="line">GET请求，请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数用&amp;连接，传输数据会受URL长度限制</span><br><span class="line">POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中，数据不受限制，数据不暴露会更安全</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.顾名思意，POST可能会修改服务器上的资源的请求<br>2.来看一下实例<br>GET <a href="http://weibo.com/signup/signup.php?inviteCode=2388493434" target="_blank" rel="noopener">http://weibo.com/signup/signup.php?inviteCode=2388493434</a><br>POST /inventory-check.cgi HTTP/1.1<br>GET请求，请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数用&amp;连接，传输数据会受URL长度限制<br>POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中，数据不受限制，数据不暴露会更安全</p>
+</blockquote>
 <ul>
 <li>常见的状态码</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1XX	Informational（信息性状态码）	接受的请求正在处理</span><br><span class="line">2XX	Success（成功状态码）	请求正常处理完毕</span><br><span class="line">3XX	Redirection（重定向状态码）	请求的URL已移走。响应报文中应该包含一个Location URL，说明资源现在所处</span><br><span class="line">4XX	Client Error（客户端错误状态码）	服务器无法处理请求</span><br><span class="line">5XX	Server Error（服务器错误状态码）	服务器处理请求出错</span><br><span class="line"></span><br><span class="line"> 2XX——表明请求被正常处理了</span><br><span class="line">1、200 OK：请求已正常处理。</span><br><span class="line">2、204 No Content：请求处理成功，但没有任何资源可以返回给客户端，</span><br><span class="line"></span><br><span class="line">3XX——表明浏览器需要执行某些特殊的处理以正确处理请求</span><br><span class="line"></span><br><span class="line">4、301 Moved Permanently：资源的uri已更新，你也更新下你的书签引用吧。永久性重定向，请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</span><br><span class="line"></span><br><span class="line">5、302 Found：资源的URI已临时定位到其他位置了，姑且算你已经知道了这个情况了。临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</span><br><span class="line"></span><br><span class="line">7、304 Not Modified：304状态码是告诉浏览器可以从缓存中获取所请求的资源。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4XX——表明客户端是发生错误的原因所在。</span><br><span class="line"></span><br><span class="line">9、400 Bad Request：服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</span><br><span class="line"></span><br><span class="line">12、404 Not Found：服务器上没有请求的资源。路径错误等。</span><br><span class="line"></span><br><span class="line">5XX——服务器本身发生错误</span><br><span class="line"></span><br><span class="line">13、500 Internal Server Error：貌似内部资源出故障了。该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</span><br><span class="line"></span><br><span class="line">14、503 Service Unavailable：抱歉，我现在正在忙着。该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>三次握手（连接时）与四次握手（断开连接时）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">三次握手：通俗的讲</span><br><span class="line">				客户端：HI听见了吗,</span><br><span class="line">				服务器端：HI我听见了，</span><br><span class="line">				客户端：我也听见你了。     接下来开始愉快地聊天</span><br><span class="line">四次握手：通俗的讲</span><br><span class="line">				客户端：我们分手把，</span><br><span class="line">				服务端：好的，你等我把数据给你传输完</span><br><span class="line">				服务端：我传输完了，</span><br><span class="line">				客户端：好了，可以分手了。 接下来就真正的分手了</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="11"></p>
-<p><img src="https://img-blog.csdn.net/20180717204202563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="12"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</span><br><span class="line"></span><br><span class="line">为了保证A发送的最后一个ACK报文能够到达B。这个ACK报文段有可能丢失，因而使处在LAST-ACK状态的B收不到对已发送的FIN+ACK报文段的确认。B会超时重传这个FIN+ACK报文段，而A就能在2MSL时间内收到这个重传的FIN+ACK报文段。</span><br><span class="line"></span><br><span class="line">为什么不能用两次握手进行连接？</span><br></pre></td></tr></table></figure>
-<ul>
-<li>http1.0,1.1和http2的区别</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP1.0:</span><br><span class="line">规定浏览器和服务器保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器处理完成后立即断开TCP连接（无连接），服务器不跟踪每个客户端也不记录过去的请求（无状态）。</span><br><span class="line"></span><br><span class="line">HTTP1.1:</span><br><span class="line">(1)首先是长连接，HTTP1.1增加了一个Connection字段，通过设置Keep-Alive可以保持HTTP连接不断开，避免了每次客户端与服务器请求都要重复建立释放建立TCP连接，提高了网络的利用率。</span><br><span class="line">(2)其次，是HTTP1.1支持请求管道化（pipelining）。管线化使得请求能够“并行”传输。举个例子来说，假如响应的主体是一个html页面，页面中包含了很多img，这个时候keep-alive就起了很大的作用，能够进行“并行”发送多个请求。</span><br><span class="line"></span><br><span class="line">HTTP2:</span><br><span class="line">(1)二进制分帧</span><br><span class="line">(2) 多路复用</span><br><span class="line">(3)首部压缩</span><br><span class="line">(4）支持服务器推送</span><br></pre></td></tr></table></figure>
-<h3 id="2-前端安全问题：跨站脚本攻击XSS"><a href="#2-前端安全问题：跨站脚本攻击XSS" class="headerlink" title="2.前端安全问题：跨站脚本攻击XSS"></a>2.前端安全问题：跨站脚本攻击XSS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">XSS指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意攻击用户的特殊目的。</span><br><span class="line"></span><br><span class="line">XSS的攻击一般分为以下几类：反射型XSS，存储型XSS，DOM XSS。</span><br><span class="line">1.反射型XSS:</span><br><span class="line">	当用户访问一个带有XSS代码的URL请求时，服务器端接收数据后处理，然后把带有XSS代码的数据发送到浏览器，	  浏览器解析这段带有XSS代码的数据后，最终造成XSS漏洞。这个过程就像一次反射.例如：用get方式请求。</span><br><span class="line">	&lt;?php</span><br><span class="line">        $username = $_GET[&apos;username&apos;];</span><br><span class="line">        echo $username;</span><br><span class="line">	?&gt;</span><br><span class="line">	http://www.targetserver.com/test.php?Username=&lt;script&gt;alert(document.cookie);&lt;/script&gt;</span><br><span class="line">2.存储型XSS：</span><br><span class="line">	举一个简单的例子，比如在一个页面修改用户名与备注的时候，备注中的javascript代码就会存储到数据库中，</span><br><span class="line">	用户姓名：攻击者</span><br><span class="line">	备注：&lt;script&gt;alert(document.cookie);&lt;/script&gt;</span><br><span class="line">3.DOM XSS：</span><br><span class="line">	在一个应用程序的HTML页面里有时候会包含解析URL（通过访问document.URL 或者 document.location）和执      行一些客户端逻辑的javascript代码。</span><br><span class="line">	</span><br><span class="line">	例子就是对这样一个逻辑的说明</span><br><span class="line">    &lt;SCRIPT&gt;</span><br><span class="line">    document.write(document.URL.substring(pos,document.URL.length));</span><br><span class="line">    &lt;/SCRIPT&gt;</span><br><span class="line">    但是如果链接是这样的：</span><br><span class="line">    http://www.targetserver.com/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt; </span><br><span class="line">    </span><br><span class="line">    当用户的浏览器解析到html中的javacript代码时，会引用document.URL,那么链接中的恶意代码将会被解析并嵌     入到HTML中，之后会执行alert(document.cooike)，这样就达到了DOM XSS攻击的效果。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1XX    Informational（信息性状态码）    接受的请求正在处理<br>2XX    Success（成功状态码）    请求正常处理完毕<br>3XX    Redirection（重定向状态码）    请求的URL已移走。响应报文中应该包含一个Location URL，说明资源现在所处<br>4XX    Client Error（客户端错误状态码）    服务器无法处理请求<br>5XX    Server Error（服务器错误状态码）    服务器处理请求出错</p>
+<p> 2XX——表明请求被正常处理了<br>1、200 OK：请求已正常处理。<br>2、204 No Content：请求处理成功，但没有任何资源可以返回给客户端，</p>
+<p>3XX——表明浏览器需要执行某些特殊的处理以正确处理请求</p>
+<p>4、301 Moved Permanently：资源的uri已更新，你也更新下你的书签引用吧。永久性重定向，请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</p>
+<p>5、302 Found：资源的URI已临时定位到其他位置了，姑且算你已经知道了这个情况了。临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</p>
+<p>7、304 Not Modified：304状态码是告诉浏览器可以从缓存中获取所请求的资源。</p>
+<p>4XX——表明客户端是发生错误的原因所在。</p>
+<p>9、400 Bad Request：服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</p>
+<p>12、404 Not Found：服务器上没有请求的资源。路径错误等。</p>
+<p>5XX——服务器本身发生错误</p>
+<p>13、500 Internal Server Error：貌似内部资源出故障了。该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</p>
+<p>14、503 Service Unavailable：抱歉，我现在正在忙着。该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</p>
+</blockquote>
+<h3 id="2-前端安全问题：跨站脚本攻击XSS"><a href="#2-前端安全问题：跨站脚本攻击XSS" class="headerlink" title="2.前端安全问题：跨站脚本攻击XSS"></a>2.前端安全问题：跨站脚本攻击XSS</h3><blockquote>
+<p>XSS指的是恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意攻击用户的特殊目的。</p>
+<p>XSS的攻击一般分为以下几类：反射型XSS，存储型XSS，DOM XSS。<br>1.反射型XSS:<br>    当用户访问一个带有XSS代码的URL请求时，服务器端接收数据后处理，然后把带有XSS代码的数据发送到浏览器，      浏览器解析这段带有XSS代码的数据后，最终造成XSS漏洞。这个过程就像一次反射.例如：用get方式请求。<br>    &lt;?php<br>        $username = $_GET[‘username’];<br>        echo $username;<br>    ?&gt;<br>    <a href="http://www.targetserver.com/test.php?Username=" target="_blank" rel="noopener">http://www.targetserver.com/test.php?Username=</a><script>alert(document.cookie);</script><br>2.存储型XSS：<br>    举一个简单的例子，比如在一个页面修改用户名与备注的时候，备注中的javascript代码就会存储到数据库中，<br>    用户姓名：攻击者<br>    备注：<script>alert(document.cookie);</script><br>3.DOM XSS：<br>    在一个应用程序的HTML页面里有时候会包含解析URL（通过访问document.URL 或者 document.location）和执      行一些客户端逻辑的javascript代码。</p>
+<pre><code>例子就是对这样一个逻辑的说明
+&lt;SCRIPT&gt;
+document.write(document.URL.substring(pos,document.URL.length));
+&lt;/SCRIPT&gt;
+但是如果链接是这样的：
+http://www.targetserver.com/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt; 
+
+当用户的浏览器解析到html中的javacript代码时，会引用document.URL,那么链接中的恶意代码将会被解析并嵌     入到HTML中，之后会执行alert(document.cooike)，这样就达到了DOM XSS攻击的效果。
+</code></pre></blockquote>
 <ul>
 <li>如何防御:对输入(和URL参数)进行过滤，对输出进行编码</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.对输入和URL参数进行过滤：对于每一个输入，在客户端和服务器端还要进行各种验证，验证是否合法字符，长度是否合法，格式是否正确。</span><br><span class="line">2.对输出进行编码：在输出数据之前对潜在的威胁的字符进行编码、转义，&lt;转为&amp;lt</span><br><span class="line">			    对Cooike设置HttpOnly属性，js脚本就不能读取到COOIKE</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.对输入和URL参数进行过滤：对于每一个输入，在客户端和服务器端还要进行各种验证，验证是否合法字符，长度是否合法，格式是否正确。<br>2.对输出进行编码：在输出数据之前对潜在的威胁的字符进行编码、转义，&lt;转为&amp;lt<br>                对Cooike设置HttpOnly属性，js脚本就不能读取到COOIKE</p>
+</blockquote>
 <ul>
 <li>CSRF</li>
 </ul>
@@ -497,18 +446,28 @@
 <li>什么是跨域</li>
 </ul>
 <p>出现请求跨域错误问题,主要原因就是因为浏览器的“同源策略”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">跨域解决方案</span><br><span class="line">1、 通过jsonp跨域: 直接请求文件不行，请求JS可以，我们就把数据以JSON格式装进JS文件里</span><br><span class="line"></span><br><span class="line">客户端：                               服务端的js文件：</span><br><span class="line">function handleCallback(res) &#123;		  handleCallback(&#123;</span><br><span class="line">        alert(JSON.stringify(res));       &quot;status&quot;: true, &quot;user&quot;: &quot;admin&quot;</span><br><span class="line">&#125;                                     &#125;)</span><br><span class="line"></span><br><span class="line">2、 document.domain + iframe跨域:</span><br><span class="line">    news.baidu.com和map.baidu.com的一级域名相同，故可以设置document.domain = “baidu.com”;就可以跨域</span><br><span class="line"></span><br><span class="line">3、 location.hash + iframe</span><br><span class="line">4、 window.name + iframe跨域</span><br><span class="line">5、 postMessage跨域</span><br><span class="line">6、 跨域资源共享（CORS）  Access-Control-Allow-Origin: *</span><br><span class="line">	主要通过后端来配置，CORS规范将请求分为两种类型，一种是简单请求，一种是带预检的非简单请求。</span><br><span class="line">	如果是简单请求，就先执行服务端程序，然后浏览器才会判断是否跨域；GET HEAD,POST</span><br><span class="line">	而对于非简单请求，浏览器会在发送实际请求之前先发送一个OPTIONS的HTTP请求来判断服务器是否能接受该跨域	   请求；如果不能接受的话，浏览器会直接阻止接下来实际请求的发生。 服务端可以设置携带cooike</span><br><span class="line">	</span><br><span class="line">7、 nginx代理跨域</span><br><span class="line">	正向代理：我们将请求发送给代理服务器，代理服务器去访问，然后将访问到的数据传递给我们。隐藏了客户端</span><br><span class="line">	反向代理：在服务器端，有很多服务器处理请求，nginx扮演的就是一个反向代理角色，隐藏了服务器。</span><br><span class="line">	启动nginx服务器把server_name设置成前端的域名，此时前端发起的请求相当于是localhost对localhost发	起，这样是不会引起跨域的。</span><br><span class="line"></span><br><span class="line">8、 nodejs中间件代理跨域    与nginx代理跨域类似</span><br><span class="line">9、 WebSocket协议跨域   </span><br><span class="line">     WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯</span><br></pre></td></tr></table></figure>
-<h3 id="3-域名与DNS，浏览器输入网址到页面展示发生了什么"><a href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么" class="headerlink" title="3.域名与DNS，浏览器输入网址到页面展示发生了什么"></a>3.域名与DNS，浏览器输入网址到页面展示发生了什么</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DNS（Domain Name System，域名系统），简单的说：就是把我们输入的网站域名翻译成IP地址的系统.</span><br><span class="line"></span><br><span class="line">1.在浏览器中输入url</span><br><span class="line"></span><br><span class="line">2.客户端先检查本地是否有对应的IP地址，若找到则返回响应的IP地址。若没找到则请求上级DNS服务器，直至找到</span><br><span class="line"></span><br><span class="line">3.有了服务器的IP， 浏览器就要可以发起HTTP请求了,联系之前的HTTP和HTTPS</span><br><span class="line"></span><br><span class="line">4.Http会基于TCP建立起一个到服务器的连接通道，TCP是面向连接可靠的服务，联系三次握手四次握手</span><br><span class="line">  Udp是无连接的，想发就发，不会对数据进行封装。适用于实时应用，就比如视频面试。TCP可靠，用于文件传输。</span><br><span class="line"></span><br><span class="line">5.传输层下面是网络层，作用是把TCP分割好的各种数据包传送给接收方，这里需要用到mac地址，一个网络设备的IP地   址可以更换，但是MAC地址一般是固定不变的.ARP协议可以将IP地址解析成对应的MAC地址。</span><br><span class="line"></span><br><span class="line">6.在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，客户端发送请求的阶段结束</span><br><span class="line"></span><br><span class="line">7. 接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议讲分段的数据包重新组成原来的HTTP请求报文,返回响应报文，联系返回码。</span><br><span class="line"></span><br><span class="line">8.请求成功之后，服务器会返回响应的HTML文件，接下来就到页面渲染了，联系到渲染引擎。</span><br><span class="line"></span><br><span class="line">9.构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，GPU可以处理）-&gt;显示</span><br></pre></td></tr></table></figure>
-<h3 id="4-浏览器的多进程架构及渲染过程"><a href="#4-浏览器的多进程架构及渲染过程" class="headerlink" title="4. 浏览器的多进程架构及渲染过程"></a>4. 浏览器的多进程架构及渲染过程</h3><ul>
-<li>多进程架构</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Browers进程，一个只有一个</span><br><span class="line">渲染进程，一个tab窗口对应一个</span><br><span class="line">GPU进程，只有一个，负责GPU渲染</span><br><span class="line">插件进程，每个插件会创建一个进程</span><br></pre></td></tr></table></figure>
-<ul>
-<li>渲染过程</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一个渲染进程包括三个线程，compositor线程，tile worker线程，main线程</span><br><span class="line"></span><br><span class="line">ompositor Thread 创造 Compositor Tile Worker 绘制并光栅化，生成纹理（位图）</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.ax1x.com/2020/03/04/35aGh8.png" alt="35aGh8.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主线程：</span><br><span class="line">js动画：要走主线程，css动画：有的不会走主线程    </span><br><span class="line">csstriggers.com这个网站里面会展示，哪些CSS不会走主线程，比如transform，但是不同浏览器不一样。</span><br><span class="line"></span><br><span class="line">主线程：构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，GPU可以处理-&gt;显示</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>跨域解决方案<br>1、 通过jsonp跨域: 直接请求文件不行，请求JS可以，我们就把数据以JSON格式装进JS文件里</p>
+<p>客户端：                               服务端的js文件：<br>function handleCallback(res) {          handleCallback({<br>        alert(JSON.stringify(res));       “status”: true, “user”: “admin”<br>}                                     })</p>
+<p>2、 document.domain + iframe跨域:<br>    news.baidu.com和map.baidu.com的一级域名相同，故可以设置document.domain = “baidu.com”;就可以跨域</p>
+<p>3、 location.hash + iframe<br>4、 window.name + iframe跨域<br>5、 postMessage跨域<br>6、 跨域资源共享（CORS）  Access-Control-Allow-Origin: *<br>    主要通过后端来配置，CORS规范将请求分为两种类型，一种是简单请求，一种是带预检的非简单请求。<br>    如果是简单请求，就先执行服务端程序，然后浏览器才会判断是否跨域；GET HEAD,POST<br>    而对于非简单请求，浏览器会在发送实际请求之前先发送一个OPTIONS的HTTP请求来判断服务器是否能接受该跨域       请求；如果不能接受的话，浏览器会直接阻止接下来实际请求的发生。 服务端可以设置携带cooike</p>
+<p>7、 nginx代理跨域<br>    正向代理：我们将请求发送给代理服务器，代理服务器去访问，然后将访问到的数据传递给我们。隐藏了客户端<br>    反向代理：在服务器端，有很多服务器处理请求，nginx扮演的就是一个反向代理角色，隐藏了服务器。<br>    启动nginx服务器把server_name设置成前端的域名，此时前端发起的请求相当于是localhost对localhost发    起，这样是不会引起跨域的。</p>
+<p>8、 nodejs中间件代理跨域    与nginx代理跨域类似<br>9、 WebSocket协议跨域<br>     WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯</p>
+</blockquote>
+<h3 id="3-域名与DNS，浏览器输入网址到页面展示发生了什么"><a href="#3-域名与DNS，浏览器输入网址到页面展示发生了什么" class="headerlink" title="3.域名与DNS，浏览器输入网址到页面展示发生了什么"></a>3.域名与DNS，浏览器输入网址到页面展示发生了什么</h3><blockquote>
+<p>DNS（Domain Name System，域名系统），简单的说：就是把我们输入的网站域名翻译成IP地址的系统.</p>
+<p>1.在浏览器中输入url</p>
+<p>2.客户端先检查本地是否有对应的IP地址，若找到则返回响应的IP地址。若没找到则请求上级DNS服务器，直至找到</p>
+<p>3.有了服务器的IP， 浏览器就要可以发起HTTP请求了,联系之前的HTTP和HTTPS</p>
+<p>4.Http会基于TCP建立起一个到服务器的连接通道，TCP是面向连接可靠的服务，联系三次握手四次握手<br>  Udp是无连接的，想发就发，不会对数据进行封装。适用于实时应用，就比如视频面试。TCP可靠，用于文件传输。</p>
+<p>5.传输层下面是网络层，作用是把TCP分割好的各种数据包传送给接收方，这里需要用到mac地址，一个网络设备的IP地   址可以更换，但是MAC地址一般是固定不变的.ARP协议可以将IP地址解析成对应的MAC地址。</p>
+<p>6.在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，客户端发送请求的阶段结束</p>
+<ol start="7">
+<li>接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议讲分段的数据包重新组成原来的HTTP请求报文,返回响应报文，联系返回码。</li>
+</ol>
+<p>8.请求成功之后，服务器会返回响应的HTML文件，接下来就到页面渲染了，联系到渲染引擎。</p>
+<p>9.构建dom树-&gt;计算DOM树每个结点的样式-&gt;页面布局-&gt;生成分层树-&gt;栅格化（转化为位图，GPU可以处理）-&gt;显示</p>
+</blockquote>
 
                 
             </div>
@@ -801,7 +760,7 @@ js隐式转换与显式转换
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先贴一道机试题1234567891011121314明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -841,12 +800,8 @@ js隐式转换与显式转换
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1019,7 +974,7 @@ js隐式转换与显式转换
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

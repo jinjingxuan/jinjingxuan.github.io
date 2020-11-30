@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-08-31
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-11-29
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    632
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    529
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -427,29 +359,165 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>自动化构建</li>
-<li>grunt</li>
-<li>grunt的使用和插件</li>
-</ul>
-<a id="more"></a> 
-<h2 id="什么是自动化构建"><a href="#什么是自动化构建" class="headerlink" title="什么是自动化构建"></a>什么是自动化构建</h2><p>比如在项目中需要通过<code>sass main.css</code>来编译css文件，不必要每次都使用命令行命令来编译。</p>
+                <h2 id="什么是自动化构建"><a href="#什么是自动化构建" class="headerlink" title="什么是自动化构建"></a>什么是自动化构建</h2><p>比如在项目中需要通过<code>sass main.css</code>来编译css文件，不必要每次都使用命令行命令来编译。</p>
 <p>可以用<code>npm scripts</code>来实现自动化构建，在<code>package.json</code>中书写</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 类似与这种就是自动化构建 </span><br><span class="line">"scripts": &#123;</span><br><span class="line">    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",</span><br><span class="line">    "start": "npm run dev",</span><br><span class="line">    "build": "node build/build.js",</span><br><span class="line">    "lint": "eslint --fix --ext .js,.vue src",</span><br><span class="line">    "precommit": "npm run lint"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-json"><code class="language-json">// 类似与这种就是自动化构建 
+<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"npm run dev"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"node build/build.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"eslint --fix --ext .js,.vue src"</span><span class="token punctuation">,</span>
+    <span class="token property">"precommit"</span><span class="token operator">:</span> <span class="token string">"npm run lint"</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="grunt"><a href="#grunt" class="headerlink" title="grunt"></a>grunt</h2><p>grunt是一款构建工具，在项目中使用<code>npm init</code>初始化一个<code>package.json</code>文件，然后使用<code>npm install grunt</code></p>
 <p>安装，安装成功之后创建<code>gruntfile.js</code>作为入口文件，编写如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Grunt的入口文件</span></span><br><span class="line"><span class="comment">// 需要导出一个函数，此函数接收一个 grunt 的形参</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">grunt</span> =&gt;</span> &#123;</span><br><span class="line">  grunt.registerTask(<span class="string">'foo'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello grunt'</span>)</span><br><span class="line">  &#125;) <span class="comment">// grunt foo</span></span><br><span class="line"></span><br><span class="line">  grunt.registerTask(<span class="string">'bar'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello grunt bar'</span>)</span><br><span class="line">  &#125;) <span class="comment">// grunt bar</span></span><br><span class="line"></span><br><span class="line">  grunt.registerTask(<span class="string">'default'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'default task'</span>)</span><br><span class="line">  &#125;) <span class="comment">// grunt</span></span><br><span class="line"></span><br><span class="line">  grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'foo'</span>, <span class="string">'bar'</span>]) <span class="comment">// grunt</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 模拟异步任务</span></span><br><span class="line">  grunt.registerTask(<span class="string">'async'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> done = <span class="keyword">this</span>.async()</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'async task'</span>)</span><br><span class="line">      done()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">1000</span>) <span class="comment">// grunt async</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 标记任务失败</span></span><br><span class="line">  grunt.registerTask(<span class="string">'bad'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello grunt bar'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;) <span class="comment">// grunt bad 会执行失败</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Grunt的入口文件</span>
+<span class="token comment" spellcheck="true">// 需要导出一个函数，此函数接收一个 grunt 的形参</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> grunt <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello grunt'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt foo</span>
+
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello grunt bar'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt bar</span>
+
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'default task'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt</span>
+
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt</span>
+
+  <span class="token comment" spellcheck="true">// 模拟异步任务</span>
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'async'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> done <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword">async</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async task'</span><span class="token punctuation">)</span>
+      <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt async</span>
+
+  <span class="token comment" spellcheck="true">// 标记任务失败</span>
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'bad'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello grunt bar'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt bad 会执行失败</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p><strong><code>initConfig</code>方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">grunt</span> =&gt;</span> &#123;</span><br><span class="line">    grunt.initConfig(&#123;</span><br><span class="line">        foo: &#123;</span><br><span class="line">            bar: <span class="number">123</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)  </span><br><span class="line">  </span><br><span class="line">  grunt.registerTask(<span class="string">'foo'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(grunt.config(<span class="string">'foo.bar'</span>))</span><br><span class="line">  &#125;) <span class="comment">// grunt foo 输出 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> grunt <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        foo<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            bar<span class="token punctuation">:</span> <span class="token number">123</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>  
+
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>grunt<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'foo.bar'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// grunt foo 输出 123</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p><strong>多目标任务</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">grunt</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  grunt.initConfig(&#123;</span><br><span class="line">    build: &#123;</span><br><span class="line">      options: &#123; <span class="comment">// 配置选项</span></span><br><span class="line">        foo: <span class="string">'bar'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      css: &#123;</span><br><span class="line">        options: &#123;</span><br><span class="line">          foo: <span class="string">'baz'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      js: <span class="string">'2'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 多目标模式，可以让任务根据配置形成多个子任务</span></span><br><span class="line">  grunt.registerMultiTask(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.options())</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`target: <span class="subst">$&#123;<span class="keyword">this</span>.target&#125;</span>, data: <span class="subst">$&#123;<span class="keyword">this</span>.data&#125;</span>`</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// grunt build</span></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"></span><br><span class="line">Running <span class="string">"build:css"</span> (build) task</span><br><span class="line">&#123; <span class="attr">foo</span>: <span class="string">'baz'</span> &#125;</span><br><span class="line">target: css, <span class="attr">data</span>: [object <span class="built_in">Object</span>]</span><br><span class="line"></span><br><span class="line">Running <span class="string">"build:js"</span> (build) task</span><br><span class="line">&#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;</span><br><span class="line">target: js, <span class="attr">data</span>: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Done.</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> grunt <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+
+  grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    build<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 配置选项</span>
+        foo<span class="token punctuation">:</span> <span class="token string">'bar'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      css<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          foo<span class="token punctuation">:</span> <span class="token string">'baz'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      js<span class="token punctuation">:</span> <span class="token string">'2'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// 多目标模式，可以让任务根据配置形成多个子任务</span>
+  grunt<span class="token punctuation">.</span><span class="token function">registerMultiTask</span><span class="token punctuation">(</span><span class="token string">'build'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">options</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`target: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, data: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// grunt build</span>
+<span class="token comment" spellcheck="true">// 输出</span>
+
+Running <span class="token string">"build:css"</span> <span class="token punctuation">(</span>build<span class="token punctuation">)</span> task
+<span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'baz'</span> <span class="token punctuation">}</span>
+target<span class="token punctuation">:</span> css<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token punctuation">[</span>object Object<span class="token punctuation">]</span>
+
+Running <span class="token string">"build:js"</span> <span class="token punctuation">(</span>build<span class="token punctuation">)</span> task
+<span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span>
+target<span class="token punctuation">:</span> js<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token number">2</span>
+
+Done<span class="token punctuation">.</span>
+</code></pre>
 <p><strong>插件使用：clean插件删除文件</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">grunt</span> =&gt;</span> &#123;</span><br><span class="line">    grunt.initConfig(&#123;</span><br><span class="line">        clean: &#123;</span><br><span class="line">            temp: <span class="string">'temp/**'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-clean'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// grunt clean 可删除temp下对应文件</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> grunt <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        clean<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            temp<span class="token punctuation">:</span> <span class="token string">'temp/**'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    grunt<span class="token punctuation">.</span><span class="token function">loadNpmTasks</span><span class="token punctuation">(</span><span class="token string">'grunt-contrib-clean'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// grunt clean 可删除temp下对应文件</span>
+</code></pre>
 <ul>
 <li>grunt-sass</li>
 <li>grunt-babel</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'sass'</span>)</span><br><span class="line"><span class="keyword">const</span> loadGruntTasks = <span class="built_in">require</span>(<span class="string">'load-grunt-tasks'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">grunt</span> =&gt;</span> &#123;</span><br><span class="line">  grunt.initConfig(&#123;</span><br><span class="line">    sass: &#123;</span><br><span class="line">      options: &#123;</span><br><span class="line">        sourceMap: <span class="literal">true</span>, <span class="comment">// 生成map文件</span></span><br><span class="line">        implementation: sass</span><br><span class="line">      &#125;,</span><br><span class="line">      main: &#123;</span><br><span class="line">        files: &#123;</span><br><span class="line">          <span class="string">'dist/css/main.css'</span>: <span class="string">'src/scss/main.scss'</span> <span class="comment">// 目录</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    babel: &#123;</span><br><span class="line">      options: &#123;</span><br><span class="line">        sourceMap: <span class="literal">true</span>,</span><br><span class="line">        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      main: &#123;</span><br><span class="line">        files: &#123;</span><br><span class="line">          <span class="string">'dist/js/app.js'</span>: <span class="string">'src/js/app.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123; <span class="comment">// 监听</span></span><br><span class="line">      js: &#123;</span><br><span class="line">        files: [<span class="string">'src/js/*.js'</span>],</span><br><span class="line">        tasks: [<span class="string">'babel'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      css: &#123;</span><br><span class="line">        files: [<span class="string">'src/scss/*.scss'</span>],</span><br><span class="line">        tasks: [<span class="string">'sass'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// grunt.loadNpmTasks('grunt-sass')</span></span><br><span class="line">  loadGruntTasks(grunt) <span class="comment">// 自动加载所有的 grunt 插件中的任务</span></span><br><span class="line"></span><br><span class="line">  grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'sass'</span>, <span class="string">'babel'</span>, <span class="string">'watch'</span>]) <span class="comment">// 首先执行 sass, babel 任务，再监听</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> sass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'sass'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> loadGruntTasks <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'load-grunt-tasks'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> grunt <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    sass<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        sourceMap<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 生成map文件</span>
+        implementation<span class="token punctuation">:</span> sass
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      main<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">'dist/css/main.css'</span><span class="token punctuation">:</span> <span class="token string">'src/scss/main.scss'</span> <span class="token comment" spellcheck="true">// 目录</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    babel<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        sourceMap<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      main<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">'dist/js/app.js'</span><span class="token punctuation">:</span> <span class="token string">'src/js/app.js'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    watch<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 监听</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        files<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/js/*.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        tasks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      css<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        files<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/scss/*.scss'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        tasks<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'sass'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// grunt.loadNpmTasks('grunt-sass')</span>
+  <span class="token function">loadGruntTasks</span><span class="token punctuation">(</span>grunt<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 自动加载所有的 grunt 插件中的任务</span>
+
+  grunt<span class="token punctuation">.</span><span class="token function">registerTask</span><span class="token punctuation">(</span><span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'sass'</span><span class="token punctuation">,</span> <span class="token string">'babel'</span><span class="token punctuation">,</span> <span class="token string">'watch'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 首先执行 sass, babel 任务，再监听</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
                 
             </div>
@@ -698,12 +766,6 @@
                     <div class="summary block-with-text">
                         
                             
-什么是gulp
-gulp初体验
-压缩过程实现
-构建实例
-怎么实现热更新
-
                         
                     </div>
                     <div class="publish-info">
@@ -745,12 +807,6 @@ gulp初体验
                     <div class="summary block-with-text">
                         
                             
-工程化和脚手架的理解
-yeoman
-sub-generator
-自定义Generator来搭建自己的脚手架
-如何创建一个自定义的vue脚手架
-
                         
                     </div>
                     <div class="publish-info">
@@ -790,12 +846,8 @@ sub-generator
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -968,7 +1020,7 @@ sub-generator
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

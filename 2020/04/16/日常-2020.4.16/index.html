@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-04-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-08-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -446,12 +378,38 @@
 <h3 id="（2）构建项目"><a href="#（2）构建项目" class="headerlink" title="（2）构建项目"></a>（2）构建项目</h3><ul>
 <li>新建文件夹，输入<code>vue init webpack vuetest</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">报错： vue-cli · Failed to download repo vuejs-templates/webpack: getaddrinfo ENOTFOUND codeload.github.com codeload.github.com:443</span><br><span class="line"></span><br><span class="line">这是因为GitHub的IP地址无法访问所导致，在控制台输入ping github.com一直显示超时</span><br><span class="line"></span><br><span class="line">解决办法：</span><br><span class="line">1.打开 hosts文件，地址：C:\Windows\System32\drivers\etc </span><br><span class="line">2. 然后在hosts文件中添加：</span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">151.101.88.249 github.global.ssl.fastly.net</span><br><span class="line">3.重新输入ping github.com，连接成功</span><br><span class="line"></span><br><span class="line">Hosts文件主要作用是定义IP地址和主机名的映射关系，它的主要作用是能加快域名解析</span><br><span class="line">修改hosts文件时，需要解决权限问题：</span><br><span class="line">1.右键 -&gt; 属性 -&gt; 安全 -&gt; 编辑</span><br><span class="line">2.找到你的用户</span><br><span class="line">3.在下方修改此用户对该文件的读写权限</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>报错： vue-cli · Failed to download repo vuejs-templates/webpack: getaddrinfo ENOTFOUND codeload.github.com codeload.github.com:443
+
+这是因为GitHub的IP地址无法访问所导致，在控制台输入ping github.com一直显示超时
+
+解决办法：
+1.打开 hosts文件，地址：C:\Windows\System32\drivers\etc 
+2. 然后在hosts文件中添加：
+192.30.253.112 github.com
+151.101.88.249 github.global.ssl.fastly.net
+3.重新输入ping github.com，连接成功
+
+Hosts文件主要作用是定义IP地址和主机名的映射关系，它的主要作用是能加快域名解析
+修改hosts文件时，需要解决权限问题：
+1.右键 -&gt; 属性 -&gt; 安全 -&gt; 编辑
+2.找到你的用户
+3.在下方修改此用户对该文件的读写权限
+</code></pre><ul>
 <li>成功回车之后，弹出如下：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">? Project name vuetest                        //项目名</span><br><span class="line">? Project description A Vue.js project        //描述</span><br><span class="line">? Author jinjingxuan &lt;915397405@qq.com&gt;       //作者</span><br><span class="line">? Vue build standalone                          </span><br><span class="line">? Install vue-router? Yes                     //安装vue-router</span><br><span class="line">? Use ESLint to lint your code? Yes           //安装ESLint代码风格管理工具</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Set up unit tests Yes                       //单元测试</span><br><span class="line">? Pick a test runner jest</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes        //e2e测试</span><br><span class="line">? Should we run `npm install` for you after the project has been created? (recommended) npm</span><br><span class="line">//在项目构建完使用npm install安装依赖，可以选择否，手动输入</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>? Project name vuetest                        //项目名
+? Project description A Vue.js project        //描述
+? Author jinjingxuan &lt;915397405@qq.com&gt;       //作者
+? Vue build standalone                          
+? Install vue-router? Yes                     //安装vue-router
+? Use ESLint to lint your code? Yes           //安装ESLint代码风格管理工具
+? Pick an ESLint preset Standard
+? Set up unit tests Yes                       //单元测试
+? Pick a test runner jest
+? Setup e2e tests with Nightwatch? Yes        //e2e测试
+? Should we run `npm install` for you after the project has been created? (recommended) npm
+//在项目构建完使用npm install安装依赖，可以选择否，手动输入
+</code></pre><ul>
 <li>构建完成之后，<strong>cd进入构建好的文件夹</strong>，输入<code>cnpm install</code>安装依赖</li>
 <li>安装好依赖后，输入<code>npm run dev</code>启动项目</li>
 </ul>
@@ -461,8 +419,11 @@
 <li>安装微信开发者工具</li>
 <li>文件类型：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.wxml：微信模板文件，类似网页开发的html文件。</span><br><span class="line">.wxss：微信样式表文件，用于定于页面样式。</span><br><span class="line">.js：脚本文件，代码逻辑写在这。</span><br><span class="line">.json：静态数据配置文件。</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>.wxml：微信模板文件，类似网页开发的html文件。
+.wxss：微信样式表文件，用于定于页面样式。
+.js：脚本文件，代码逻辑写在这。
+.json：静态数据配置文件。
+</code></pre><ul>
 <li>初始化第一个项目，截图如下：</li>
 </ul>
 <p><img src="https://s1.ax1x.com/2020/04/16/JkYTsI.png" alt="JkYTsI.png"></p>
@@ -472,60 +433,148 @@
 <ul>
 <li>新建文件test.scss</li>
 </ul>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义变量与值 */</span></span><br><span class="line"><span class="variable">$bgcolor</span>: lightblue;</span><br><span class="line"><span class="variable">$textcolor</span>: darkblue;</span><br><span class="line"><span class="variable">$fontsize</span>: <span class="number">18px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用变量 */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$bgcolor</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$textcolor</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$fontsize</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">/* 定义变量与值 */</span>
+<span class="token property"><span class="token variable">$bgcolor</span></span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$textcolor</span></span><span class="token punctuation">:</span> darkblue<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$fontsize</span></span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 使用变量 */</span>
+<span class="token selector">body </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$bgcolor</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$textcolor</span><span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$fontsize</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <ul>
 <li>转化为css文件：<code>sass test.scss test.css</code></li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="comment">/* 定义变量与值 */</span></span><br><span class="line"><span class="comment">/* 使用变量 */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">  <span class="attribute">color</span>: darkblue;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*# sourceMappingURL=test.css.map */</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@charset</span> <span class="token string">"UTF-8"</span><span class="token punctuation">;</span></span>
+<span class="token comment" spellcheck="true">/* 定义变量与值 */</span>
+<span class="token comment" spellcheck="true">/* 使用变量 */</span>
+<span class="token selector">body </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> darkblue<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*# sourceMappingURL=test.css.map */</span>
+</code></pre>
 <h3 id="（2）Stylus的安装与使用"><a href="#（2）Stylus的安装与使用" class="headerlink" title="（2）Stylus的安装与使用"></a>（2）Stylus的安装与使用</h3><p>安装Stylus：<code>cnpm install -g stylus</code></p>
 <p><strong>使用Sass</strong>：</p>
 <ul>
 <li>新建文件test.styl</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/* 定义变量与值 */</span><br><span class="line">$bgcolor=lightblue;</span><br><span class="line">$textcolor=darkblue;</span><br><span class="line">$fontsize=18px;</span><br><span class="line"></span><br><span class="line">/* 使用变量 */</span><br><span class="line">body &#123;</span><br><span class="line">  background-color: $bgcolor;</span><br><span class="line">  color: $textcolor;</span><br><span class="line">  font-size: $fontsize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>/* 定义变量与值 */
+$bgcolor=lightblue;
+$textcolor=darkblue;
+$fontsize=18px;
+
+/* 使用变量 */
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+</code></pre><ul>
 <li>转换为css文件：<code>stylus test.styl</code>，会自动生成test.css</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义变量与值 */</span></span><br><span class="line"><span class="comment">/* 使用变量 */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#add8e6</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#00008b</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* 定义变量与值 */</span>
+<span class="token comment" spellcheck="true">/* 使用变量 */</span>
+<span class="token selector">body </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#add8e6</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#00008b</span><span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="（3）Sass与Stylus的对比"><a href="#（3）Sass与Stylus的对比" class="headerlink" title="（3）Sass与Stylus的对比"></a>（3）Sass与Stylus的对比</h3><p>参考于<a href="https://segmentfault.com/a/1190000008013566" target="_blank" rel="noopener">这篇文章</a></p>
 <ol>
 <li>变量</li>
 </ol>
 <p><code>sass</code>允许使用变量，所有的变量以<code>$</code>开头。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$blue: #1875e7;</span><br><span class="line">div &#123;</span><br><span class="line">   color: $blue</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p><code>stylus</code>也允许使用变量，变量名的<code>$</code>是可选的，变量值可以是表达式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color = blue 或者  $color = blue</span><br><span class="line">div</span><br><span class="line">    color: color</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<pre><code>$blue: #1875e7;
+div {
+   color: $blue
+ }
+</code></pre><p><code>stylus</code>也允许使用变量，变量名的<code>$</code>是可选的，变量值可以是表达式。</p>
+<pre><code>color = blue 或者  $color = blue
+div
+    color: color
+</code></pre><ol start="2">
 <li>计算属性</li>
 </ol>
 <p><code>sass</code>允许在代码中使用算式:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    margin: (14px/2);</span><br><span class="line">    top: 50px + 100px;</span><br><span class="line">    right: $var * 10%;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><code>stylus</code>同样也支持在代码中使用算式:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">   margin: (14px/2)</span><br><span class="line">   top: 50px + 100px</span><br><span class="line">   right: var * 10%</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<pre><code>body {
+    margin: (14px/2);
+    top: 50px + 100px;
+    right: $var * 10%;
+  }
+</code></pre><p><code>stylus</code>同样也支持在代码中使用算式:</p>
+<pre><code> body
+    margin: (14px/2)
+    top: 50px + 100px
+    right: var * 10%
+</code></pre><ol start="3">
 <li>嵌套</li>
 </ol>
 <p><code>sass</code>允许选择器嵌套。比如下面的<code>css</code>代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> div h1 &#123;</span><br><span class="line">   color: red</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">可以写成：</span><br><span class="line"></span><br><span class="line"> div &#123;</span><br><span class="line">   h1&#123;</span><br><span class="line">     color: red</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>stylus</code>同样支持选择器嵌套，上面的代码可以写成:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">  h1</span><br><span class="line">    color: red</span><br></pre></td></tr></table></figure>
-<p><code>sass</code>也支持属性嵌套,比如<code>border-color</code>属性可以写成:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    border: &#123;</span><br><span class="line">      color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">border后面需要加上冒号</span><br></pre></td></tr></table></figure>
-<p><strong>stylus没有这个功能</strong></p>
+<pre><code>  div h1 {
+    color: red
+  }
+
+ 可以写成：
+
+  div {
+    h1{
+      color: red
+   }
+ }
+</code></pre><p><code>stylus</code>同样支持选择器嵌套，上面的代码可以写成:</p>
+<pre><code>div
+  h1
+    color: red
+</code></pre><p><code>sass</code>也支持属性嵌套,比如<code>border-color</code>属性可以写成:</p>
+<pre><code> p{
+     border: {
+       color: red;
+     }
+ }
+
+ border后面需要加上冒号
+</code></pre><p><strong>stylus没有这个功能</strong></p>
 <ol start="4">
 <li>继承</li>
 </ol>
 <p><code>sass</code>允许一个选择器，继承另一个选择器。比如，现在<code>class1</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.class1 &#123;</span><br><span class="line">    border: 1px solid #ddd</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  class2要继承class1，就要使用@extend命令。</span><br><span class="line">  </span><br><span class="line">  .class2 &#123;</span><br><span class="line">    @extend .class1</span><br><span class="line">    font-size: 120%</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><code>stylus</code>的继承方式和<code>sass</code>基本一致，但有一些稍微的不同。</p>
+<pre><code>.class1 {
+    border: 1px solid #ddd
+  }
+
+  class2要继承class1，就要使用@extend命令。
+
+  .class2 {
+    @extend .class1
+    font-size: 120%
+  }
+</code></pre><p><code>stylus</code>的继承方式和<code>sass</code>基本一致，但有一些稍微的不同。</p>
 <p><code>stylus</code>实现继承:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.class1</span><br><span class="line">    border: 1px solid #ddd</span><br><span class="line">    </span><br><span class="line"> .class2</span><br><span class="line">    @extend .class1</span><br><span class="line">    font-size: 120%</span><br></pre></td></tr></table></figure>
-<p><strong>两者的区别主要在于–sass不允许@extend嵌套选择器:</strong><br>如下面的样式:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">  h1</span><br><span class="line">   color: red</span><br></pre></td></tr></table></figure>
-<p>在<code>sass</code>中，如果按照下面这样写就会直接编译错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.div2 &#123;</span><br><span class="line">   @extend div h1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而在<code>stylus</code>中却可以成功编译，因为<code>stylus</code>中，只要选择器匹配，继承就会生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.div2</span><br><span class="line">   @extend div h1</span><br></pre></td></tr></table></figure>
+<pre><code>.class1
+    border: 1px solid #ddd
+
+ .class2
+    @extend .class1
+    font-size: 120%
+</code></pre><p><strong>两者的区别主要在于–sass不允许@extend嵌套选择器:</strong><br>如下面的样式:</p>
+<pre><code>div
+  h1
+   color: red
+</code></pre><p>在<code>sass</code>中，如果按照下面这样写就会直接编译错误。</p>
+<pre><code> .div2 {
+    @extend div h1
+ }
+</code></pre><p>而在<code>stylus</code>中却可以成功编译，因为<code>stylus</code>中，只要选择器匹配，继承就会生效。</p>
+<pre><code>.div2
+   @extend div h1
+</code></pre>
                 
             </div>
             <hr/>
@@ -818,7 +867,10 @@ mpvue框架的特点
                     <div class="summary block-with-text">
                         
                             我们都知道toString是用于处理非字符串到字符串的强制类型转换（隐式类型转换）
-1234let a=&#123;&#125;  a.toString()   //[object Object]let b=[1,2,3]b.toStrin
+let a={}  
+a.toString()   //[object Object]
+let b=[1,2,3]
+b.toString()   //数组的
                         
                     </div>
                     <div class="publish-info">
@@ -858,12 +910,8 @@ mpvue框架的特点
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1036,7 +1084,7 @@ mpvue框架的特点
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             

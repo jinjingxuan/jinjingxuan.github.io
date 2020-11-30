@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -166,75 +166,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -385,38 +322,33 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
                     2020-11-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
                     5 Min
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -444,15 +376,49 @@
 </blockquote>
 <p>运行命令：<code>webpack-dev-server --hot</code></p>
 <p>或者配置<code>webpack.config.js</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    hot: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// hotOnly: true // 只使用 HMR，不会 fallback 到 live reloading，可以发现错误代码</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token comment" spellcheck="true">// hotOnly: true // 只使用 HMR，不会 fallback 到 live reloading，可以发现错误代码</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
 <blockquote>
 <p>此时会发现，修改源代码中的样式文件已经实现热更新，但是修改js文件还不能实现</p>
 <p>因为样式文件在 style-loader 中已经处理过，直接覆盖就好，而 js 文件导出的对象不确定，webpack不知道怎么处理，并没有统一的处理方案。在Vue等框架中每种文件都是有规律的，所以不用手动写逻辑。</p>
 <p>综上 HMR 需要手动处理模块热更新逻辑</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.hot.accept(<span class="string">'./editor.js'</span>, () =&gt; &#123;</span><br><span class="line">   <span class="comment">// 在这里写更新逻辑，则页面不会自动刷新</span></span><br><span class="line">   <span class="comment">// 如果没有此处的手动处理，页面还会自动刷新</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">'./editor.js'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// 在这里写更新逻辑，则页面不会自动刷新</span>
+   <span class="token comment" spellcheck="true">// 如果没有此处的手动处理，页面还会自动刷新</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <p> 以编辑器和图片热更新逻辑为例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ================================================================</span></span><br><span class="line"><span class="comment">// HMR 手动处理模块热更新</span></span><br><span class="line"><span class="comment">// 不用担心这些代码在生产环境冗余的问题，因为通过 webpack 打包后，</span></span><br><span class="line"><span class="comment">// 这些代码全部会被移除，这些只是开发阶段用到</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">  <span class="keyword">let</span> hotEditor = editor</span><br><span class="line">  <span class="built_in">module</span>.hot.accept(<span class="string">'./editor.js'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 当 editor.js 更新，自动执行此函数</span></span><br><span class="line">    <span class="comment">// 临时记录编辑器内容</span></span><br><span class="line">    <span class="keyword">const</span> value = hotEditor.innerHTML</span><br><span class="line">    <span class="comment">// 移除更新前的元素</span></span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(hotEditor)</span><br><span class="line">    <span class="comment">// 创建新的编辑器</span></span><br><span class="line">    <span class="comment">// 此时 createEditor 已经是更新过后的函数了</span></span><br><span class="line">    hotEditor = createEditor()</span><br><span class="line">    <span class="comment">// 还原编辑器内容</span></span><br><span class="line">    hotEditor.innerHTML = value</span><br><span class="line">    <span class="comment">// 追加到页面</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(hotEditor)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">module</span>.hot.accept(<span class="string">'./better.png'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 当 better.png 更新后执行</span></span><br><span class="line">    <span class="comment">// 重写设置 src 会触发图片元素重新加载，从而局部更新图片</span></span><br><span class="line">    img.src = background</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================================================================</span>
+<span class="token comment" spellcheck="true">// HMR 手动处理模块热更新</span>
+<span class="token comment" spellcheck="true">// 不用担心这些代码在生产环境冗余的问题，因为通过 webpack 打包后，</span>
+<span class="token comment" spellcheck="true">// 这些代码全部会被移除，这些只是开发阶段用到</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>module<span class="token punctuation">.</span>hot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> hotEditor <span class="token operator">=</span> editor
+  module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">'./editor.js'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 当 editor.js 更新，自动执行此函数</span>
+    <span class="token comment" spellcheck="true">// 临时记录编辑器内容</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> hotEditor<span class="token punctuation">.</span>innerHTML
+    <span class="token comment" spellcheck="true">// 移除更新前的元素</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>hotEditor<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 创建新的编辑器</span>
+    <span class="token comment" spellcheck="true">// 此时 createEditor 已经是更新过后的函数了</span>
+    hotEditor <span class="token operator">=</span> <span class="token function">createEditor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 还原编辑器内容</span>
+    hotEditor<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> value
+    <span class="token comment" spellcheck="true">// 追加到页面</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>hotEditor<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">'./better.png'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 当 better.png 更新后执行</span>
+    <span class="token comment" spellcheck="true">// 重写设置 src 会触发图片元素重新加载，从而局部更新图片</span>
+    img<span class="token punctuation">.</span>src <span class="token operator">=</span> background
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="生产环境优化"><a href="#生产环境优化" class="headerlink" title="生产环境优化"></a>生产环境优化</h2><blockquote>
 <p>模式 （mode）：为不同的工作环境创建不同的配置</p>
 <ol>
@@ -460,7 +426,30 @@
 <li>一个环境对应一个配置文件</li>
 </ol>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> CopyWebpackPlugin = <span class="built_in">require</span>(<span class="string">'copy-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env, argv</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> config = &#123;</span><br><span class="line">	<span class="comment">// 正常配置</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (env === <span class="string">'production'</span>) &#123;</span><br><span class="line">    config.mode = <span class="string">'production'</span></span><br><span class="line">    config.devtool = <span class="literal">false</span></span><br><span class="line">    config.plugins = [</span><br><span class="line">      ...config.plugins,</span><br><span class="line">      <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">      <span class="keyword">new</span> CopyWebpackPlugin([<span class="string">'public'</span>]) <span class="comment">// 生产环境需要 copy 图片等</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时在命令行中运行：webpack --env production</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> CleanWebpackPlugin <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> CopyWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'copy-webpack-plugin'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">(</span>env<span class="token punctuation">,</span> argv<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 正常配置</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>env <span class="token operator">===</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    config<span class="token punctuation">.</span>mode <span class="token operator">=</span> <span class="token string">'production'</span>
+    config<span class="token punctuation">.</span>devtool <span class="token operator">=</span> <span class="token boolean">false</span>
+    config<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span>config<span class="token punctuation">.</span>plugins<span class="token punctuation">,</span>
+      <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">new</span> <span class="token class-name">CopyWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'public'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 生产环境需要 copy 图片等</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> config
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 此时在命令行中运行：webpack --env production</span>
+</code></pre>
 <p>若一个环境对应一个配置文件，则项目中需要有三个配置文件</p>
 <ul>
 <li>webpack.common.js：存放一些公共的配置</li>
@@ -468,22 +457,134 @@
 <li>webpack.prod.js</li>
 </ul>
 <p>此时还需要安装一个插件<code>webpack-merge</code>，实现在原有基础上添加插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">'webpack-merge'</span>)</span><br><span class="line"><span class="keyword">const</span> common = <span class="built_in">require</span>(<span class="string">'./webpack.common'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = merge(common, &#123;</span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  devtool: <span class="string">'cheap-eval-module-source-map'</span>,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    hot: <span class="literal">true</span>,</span><br><span class="line">    contentBase: <span class="string">'public'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> merge <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-merge'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> common <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.common'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">merge</span><span class="token punctuation">(</span>common<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  devtool<span class="token punctuation">:</span> <span class="token string">'cheap-eval-module-source-map'</span><span class="token punctuation">,</span>
+  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    contentBase<span class="token punctuation">:</span> <span class="token string">'public'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <p>此时命令行则需要输入<code>webpack --config webpack.prod.js</code></p>
 <h2 id="DefinePlugin"><a href="#DefinePlugin" class="headerlink" title="DefinePlugin"></a>DefinePlugin</h2><blockquote>
 <p>为代码注入全局成员</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="comment">// 值要求的是一个代码片段</span></span><br><span class="line">      API_BASE_URL: <span class="built_in">JSON</span>.stringify(<span class="string">'https://api.example.com'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="built_in">console</span>.log(API_BASE_URL)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行 webpack 打包后查看bundle.js,发现在最后添加了代码</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"https://api.example.com"</span>)</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// webpack.config.js</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DefinePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 值要求的是一个代码片段</span>
+      API_BASE_URL<span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'https://api.example.com'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// main.js</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>API_BASE_URL<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 运行 webpack 打包后查看bundle.js,发现在最后添加了代码</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"https://api.example.com"</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="Tree-shaking"><a href="#Tree-shaking" class="headerlink" title="Tree-shaking"></a>Tree-shaking</h2><p>摇掉那些未引用的代码，减小代码体积，在生产模式下会自动开启<code>webpack --mode production</code></p>
 <p>不是生产环境需要手动配置，如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 优化操作</span></span><br><span class="line">  optimization: &#123;</span><br><span class="line">    <span class="comment">// 负责标记枯树叶</span></span><br><span class="line">    usedExports: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 负责摇掉枯树叶</span></span><br><span class="line">    minimize: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 尽可能合并每一个模块到一个函数中,可以看到 bundle.js 模块数量减少了</span></span><br><span class="line">    <span class="comment">// concatenateModules: true,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 优化操作</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 负责标记枯树叶</span>
+    usedExports<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 负责摇掉枯树叶</span>
+    minimize<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 尽可能合并每一个模块到一个函数中,可以看到 bundle.js 模块数量减少了</span>
+    <span class="token comment" spellcheck="true">// concatenateModules: true,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>举个例子</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// components.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Button = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.createElement(<span class="string">'button'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'dead-code'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Link = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Heading = <span class="function"><span class="params">level</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.createElement(<span class="string">'h'</span> + level)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js,只有Button被使用</span></span><br><span class="line"><span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'./components'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(Button())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正常用 webpack 命令打包时，在 bundle.js 中搜不到 Link, Heading，console.log</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// components.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Button <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'dead-code'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> Link <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> Heading <span class="token operator">=</span> level <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'h'</span> <span class="token operator">+</span> level<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// index.js,只有Button被使用</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./components'</span>
+
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token function">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 正常用 webpack 命令打包时，在 bundle.js 中搜不到 Link, Heading，console.log</span>
+</code></pre>
 <h4 id="问题：使用babel-loader后，Tree-shaking会失效？"><a href="#问题：使用babel-loader后，Tree-shaking会失效？" class="headerlink" title="问题：使用babel-loader后，Tree-shaking会失效？"></a>问题：使用<code>babel-loader</code>后，Tree-shaking会失效？</h4><ul>
 <li>由webpack打包的代码必须使用ES Modules，先交给loader处理，然后再打包</li>
 <li>而babel转换时，可能会将 ES Module 转换成 CommonJS ,就会失效，但是最新版的babel没问题</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: [</span><br><span class="line">              <span class="comment">// 如果 Babel 加载模块时已经转换了 ESM，则会导致 Tree Shaking 失效</span></span><br><span class="line">              <span class="comment">// ['@babel/preset-env', &#123; modules: 'commonjs' &#125;]</span></span><br><span class="line">                </span><br><span class="line">              <span class="comment">// 设置为false就不会开启转换</span></span><br><span class="line">              <span class="comment">// ['@babel/preset-env', &#123; modules: false &#125;]</span></span><br><span class="line">                </span><br><span class="line">              <span class="comment">// 也可以使用默认配置，也就是 auto，这样 babel-loader 会自动关闭 ESM 转换</span></span><br><span class="line">              [<span class="string">'@babel/preset-env'</span>, &#123; <span class="attr">modules</span>: <span class="string">'auto'</span> &#125;]</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    <span class="comment">// 模块只导出被使用的成员</span></span><br><span class="line">    usedExports: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 尽可能合并每一个模块到一个函数中</span></span><br><span class="line">    <span class="comment">// concatenateModules: true,</span></span><br><span class="line">    <span class="comment">// 压缩输出结果</span></span><br><span class="line">    <span class="comment">// minimize: true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+          options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            presets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token comment" spellcheck="true">// 如果 Babel 加载模块时已经转换了 ESM，则会导致 Tree Shaking 失效</span>
+              <span class="token comment" spellcheck="true">// ['@babel/preset-env', { modules: 'commonjs' }]</span>
+
+              <span class="token comment" spellcheck="true">// 设置为false就不会开启转换</span>
+              <span class="token comment" spellcheck="true">// ['@babel/preset-env', { modules: false }]</span>
+
+              <span class="token comment" spellcheck="true">// 也可以使用默认配置，也就是 auto，这样 babel-loader 会自动关闭 ESM 转换</span>
+              <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token string">'auto'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 模块只导出被使用的成员</span>
+    usedExports<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 尽可能合并每一个模块到一个函数中</span>
+    <span class="token comment" spellcheck="true">// concatenateModules: true,</span>
+    <span class="token comment" spellcheck="true">// 压缩输出结果</span>
+    <span class="token comment" spellcheck="true">// minimize: true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
 
                 
             </div>
@@ -821,12 +922,8 @@ Sourcemap
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -999,7 +1096,7 @@ Sourcemap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">171k</span>&nbsp;字
+                class="white-color">163k</span>&nbsp;字
             
             
             
