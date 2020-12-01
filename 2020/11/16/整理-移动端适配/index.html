@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 Min
+                    11 Min
                 </div>
                 
 
@@ -362,10 +362,9 @@
                 <ul>
 <li>逻辑像素与物理像素</li>
 <li>常见长度单位</li>
-<li><p>移动端 1px</p>
-</li>
-<li><p>适配案例</p>
-</li>
+<li>移动端 1px</li>
+<li>适配案例</li>
+<li>常见移动端适配方案</li>
 </ul>
 <h2 id="逻辑像素与物理像素"><a href="#逻辑像素与物理像素" class="headerlink" title="逻辑像素与物理像素"></a>逻辑像素与物理像素</h2><ul>
 <li>pt: html css中的使用的单位像素px: 实际上指的是逻辑像素pt</li>
@@ -503,6 +502,165 @@
             <span class="token function">autoAdapt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="常见移动端适配方案"><a href="#常见移动端适配方案" class="headerlink" title="常见移动端适配方案"></a>常见移动端适配方案</h2><ul>
+<li>media queries</li>
+<li>flex 布局</li>
+<li>rem + viewport</li>
+<li>vh vw</li>
+<li>百分比</li>
+</ul>
+<h4 id="一、Meida-Queries"><a href="#一、Meida-Queries" class="headerlink" title="一、Meida Queries"></a>一、Meida Queries</h4><p>meida queries 的方式可以说是我早期采用的布局方式，它主要是通过查询设备的宽度来执行不同的 css 代码，最终达到界面的配置。</p>
+<p><strong>核心语法:</strong></p>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 374px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* iphone5 或者更小的尺寸，以 iphone5 的宽度（320px）比例设置样式*/</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 375px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 413px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* iphone6/7/8 和 iphone x */</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 414px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* iphone6p 或者更大的尺寸，以 iphone6p 的宽度（414px）比例设置样式 */</span>
+<span class="token punctuation">}</span>
+复制代码
+</code></pre>
+<p><strong>优点：</strong></p>
+<ul>
+<li>media query 可以做到设备像素比的判断，方法简单，成本低，特别是针对移动端和 PC 端维护同一套代码的时候。目前像 Bootstrap 等框架使用这种方式布局</li>
+<li>图片便于修改，只需修改 css 文件</li>
+<li>调整屏幕宽度的时候不用刷新页面即可响应式展示</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>代码量比较大，维护不方便</li>
+<li>为了兼顾大屏幕或高清设备，会造成其他设备资源浪费，特别是加载图片资源</li>
+<li>为了兼顾移动端和 PC 端各自响应式的展示效果，难免会损失各自特有的交互方式</li>
+</ul>
+<h4 id="二、Flex-弹性布局"><a href="#二、Flex-弹性布局" class="headerlink" title="二、Flex 弹性布局"></a>二、Flex 弹性布局</h4><p>以天猫的实现方式进行说明：</p>
+<p>它的 viewport 是固定的：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;</code></p>
+<p>高度定死，宽度自适应，元素都采用 px 做单位。</p>
+<p>随着屏幕宽度变化，页面也会跟着变化，效果就和 PC 页面的流体布局差不多，在哪个宽度需要调整的时候使用响应式布局调调就行（比如网易新闻），这样就实现了『适配』。</p>
+<h4 id="三、rem-viewport-缩放"><a href="#三、rem-viewport-缩放" class="headerlink" title="三、rem+viewport 缩放"></a>三、rem+viewport 缩放</h4><p><strong>实现原理：</strong></p>
+<p>根据 rem 将页面放大 dpr 倍, 然后 viewport 设置为 1/dpr.</p>
+<ul>
+<li>如 iphone6 plus 的 dpr 为 3, 则页面整体放大 3 倍, 1px(css 单位)在 plus 下默认为 3px(物理像素)</li>
+<li>然后 viewport 设置为 1/3, 这样页面整体缩回原始大小. 从而实现高清。</li>
+</ul>
+<p>这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是 device-width。这个 device-width 的计算公式为：</p>
+<p><code>设备的物理分辨率/(devicePixelRatio * scale)</code>，在 scale 为 1 的情况下，<code>device-width = 设备的物理分辨率/devicePixelRatio</code>。</p>
+<h4 id="四、rem-实现"><a href="#四、rem-实现" class="headerlink" title="四、rem 实现"></a>四、rem 实现</h4><p><code>rem</code>是相对长度单位，<code>rem</code>方案中的样式设计为相对于根元素<code>font-size</code>计算值的倍数。根据屏幕宽度设置<code>html</code>标签的<code>font-size</code>，在布局时使用 <strong>rem</strong> 单位布局，达到自适应的目的。</p>
+<p>viewport 是固定的：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;</code>。</p>
+<p>通过以下代码来控制 rem 基准值(设计稿以 720px 宽度量取实际尺寸)</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">!</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> c <span class="token operator">=</span> d<span class="token punctuation">.</span>document<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> c<span class="token punctuation">.</span>documentElement<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> d<span class="token punctuation">.</span>devicePixelRatio<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> f<span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">e</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> h <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+      g<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      h <span class="token operator">=</span> <span class="token number">720</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">></span> <span class="token number">720</span><span class="token punctuation">)</span> h <span class="token operator">=</span> <span class="token number">720</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置基准值的极限值</span>
+    g <span class="token operator">=</span> h <span class="token operator">/</span> <span class="token number">7.2</span><span class="token punctuation">;</span>
+    a<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> g <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  a<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"data-dpr"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  d<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">"resize"</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      f <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">e</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span>
+复制代码
+</code></pre>
+<p>css 通过 sass 预编译，设置量取的 px 值转化 rem 的变量<code>$px: (1/100)+rem;</code></p>
+<p>优点：</p>
+<ul>
+<li>兼容性好，页面不会因为伸缩发生变形，自适应效果更佳。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不是纯 css 移动适配方案，需要在头部内嵌一段 <code>js</code>脚本监听分辨率的变化来动态改变根元素的字体大小，<code>css</code>样式和 <code>js</code> 代码有一定耦合性，并且必须将改变<code>font-size</code>的代码放在 <code>css</code> 样式之前。</li>
+<li>小数像素问题，浏览器渲染最小的单位是像素，元素根据屏幕宽度自适应，通过 <code>rem</code> 计算后可能会出现小数像素，浏览器会对这部分小数四舍五入，按照整数渲染，有可能没那么准确。</li>
+</ul>
+<h4 id="五、纯-vw-方案"><a href="#五、纯-vw-方案" class="headerlink" title="五、纯 vw 方案"></a>五、纯 vw 方案</h4><p>视口是浏览器中用于呈现网页的区域。</p>
+<ul>
+<li><strong>vw</strong> : <strong>1vw</strong> 等于 <strong>视口宽度</strong> 的 <strong>1%</strong></li>
+<li><strong>vh</strong> : <strong>1vh</strong>  等于 <strong>视口高度</strong> 的 <strong>1% </strong></li>
+<li><strong>vmin</strong> : 选取 <strong>vw</strong> 和 <strong>vh</strong> 中 <strong>最小</strong> 的那个</li>
+<li><strong>vmax</strong> : 选取 <strong>vw</strong> 和 <strong>vh</strong> 中 <strong>最大</strong> 的那个</li>
+</ul>
+<p>虽然 vw 能更优雅的适配，但是还是有点小问题，就是宽，高没法限制。</p>
+<pre class=" language-js"><code class="language-js">$base_vw <span class="token operator">=</span> <span class="token number">375</span><span class="token punctuation">;</span>
+@<span class="token keyword">function</span> vw <span class="token punctuation">(</span>$px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>$px<span class="token operator">/</span>$base_vw<span class="token punctuation">)</span> <span class="token operator">*</span> 100vw
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+复制代码
+</code></pre>
+<p>优点：</p>
+<ul>
+<li>纯 <code>css</code> 移动端适配方案，不存在脚本依赖问题。</li>
+<li>相对于 <code>rem</code> 以根元素字体大小的倍数定义元素大小，逻辑清晰简单。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>存在一些兼容性问题，有些浏览器不支持</li>
+</ul>
+<h4 id="六、vw-rem-方案"><a href="#六、vw-rem-方案" class="headerlink" title="六、vw + rem 方案"></a>六、vw + rem 方案</h4><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// scss 语法</span>
+<span class="token comment" spellcheck="true">// 设置html根元素的大小 750px->75 640px->64</span>
+<span class="token comment" spellcheck="true">// 将屏幕分成10份，每份作为根元素的大小。</span>
+$vw_fontsize<span class="token punctuation">:</span> <span class="token number">75</span>
+@<span class="token keyword">function</span> <span class="token function">rem</span><span class="token punctuation">(</span>$px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 例如：一个div的宽度为100px，那么它对应的rem单位就是（100/根元素的大小）* 1rem</span>
+    @<span class="token keyword">return</span> <span class="token punctuation">(</span>$px <span class="token operator">/</span> $vw_fontsize<span class="token punctuation">)</span> <span class="token operator">*</span> 1rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+$base_design<span class="token punctuation">:</span> <span class="token number">750</span>
+html <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// rem与vw相关联</span>
+    font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token punctuation">(</span>$vw_fontsize <span class="token operator">/</span> <span class="token punctuation">(</span>$base_design <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> 100vw<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 同时，通过Media Queries 限制根元素最大最小值</span>
+    @media screen and <span class="token punctuation">(</span>max<span class="token operator">-</span>width<span class="token punctuation">:</span> 320px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> 64px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    @media screen and <span class="token punctuation">(</span>min<span class="token operator">-</span>width<span class="token punctuation">:</span> 540px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> 108px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小</span>
+body <span class="token punctuation">{</span>
+    max<span class="token operator">-</span>width<span class="token punctuation">:</span> 540px<span class="token punctuation">;</span>
+    min<span class="token operator">-</span>width<span class="token punctuation">:</span> 320px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+复制代码
+</code></pre>
+<h4 id="七、百分比"><a href="#七、百分比" class="headerlink" title="七、百分比"></a>七、百分比</h4><p>使用百分比%定义宽度，高度用<code>px</code>固定，根据可视区域实时尺寸进行调整，尽可能适应各种分辨率，通常使用<code>max-width</code>/<code>min-width</code>控制尺寸范围过大或者过小。</p>
+<p>优点：</p>
+<ul>
+<li>原理简单，不存在兼容性问题</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果屏幕尺度跨度太大，相对设计稿过大或者过小的屏幕不能正常显示，在大屏手机或横竖屏切换场景下可能会导致页面元素被拉伸变形，字体大小无法随屏幕大小发生变化。</li>
+<li>设置盒模型的不同属性时，其百分比设置的参考元素不唯一，容易使布局问题变得复杂。</li>
+</ul>
+<blockquote>
+<p>作者：前端先锋<br>链接：<a href="https://juejin.cn/post/6899291168891207688" target="_blank" rel="noopener">https://juejin.cn/post/6899291168891207688</a><br>来源：掘金</p>
+</blockquote>
 
                 
             </div>
@@ -515,7 +673,7 @@
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -525,7 +683,7 @@
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        链接:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -535,7 +693,7 @@
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        转载须知:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -551,7 +709,7 @@
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
         M.toast({html: toastHTML})
       });
 
@@ -1005,7 +1163,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">163k</span>&nbsp;字
+                class="white-color">164.9k</span>&nbsp;字
             
             
             
