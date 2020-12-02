@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-02
                 </div>
                 
 
@@ -365,13 +365,13 @@
 <li>V8引擎</li>
 <li>performance</li>
 </ul>
-<a id="more"></a>
 <h2 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h2><h5 id="1-标记清除"><a href="#1-标记清除" class="headerlink" title="1. 标记清除"></a>1. 标记清除</h5><p>垃圾回收器会在运行时给存储在内存中的所有变量加一个标记，然后去除环境中的变量以及被环境中的变量所引用的变量（闭包）在这些完成后仍存在标记的就是要删除的变量了，因为环境中的变量已经无法访问到这些变量了。缺点是清除的对象可能地址不连续，造成内存碎片化。</p>
 <p>优缺点：1. 可处理循环引用 2. 产生碎片化 3. 不会立即回收</p>
 <h5 id="2-引用计数"><a href="#2-引用计数" class="headerlink" title="2. 引用计数"></a>2. 引用计数</h5><p>引用计数的策略是跟踪记录每个值被使用的次数。当声明了一个变量并将一个引用类型赋值给该变量时，这个值得引用次数就加一，如果该变量的值变成了另一个，则这个值得引用次数就减一，当这个值的引用次数为0的时候，说明没有变量在使用，这个值无法访问。由此可以将其占用的空间回收，这些垃圾回收器就会在运行时清理掉引用次数为0的值占用的空间，但这种方法容易引起内存泄漏，因为这种方式没有解决循环引用的问题，所以不建议使用！例如：</p>
-<pre><code>var obj = { a:1,b:2,c:3 };
-obj.o = obj;//循环引用
-</code></pre><p>优缺点：1.即时回收 2. 减少程序卡顿 3.无法解决循环引用 4. 资源消耗大：维护引用计数器</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>c<span class="token punctuation">:</span><span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>o <span class="token operator">=</span> obj<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//循环引用</span>
+</code></pre>
+<p>优缺点：1.即时回收 2. 减少程序卡顿 3.无法解决循环引用 4. 资源消耗大：维护引用计数器</p>
 <h5 id="3-标记整理"><a href="#3-标记整理" class="headerlink" title="3. 标记整理"></a>3. 标记整理</h5><p>标记清除的升级版，清除之前先整理空间，再清除，防止内存碎片化</p>
 <h2 id="什么情况会引起内存泄漏？"><a href="#什么情况会引起内存泄漏？" class="headerlink" title="什么情况会引起内存泄漏？"></a>什么情况会引起内存泄漏？</h2><p>虽然有垃圾回收机制但是我们编写代码操作不当还是会造成内存泄漏。</p>
 <ul>
@@ -949,7 +949,7 @@ props的写法
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

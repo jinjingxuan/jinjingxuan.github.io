@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-02
                 </div>
                 
 
@@ -367,7 +367,6 @@
 <li>merge</li>
 <li>配置eslint</li>
 </ul>
-<a id="more"></a>
 <h2 id="使用-webpack-打包一个-vue-项目"><a href="#使用-webpack-打包一个-vue-项目" class="headerlink" title="使用 webpack 打包一个 vue 项目"></a>使用 webpack 打包一个 vue 项目</h2><blockquote>
 <p>首先安装一些必要的 loader 和 plugin</p>
 </blockquote>
@@ -656,8 +655,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="配置eslint"><a href="#配置eslint" class="headerlink" title="配置eslint"></a>配置eslint</h2><p><code>eslint --init</code>时模块下载失败，这里我就手动安装一下：</p>
-<pre><code>cnpm i -D eslint-plugin-vue eslint-config-standard eslint eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
-</code></pre><p>然后在<code>webpack.common.js</code>中配置一下就可以</p>
+<pre class=" language-js"><code class="language-js">cnpm i <span class="token operator">-</span>D eslint<span class="token operator">-</span>plugin<span class="token operator">-</span>vue eslint<span class="token operator">-</span>config<span class="token operator">-</span>standard eslint eslint<span class="token operator">-</span>plugin<span class="token operator">-</span><span class="token keyword">import</span> eslint<span class="token operator">-</span>plugin<span class="token operator">-</span>node eslint<span class="token operator">-</span>plugin<span class="token operator">-</span>promise eslint<span class="token operator">-</span>plugin<span class="token operator">-</span>standard
+</code></pre>
+<p>然后在<code>webpack.common.js</code>中配置一下就可以</p>
 <pre class=" language-js"><code class="language-js">      <span class="token punctuation">{</span>
         test<span class="token punctuation">:</span> <span class="token regex">/\.vue$/</span><span class="token punctuation">,</span>
         use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
@@ -968,11 +968,6 @@ iterm2
                     <div class="summary block-with-text">
                         
                             
-Webpack sideEffects
-Code Splitting
-mini-css-extract-plugin
-文件名 Hash
-
                         
                     </div>
                     <div class="publish-info">
@@ -1186,7 +1181,7 @@ mini-css-extract-plugin
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

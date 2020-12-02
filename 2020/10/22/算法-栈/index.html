@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法-栈, -Breeze&#39;s Blog">
+    <meta name="keywords" content="栈的应用, -Breeze&#39;s Blog">
     <meta name="description" content="漫漫长路，伴你同行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法-栈 | -Breeze&#39;s Blog</title>
+    <title>栈的应用 | -Breeze&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -181,12 +181,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法-栈</h1>
+                    <h1 class="description center-align post-title">栈的应用</h1>
                 </div>
             </div>
         </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-27
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 Min
+                    11 Min
                 </div>
                 
 
@@ -361,13 +361,13 @@
             <div id="articleContent">
                 <ul>
 <li>括号匹配问题</li>
+<li>最长有效括号</li>
 <li>表现良好的最长时间段</li>
 <li>买卖股票的最佳时机</li>
 <li>字符串解码</li>
 <li>去除重复字母</li>
 <li>移掉 k 位数字</li>
 </ul>
-<a id="more"></a>
 <h2 id="括号匹配问题"><a href="#括号匹配问题" class="headerlink" title="括号匹配问题"></a>括号匹配问题</h2><p>大致思路是遇到左括号入栈，遇到右括号将左括号出栈，复杂度为O(n)</p>
 <pre class=" language-js"><code class="language-js">        <span class="token keyword">function</span> <span class="token function">isBalanced</span><span class="token punctuation">(</span>exp<span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">let</span> info <span class="token operator">=</span> exp<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -411,16 +411,60 @@
     <span class="token keyword">return</span> stack<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
+<h2 id="最长有效括号"><a href="#最长有效括号" class="headerlink" title="最长有效括号"></a>最长有效括号</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/longest-valid-parentheses/" target="_blank" rel="noopener">leetcode32</a></li>
+<li><a href="https://leetcode-cn.com/problems/longest-valid-parentheses/solution/zui-chang-you-xiao-gua-hao-by-leetcode-solution/" target="_blank" rel="noopener">题解</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">给定一个只包含 <span class="token string">'('</span> 和 <span class="token string">')'</span> 的字符串，找出最长的包含有效括号的子串的长度。
+
+示例 <span class="token number">1</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token string">"(()"</span>
+输出<span class="token punctuation">:</span> <span class="token number">2</span>
+解释<span class="token punctuation">:</span> 最长有效括号子串为 <span class="token string">"()"</span>
+
+示例 <span class="token number">2</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token string">")()())"</span>
+输出<span class="token punctuation">:</span> <span class="token number">4</span>
+解释<span class="token punctuation">:</span> 最长有效括号子串为 <span class="token string">"()()"</span>
+</code></pre>
+<ul>
+<li>具体做法是我们始终保持栈底元素为当前已经遍历过的元素中「最后一个没有被匹配的右括号的下标」，这样的做法主要是考虑了边界条件的处理，栈里其他元素维护左括号的下标：</li>
+<li>对于遇到的每个 ‘(‘，我们将它的下标放入栈中</li>
+<li>对于遇到的每个 ‘)’，我们先弹出栈顶元素表示匹配了当前右括号：</li>
+<li>如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹配的右括号的下标」</li>
+<li>如果栈不为空，当前右括号的下标减去栈顶元素即为「以该右括号为结尾的最长有效括号的长度」我们从前往后遍历字符串并更新答案即可。</li>
+<li>需要注意的是，如果一开始栈为空，第一个字符为左括号的时候我们会将其放入栈中，这样就不满足提及「最后一个没有被匹配的右括号的下标」，为了保持统一，我们在一开始的时候往栈中放入一个值为 -1的元素。</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> longestValidParentheses <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> ans <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                ans <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> i <span class="token operator">-</span> stack<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <h2 id="表现良好的最长时间段"><a href="#表现良好的最长时间段" class="headerlink" title="表现良好的最长时间段"></a>表现良好的最长时间段</h2><p><a href="https://leetcode-cn.com/problems/longest-well-performing-interval/" target="_blank" rel="noopener">leetcode1124</a></p>
-<pre><code>给你一份工作时间表 hours，上面记录着某一位员工每天的工作小时数。
-我们认为当员工一天中的工作小时数大于 8 小时的时候，那么这一天就是「劳累的一天」。
+<pre class=" language-js"><code class="language-js">给你一份工作时间表 hours，上面记录着某一位员工每天的工作小时数。
+我们认为当员工一天中的工作小时数大于 <span class="token number">8</span> 小时的时候，那么这一天就是「劳累的一天」。
 所谓「表现良好的时间段」，意味在这段时间内，「劳累的天数」是严格 大于「不劳累的天数」。
 请你返回「表现良好时间段」的最大长度。
 
-输入：hours = [9,9,6,0,6,6,9]
-输出：3
-解释：最长的表现良好时间段是 [9,9,6]。
-</code></pre><h3 id="前置知识：前缀和，单调栈"><a href="#前置知识：前缀和，单调栈" class="headerlink" title="前置知识：前缀和，单调栈"></a>前置知识：前缀和，单调栈</h3><ul>
+输入：hours <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
+输出：<span class="token number">3</span>
+解释：最长的表现良好时间段是 <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>。
+</code></pre>
+<h3 id="前置知识：前缀和，单调栈"><a href="#前置知识：前缀和，单调栈" class="headerlink" title="前置知识：前缀和，单调栈"></a>前置知识：前缀和，单调栈</h3><ul>
 <li>数组转换并计算前缀和</li>
 </ul>
 <pre class=" language-js"><code class="language-js">hours <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
@@ -490,21 +534,22 @@ presum <span class="token operator">=</span> <span class="token punctuation">[</
 <h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">leetcode121</a></li>
 </ul>
-<pre><code>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+<pre class=" language-js"><code class="language-js">给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
 如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
 注意：你不能在买入股票前卖出股票。
 
-示例 1:
-输入: [7,1,5,3,6,4]
-输出: 5
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+示例 <span class="token number">1</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token number">5</span>
+解释<span class="token punctuation">:</span> 在第 <span class="token number">2</span> 天（股票价格 <span class="token operator">=</span> <span class="token number">1</span>）的时候买入，在第 <span class="token number">5</span> 天（股票价格 <span class="token operator">=</span> <span class="token number">6</span>）的时候卖出，最大利润 <span class="token operator">=</span> <span class="token number">6</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">=</span> <span class="token number">5</span> 。
+     注意利润不能是 <span class="token number">7</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
 
-示例 2:
-输入: [7,6,4,3,1]
-输出: 0
-解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
-</code></pre><ul>
+示例 <span class="token number">2</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token number">0</span>
+解释<span class="token punctuation">:</span> 在这种情况下<span class="token punctuation">,</span> 没有交易完成<span class="token punctuation">,</span> 所以最大利润为 <span class="token number">0</span>。
+</code></pre>
+<ul>
 <li>构造单调递减栈：最优解的起始值必是单调栈中的</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> maxProfit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -525,22 +570,23 @@ presum <span class="token operator">=</span> <span class="token punctuation">[</
     <span class="token keyword">return</span> ans
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a>字符串解码</h2><pre><code>示例 1：
-输入：s = &quot;3[a]2[bc]&quot;
-输出：&quot;aaabcbc&quot;
+<h2 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a>字符串解码</h2><pre class=" language-js"><code class="language-js">示例 <span class="token number">1</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"3[a]2[bc]"</span>
+输出：<span class="token string">"aaabcbc"</span>
 
-示例 2：
-输入：s = &quot;3[a2[c]]&quot;
-输出：&quot;accaccacc&quot;
+示例 <span class="token number">2</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"3[a2[c]]"</span>
+输出：<span class="token string">"accaccacc"</span>
 
-示例 3：
-输入：s = &quot;2[abc]3[cd]ef&quot;
-输出：&quot;abcabccdcdcdef&quot;
+示例 <span class="token number">3</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"2[abc]3[cd]ef"</span>
+输出：<span class="token string">"abcabccdcdcdef"</span>
 
-示例 4：
-输入：s = &quot;abc3[cd]xyz&quot;
-输出：&quot;abccdcdcdxyz&quot;
-</code></pre><ul>
+示例 <span class="token number">4</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"abc3[cd]xyz"</span>
+输出：<span class="token string">"abccdcdcdxyz"</span>
+</code></pre>
+<ul>
 <li>题目来源：<a href="https://leetcode-cn.com/problems/decode-string/" target="_blank" rel="noopener">leetcode394</a></li>
 <li>正则解法</li>
 </ul>
@@ -560,16 +606,17 @@ presum <span class="token operator">=</span> <span class="token punctuation">[</
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="去除重复字母"><a href="#去除重复字母" class="headerlink" title="去除重复字母"></a>去除重复字母</h2><pre><code>给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。 
+<h2 id="去除重复字母"><a href="#去除重复字母" class="headerlink" title="去除重复字母"></a>去除重复字母</h2><pre class=" language-js"><code class="language-js">给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。 
 
-示例 1：
-输入：s = &quot;bcabc&quot;
-输出：&quot;abc&quot;
+示例 <span class="token number">1</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"bcabc"</span>
+输出：<span class="token string">"abc"</span>
 
-示例 2：
-输入：s = &quot;cbacdcbc&quot;
-输出：&quot;acdb&quot;
-</code></pre><h2 id="移掉-k-位数字"><a href="#移掉-k-位数字" class="headerlink" title="移掉 k 位数字"></a>移掉 k 位数字</h2><ul>
+示例 <span class="token number">2</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"cbacdcbc"</span>
+输出：<span class="token string">"acdb"</span>
+</code></pre>
+<h2 id="移掉-k-位数字"><a href="#移掉-k-位数字" class="headerlink" title="移掉 k 位数字"></a>移掉 k 位数字</h2><ul>
 <li>题目：<a href="https://leetcode-cn.com/problems/remove-k-digits" target="_blank" rel="noopener">leetcode402</a></li>
 <li>可参考：<a href="https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/" target="_blank" rel="noopener">一招吃遍力扣四道题，妈妈再也不用担心我被套路啦～</a></li>
 </ul>
@@ -594,12 +641,13 @@ num 不会包含任何前导零。
 输出<span class="token punctuation">:</span> <span class="token string">"0"</span>
 解释<span class="token punctuation">:</span> 从原数字移除所有的数字，剩余为空就是<span class="token number">0</span>。
 </code></pre>
-<pre><code>给定一个数字序列，例如 425，如果要求我们只删除一个数字，那么从左到右，我们有 4、2 和 5 三个选择。我们将每一个数字和它的左邻居进行比较。从 2 开始，小于它的左邻居 4。则我们应该去掉数字 4。如果不这么做，则随后无论做什么，都不会得到最小数。
+<pre class=" language-js"><code class="language-js">给定一个数字序列，例如 <span class="token number">425</span>，如果要求我们只删除一个数字，那么从左到右，我们有 <span class="token number">4</span>、<span class="token number">2</span> 和 <span class="token number">5</span> 三个选择。我们将每一个数字和它的左邻居进行比较。从 <span class="token number">2</span> 开始，小于它的左邻居 <span class="token number">4</span>。则我们应该去掉数字 <span class="token number">4</span>。如果不这么做，则随后无论做什么，都不会得到最小数。
 
-如果我们保留数字 4，那么所有可能的组合都是以数字 4（即 42，45）开头的。相反，如果去掉 4，留下 2，我们得到的是以 2 开头的组合（即 25），这明显小于任何留下数字 4 的组合。
+如果我们保留数字 <span class="token number">4</span>，那么所有可能的组合都是以数字 <span class="token number">4</span>（即 <span class="token number">42</span>，<span class="token number">45</span>）开头的。相反，如果去掉 <span class="token number">4</span>，留下 <span class="token number">2</span>，我们得到的是以 <span class="token number">2</span> 开头的组合（即 <span class="token number">25</span>），这明显小于任何留下数字 <span class="token number">4</span> 的组合。
 
 这个问题可以用贪心算法来解决。上述规则阐明了我们如何接近最终答案的基本逻辑。一旦我们从序列中删除一个数字，剩下的数字就形成了一个新的问题，我们可以继续使用这个规则。
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>思路：从左向右遍历入栈，若下一个数更小，则上一个数出栈。</li>
 <li>问题： num 是一个增序序列，则不会出栈；是一个降序序列，则会一直出栈。</li>
 <li><p>解决：</p>
@@ -1134,7 +1182,7 @@ vue-devtools
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 Min
+                    11 Min
                 </div>
                 
 
@@ -513,6 +513,13 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>https并非应用层的一种新协议，只是http通信接口部分用ssl/tls协议代替而已。</p>
+<p>SSL和TLS都是加密协议<br>通常http直接和tcp通信，当使用ssl时则演变成先和ssl通信，再由ssl和tcp通信。<br>所谓https，其实就是身披ssl协议这层外壳的http。（回忆一下osi7层,TCP/IP4层，我们学的是5层）</p>
+<p>SSL协议采用的是非对称加密算法，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密.</p>
+<p>RSA算法：两个大素数p,q，n=pq,f(n)=(p-1)(q-1),1&lt;b&lt;f(n),a=b^-1modf(n),公钥n,b,私钥p,q,a</p>
+<p>证书，顾名思义，就是证明的文件。例如浏览器和 tlanyan.me 服务器通信，浏览器怎么知道对方就是 tlanyan.me 对应的服务器呢？在不可信的网络下通信，中立的第三方作用就显现出来了。权威的第三方中立机构（ Certificate Authority, CA）收到 tlanyan.me 持有者的证书请求并核验信息后，将持有者的名称、公钥与 CA 用私钥生成的数字签名等信息写成证书颁发给申请者。</p>
+</blockquote>
 
                 
             </div>
@@ -1015,7 +1022,7 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

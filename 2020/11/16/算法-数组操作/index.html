@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    910
+                    981
                 </div>
                 
 
@@ -364,6 +364,7 @@
 <li>只出现一次的数字</li>
 <li>找到所有数组中消失的数字</li>
 <li>三数之和</li>
+<li>数字数组去重排序</li>
 </ul>
 <h2 id="合并区间"><a href="#合并区间" class="headerlink" title="合并区间"></a>合并区间</h2><p>题目来源：<a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode56</a></p>
 <pre class=" language-js"><code class="language-js">示例 <span class="token number">1</span><span class="token punctuation">:</span>
@@ -524,6 +525,23 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> ans
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="数字数组去重排序"><a href="#数字数组去重排序" class="headerlink" title="数字数组去重排序"></a>数字数组去重排序</h2><ul>
+<li>用下标表示数字，空间复杂度较高，一般不建议使用</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ans<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> ans
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -1027,7 +1045,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

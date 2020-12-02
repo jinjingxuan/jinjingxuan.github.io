@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    974
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -365,6 +365,8 @@
 <li>两两交换链表元素</li>
 <li>环形链表</li>
 <li>删除链表的倒数第n个结点</li>
+<li>合并两个有序链表</li>
+<li>合并k个有序链表</li>
 </ul>
 <h2 id="奇偶链表"><a href="#奇偶链表" class="headerlink" title="奇偶链表"></a>奇偶链表</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/odd-even-linked-list" target="_blank" rel="noopener">leetcode328</a></li>
@@ -515,14 +517,15 @@
 <h2 id="删除链表的倒数第n个结点"><a href="#删除链表的倒数第n个结点" class="headerlink" title="删除链表的倒数第n个结点"></a>删除链表的倒数第n个结点</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode19</a></li>
 </ul>
-<pre><code>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+<pre class=" language-js"><code class="language-js">给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
 
 示例：
 
-给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.
+给定一个链表<span class="token punctuation">:</span> <span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">5</span><span class="token punctuation">,</span> 和 n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">.</span>
 
-当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.
-</code></pre><ul>
+当删除了倒数第二个节点后，链表变为 <span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">5</span><span class="token punctuation">.</span>
+</code></pre>
+<ul>
 <li>思路：双指针，快的先走 n 步，然后两个一起走到最后，慢的就是倒数第 n 个，只遍历了一次</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> removeNthFromEnd <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -543,6 +546,78 @@
     <span class="token comment" spellcheck="true">// 删除</span>
     slow<span class="token punctuation">.</span>next <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
     <span class="token keyword">return</span> pre<span class="token punctuation">.</span>next
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">leetcode21</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+示例：
+
+输入：<span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span>
+输出：<span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> mergeTwoLists <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> l2
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> l1
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        l1<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> l2<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> l1
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        l2<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> l2
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="合并k个有序链表"><a href="#合并k个有序链表" class="headerlink" title="合并k个有序链表"></a>合并k个有序链表</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">leetcode23</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">给你一个链表数组，每个链表都已经按升序排列。
+请你将所有链表合并到一个升序链表中，返回合并后的链表。
+
+示例 <span class="token number">1</span>：
+输入：lists <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
+解释：链表数组如下：
+<span class="token punctuation">[</span>
+  <span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">5</span><span class="token punctuation">,</span>
+  <span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token punctuation">,</span>
+  <span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">6</span>
+<span class="token punctuation">]</span>
+将它们合并到一个有序链表中得到。
+<span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">5</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">6</span>
+
+示例 <span class="token number">2</span>：
+输入：lists <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+示例 <span class="token number">3</span>：
+输入：lists <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>分治：把 k 个链表拆分，利用合并两个链表来操作</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> mergeKLists <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>lists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lists<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lists<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> lists<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lists<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>lists<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> lists<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> mid <span class="token operator">=</span> lists<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> l1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> mid<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    l1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> l2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> mid<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> lists<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">,</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    l2<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token function">mergeKLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -1047,7 +1122,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

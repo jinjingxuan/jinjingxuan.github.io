@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-12
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    529
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 Min
+                    2 Min
                 </div>
                 
 
@@ -362,9 +362,7 @@
                 <ul>
 <li>v-show 与 v-if 区别</li>
 <li>动态绑定class的方法</li>
-<li>计算属性和 watch 的区别</li>
 </ul>
-<a id="more"></a>
 <h2 id="v-show-与-v-if-区别"><a href="#v-show-与-v-if-区别" class="headerlink" title="v-show 与 v-if 区别"></a>v-show 与 v-if 区别</h2><p>相同点：v-if与v-show都可以动态控制dom元素显示隐藏</p>
 <p>不同点：v-if显示隐藏是将dom元素整个添加或删除，而v-show隐藏则是为该元素添加css–display:none，dom元素还在。</p>
 <pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>app<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
@@ -461,78 +459,6 @@ data: {
       }
   }
 </code></pre>
-<h2 id="计算属性和-watch-的区别"><a href="#计算属性和-watch-的区别" class="headerlink" title="计算属性和 watch 的区别"></a>计算属性和 watch 的区别</h2><p><strong>一、 计算属性（computed）</strong> </p>
-<blockquote>
-<p>computed 是计算属性，它会根据你所依赖的数据动态显示新的计算结果</p>
-</blockquote>
-<p>通过计算出来的属性<strong>不需要调用</strong>直接可以在 DOM 里使用</p>
-<pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>app<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>我是原始值: {{ message }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>我是计算属性的值: {{ computedMessage}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span> 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-        <span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            el<span class="token punctuation">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
-            data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                message<span class="token punctuation">:</span> <span class="token string">'hello'</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">// 计算属性的 getter</span>
-                computedMessage<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">// `this` 指向 app 实例</span>
-                    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
-<p><strong>二、methods同样可实现</strong> </p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Original message: "{{ message }}"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Computed reversed message: "{{ reversedMessage() }}"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-
-const app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello'
-  },
-  methods: {
-    // 计算属性的 getter
-    reversedMessage: function () {
-      // this 指向 Vue 实例
-      return this.message.split('').reverse().join('')
-    }
-  }
-})
-</code></pre>
-<p><strong>三、监听属性（watch）</strong> </p>
-<blockquote>
-<p>侦听属性 <code>watch</code> 用来观察和响应数据的变动。 </p>
-</blockquote>
-<pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demodiv<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>      
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        {{text}}         
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-        <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            el<span class="token punctuation">:</span><span class="token string">"#demodiv"</span><span class="token punctuation">,</span>
-            data<span class="token punctuation">:</span><span class="token punctuation">{</span>
-                    text<span class="token punctuation">:</span><span class="token string">"abcdefg"</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            watch<span class="token punctuation">:</span><span class="token punctuation">{</span>
-                <span class="token function">text</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span>oldval<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newval<span class="token operator">+</span><span class="token string">'========'</span><span class="token operator">+</span>oldval<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>（1）首先表明，computed 和 watch 都属于 watcher，在<code>initState</code>中初始化，一共有三种还有一种是渲染 Watcher 在 mount 中初始化，本质上都依赖于 Vue 的响应式原理。</p>
-<p>（2）computed 本质是一个惰性求值的观察者，具有缓存性，只有当依赖变化后，第一次访问 computed 属性，才会计算新的值，其内部通过dirty属性标记计算属性是否需要重新求值。而 watch 则是当数据发生变化便会调用执行函数。</p>
-<p>（3）<code>computed</code>: 当某个数据需要随着（依赖于）另一个数据的变动而作出改变时，这时候你需要使用计算属性。 <code>watch</code>: 当某个数据发生变化时，需要对这个数据的变化进行反应（进行一系列操作），这时候你需要使用侦听属性。<code>methods</code>: 与计算属性不同的是，每次读取数据时，都是计算一遍，除非你不需要缓存，否则这样做需要大量的性能开销。  </p>
 <h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p> v-model本质上是一个语法糖。（双向的）</p>
 <p>如下代码<code>&lt;input v-model=&quot;test&quot;&gt;</code>本质上是&lt;<code>input :value=&quot;test&quot; @input=&quot;test = $event.target.value&quot;&gt;</code> </p>
 <p><code>:value=&quot;test&quot;</code>设置input初始值为text值，</p>
@@ -1051,7 +977,7 @@ css定位有哪几种，如果在一个文档流中给一个div定位fixed，
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

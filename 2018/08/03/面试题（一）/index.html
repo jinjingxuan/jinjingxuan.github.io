@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="日常-2020.3.4, -Breeze&#39;s Blog">
+    <meta name="keywords" content="面试题（一）, -Breeze&#39;s Blog">
     <meta name="description" content="漫漫长路，伴你同行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>日常-2020.3.4 | -Breeze&#39;s Blog</title>
+    <title>面试题（一） | -Breeze&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -181,12 +181,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">日常-2020.3.4</h1>
+                    <h1 class="description center-align post-title">面试题（一）</h1>
                 </div>
             </div>
         </div>
@@ -310,8 +310,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/日常/" class="post-category">
-                                日常
+                            <a href="/categories/面试/" class="post-category">
+                                面试
                             </a>
                         
                     </div>
@@ -323,28 +323,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-04
+                    2018-08-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 Min
+                    5 Min
                 </div>
                 
 
@@ -360,82 +360,204 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>什么是闭包</li>
-<li>垃圾回收机制</li>
-<li>js隐式转换与显式转换</li>
+<li>Vue的组件传值的方式（8种）<ul>
+<li>父传子：数组/对象形式，单向数据流（在子组件中改变prop会出现警告）</li>
+<li>子传父：联系发布订阅模式（$emit,$on）讲一下，怎么实现一个发布订阅模式</li>
 </ul>
-<a id="more"></a>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><blockquote>
-<p>闭包就是能够读取其他函数内部变量的函数。最常见的就是函数嵌套函数。<br>闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。</p>
+</li>
+<li>打包工具webpack，rollup，parcel分别适用于什么场景？</li>
+<li>如何理解 vue 响应式原理？</li>
+<li>computed和watcher的原理，有什么区别及应用场景？（Watcher，惰性）</li>
+<li>为什么 Vue3.0 采用了 proxy，有什么优势？</li>
+<li>说一下模块化的方案，CommonJs，AMD，CMD，ES Modules</li>
+<li>介绍一下 Vue 的 Virtual DOM 与 Diff 算法</li>
+<li>说一下 $nextTick 的原理</li>
+<li>Vue 组件 data 为什么必须是函数 ?</li>
+<li>webpack插件主要是做什么的，常用的有哪些，自己写过webpack插件吗</li>
+<li>webpack 热更新原理</li>
+<li>js执行会阻塞DOM树的解析和渲染，那么css加载会阻塞DOM树的解析和渲染吗？css会阻塞js吗</li>
+</ul>
+<h2 id="Vue的组件传值的方式（8种）"><a href="#Vue的组件传值的方式（8种）" class="headerlink" title="Vue的组件传值的方式（8种）"></a>Vue的组件传值的方式（8种）</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/11/12/%E6%95%B4%E7%90%86-Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">Vue组件通信的方式</a></li>
+</ul>
+<h2 id="打包工具webpack，rollup，parcel分别适用于什么场景？"><a href="#打包工具webpack，rollup，parcel分别适用于什么场景？" class="headerlink" title="打包工具webpack，rollup，parcel分别适用于什么场景？"></a>打包工具webpack，rollup，parcel分别适用于什么场景？</h2><blockquote>
+<p>webpack：一般用于大型复杂应用</p>
+<p>rollup：一般用于开发第三方类库，例如 vue 源码就是用 rollup 打包的</p>
+<p>parcel：轻量快捷，一般用于自己写一些小的 demo</p>
 </blockquote>
-<pre class=" language-js"><code class="language-js">
-<span class="token comment" spellcheck="true">// 嵌套函数的闭包             匿名函数实现累加</span>
-<span class="token keyword">function</span> <span class="token function">aaa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>           <span class="token keyword">function</span> <span class="token function">box</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>                  <span class="token keyword">var</span> age <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//匿名函数</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token operator">++</span><span class="token punctuation">)</span>                  age<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>                               <span class="token keyword">return</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>                             <span class="token punctuation">}</span>
-                           <span class="token punctuation">}</span>     
-循环中的闭包
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//输出0 ~ 9</span>
+<h2 id="如何理解-vue-响应式原理？"><a href="#如何理解-vue-响应式原理？" class="headerlink" title="如何理解 vue 响应式原理？"></a>如何理解 vue 响应式原理？</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/11/12/%E6%95%B4%E7%90%86-Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">Vue响应式原理详解</a></li>
+</ul>
+<h2 id="computed和watcher的原理，有什么区别及应用场景？（Watcher，惰性）"><a href="#computed和watcher的原理，有什么区别及应用场景？（Watcher，惰性）" class="headerlink" title="computed和watcher的原理，有什么区别及应用场景？（Watcher，惰性）"></a>computed和watcher的原理，有什么区别及应用场景？（Watcher，惰性）</h2><h2 id="计算属性和-watch-的区别"><a href="#计算属性和-watch-的区别" class="headerlink" title="计算属性和 watch 的区别"></a>计算属性和 watch 的区别</h2><p><strong>一、 计算属性（computed）</strong> </p>
+<blockquote>
+<p>computed 是计算属性，它会根据你所依赖的数据动态显示新的计算结果</p>
+</blockquote>
+<p>通过计算出来的属性<strong>不需要调用</strong>直接可以在 DOM 里使用</p>
+<pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>app<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>我是原始值: {{ message }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>我是计算属性的值: {{ computedMessage}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            el<span class="token punctuation">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                message<span class="token punctuation">:</span> <span class="token string">'hello'</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 计算属性的 getter</span>
+                computedMessage<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// `this` 指向 app 实例</span>
+                    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre>
-<h3 id="两种垃圾回收机制"><a href="#两种垃圾回收机制" class="headerlink" title="两种垃圾回收机制"></a>两种垃圾回收机制</h3><blockquote>
-<p>1.标记清除：内存中所有变量加一个标记，去除环境中的变量以及被环境中变量引用的变量（闭包）剩下的就删除</p>
-<p>2.引用计数：跟踪每个值被引用的次数，当声明变量并赋值时，这个值引用次数+1，该变量值改变时，值的引用次数-1，直到0时回收。（存在循环引用问题）<br>var obj = {a:1,b:2,c:3}   obj.o=o</p>
-<p>IE浏览器的js对象采用标记清除，DOM对象采用引用计数<br>闭包会在IE中内存泄露,例如：</p>
+<p><strong>二、methods同样可实现</strong> </p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Original message: "{{ message }}"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Computed reversed message: "{{ reversedMessage() }}"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello'
+  },
+  methods: {
+    // 计算属性的 getter
+    reversedMessage: function () {
+      // this 指向 Vue 实例
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+</code></pre>
+<p><strong>三、监听属性（watch）</strong> </p>
+<blockquote>
+<p>侦听属性 <code>watch</code> 用来观察和响应数据的变动。 </p>
 </blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> oDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'#div'</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//oDiv引用了document.getElementById('#div')</span>
-    oDiv<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                      <span class="token comment" spellcheck="true">//document.getElementById('#div')的onclick方</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'oDiv.innerHtml'</span><span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true">//法包含oDiv在内环境中的变量，引用了oDiv</span>
+<pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demodiv<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>      
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        {{text}}         
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            el<span class="token punctuation">:</span><span class="token string">"#demodiv"</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span><span class="token punctuation">{</span>
+                    text<span class="token punctuation">:</span><span class="token string">"abcdefg"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            watch<span class="token punctuation">:</span><span class="token punctuation">{</span>
+                <span class="token function">text</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span>oldval<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newval<span class="token operator">+</span><span class="token string">'========'</span><span class="token operator">+</span>oldval<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>（1）首先表明，computed 和 watch 都属于 watcher，在<code>initState</code>中初始化，一共有三种还有一种是渲染 Watcher 在 mount 中初始化，本质上都依赖于 Vue 的响应式原理。</p>
+<p>（2）computed 本质是一个惰性求值的观察者，具有缓存性，只有当依赖变化后，第一次访问 computed 属性，才会计算新的值，其内部通过dirty属性标记计算属性是否需要重新求值。而 watch 则是当数据发生变化便会调用执行函数。</p>
+<p>（3）<code>computed</code>: 当某个数据需要随着（依赖于）另一个数据的变动而作出改变时，这时候你需要使用计算属性。 <code>watch</code>: 当某个数据发生变化时，需要对这个数据的变化进行反应（进行一系列操作），这时候你需要使用侦听属性。<code>methods</code>: 与计算属性不同的是，每次读取数据时，都是计算一遍，除非你不需要缓存，否则这样做需要大量的性能开销。  </p>
+<h3 id="watch的两个参数"><a href="#watch的两个参数" class="headerlink" title="watch的两个参数"></a>watch的两个参数</h3><ul>
+<li>immediate：代表立即执行，而不是等监听对象改变再执行</li>
+<li>deep：深度监听，对象的属性改变也可以监听的到</li>
+</ul>
+<p>可以参考<a href="https://zhuanlan.zhihu.com/p/86273758" target="_blank" rel="noopener">这篇文章</a></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 两种写法</span>
+watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'user.firstName'</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>fullName <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">''</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>lastName
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        handler<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>fullName <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">''</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>user<span class="token punctuation">.</span>lastName
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        deep<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        immediate<span class="token punctuation">:</span> <span class="token boolean">true</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="JS隐式转换"><a href="#JS隐式转换" class="headerlink" title="JS隐式转换"></a>JS隐式转换</h3><blockquote>
-<p>1.undefined与null相等，但不恒等（===）<br>2.一个是number一个是string时，会尝试将string转换为number<br>3.隐式转换将boolean转换为number，0或1<br>4.隐式转换将Object转换成number或string，取决于另外一个对比量的类型<br>5.对于0、空字符串的判断，建议使用 “===” 。<br>6.“==”会对不同类型值进行类型转换再判断，“===”则不会。它会先判断两边的值类型，类型不匹配时直接为false。</p>
+<h3 id="三种类型的-Watcher-对象"><a href="#三种类型的-Watcher-对象" class="headerlink" title="三种类型的 Watcher 对象"></a>三种类型的 Watcher 对象</h3><ul>
+<li><p>没有静态方法，因为 $watch 方法中要使用 Vue 的实例</p>
+</li>
+<li><p>Watcher 分三种：计算属性 Watcher、用户 Watcher (侦听器)、渲染 Watcher</p>
+<ul>
+<li>计算属性 Watcher 在 initComputd 中创建</li>
+<li>用户 Watcher (侦听器) 在 Vue.$watch 中创建</li>
+<li>渲染 Watcher 在 mountComponent 中创建</li>
+</ul>
+</li>
+<li><p>Watcher内部实现是一样的，<code>src/core/observer/watcher.js</code>中，并且每一个Watcher都有一个id</p>
+</li>
+<li><p>创建顺序：计算属性 Watcher、用户 Watcher (侦听器)、渲染 Watcher</p>
+</li>
+<li><p>vm.$watch()</p>
+<ul>
+<li>src\core\instance\state.js</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$watch <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>
+    expOrFn<span class="token punctuation">:</span> string <span class="token operator">|</span> Function<span class="token punctuation">,</span>
+    cb<span class="token punctuation">:</span> any<span class="token punctuation">,</span>
+    options<span class="token operator">?</span><span class="token punctuation">:</span> Object
+  <span class="token punctuation">)</span><span class="token punctuation">:</span> Function <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 获取 Vue 实例 this</span>
+    <span class="token keyword">const</span> vm<span class="token punctuation">:</span> Component <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isPlainObject</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 判断如果 cb 是对象执行 createWatcher</span>
+      <span class="token keyword">return</span> <span class="token function">createWatcher</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> expOrFn<span class="token punctuation">,</span> cb<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    options <span class="token operator">=</span> options <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    options<span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token comment" spellcheck="true">// 创建用户 watcher 对象</span>
+    <span class="token keyword">const</span> watcher <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Watcher</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> expOrFn<span class="token punctuation">,</span> cb<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 判断 immediate 如果为 true</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>immediate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 立即执行一次 cb 回调，并且把当前值传入</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        cb<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> watcher<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">handleError</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> vm<span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`callback for immediate watcher "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>watcher<span class="token punctuation">.</span>expression<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 返回取消监听的方法</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> unwatchFn <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      watcher<span class="token punctuation">.</span><span class="token function">teardown</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="为什么-Vue3-0-采用了-proxy，有什么优势？"><a href="#为什么-Vue3-0-采用了-proxy，有什么优势？" class="headerlink" title="为什么 Vue3.0 采用了 proxy，有什么优势？"></a>为什么 Vue3.0 采用了 proxy，有什么优势？</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/11/12/%E6%95%B4%E7%90%86-Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">Vue响应式原理详解</a></li>
+</ul>
+<h2 id="说一下模块化的方案，CommonJs，AMD，CMD，ESModules"><a href="#说一下模块化的方案，CommonJs，AMD，CMD，ESModules" class="headerlink" title="说一下模块化的方案，CommonJs，AMD，CMD，ESModules"></a>说一下模块化的方案，CommonJs，AMD，CMD，ESModules</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/09/05/%E6%95%B4%E7%90%86-%E6%A8%A1%E5%9D%97%E5%8C%96/" target="_blank" rel="noopener">模块化</a></li>
+</ul>
+<h2 id="介绍一下-Vue-的-Virtual-DOM-与-Diff-算法"><a href="#介绍一下-Vue-的-Virtual-DOM-与-Diff-算法" class="headerlink" title="介绍一下 Vue 的 Virtual DOM 与 Diff 算法"></a>介绍一下 Vue 的 Virtual DOM 与 Diff 算法</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/09/24/%E6%95%B4%E7%90%86-VirtualDOM%E4%B8%8EDiff%E7%AE%97%E6%B3%95/" target="_blank" rel="noopener">Virtual DOM 与 Diff 算法</a></li>
+</ul>
+<h2 id="说一下-nextTick-的原理"><a href="#说一下-nextTick-的原理" class="headerlink" title="说一下 $nextTick 的原理"></a>说一下 $nextTick 的原理</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/10/16/%E6%95%B4%E7%90%86-Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/#toc-heading-3" target="_blank" rel="noopener">nextTick</a></li>
+</ul>
+<h2 id="Vue-组件-data-为什么必须是函数"><a href="#Vue-组件-data-为什么必须是函数" class="headerlink" title="Vue 组件 data 为什么必须是函数 ?"></a>Vue 组件 data 为什么必须是函数 ?</h2><blockquote>
+<p>vue中data 是可以直接写成一个对象的,但这是保证这个组件不会被复用的情况下</p>
+<p>由于组价的复用,其实是创建多个vue实例,如果data中仍然是只是一个对象,那么其实创建出来的实例保持的都是对同一个对象的引用。</p>
+<p>所以我们通过 一个 函数执行返回了一个新的全新的数据对象。</p>
 </blockquote>
-<pre class=" language-js"><code class="language-js">undefined <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true   </span>
-<span class="token operator">==</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true  </span>
-<span class="token operator">==</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// false  </span>
-<span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true</span>
-<span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true   </span>
-<span class="token number">NaN</span> <span class="token operator">==</span> <span class="token number">NaN</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// false  NaN不等于任何值</span>
-<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true  </span>
-<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">!</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true           !会将其转为布尔值，![]的值为false，==操作符将false转为0，[]==0</span>
-<span class="token string">'6'</span> <span class="token operator">-</span> <span class="token string">'3'</span>  <span class="token comment" spellcheck="true">// 3               []也会转为数字0   0==0</span>
-<span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">==</span> <span class="token operator">!</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">//false           {} == false  ->  {} == 0  ->   NaN == 0    ->  false</span>
-<span class="token number">1234</span> <span class="token operator">+</span> <span class="token string">'abcd'</span> <span class="token comment" spellcheck="true">// "1234abcd"</span>
-</code></pre>
-<h3 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h3><blockquote>
-<p>显示转换一般指使用Number、String和Boolean三个构造函数，手动将各种类型的值，转换成数字、字符串或者布尔值。</p>
-</blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token function">Number</span><span class="token punctuation">(</span><span class="token string">'1234'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1234</span>
-<span class="token function">Number</span><span class="token punctuation">(</span><span class="token string">'1234abcd'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// NaN</span>
-<span class="token function">Number</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 0</span>
-<span class="token function">Number</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span>
-<span class="token function">Number</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 0</span>
-<span class="token function">Number</span><span class="token punctuation">(</span>undefined<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// NaN</span>
-<span class="token function">String</span><span class="token punctuation">(</span><span class="token number">1234</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// "1234"</span>
-<span class="token function">String</span><span class="token punctuation">(</span><span class="token string">'abcd'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// "abcd"</span>
-<span class="token function">String</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// "true"</span>
-<span class="token function">String</span><span class="token punctuation">(</span>undefined<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// "undefined"</span>
-<span class="token function">String</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// "null"</span>
-<span class="token function">Boolean</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-<span class="token function">Boolean</span><span class="token punctuation">(</span>undefined<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-<span class="token function">Boolean</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-<span class="token function">Boolean</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-<span class="token function">Boolean</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-</code></pre>
-<h3 id="几道题"><a href="#几道题" class="headerlink" title="几道题"></a>几道题</h3><pre class=" language-js"><code class="language-js"><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">{</span><span class="token punctuation">}</span>     <span class="token comment" spellcheck="true">//"[object Object]"</span>
-<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token operator">+</span><span class="token punctuation">[</span><span class="token punctuation">]</span>     <span class="token comment" spellcheck="true">//0</span>
-<span class="token number">1</span><span class="token operator">+</span><span class="token operator">-</span><span class="token string">'1'</span><span class="token operator">+</span><span class="token number">1</span>  <span class="token comment" spellcheck="true">//1</span>
-<span class="token string">'A'</span><span class="token operator">-</span><span class="token string">'B'</span>   <span class="token comment" spellcheck="true">//NaN</span>
-</code></pre>
+<h2 id="webpack插件主要是做什么的，常用的有哪些，自己写过webpack插件吗"><a href="#webpack插件主要是做什么的，常用的有哪些，自己写过webpack插件吗" class="headerlink" title="webpack插件主要是做什么的，常用的有哪些，自己写过webpack插件吗"></a>webpack插件主要是做什么的，常用的有哪些，自己写过webpack插件吗</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/09/06/%E6%95%B4%E7%90%86-webpack%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="noopener">webpack插件</a></li>
+</ul>
+<h2 id="webpack-热更新原理"><a href="#webpack-热更新原理" class="headerlink" title="webpack 热更新原理"></a>webpack 热更新原理</h2><ul>
+<li><a href="https://juejin.cn/post/6844904020528594957" target="_blank" rel="noopener">从零实现webpack热更新HMR</a></li>
+</ul>
+<h2 id="js执行会阻塞DOM树的解析和渲染，那么css加载会阻塞DOM树的解析和渲染吗？css会阻塞js吗"><a href="#js执行会阻塞DOM树的解析和渲染，那么css加载会阻塞DOM树的解析和渲染吗？css会阻塞js吗" class="headerlink" title="js执行会阻塞DOM树的解析和渲染，那么css加载会阻塞DOM树的解析和渲染吗？css会阻塞js吗"></a>js执行会阻塞DOM树的解析和渲染，那么css加载会阻塞DOM树的解析和渲染吗？css会阻塞js吗</h2><ul>
+<li><a href="https://www.jinjingxuan.com/2020/11/23/%E6%95%B4%E7%90%86-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E7%9B%B8%E5%85%B3/" target="_blank" rel="noopener">浏览器渲染相关</a></li>
+</ul>
 
                 
             </div>
@@ -462,7 +584,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/04/日常-2020.3.4/">http://yoursite.com/2020/03/04/日常-2020.3.4/</a>
+                    <a href="http://yoursite.com/2018/08/03/面试题（一）/">http://yoursite.com/2018/08/03/面试题（一）/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -671,13 +793,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/03/05/算法-二叉树相关/">
+                <a href="/2018/08/03/面试题（二）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法-二叉树相关">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题（二）">
                         
-                        <span class="card-title">算法-二叉树相关</span>
+                        <span class="card-title">面试题（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -688,14 +810,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/面试/" class="post-category">
+                                    面试
                                 </a>
                             
                             
@@ -709,16 +831,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/03/日常-2020.3.3/">
+                <a href="/2018/08/03/面试题（一）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="日常-2020.3.3">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="面试题（一）">
                         
-                        <span class="card-title">日常-2020.3.3</span>
+                        <span class="card-title">面试题（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -729,20 +851,21 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/日常/" class="post-category">
-                                    日常
+                            <a href="/categories/面试/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -938,7 +1061,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             

@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-02
                 </div>
                 
 
@@ -391,8 +391,7 @@ GPU进程，只有一个，负责GPU渲染
 
 <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>有些情况下，比如修改了元素的样式，浏览器并不会立刻reflow 或 repaint 一次，而是会把这样的操作积攒一批，然后做一次 reflow，这又叫异步 reflow 或增量异步 reflow。但是在有些情况下，比如resize 窗口，改变了页面默认的字体等。对于这些操作，浏览器会马上进行 reflow。
 </code></pre>
-<p><img src="https://images2018.cnblogs.com/blog/1028513/201805/1028513-20180530154313816-1498972038.png" alt="1"></p>
-<h2 id="渲染进程的三个线程"><a href="#渲染进程的三个线程" class="headerlink" title="渲染进程的三个线程"></a>渲染进程的三个线程</h2><p><img src="https://oscimg.oschina.net/oscnet/418cfcf9122d7eb129c92bda22a008d26c8.png" alt="2"></p>
+<h2 id="渲染进程的三个线程"><a href="#渲染进程的三个线程" class="headerlink" title="渲染进程的三个线程"></a>渲染进程的三个线程</h2><p><img src="https://oscimg.oschina.net/oscnet/418cfcf9122d7eb129c92bda22a008d26c8.png" alt="渲染线程"></p>
 <ul>
 <li><p>Compositor Thread</p>
 <p>这个线程既负责接收浏览器传来的垂直同步信号(Vsync，水平同步表示画出一行屏幕线，垂直同步就表示从屏幕顶部到底部的绘制已经完成，指示着前一帧的结束，和新一帧的开始)， 也负责接收OS传来的用户交互，比如滚动、输入、点击、鼠标移动等等。<br>如果可能，Compositor Thread会直接负责处理这些输入，然后转换为对layer的位移和处理，并将新的帧直接commit到GPU Thread，从而直接输出新的页面。否则，比如你在滚动、输入事件等等上注册了回调，又或者当前页面中有动画等情况，那么这个时候Compositor Thread便会唤醒Main Thread，让后者去执行JS、完成重绘、重排等过程，产出新的纹理，然后Compositor Thread再进行相关纹理的commit至GPU Thread，完成输出。</p>
@@ -923,7 +922,7 @@ GPU进程，只有一个，负责GPU渲染
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.9k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             
