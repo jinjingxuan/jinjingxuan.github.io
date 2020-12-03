@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="日常-2020.3.6, -Breeze&#39;s Blog">
+    <meta name="keywords" content="面试题（三）, -Breeze&#39;s Blog">
     <meta name="description" content="漫漫长路，伴你同行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>日常-2020.3.6 | -Breeze&#39;s Blog</title>
+    <title>面试题（三） | -Breeze&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -181,12 +181,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">日常-2020.3.6</h1>
+                    <h1 class="description center-align post-title">面试题（三）</h1>
                 </div>
             </div>
         </div>
@@ -310,8 +310,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/日常/" class="post-category">
-                                日常
+                            <a href="/categories/面试/" class="post-category">
+                                面试
                             </a>
                         
                     </div>
@@ -323,28 +323,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-06
+                    2018-08-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -360,43 +360,31 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>给一个无序数组分成两个数组，让两个数组的和最接近</li>
-<li>说一下满二叉树与完全二叉树，以及使用数组实现满二叉树 </li>
-<li>求两个字符串的最长公共前前缀</li>
-<li>==和===的区别</li>
-<li>JS实现继承的几种方式和好处</li>
-<li>settimeout和setinteval的区别以及事件轮询</li>
-<li>聊一下箭头函数</li>
-<li>聊一下this</li>
+<li>== 和 === 的区别</li>
+<li>讲讲 js 的继承方式</li>
+<li>介绍一下箭头函数</li>
+<li>this 的指向</li>
+<li>简述CSS选择器的优先级规则</li>
+<li>简述居中一个元素的方法</li>
+<li>介绍一下浏览器缓存</li>
+<li>meta标签与视口</li>
 </ul>
-<a id="more"></a>
-<h2 id="2-无序数组分成两个数组，让两个数组的和最接近"><a href="#2-无序数组分成两个数组，让两个数组的和最接近" class="headerlink" title="2.无序数组分成两个数组，让两个数组的和最接近"></a>2.无序数组分成两个数组，让两个数组的和最接近</h2><p>这个问题可以转化为求数组的一个子集，使得这个子集中的元素的和尽可能接近sum/2，其中sum为数组中所有元素的和。这样转换之后这个问题就很类似0-1背包问题了：在n件物品中找到m件物品，他们的可以装入背包中，且总价值最大不过这里不考虑价值，就考虑使得这些元素的和尽量接近sum/2。 </p>
-<blockquote>
-<p>输入: n物品重W[1:n], 价值V[1:n],  背包容量C<br>输出: 装包使得价值最大 (物品重量为整数).<br>g[i,k] = 由[1:i]组合出重量&lt;=k的最大价值<br>如果第i件物品没有包括在其中，则g[i,k] = g[i-1,k]<br>如果第i件物品包括在其中，则g[i,k] = g[i-1,k-W[i]] + V[i]</p>
-<p>转移方程：g[i,k] = max{ g[i-1,k], g[i-1,k-W[i]] + V[i] } (OSP)</p>
+<h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="== 和 === 的区别"></a>== 和 === 的区别</h2><blockquote>
+<p>== 代表相同， ===代表严格相同</p>
+<p>当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.</p>
+<p>null == undefined // true，是一种规定<br>null === undefined // false</p>
+<p>typeof null // object<br>typeof undefined // undefined</p>
 </blockquote>
-<h2 id="3-完全二叉树与满二叉树"><a href="#3-完全二叉树与满二叉树" class="headerlink" title="3. 完全二叉树与满二叉树"></a>3. 完全二叉树与满二叉树</h2><p>满二叉树：高度为h，结点数为2^h-1</p>
-<p>完全二叉树：结点与满二叉树中的结点一一对应</p>
-<p>完全二叉树与满二叉树采用顺序存储比较合适，而且从<strong>下标1</strong>开始存储，因为满足左孩子为2i，右孩子2i+1</p>
-<h2 id="4-最长公共前缀"><a href="#4-最长公共前缀" class="headerlink" title="4. 最长公共前缀"></a>4. 最长公共前缀</h2><blockquote>
-<p>纵向扫描，将首个字符串每个位置的字符与其余字符串相应位置的字符逐个进行比较。</p>
-</blockquote>
-<h2 id="5-和-的区别"><a href="#5-和-的区别" class="headerlink" title="5. ==和===的区别"></a>5. ==和===的区别</h2><blockquote>
-<p>== 代表相同， ===代表严格相同, 为啥这么说呢， </p>
-<p>这么理解： 当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.</p>
-<p>null == undefined //true，是一种规定<br>null === undefined //false</p>
-<p>因为类型不同<br>typeof null        //object<br>typeof undefined    //undefined</p>
-</blockquote>
-<h2 id="6-JS的继承方式"><a href="#6-JS的继承方式" class="headerlink" title="6.JS的继承方式"></a>6.JS的继承方式</h2><p><strong>（1）原型链继承：子类原型是对父类的实例化</strong></p>
+<h2 id="讲讲-js-的继承方式"><a href="#讲讲-js-的继承方式" class="headerlink" title="讲讲 js 的继承方式"></a>讲讲 js 的继承方式</h2><p><strong>（1）原型链继承：子类原型是对父类的实例化</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token keyword">function</span> <span class="token function">Son</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 Son<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Father</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//实例化对象会指向父类的原型，如图</span>
 </code></pre>
-<p><img src="http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/imgs/public/16-11-11/5352248.jpg" alt="1"></p>
+<p><img src="http://lizhenchao.oss-cn-shenzhen.aliyuncs.com/imgs/public/16-11-11/5352248.jpg" alt="原型链继承"></p>
 <p>缺点：</p>
 <p>1.父类的共有属性会被子类实例共享</p>
 <p>2.创建子类对象无法传参，因为只有Son.prototype = new Father()可以传，但是会对所有子类有效。</p>
-<p> <strong>（2）构造函数继承</strong></p>
+<p><strong>（2）构造函数继承</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
@@ -418,8 +406,9 @@ Son<span class="token punctuation">.</span>prototype <span class="token operator
 <span class="token comment" spellcheck="true">//2.prototype 原型对象 有 constructor 属性，又指回 构造函数</span>
 <span class="token comment" spellcheck="true">//3.对象实例的 __proto__ 均默认指向 它们的 构造函数的 prototype</span>
 </code></pre>
-<p>缺点：1.父类的原型方法不会被子类继承，如果全放到构造函数中，每个子类实例都单独拥有一份，违反复用性。</p>
-<p>​        2.不能通过 son instanceof Father</p>
+<p>缺点： </p>
+<p> 1.父类的原型方法不会被子类继承，如果全放到构造函数中，每个子类实例都单独拥有一份，违反复用性。</p>
+<p> 2.不能通过 son instanceof Father</p>
 <p><strong>（3）组合继承</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Father</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
@@ -486,38 +475,28 @@ Son<span class="token punctuation">.</span>prototype <span class="token operator
 <span class="token comment" spellcheck="true">//寄生式继承父类原型</span>
 <span class="token function">inheritPrototype</span><span class="token punctuation">(</span>subClass<span class="token punctuation">,</span>superClass<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="7-settimeout和setinteval的区别以及事件轮询"><a href="#7-settimeout和setinteval的区别以及事件轮询" class="headerlink" title="7.settimeout和setinteval的区别以及事件轮询"></a>7.settimeout和setinteval的区别以及事件轮询</h2><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。 </p>
-<p>setinteval()方法用于每隔指定的毫秒数后调用函数或计算表达式。   性能更好</p>
-<p>是两个最基本的异步函数。</p>
-<ul>
-<li>同步任务：在主线程上排队执行任务</li>
-<li>异步任务：不进入主线程，而进入任务队列的任务。    常见：定时器,时间绑定,ajax,回调函数</li>
-<li>执行机制：在主线程执行完当前所有的同步操作，主线程空闲后轮询任务队列，并将任务队列中的任务（回调函数）取出来执行。(该过程又称之为<strong>事件轮询</strong>)</li>
-</ul>
-<h2 id="8-箭头函数"><a href="#8-箭头函数" class="headerlink" title="8.箭头函数"></a>8.箭头函数</h2><p>箭头函数的含义</p>
-<pre class=" language-js"><code class="language-js">x <span class="token operator">=</span><span class="token operator">></span> x <span class="token operator">*</span> x  <span class="token comment" spellcheck="true">//相当于</span>
+<h2 id="介绍一下箭头函数"><a href="#介绍一下箭头函数" class="headerlink" title="介绍一下箭头函数"></a>介绍一下箭头函数</h2><p>箭头函数的含义</p>
+<pre class=" language-js"><code class="language-js">x <span class="token operator">=</span><span class="token operator">></span> x <span class="token operator">*</span> x  <span class="token comment" spellcheck="true">// 相当于</span>
 <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> x <span class="token operator">*</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <ul>
-<li>new一个箭头函数可以吗？</li>
-</ul>
-<blockquote>
-<p>箭头函数是匿名函数，不能作为构造函数，不能使用new</p>
-</blockquote>
-<ul>
 <li>说一下箭头函数和普通函数的区别</li>
 </ul>
-<blockquote>
-<p>（1）箭头函数是匿名函数，不能作为构造函数，不能使用new<br>（2）箭头函数不绑定arguments，取而代之用rest参数…解决<br>        let B = (b)=&gt;{<br>          console.log(arguments);<br>        }<br>        B(2,92,32,32);   // Uncaught ReferenceError: arguments is not defined</p>
-<pre><code>    let C = (...c) =&gt; {
-      console.log(c);
-    }
-    C(3,82,32,11323);  // [3, 82, 32, 11323]
-</code></pre><p>（3）箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值<br>（4）箭头函数通过 call()或apply() 方法调用一个函数时，对 this 并没有影响。<br>（5）箭头函数没有原型属性</p>
-</blockquote>
-<h2 id="9-this的指向"><a href="#9-this的指向" class="headerlink" title="9. this的指向"></a>9. this的指向</h2><ul>
+<p>（1）箭头函数是匿名函数，不能作为构造函数，不能使用new<br>（2）箭头函数不绑定arguments，取而代之用rest参数…解决</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> B <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">B</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">92</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught ReferenceError: arguments is not defined</span>
+
+<span class="token keyword">let</span> C <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>c<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">C</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">82</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">11323</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// [3, 82, 32, 11323]   </span>
+</code></pre>
+<p>（3）箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值<br>（4）箭头函数通过 call() 或 apply() 方法调用一个函数时，对 this 并没有影响。<br>（5）箭头函数没有原型属性</p>
+<h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><ul>
 <li>普通函数指向函数调用者（执行的时候才确定）</li>
 <li>箭头函数指向函数所在的作用域（对象的{}和if(){}都构不成作用域）</li>
 </ul>
@@ -546,6 +525,143 @@ obj<span class="token punctuation">.</span><span class="token function">read</sp
 <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">fn</span><span class="token punctuation">;</span>  
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//undefined</span>
 </code></pre>
+<h2 id="简述CSS选择器的优先级规则"><a href="#简述CSS选择器的优先级规则" class="headerlink" title="简述CSS选择器的优先级规则"></a>简述CSS选择器的优先级规则</h2><blockquote>
+<p>优先级不同，高优先级属性覆盖低优先级属性<br>优先级相同，定义在后覆盖定义在先</p>
+<p>内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器，伪类&gt;元素标记  !important最高，但是在低版本IE有兼容性问题</p>
+</blockquote>
+<h2 id="简述居中一个元素的方法"><a href="#简述居中一个元素的方法" class="headerlink" title="简述居中一个元素的方法"></a>简述居中一个元素的方法</h2><p>考虑：水平还是垂直，块还是行内，是否需要知道宽高，兼容性</p>
+<p>（1）水平：</p>
+<pre class=" language-js"><code class="language-js"><span class="token number">1</span><span class="token punctuation">.</span> 块元素：margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>auto
+<span class="token number">2</span><span class="token punctuation">.</span> 行内元素，行内块元素：text<span class="token operator">-</span>align<span class="token punctuation">:</span>center
+</code></pre>
+<p>（2）垂直：</p>
+<ol start="3">
+<li><p>行内元素：line-height：xxpx</p>
+</li>
+<li><p>行内块元素：line-height：xxpx；vertical-align：middle</p>
+</li>
+</ol>
+<p>（3）水平竖直同时居中</p>
+<p> absolute方法：</p>
+<ol start="5">
+<li>已知宽高：负数margin</li>
+</ol>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.parent</span></span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.child</span></span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">80</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">60</span>px<span class="token punctuation">;</span>
+    <span class="token property">margin-left</span><span class="token punctuation">:</span> -<span class="token number">40</span>px<span class="token punctuation">;</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> -<span class="token number">30</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="6">
+<li>已知宽高：calc</li>
+</ol>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.parent</span></span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.child</span></span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">80</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">60</span>px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span><span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">50%</span> - <span class="token number">30</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span><span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">50%</span> - <span class="token number">40</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="7">
+<li>需要设定宽高：margin auto</li>
+</ol>
+<pre class=" language-css"><code class="language-css">    <span class="token selector"><span class="token class">.f14</span> <span class="token class">.parent</span></span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.f14</span> <span class="token class">.child</span></span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">80</span>px<span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<ol start="8">
+<li>不需要设定宽高：transform(css3,IE8及以下不支持)</li>
+</ol>
+<pre class=" language-css"><code class="language-css">    <span class="token selector"><span class="token class">.f15</span> <span class="token class">.parent</span></span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.f15</span> <span class="token class">.child</span></span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-<span class="token number">50%</span>,-<span class="token number">50%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  自身偏移
+    <span class="token punctuation">}</span>
+</code></pre>
+<ol start="9">
+<li>flex布局</li>
+</ol>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.main</span></span><span class="token punctuation">{</span>
+     <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+     <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+     <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+<ol start="10">
+<li>table-cell + inline-block</li>
+</ol>
+<p>css新增的table属性，可以让我们把普通元素，变为table元素的现实效果，通过这个特性也可以实现水平垂直居中，这个属性和table标签一样的居中原理。</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.parent</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.child</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="介绍一下浏览器缓存"><a href="#介绍一下浏览器缓存" class="headerlink" title="介绍一下浏览器缓存"></a>介绍一下浏览器缓存</h2><ul>
+<li><a href="https://juejin.cn/post/6844903763665240072" target="_blank" rel="noopener">浏览器缓存</a></li>
+</ul>
+<h2 id="meta标签与视口"><a href="#meta标签与视口" class="headerlink" title="meta标签与视口"></a>meta标签与视口</h2><p>首先介绍3个视口的概念</p>
+<ul>
+<li><strong>layout viewport(布局视口)：</strong>在PC端上，布局视口等于浏览器窗口的宽度。而在移动端上，由于要使为PC端浏览器设计的网站能够完全显示在移动端的小屏幕里，此时的布局视口会远大于移动设备的屏幕，就会出现滚动条。js获取布局视口：<code>document.documentElement.clientWidth | document.body.clientWidth</code>；</li>
+<li><strong>visual viewport(视觉视口)：</strong>用户正在看到的网页的区域。用户可以通过缩放来查看网站的内容。如果用户缩小网站，我们看到的网站区域将变大，此时视觉视口也变大了，同理，用户放大网站，我们能看到的网站区域将缩小，此时视觉视口也变小了。不管用户如何缩放，都不会影响到布局视口的宽度。js获取视觉视口：<code>window.innerWidth</code>；</li>
+<li><strong>ideal viewport(理想视口)：</strong>布局视口的一个理想尺寸，只有当布局视口的尺寸等于设备屏幕的尺寸时，才是理想视口。js获取理想视口：<code>window.screen.width</code>；</li>
+<li>页面的滚动条取决于视觉视口和布局视口，页面元素宽度取决于布局视口大小</li>
+</ul>
+<p>我们在开发时，常常加入这样一行代码</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<ul>
+<li><code>width=device-width</code>，这句代码的意思就是把布局视口 = 理想视口。</li>
+<li><code>initial-scale</code>指的是缩放系数。其中有这样的公式：</li>
+</ul>
+<pre class=" language-js"><code class="language-js">视觉视口宽度 <span class="token operator">=</span> 理想视口宽度 <span class="token operator">/</span> 缩放系数 
+
+比如iphone加入这段代码时：
+视觉视口 <span class="token operator">=</span> <span class="token number">320</span><span class="token operator">/</span><span class="token number">1.0</span> <span class="token operator">=</span> <span class="token number">320</span>
+布局视口 <span class="token operator">=</span> <span class="token number">320</span>
+当视觉视口<span class="token operator">=</span> 布局视口，页面无滚动条。
+
+当改变initial<span class="token operator">-</span>scale时：
+
+initial<span class="token operator">-</span>scale <span class="token operator">=</span> <span class="token number">0.5</span> 
+视觉视口宽度 <span class="token operator">=</span> <span class="token number">320</span> <span class="token operator">/</span> <span class="token number">0.5</span> <span class="token operator">=</span> <span class="token number">640</span>
+布局视口宽度 <span class="token operator">=</span> <span class="token number">320</span>
+又因为：视觉视口不能大于布局视口，所以此时，将布局视口的宽度提高等于<span class="token number">640</span>
+总结：视觉视口 <span class="token operator">=</span> 布局视口 <span class="token operator">=</span> <span class="token number">640</span>
+
+initial<span class="token operator">-</span>scale <span class="token operator">=</span> <span class="token number">2</span> 「 div宽度<span class="token number">320</span>，页面有滚动条 」
+视觉视口宽度 <span class="token operator">=</span> <span class="token number">320</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">160</span>
+布局视口宽度 <span class="token operator">=</span> <span class="token number">320</span>
+总结：视觉视口 <span class="token operator">&lt;</span> 布局视口 页面出现了滚动条。
+</code></pre>
 
                 
             </div>
@@ -572,7 +688,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/06/日常-2020.3.6/">http://yoursite.com/2020/03/06/日常-2020.3.6/</a>
+                    <a href="http://yoursite.com/2018/08/04/面试题（三）/">http://yoursite.com/2018/08/04/面试题（三）/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -582,7 +698,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    如转载，请注明来源
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
                     <a href="/about" target="_blank">Breeze</a>
@@ -781,35 +897,31 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/03/07/日常-2020.3.7/">
+                <a href="/2018/08/08/整理-函数与变量的解析顺序/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="日常-2020.3.7">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="函数与变量的解析顺序">
                         
-                        <span class="card-title">日常-2020.3.7</span>
+                        <span class="card-title">函数与变量的解析顺序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-call,apply,bind区别，手写原生代码
-柯里化
-几道小题
-
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-08
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/日常/" class="post-category">
-                                    日常
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -826,33 +938,32 @@ call,apply,bind区别，手写原生代码
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/05/整理-JS数据类型/">
+                <a href="/2018/08/03/整理-BFC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="JS数据类型">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
                         
-                        <span class="card-title">JS数据类型</span>
+                        <span class="card-title">BFC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JS基本数据类型与类型转换ES5基本有5种简单数据类型：String，Number，Boolean，Null，undefined。一种复杂的数据类型Object。
-ES6新增一种简单数据类型：Symbol,还有BigInt
-JS是动态类型语
+                            什么是BFC在一个Web页面的CSS渲染中，块级格式化上下文 (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下：
+浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-block
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/BFC/" class="post-category">
+                                    BFC
                                 </a>
                             
                             
@@ -1054,7 +1165,7 @@ JS是动态类型语
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">166.3k</span>&nbsp;字
+                class="white-color">164k</span>&nbsp;字
             
             
             

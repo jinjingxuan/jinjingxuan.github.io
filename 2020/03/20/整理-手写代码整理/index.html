@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    423
+                    428
                 </div>
                 
 
@@ -367,8 +367,7 @@
 <li>手写promise.all</li>
 <li>手写promise.race</li>
 </ul>
-<a id="more"></a>
-<h2 id="1-防抖"><a href="#1-防抖" class="headerlink" title="1.防抖"></a>1.防抖</h2><p><strong>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms</strong>，然后：</p>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p><strong>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms</strong>，然后：</p>
 <ul>
 <li>如果在200ms内没有再次触发滚动事件，那么就执行函数</li>
 <li>如果在200ms内再次触发滚动事件，那么当前的计时取消，重新开始计时</li>
@@ -388,7 +387,7 @@
 <span class="token punctuation">}</span>
 window<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span>out<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="2-节流"><a href="#2-节流" class="headerlink" title="2.节流"></a>2.节流</h2><p>如果短时间内大量触发同一事件，那么<strong>在函数执行一次之后，该函数在指定的时间期限内不再工作</strong>，直至过了这段时间才重新生效。 </p>
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>如果短时间内大量触发同一事件，那么<strong>在函数执行一次之后，该函数在指定的时间期限内不再工作</strong>，直至过了这段时间才重新生效。 </p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span>delay<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">let</span> flag <span class="token operator">=</span> <span class="token boolean">true</span>
     <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -407,7 +406,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
 <span class="token punctuation">}</span>
 window<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>out<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-js"><code class="language-js">        <span class="token comment" spellcheck="true">//柯里化</span>
+<h2 id="柯里化，apply，call，bind，promise"><a href="#柯里化，apply，call，bind，promise" class="headerlink" title="柯里化，apply，call，bind，promise"></a>柯里化，apply，call，bind，promise</h2><pre class=" language-js"><code class="language-js">        <span class="token comment" spellcheck="true">//柯里化</span>
         <span class="token keyword">let</span> curry <span class="token operator">=</span> <span class="token punctuation">(</span>fn<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>
             args<span class="token punctuation">.</span>length<span class="token operator">&lt;</span>fn<span class="token punctuation">.</span>length
                 <span class="token operator">?</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token function">curry</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">,</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span>
@@ -517,7 +516,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    如转载，请注明来源
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
                     <a href="/about" target="_blank">Breeze</a>
@@ -1000,7 +999,7 @@ html5的一些标签
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">166.3k</span>&nbsp;字
+                class="white-color">164k</span>&nbsp;字
             
             
             

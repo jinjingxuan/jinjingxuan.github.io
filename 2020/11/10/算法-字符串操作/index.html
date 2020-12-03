@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-16
+                    2020-12-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    966
+                    1.2k
                 </div>
                 
 
@@ -364,25 +364,26 @@
 <li>对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</li>
 <li>外观数列</li>
 <li>最长公共前缀</li>
+<li>字符串的最大非重复子串长度</li>
 </ul>
-<a id="more"></a>
 <h2 id="下一个排列"><a href="#下一个排列" class="headerlink" title="下一个排列"></a>下一个排列</h2><ul>
 <li><p>题目来源：<a href="https://leetcode-cn.com/problems/next-permutation/" target="_blank" rel="noopener">leetcode31</a></p>
 </li>
 <li><p>参考题解：<a href="https://leetcode-cn.com/problems/next-permutation/solution/si-lu-zui-qing-xi-de-ti-jie-by-heroding/" target="_blank" rel="noopener">思路最清晰的题解</a></p>
 </li>
 </ul>
-<pre><code>实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
+<pre class=" language-js"><code class="language-js">实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
 
 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
 
 必须原地修改，只允许使用额外常数空间。
 
 以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
-1,2,3 → 1,3,2
-3,2,1 → 1,2,3
-1,1,5 → 1,5,1
-</code></pre><ul>
+<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span> → <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span>
+<span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span> → <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span>
+<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span> → <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span>
+</code></pre>
+<ul>
 <li>分析：就相当于找一个比当前数大并且最小的一个，比如比123大的有132,213,231,321,312，但是最小的是132</li>
 <li>思路：<ul>
 <li>从后向前遍历，找到nums[i] &lt; nums[i+1]的数，记录下i需要交换</li>
@@ -418,10 +419,11 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"><a href="#对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’" class="headerlink" title="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"></a>对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</h2><pre><code>&#39;aacbd&#39; =&gt; &#39;ad&#39;
-&#39;aabcd&#39; =&gt; &#39;ad&#39;
-&#39;aaabbccc&#39; =&gt; &#39;&#39;
-</code></pre><ul>
+<h2 id="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"><a href="#对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’" class="headerlink" title="对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’"></a>对输入的字符串，去除其中的字符’b’以及连续出现的’a’和’c’</h2><pre class=" language-js"><code class="language-js"><span class="token string">'aacbd'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'ad'</span>
+<span class="token string">'aabcd'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'ad'</span>
+<span class="token string">'aaabbccc'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">''</span>
+</code></pre>
+<ul>
 <li>正则解决</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -442,14 +444,15 @@
     <span class="token keyword">var</span> arr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ["CCC", "DDDDD", "FFFFFFFFFFFF", "GGGG", "HH", "IIII"]</span>
 </code></pre>
-<h3 id="外观数列-1"><a href="#外观数列-1" class="headerlink" title="外观数列"></a>外观数列</h3><pre><code>1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
+<h3 id="外观数列-1"><a href="#外观数列-1" class="headerlink" title="外观数列"></a>外观数列</h3><pre class=" language-js"><code class="language-js"><span class="token number">1</span><span class="token punctuation">.</span>     <span class="token number">1</span>
+<span class="token number">2</span><span class="token punctuation">.</span>     <span class="token number">11</span>
+<span class="token number">3</span><span class="token punctuation">.</span>     <span class="token number">21</span>
+<span class="token number">4</span><span class="token punctuation">.</span>     <span class="token number">1211</span>
+<span class="token number">5</span><span class="token punctuation">.</span>     <span class="token number">111221</span>
 
-给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
-</code></pre><ul>
+给定一个正整数 n（<span class="token number">1</span> ≤ n ≤ <span class="token number">30</span>），输出外观数列的第 n 项。
+</code></pre>
+<ul>
 <li>利用正则表达式</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> countAndSay <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -467,19 +470,20 @@
 <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'abbcbca'</span>
 str1<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/(b)/g</span><span class="token punctuation">,</span>item <span class="token operator">=</span><span class="token operator">></span> item<span class="token operator">+</span><span class="token string">'*'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//ab*b*cb*ca</span>
 </code></pre>
-<h2 id="算法：最长公共前缀"><a href="#算法：最长公共前缀" class="headerlink" title="算法：最长公共前缀"></a>算法：最长公共前缀</h2><pre><code>编写一个函数来查找字符串数组中的最长公共前缀。
+<h2 id="算法：最长公共前缀"><a href="#算法：最长公共前缀" class="headerlink" title="算法：最长公共前缀"></a>算法：最长公共前缀</h2><pre class=" language-js"><code class="language-js">编写一个函数来查找字符串数组中的最长公共前缀。
 
-如果不存在公共前缀，返回空字符串 &quot;&quot;。
+如果不存在公共前缀，返回空字符串 <span class="token string">""</span>。
 
-示例 1:
+示例 <span class="token number">1</span><span class="token punctuation">:</span>
 
-输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
-输出: &quot;fl&quot;
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"flower"</span><span class="token punctuation">,</span><span class="token string">"flow"</span><span class="token punctuation">,</span><span class="token string">"flight"</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token string">"fl"</span>
 
-输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
-输出: &quot;&quot;
-解释: 输入不存在公共前缀。
-</code></pre><ul>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"dog"</span><span class="token punctuation">,</span><span class="token string">"racecar"</span><span class="token punctuation">,</span><span class="token string">"car"</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token string">""</span>
+解释<span class="token punctuation">:</span> 输入不存在公共前缀。
+</code></pre>
+<ul>
 <li>当字符串数组长度为 0 时则公共前缀为空，直接返回</li>
 <li>令最长公共前缀 ans 的值为第一个字符串，进行初始化</li>
 <li>遍历后面的字符串，依次将其与 ans 进行比较，两两找出公共前缀，最终结果即为最长公共前缀</li>
@@ -499,6 +503,24 @@ str1<span class="token punctuation">.</span><span class="token function">replace
     <span class="token keyword">return</span> ans
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
+<h2 id="字符串的最大非重复子串长度"><a href="#字符串的最大非重复子串长度" class="headerlink" title="字符串的最大非重复子串长度"></a>字符串的最大非重复子串长度</h2><p>js中，因为Array继承Object，那么Array也是可以用字符串作为数组下标的 ，c++可以，写一个参考的C++解法</p>
+<pre class=" language-c++"><code class="language-c++">int lengthOfLongestSubstring(string s) {
+        vector dict(256, -1);
+        int maxLen = 0, start = -1;
+        for (int i = 0; i != s.length(); i++) {
+            if (dict[s[i]] > start)//当前字符“曾经”是否出现在此子串中？
+                start = dict[s[i]];//“曾经”出现那次作为新起点
+            dict[s[i]] = i;//标志该字符出现的位置
+            maxLen = max(maxLen, i - start);//每次都要更新最大长度
+        }
+        return maxLen;
+}
+</code></pre>
+<p>例如：a,b,c,d,a,b,a 输出4</p>
+<p>无重复：a,b,c,d</p>
+<p>a重复了：把上一个a之前的清除，现在b,c,d,a</p>
+<p>b重复了：把上一个b之前的清除，现在c,d,a,b</p>
+<p>a重复了：现在b,a</p>
 
                 
             </div>
@@ -535,7 +557,7 @@ str1<span class="token punctuation">.</span><span class="token function">replace
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    如转载，请注明来源
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
                     <a href="/about" target="_blank">Breeze</a>
@@ -1011,7 +1033,7 @@ Nuxt.js 综合案例
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">166.3k</span>&nbsp;字
+                class="white-color">164k</span>&nbsp;字
             
             
             
