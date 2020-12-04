@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 Min
+                    13 Min
                 </div>
                 
 
@@ -367,20 +367,20 @@
 <li>hash模式和history模式</li>
 <li>模拟实现 Vue Router</li>
 </ul>
-<a id="more"></a>
-<h2 id="Vue-Router-使用步骤"><a href="#Vue-Router-使用步骤" class="headerlink" title="Vue Router 使用步骤"></a>Vue Router 使用步骤</h2><pre><code>├───public
+<h2 id="Vue-Router-使用步骤"><a href="#Vue-Router-使用步骤" class="headerlink" title="Vue Router 使用步骤"></a>Vue Router 使用步骤</h2><pre class=" language-js"><code class="language-js">├───<span class="token keyword">public</span>
 └───src
     ├───assets
     ├───components
     ├───router
-          ├───index.js
+          ├───index<span class="token punctuation">.</span>js
     ├───views
-          ├───Blog.vue
-          ├───Index.vue
-          ├───Photo.vue
-    ├───App.vue
-    └───main.js
-</code></pre><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// router/index.js</span>
+          ├───Blog<span class="token punctuation">.</span>vue
+          ├───Index<span class="token punctuation">.</span>vue
+          ├───Photo<span class="token punctuation">.</span>vue
+    ├───App<span class="token punctuation">.</span>vue
+    └───main<span class="token punctuation">.</span>js
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// router/index.js</span>
 <span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
 <span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'../views/Index.vue'</span>
@@ -486,35 +486,35 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> router
 </code></pre>
-<pre class=" language-vue"><code class="language-vue"><!-- App.vue -->
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Index</router-link> |
-      <router-link to="/detail/11">Detail</router-link>
-    </div>
-    <router-view/>
-  </div>
-</template>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- App.vue --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Index<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">></span></span> |
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/detail/11<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Detail<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
-<!-- Detail.vue -->
-<template>
-  <div>
-    <!-- 方式1： 通过当前路由规则，获取数据 -->
+<span class="token comment" spellcheck="true">&lt;!-- Detail.vue --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 方式1： 通过当前路由规则，获取数据 --></span>
     通过当前路由规则获取：{{ $route.params.id }}
 
-    <br>
-    <!-- 方式2：路由规则中开启 props 传参 -->
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 方式2：路由规则中开启 props 传参 --></span>
     通过开启 props 获取：{{ id }}
-  </div>
-</template>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
-<script>
-export default {
-  name: 'Detail',
-  props: ['id']
-}
-</script>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Detail'</span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre>
 <h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><p><img src="https://s1.ax1x.com/2020/09/13/wwzc4K.png" alt="wwzc4K.png"></p>
 <blockquote>
@@ -615,12 +615,12 @@ app<span class="token punctuation">.</span><span class="token function">listen</
 <ul>
 <li>vue的构建版本 </li>
 </ul>
-<pre><code>运行时版：不支持 template 模板，需要打包的时候提前编译，如果你打包的时候是用vue-loader 或者 vueify，将`*.vue文件内的templates编译成JavaScript代码， 你就不需要compiler, 可以使用 runtime-only版本编译。
-
-完整版：包含运行时和编译器，体积比运行时版大10K左右，程序运行时把模板转换成render函数
-
-vue-cli默认创建运行时版
-</code></pre><ul>
+<blockquote>
+<p>运行时版：不支持 template 模板，需要打包的时候提前编译，如果你打包的时候是用vue-loader 或者 vueify，将`*.vue文件内的templates编译成JavaScript代码， 你就不需要compiler, 可以使用 runtime-only版本编译。</p>
+<p>完整版：包含运行时和编译器，体积比运行时版大10K左右，程序运行时把模板转换成render函数</p>
+<p>vue-cli默认创建运行时版</p>
+</blockquote>
+<ul>
 <li>slot插槽</li>
 </ul>
 <pre class=" language-html"><code class="language-html">    &lt;div id = "app">
@@ -667,12 +667,12 @@ vue-cli默认创建运行时版
 <ul>
 <li>render函数</li>
 </ul>
-<pre><code>简单的说，在vue中我们使用模板HTML语法组建页面的，使用render函数我们可以用js语言来构建DOM
-
-因为vue是虚拟DOM，所以在拿到template模板时也要转译成VNode的函数，而用render函数构建DOM，vue就免去了转译的过程。
-
-当使用render函数描述虚拟DOM时，vue提供一个函数，这个函数是就构建虚拟DOM所需要的工具。官网上给他起了个名字叫createElement。还有约定的简写叫h,
-</code></pre><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+<blockquote>
+<p>简单的说，在vue中我们使用模板HTML语法组建页面的，使用render函数我们可以用js语言来构建DOM</p>
+<p>因为vue是虚拟DOM，所以在拿到template模板时也要转译成VNode的函数，而用render函数构建DOM，vue就免去了转译的过程。</p>
+<p>当使用render函数描述虚拟DOM时，vue提供一个函数，这个函数是就构建虚拟DOM所需要的工具。官网上给他起了个名字叫createElement。还有约定的简写叫h,</p>
+</blockquote>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>myslot</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>myslot</span><span class="token punctuation">></span></span>
@@ -1418,7 +1418,7 @@ vue-cli默认创建运行时版
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.3k</span>&nbsp;字
+                class="white-color">140.4k</span>&nbsp;字
             
             
             

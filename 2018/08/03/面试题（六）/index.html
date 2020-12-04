@@ -540,10 +540,8 @@ for (var i = 0; i < list.length; i++) {
 <h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2></li>
 </ul>
 <blockquote>
-<pre><code>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。
-A instanceof B
-//判断 B 的 prototype 属性指向的原型对象(B.prototype)是否在对象 A 的原型链上。
-</code></pre></blockquote>
+<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br>A instanceof B<br>//判断 B 的 prototype 属性指向的原型对象(B.prototype)是否在对象 A 的原型链上。</p>
+</blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">_instanceof</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span> R<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//L为instanceof左表达式，R为右表达式</span>
   <span class="token keyword">let</span> Ro <span class="token operator">=</span> R<span class="token punctuation">.</span>prototype <span class="token comment" spellcheck="true">//原型</span>
   L <span class="token operator">=</span> L<span class="token punctuation">.</span>__proto__ <span class="token comment" spellcheck="true">//隐式原型</span>
@@ -1176,7 +1174,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.3k</span>&nbsp;字
+                class="white-color">140.4k</span>&nbsp;字
             
             
             

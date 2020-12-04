@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-04
                 </div>
                 
 
@@ -367,30 +367,31 @@
 <li>模块加载方式</li>
 <li>自己创建一个loader</li>
 </ul>
-<a id="more"></a> 
 <h2 id="webpack初体验"><a href="#webpack初体验" class="headerlink" title="webpack初体验"></a>webpack初体验</h2><blockquote>
 <p> webpack是一种前端资源构建工具，一个静态模块打包器（module bundler）。在webpack看来，前端的所有资源文件（js/json/css/img/less…）都会作为模块处理。它将根据模块的依赖关系进行静态分析，打包生成对应的静态资源（bundle）</p>
 </blockquote>
 <p>安装：<code>cnpm install -D webpack webpack-cli</code>，举例：比如此时有如下的目录结构</p>
-<pre><code>|--src
-    --heading.js  // 遵循ES Modules
-    --index.js
-|--index.html
-|--package.json
-</code></pre><p>其中<code>index.js</code>模块中引入了<code>heading.js</code>模块导出的方法，而<code>index.html</code>中又引入了<code>index.js</code>，默认入口为<code>src/index.js</code></p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">|</span><span class="token operator">--</span>src
+    <span class="token operator">--</span>heading<span class="token punctuation">.</span>js  <span class="token comment" spellcheck="true">// 遵循ES Modules</span>
+    <span class="token operator">--</span>index<span class="token punctuation">.</span>js
+<span class="token operator">|</span><span class="token operator">--</span>index<span class="token punctuation">.</span>html
+<span class="token operator">|</span><span class="token operator">--</span><span class="token keyword">package</span><span class="token punctuation">.</span>json
+</code></pre>
+<p>其中<code>index.js</code>模块中引入了<code>heading.js</code>模块导出的方法，而<code>index.html</code>中又引入了<code>index.js</code>，默认入口为<code>src/index.js</code></p>
 <blockquote>
 <p>html文件中原本的引入</p>
 <p>script type=”module” src=”src/index.js”</p>
 </blockquote>
 <p>运行<code>webpack</code>命令</p>
-<pre><code>|--dist
-    --main.js // 打包后的js文件
-|--src
-    --heading.js
-    --index.js
-|--index.html
-|--package.json
-</code></pre><blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">|</span><span class="token operator">--</span>dist
+    <span class="token operator">--</span>main<span class="token punctuation">.</span>js <span class="token comment" spellcheck="true">// 打包后的js文件</span>
+<span class="token operator">|</span><span class="token operator">--</span>src
+    <span class="token operator">--</span>heading<span class="token punctuation">.</span>js
+    <span class="token operator">--</span>index<span class="token punctuation">.</span>js
+<span class="token operator">|</span><span class="token operator">--</span>index<span class="token punctuation">.</span>html
+<span class="token operator">|</span><span class="token operator">--</span><span class="token keyword">package</span><span class="token punctuation">.</span>json
+</code></pre>
+<blockquote>
 <p>html文件中，打包之后的引入</p>
 <p>script src=”dist/main.js”</p>
 </blockquote>
@@ -438,17 +439,18 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <li>超出10KB的文件单独提取存放在dist中</li>
 <li>小于10KB的文件转换为 Data URLs 嵌入代码中（base64编码）</li>
 </ul>
-<pre><code>|--dist
-    --bundle.js 
-    --aaa0e...png // 打包后的图片
-|--src
-    --heading.js
-    --main.js
-    --main.css
-    --icon.png
-|--index.html
-|--package.json
-</code></pre><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">|</span><span class="token operator">--</span>dist
+    <span class="token operator">--</span>bundle<span class="token punctuation">.</span>js 
+    <span class="token operator">--</span>aaa0e<span class="token operator">...</span>png <span class="token comment" spellcheck="true">// 打包后的图片</span>
+<span class="token operator">|</span><span class="token operator">--</span>src
+    <span class="token operator">--</span>heading<span class="token punctuation">.</span>js
+    <span class="token operator">--</span>main<span class="token punctuation">.</span>js
+    <span class="token operator">--</span>main<span class="token punctuation">.</span>css
+    <span class="token operator">--</span>icon<span class="token punctuation">.</span>png
+<span class="token operator">|</span><span class="token operator">--</span>index<span class="token punctuation">.</span>html
+<span class="token operator">|</span><span class="token operator">--</span><span class="token keyword">package</span><span class="token punctuation">.</span>json
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   mode<span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
@@ -1062,7 +1064,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.3k</span>&nbsp;字
+                class="white-color">140.4k</span>&nbsp;字
             
             
             

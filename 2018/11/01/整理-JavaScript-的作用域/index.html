@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="谈谈 JavaScript 的作用域, -Breeze&#39;s Blog">
+    <meta name="keywords" content="谈谈JavaScript的作用域, -Breeze&#39;s Blog">
     <meta name="description" content="漫漫长路，伴你同行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>谈谈 JavaScript 的作用域 | -Breeze&#39;s Blog</title>
+    <title>谈谈JavaScript的作用域 | -Breeze&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -181,12 +181,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">谈谈 JavaScript 的作用域</h1>
+                    <h1 class="description center-align post-title">谈谈JavaScript的作用域</h1>
                 </div>
             </div>
         </div>
@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-04
                 </div>
                 
 
@@ -359,7 +359,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="全局作用域："><a href="#全局作用域：" class="headerlink" title="全局作用域："></a>全局作用域：</h3><p>作用域，是指变量的生命周期（一个变量在哪些范围内保持一定值）。</p>
+                <h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>作用域，是指变量的生命周期（一个变量在哪些范围内保持一定值）。</p>
 <blockquote>
 <p>全局变量：</p>
 <p>生命周期将存在于整个程序之内。</p>
@@ -403,7 +403,7 @@
 复制代码
 </code></pre>
 <p>现在，变量 <code>result</code> 被挂载到 <code>window</code> 对象上了！！！</p>
-<h3 id="函数作用域："><a href="#函数作用域：" class="headerlink" title="函数作用域："></a>函数作用域：</h3><p>函数作用域内，对外是封闭的，从外层的作用域无法直接访问函数内部的作用域！！！</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>函数作用域内，对外是封闭的，从外层的作用域无法直接访问函数内部的作用域！！！</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">var</span> testValue <span class="token operator">=</span> <span class="token string">'inner'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -456,7 +456,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 复制代码
 </code></pre>
 <p>它能够自动执行 <code>(function() { //... })()</code> 里面包裹的内容，能够很好地消除全局变量的影响；</p>
-<h3 id="块级作用域："><a href="#块级作用域：" class="headerlink" title="块级作用域："></a>块级作用域：</h3><p>在 ES6 之前，是没有块级作用域的概念的。如果你有 C++ 或者 Java 经验，想必你对块级作用域并不陌生；</p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>在 ES6 之前，是没有块级作用域的概念的。如果你有 C++ 或者 Java 经验，想必你对块级作用域并不陌生；</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// ...</span>
 <span class="token punctuation">}</span>
@@ -542,7 +542,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 复制代码
 </code></pre>
-<h3 id="词法作用域："><a href="#词法作用域：" class="headerlink" title="词法作用域："></a>词法作用域：</h3><p>词法作用域是指一个变量的可见性，及其文本表述的模拟值（《JavaScript函数式编程》）;</p>
+<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>词法作用域是指一个变量的可见性，及其文本表述的模拟值（《JavaScript函数式编程》）;</p>
 <p>听起来，十分地晦涩，不过将代码拿来分析就非常浅显易懂了；</p>
 <pre class=" language-js"><code class="language-js">testValue <span class="token operator">=</span> <span class="token string">'outer'</span><span class="token punctuation">;</span>
 
@@ -566,7 +566,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 复制代码
 </code></pre>
 <p><strong>当我们要使用声明的变量时：JS引擎总会从最近的一个域，向外层域查找；</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/3/28/1626ce92a304bc47?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ul>
+<li><a href="https://user-gold-cdn.xitu.io/2018/3/28/1626ce92a304bc47?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" target="_blank" rel="noopener">图示</a></li>
+</ul>
 <p>再举一个一个实际的例子：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> testValue <span class="token operator">=</span> <span class="token string">'outer'</span><span class="token punctuation">;</span>
 
@@ -584,9 +586,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 复制代码
 </code></pre>
 <p><strong>显然，当 JS 引擎查找这个变量时，发现全局的 testValue 离得更近一些，这恰好和 动态作用域 相反；</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/3/28/1626ce99fad0f0ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ul>
+<li><a href="https://user-gold-cdn.xitu.io/2018/3/28/1626ce99fad0f0ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" target="_blank" rel="noopener">图示</a></li>
+</ul>
 <p>如上图所示，下面将讲述与 词法作用域相反的动态作用域；</p>
-<h3 id="动态作用域："><a href="#动态作用域：" class="headerlink" title="动态作用域："></a>动态作用域：</h3><p>在编程中，最容易被低估和滥用的概念就是动态作用域（《JavaScript函数式编程》）。</p>
+<h3 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h3><p>在编程中，最容易被低估和滥用的概念就是动态作用域（《JavaScript函数式编程》）。</p>
 <p>在 JavaScript 中的仅存的应用动态作用域的地方：<code>this</code> 引用，所以这是一个大坑！！！！！</p>
 <blockquote>
 <p>动态作用域，作用域是基于调用栈的，而不是代码中的作用域嵌套；</p>
@@ -609,11 +613,15 @@ console<span class="token punctuation">.</span><span class="token function">log<
 复制代码
 </code></pre>
 <p><strong>当然，JavaScript 除了this之外，其他，都是根据词法作用域查找！！！</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/3/28/1626ce78d69108cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ul>
+<li><a href="https://user-gold-cdn.xitu.io/2018/3/28/1626ce78d69108cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" target="_blank" rel="noopener">图示</a></li>
+</ul>
 <p>为什么要理解动态作用域呢？因为，这能让你更好地学习 <code>this</code> 引用！！！</p>
 <p> 要清楚，JavaScript 实际上没有动态作用域。它拥有词法作用域。就这么简单。但是 <code>this</code> 机制有些像动态作用域。</p>
 <p>关键的差异：词法作用域是编写时的，而动态作用域（和 <code>this</code>）是运行时的。词法作用域关心的是 <em>函数在何处被声明</em>，但是动态作用域关心的是函数 <em>从何处</em> 被调用。</p>
+<blockquote>
 <p>作者：leiting1998<br>链接：<a href="https://juejin.im/post/5abb99e9f265da2392366824" target="_blank" rel="noopener">https://juejin.im/post/5abb99e9f265da2392366824</a><br>来源：掘金</p>
+</blockquote>
 
                 
             </div>
@@ -1124,7 +1132,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.3k</span>&nbsp;字
+                class="white-color">140.4k</span>&nbsp;字
             
             
             

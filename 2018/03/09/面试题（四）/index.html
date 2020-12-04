@@ -337,7 +337,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
@@ -370,7 +370,6 @@
 <li>关于reduce函数</li>
 <li>数组去重的方法</li>
 <li>filter 和 map 处理数据</li>
-<li>git rebase</li>
 </ul>
 <h2 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h2><h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
@@ -643,7 +642,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </code></pre>
 <h2 id="filter-和-map-处理数据"><a href="#filter-和-map-处理数据" class="headerlink" title="filter 和 map 处理数据"></a>filter 和 map 处理数据</h2><p>比如现在接口返回如下格式的数据：</p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">[</span>
-     <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
         agent<span class="token operator">:</span> <span class="token punctuation">{</span>
             avatar<span class="token operator">:</span> <span class="token string">"https://"</span>
             cityId<span class="token operator">:</span> <span class="token number">1</span>
@@ -677,23 +676,18 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p> 要求：拿到有 agent 数据的对象，并且将 agent 中的数据和对象中原本的数据抽出来需要的部分组成一个 item，并且自定义名称，加到原有数组中</p>
 </blockquote>
-<pre class=" language-js"><code class="language-js">                <span class="token keyword">let</span> data <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                    <span class="token keyword">return</span> item<span class="token punctuation">.</span>agent <span class="token comment" spellcheck="true">// 过滤有 agent 的</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                <span class="token keyword">let</span> list <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> 
-                    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-                        avatar<span class="token punctuation">:</span> item<span class="token punctuation">.</span>agent<span class="token punctuation">.</span>avatar<span class="token punctuation">,</span>
-                        role<span class="token punctuation">:</span> item<span class="token punctuation">.</span>agent<span class="token punctuation">.</span>role<span class="token punctuation">,</span>
-                        createTime<span class="token punctuation">:</span> item<span class="token punctuation">.</span>createTime
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>dynamicList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>list<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 加入到原来的数组中</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> data <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item<span class="token punctuation">.</span>agent <span class="token comment" spellcheck="true">// 过滤有 agent 的</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> list <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> 
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        avatar<span class="token punctuation">:</span> item<span class="token punctuation">.</span>agent<span class="token punctuation">.</span>avatar<span class="token punctuation">,</span>
+        role<span class="token punctuation">:</span> item<span class="token punctuation">.</span>agent<span class="token punctuation">.</span>role<span class="token punctuation">,</span>
+        createTime<span class="token punctuation">:</span> item<span class="token punctuation">.</span>createTime
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>dynamicList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>list<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 加入到原来的数组中</span>
 </code></pre>
-<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><ul>
-<li>git rebase -i：合并多次提交记录</li>
-<li>git rebase master：与 merge 的区别是不会有 merge 的 commit，保持干净的提交记录</li>
-</ul>
-<p>参考<a href="https://www.codercto.com/a/45325.html" target="_blank" rel="noopener">这一次彻底搞懂 Git Rebase</a>，<a href="https://zhuanlan.zhihu.com/p/141871803" target="_blank" rel="noopener">完美生活：git rebase -i | Linux 中国</a>，<a href="https://www.jianshu.com/p/4a8f4af4e803" target="_blank" rel="noopener">【Git】rebase 用法小结</a></p>
 
                 
             </div>
@@ -1197,7 +1191,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.3k</span>&nbsp;字
+                class="white-color">140.4k</span>&nbsp;字
             
             
             
