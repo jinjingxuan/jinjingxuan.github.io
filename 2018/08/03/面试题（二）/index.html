@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 Min
+                    15 Min
                 </div>
                 
 
@@ -370,6 +370,7 @@
 <li>XSS 与 CSRF</li>
 <li>垃圾回收机制（GC算法）</li>
 <li>JS隐式转换与显示转换</li>
+<li>ES2017</li>
 </ul>
 <h2 id="使用正则判断邮箱是否合法"><a href="#使用正则判断邮箱是否合法" class="headerlink" title="使用正则判断邮箱是否合法"></a>使用正则判断邮箱是否合法</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> pattern <span class="token operator">=</span> <span class="token regex">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//字符+@+字符+.+字母</span>
@@ -557,6 +558,70 @@ http://www.targetserver.com/welcome.html?name=<script>alert(document.cookie)</sc
 <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token operator">+</span><span class="token punctuation">[</span><span class="token punctuation">]</span>     <span class="token comment" spellcheck="true">//0</span>
 <span class="token number">1</span><span class="token operator">+</span><span class="token operator">-</span><span class="token string">'1'</span><span class="token operator">+</span><span class="token number">1</span>  <span class="token comment" spellcheck="true">//1</span>
 <span class="token string">'A'</span><span class="token operator">-</span><span class="token string">'B'</span>   <span class="token comment" spellcheck="true">//NaN</span>
+</code></pre>
+<h2 id="ES2017"><a href="#ES2017" class="headerlink" title="ES2017"></a>ES2017</h2><ul>
+<li>Object.values</li>
+<li>Object.entries</li>
+<li>Object.getOwnPropertyDescriptors</li>
+<li>String.prototype.padStart</li>
+<li>Sting.prototype.padEnd</li>
+<li>函数参数中添加尾逗号</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token string">'value1'</span><span class="token punctuation">,</span>
+    bar<span class="token punctuation">:</span> <span class="token string">'value2'</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 键</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 值</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// [["foo", "value1"], ["bar", "value2"]]</span>
+
+<span class="token comment" spellcheck="true">// 可以用这种方法来遍历对象</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 对象转换为Map</span>
+<span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptors</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 获取对象的完整描述信息</span>
+<span class="token comment" spellcheck="true">// {foo: {…}, bar: {…}}</span>
+
+<span class="token comment" spellcheck="true">// foo:</span>
+<span class="token comment" spellcheck="true">// value: "value1"</span>
+<span class="token comment" spellcheck="true">// writable: true</span>
+<span class="token comment" spellcheck="true">// enumerable: true</span>
+<span class="token comment" spellcheck="true">// configurable: true</span>
+
+<span class="token comment" spellcheck="true">// bar:</span>
+<span class="token comment" spellcheck="true">// value: "value2"</span>
+<span class="token comment" spellcheck="true">// writable: true</span>
+<span class="token comment" spellcheck="true">// enumerable: true</span>
+<span class="token comment" spellcheck="true">// configurable: true</span>
+
+<span class="token comment" spellcheck="true">//padEnd和padStart可以使输出更工整</span>
+<span class="token keyword">const</span> books <span class="token operator">=</span> <span class="token punctuation">{</span>
+    html<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    css<span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+    javascript<span class="token punctuation">:</span> <span class="token number">128</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> count<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>books<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">|</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>count<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// html------------|005</span>
+<span class="token comment" spellcheck="true">// css-------------|016</span>
+<span class="token comment" spellcheck="true">// javascript------|128</span>
+
+<span class="token comment" spellcheck="true">// 尾逗号，方便代码管理</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
 </code></pre>
 
                 
@@ -793,20 +858,19 @@ http://www.targetserver.com/welcome.html?name=<script>alert(document.cookie)</sc
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/08/03/整理-BFC/">
+                <a href="/2018/08/03/面试题（七）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="面试题（七）">
                         
-                        <span class="card-title">BFC</span>
+                        <span class="card-title">面试题（七）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是BFC在一个Web页面的CSS渲染中，块级格式化上下文 (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下：
-浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-block
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -817,8 +881,8 @@ http://www.targetserver.com/welcome.html?name=<script>alert(document.cookie)</sc
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/BFC/" class="post-category">
-                                    BFC
+                            <a href="/categories/面试/" class="post-category">
+                                    面试
                                 </a>
                             
                             
@@ -835,13 +899,13 @@ http://www.targetserver.com/welcome.html?name=<script>alert(document.cookie)</sc
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/03/面试题（一）/">
+                <a href="/2018/08/03/面试题（五）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="面试题（一）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="面试题（五）">
                         
-                        <span class="card-title">面试题（一）</span>
+                        <span class="card-title">面试题（五）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1061,7 +1125,7 @@ http://www.targetserver.com/welcome.html?name=<script>alert(document.cookie)</sc
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             

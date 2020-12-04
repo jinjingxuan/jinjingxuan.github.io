@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -367,6 +367,8 @@
 <li>删除链表的倒数第n个结点</li>
 <li>合并两个有序链表</li>
 <li>合并k个有序链表</li>
+<li>链表反转</li>
+<li>输出链表倒数第K个结点</li>
 </ul>
 <h2 id="奇偶链表"><a href="#奇偶链表" class="headerlink" title="奇偶链表"></a>奇偶链表</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/odd-even-linked-list" target="_blank" rel="noopener">leetcode328</a></li>
@@ -619,6 +621,24 @@
 
   <span class="token keyword">return</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token function">mergeKLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="链表反转"><a href="#链表反转" class="headerlink" title="链表反转"></a>链表反转</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Reverse</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> pre<span class="token operator">=</span><span class="token keyword">null</span>
+    <span class="token keyword">var</span> next<span class="token operator">=</span><span class="token keyword">null</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        next<span class="token operator">=</span>p<span class="token punctuation">.</span>next
+        p<span class="token punctuation">.</span>next<span class="token operator">=</span>pre <span class="token comment" spellcheck="true">//反转指针</span>
+        pre<span class="token operator">=</span>p      
+        p<span class="token operator">=</span>next
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="给一个链表，输出链表中倒数第k个结点"><a href="#给一个链表，输出链表中倒数第k个结点" class="headerlink" title="给一个链表，输出链表中倒数第k个结点"></a>给一个链表，输出链表中倒数第k个结点</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span>
+    head<span class="token operator">=</span>head<span class="token punctuation">.</span>next
+<span class="token punctuation">}</span>
+<span class="token keyword">return</span> arr<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
 </code></pre>
 
                 
@@ -1122,7 +1142,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             

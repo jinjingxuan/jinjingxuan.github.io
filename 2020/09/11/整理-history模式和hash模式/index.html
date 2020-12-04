@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -362,8 +362,9 @@
                 <ul>
 <li>hash模式</li>
 <li>history模式</li>
+<li>根据权限动态添加路由列表</li>
+<li>配置路由meta属性</li>
 </ul>
-<a id="more"></a>
 <h2 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h2><p><strong>#的涵义</strong></p>
 <ul>
 <li>#代表网页中的一个位置,右面的字符就是代表的位置</li>
@@ -550,6 +551,82 @@ window<span class="token punctuation">.</span><span class="token function">addEv
       <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre>
+<h2 id="根据权限动态添加路由列表"><a href="#根据权限动态添加路由列表" class="headerlink" title="根据权限动态添加路由列表"></a>根据权限动态添加路由列表</h2><ul>
+<li>业务场景：不同用户调用权限接口获得的权限是不同的，根据用户权限动态展示路由列表</li>
+</ul>
+<pre class=" language-js"><code class="language-js">         api<span class="token punctuation">.</span><span class="token function">getAuditInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+             account<span class="token punctuation">:</span> username<span class="token punctuation">,</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'权限代码:'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span>
+             <span class="token comment" spellcheck="true">// 高级权限：可以查看某一块路由</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>authInfo <span class="token operator">=</span> <span class="token boolean">true</span>
+                 <span class="token comment" spellcheck="true">// 添加路由</span>
+                 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span>videoRoutes<span class="token punctuation">)</span>
+                 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span>options<span class="token punctuation">.</span>routes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>videoRoutes<span class="token punctuation">)</span>
+             <span class="token comment" spellcheck="true">// 普通权限</span>
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth1'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>res<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'auth0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>authInfo <span class="token operator">=</span> <span class="token boolean">false</span>
+             <span class="token comment" spellcheck="true">// 没有权限时返回</span>
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                 window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> `
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="配置路由meta属性"><a href="#配置路由meta属性" class="headerlink" title="配置路由meta属性"></a>配置路由meta属性</h2><ul>
+<li>业务场景：同一个组件在不同路由下的展示状态是不同的，这时可以配置路由meta属性来实现</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">'/audit/video'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'视频管理'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span> Layout<span class="token punctuation">,</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">'videoList'</span><span class="token punctuation">,</span>
+                name<span class="token punctuation">:</span> <span class="token string">'视频列表'</span><span class="token punctuation">,</span>
+                meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    noCache<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    cityChange<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> auditvideoList
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span> <span class="token string">'auditList'</span><span class="token punctuation">,</span>
+                name<span class="token punctuation">:</span> <span class="token string">'审核列表'</span><span class="token punctuation">,</span>
+                <span class="token comment" spellcheck="true">// 配置 meta 属性</span>
+                meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    noCache<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    cityDefault<span class="token punctuation">:</span> <span class="token boolean">true</span> 
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                component<span class="token punctuation">:</span> auditList
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span>
+        redirect<span class="token punctuation">:</span> <span class="token string">'/audit/agent'</span><span class="token punctuation">,</span>
+        hidden<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>比如说 header 中的一个组件，不同路由页面均展示，只是状态不同</li>
+</ul>
+<pre class=" language-vue"><code class="language-vue"><template>
+    <div v-if="!cityDefault"></div>
+    <div v-else ></div>
+</template>    
+
+<script>
+computed: {
+        cityDefault() {
+            return this.$route.meta.cityDefault;
+        }
+    },
+</script>
+</code></pre>
+<p>## </p>
 
                 
             </div>
@@ -1059,7 +1136,7 @@ hash模式和history模式
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             

@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-04
                 </div>
                 
 
@@ -359,7 +359,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、场景"><a href="#一、场景" class="headerlink" title="一、场景"></a>一、场景</h1><p>除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝</p>
+                <h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>除了基本类型跟null,对象之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝</p>
 <p>将一个对象赋值给另外一个对象。</p>
 <pre><code>var a = [1,2,3];
 var b = a;
@@ -372,7 +372,7 @@ var obj2 = obj;
 obj2.a = 20; // obj2.a改变了，
 alert(obj.a); // 20，obj的a跟着改变  
 </code></pre><p>这就是由于对象类型直接赋值，只是将引用指向同一个地址，导致修改了obj会导致obj2也被修改</p>
-<h1 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h1><p>所以，我们需要封装一个函数，来对对象进行拷贝，通过for in 循环获取基本类型，赋值每一个基本类型，才能真正意义上的复制一个对象</p>
+<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>所以，我们需要封装一个函数，来对对象进行拷贝，通过for in 循环获取基本类型，赋值每一个基本类型，才能真正意义上的复制一个对象</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">copy</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">var</span> newobj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -386,7 +386,7 @@ obj2<span class="token punctuation">.</span>a <span class="token operator">=</sp
 <span class="token function">alert</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10  </span>
 </code></pre>
 <p>这样就解决了对象赋值的问题。</p>
-<h1 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h1><p>但是这里存在隐患，如果obj中，a的值不是10，而是一个对象，这样就会导致在for in中，将a这个对象的引用赋值为新对象，导致存在对象引用的问题。</p>
+<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>但是这里存在隐患，如果obj中，a的值不是10，而是一个对象，这样就会导致在for in中，将a这个对象的引用赋值为新对象，导致存在对象引用的问题。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token punctuation">{</span>b<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">copy</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">var</span> newobj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -416,7 +416,7 @@ obj2<span class="token punctuation">.</span>a<span class="token punctuation">.</
 <span class="token function">alert</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>a<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10  </span>
 </code></pre>
 <p>原文地址：<a href="https://www.cnblogs.com/linhp/p/6085826.html" target="_blank" rel="noopener">https://www.cnblogs.com/linhp/p/6085826.html</a></p>
-<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h4 id="场景-1"><a href="#场景-1" class="headerlink" title="场景"></a>场景</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
 b<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// b中添加了一个4</span>
 <span class="token function">alert</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// a变成了[1,2,3,4] </span>
@@ -427,10 +427,10 @@ obj2<span class="token punctuation">.</span>a <span class="token operator">=</sp
 <span class="token function">alert</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20，obj的a跟着改变 </span>
 </code></pre>
 <p>深拷贝和浅拷贝是针对复杂数据类型来说的，浅拷贝只拷贝一层，而深拷贝是层层拷贝。</p>
-<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><blockquote>
+<h4 id="深拷贝-1"><a href="#深拷贝-1" class="headerlink" title="深拷贝"></a>深拷贝</h4><blockquote>
 <p>深拷贝复制变量值，对于非基本类型的变量，则递归至基本类型变量后，再复制。深拷贝后的对象与原来的对象是完全隔离的，互不影响，对一个对象的修改并不会影响另一个对象。</p>
 </blockquote>
-<h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><blockquote>
+<h4 id="浅拷贝-1"><a href="#浅拷贝-1" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><blockquote>
 <p>浅拷贝是会将对象的每个属性进行依次复制，但是当对象的属性值是引用类型时，实质复制的是其引用，当引用指向的值改变时也会跟着变化。</p>
 </blockquote>
 <pre class=" language-js"><code class="language-js"> <span class="token comment" spellcheck="true">//Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象</span>
@@ -996,7 +996,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             

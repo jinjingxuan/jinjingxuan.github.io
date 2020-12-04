@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-01
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    546
+                    580
                 </div>
                 
 
@@ -369,6 +369,7 @@
 <li>使用 &amp;&amp; 运算符化简表达式</li>
 <li>空值合并运算符 ‘??’</li>
 <li>代码风格</li>
+<li>对象中的函数简写</li>
 </ul>
 <h2 id="使用默认值"><a href="#使用默认值" class="headerlink" title="使用默认值"></a>使用默认值</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Bad</span>
 <span class="token keyword">function</span> <span class="token function">createMicrobrewery</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -486,6 +487,16 @@
 
 <span class="token function">alert</span><span class="token punctuation">(</span>height <span class="token operator">||</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 100</span>
 <span class="token function">alert</span><span class="token punctuation">(</span>height <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+</code></pre>
+<h2 id="对象中的函数简写"><a href="#对象中的函数简写" class="headerlink" title="对象中的函数简写"></a>对象中的函数简写</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 优化为</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    max<span class="token punctuation">:</span> Math<span class="token punctuation">.</span>max
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -1002,7 +1013,7 @@ hash模式和history模式
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             

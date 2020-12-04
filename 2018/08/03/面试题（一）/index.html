@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 Min
+                    7 Min
                 </div>
                 
 
@@ -380,6 +380,46 @@
 <h2 id="Vue的组件传值的方式（8种）"><a href="#Vue的组件传值的方式（8种）" class="headerlink" title="Vue的组件传值的方式（8种）"></a>Vue的组件传值的方式（8种）</h2><ul>
 <li><a href="https://www.jinjingxuan.com/2020/11/12/%E6%95%B4%E7%90%86-Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">Vue组件通信的方式</a></li>
 </ul>
+<h2 id="props的写法"><a href="#props的写法" class="headerlink" title="props的写法"></a>props的写法</h2><ul>
+<li><p>props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义验证和设置默认值。</p>
+<p>你可以基于对象的语法使用以下选项：</p>
+<ul>
+<li><code>type</code>：可以是下列原生构造函数中的一种：<code>String</code>、<code>Number</code>、<code>Boolean</code>、<code>Array</code>、<code>Object</code>、<code>Date</code>、<code>Function</code>、<code>Symbol</code>、任何自定义构造函数、或上述内容组成的数组。会检查一个 prop 是否是给定的类型，否则抛出警告。</li>
+<li><code>default</code>：<code>any</code><br>为该 prop 指定一个默认值。如果该 prop 没有被传入，则换做用这个值。对象或数组的默认值必须从一个工厂函数返回。</li>
+<li><code>required</code>：<code>Boolean</code><br>定义该 prop 是否是必填项。在非生产环境中，如果这个值为 truthy 且该 prop 没有被传入的，则一个控制台警告将会被抛出。</li>
+<li><code>validator</code>：<code>Function</code><br>自定义验证函数会将该 prop 的值作为唯一的参数代入。在非生产环境下，如果该函数返回一个 false 的值 (也就是验证失败)，一个控制台警告将会被抛出。你可以在<a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-验证" target="_blank" rel="noopener">这里</a>查阅更多 prop 验证的相关信息。</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        detail<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+            <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            required<span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        age<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+          <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          validator<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> value <span class="token operator">>=</span> <span class="token number">0</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 子组件向父组件传值时，一个事件可以传递多个参数</span>
+
+<span class="token comment" spellcheck="true">// 子组件点击事件</span>
+<span class="token function">click</span><span class="token punctuation">(</span>params1<span class="token punctuation">,</span> params2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'selectDay'</span><span class="token punctuation">,</span> params1<span class="token punctuation">,</span> params2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 父组件获取值</span>
+<span class="token comment" spellcheck="true">// &lt;child  @selectDay="fun">&lt;/child></span>
+fun <span class="token punctuation">(</span>params1<span class="token punctuation">,</span> params2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>params1<span class="token punctuation">,</span> params2<span class="token punctuation">)</span> 
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="打包工具webpack，rollup，parcel分别适用于什么场景？"><a href="#打包工具webpack，rollup，parcel分别适用于什么场景？" class="headerlink" title="打包工具webpack，rollup，parcel分别适用于什么场景？"></a>打包工具webpack，rollup，parcel分别适用于什么场景？</h2><blockquote>
 <p>webpack：一般用于大型复杂应用</p>
 <p>rollup：一般用于开发第三方类库，例如 vue 源码就是用 rollup 打包的</p>
@@ -793,19 +833,20 @@ watch<span class="token punctuation">:</span> <span class="token punctuation">{<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/08/03/面试题（二）/">
+                <a href="/2018/08/03/整理-BFC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题（二）">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
                         
-                        <span class="card-title">面试题（二）</span>
+                        <span class="card-title">BFC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            什么是BFC在一个Web页面的CSS渲染中，块级格式化上下文 (Block Fromatting Context)是按照块级盒子布局的。W3C对BFC的定义如下：
+浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-block
                         
                     </div>
                     <div class="publish-info">
@@ -816,8 +857,8 @@ watch<span class="token punctuation">:</span> <span class="token punctuation">{<
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/面试/" class="post-category">
-                                    面试
+                            <a href="/categories/BFC/" class="post-category">
+                                    BFC
                                 </a>
                             
                             
@@ -831,16 +872,16 @@ watch<span class="token punctuation">:</span> <span class="token punctuation">{<
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/03/面试题（一）/">
+                <a href="/2018/08/03/面试题（七）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="面试题（一）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="面试题（七）">
                         
-                        <span class="card-title">面试题（一）</span>
+                        <span class="card-title">面试题（七）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -865,7 +906,6 @@ watch<span class="token punctuation">:</span> <span class="token punctuation">{<
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1061,7 +1101,7 @@ watch<span class="token punctuation">:</span> <span class="token punctuation">{<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">140.3k</span>&nbsp;字
             
             
             
