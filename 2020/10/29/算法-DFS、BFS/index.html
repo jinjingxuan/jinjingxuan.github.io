@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -365,6 +365,7 @@
 <li>求根到叶子节点数字之和（DFS）</li>
 <li>单词接龙（BFS）</li>
 <li>N叉树的最大深度（BFS）</li>
+<li>打家劫舍三（DFS）</li>
 </ul>
 <h2 id="深度优先，广度优先（层次遍历）"><a href="#深度优先，广度优先（层次遍历）" class="headerlink" title="深度优先，广度优先（层次遍历）"></a>深度优先，广度优先（层次遍历）</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//深度优先的递归实现</span>
 <span class="token keyword">function</span> <span class="token function">deepTraversal</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>nodeList<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
@@ -537,6 +538,32 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> num <span class="token operator">+</span> <span class="token number">1</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="打家劫舍iii（DFS）"><a href="#打家劫舍iii（DFS）" class="headerlink" title="打家劫舍iii（DFS）"></a>打家劫舍iii（DFS）</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/house-robber-iii/" target="_blank" rel="noopener">Leetcode337</a></li>
+<li>每个节点都设置：<strong>[不偷, 偷]</strong></li>
+<li>当前节点被偷时，其左右孩子不能偷</li>
+<li>当前节点未被偷时，其左右孩子可以偷，也可以不偷，取 <strong>[不偷, 偷]</strong> 的较大者</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> rob <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// [不偷, 偷]</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// left 为 root 左侧子节点的[不偷值, 偷值]</span>
+    <span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      <span class="token comment" spellcheck="true">// right 为 root 右侧子节点的[不偷值, 偷值]</span>
+    <span class="token keyword">let</span> right <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment" spellcheck="true">// 每一个节点的不偷值都是： 左侧子节点的最大值 + 右侧子节点的最大值</span>
+    res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token operator">...</span>left<span class="token punctuation">)</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token operator">...</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 每一个节点的偷值都是：左侧子节点的不偷值 + 右侧子节点的不偷值 + 该节点的值</span>
+    res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> root<span class="token punctuation">.</span>val <span class="token operator">+</span> left<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> right<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -773,27 +800,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/06/整理-ES6扩展/">
+                <a href="/2020/11/06/JavaScript-ES扩展/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ES6扩展">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES扩展">
                         
-                        <span class="card-title">ES6扩展</span>
+                        <span class="card-title">ES扩展</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-ES6的class
-ES6的继承，extend与super
-ES6的let与const
-对象字面量的增强
-object.assign
-Set数据结构
-Symbol可作为键
-forEach、find、map、filter、reduce、ev
                         
                     </div>
                     <div class="publish-info">
@@ -804,8 +823,8 @@ forEach、find、map、filter、reduce、ev
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ES6/" class="post-category">
-                                    ES6
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -1039,7 +1058,7 @@ forEach、find、map、filter、reduce、ev
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -1048,7 +1067,7 @@ forEach、find、map、filter、reduce、ev
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             

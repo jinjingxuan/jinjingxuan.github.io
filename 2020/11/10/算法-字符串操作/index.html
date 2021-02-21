@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-04
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -366,6 +366,7 @@
 <li>最长公共前缀</li>
 <li>字符串的最大非重复子串长度</li>
 <li>参数分解</li>
+<li>字符串解码</li>
 </ul>
 <h2 id="下一个排列"><a href="#下一个排列" class="headerlink" title="下一个排列"></a>下一个排列</h2><ul>
 <li><p>题目来源：<a href="https://leetcode-cn.com/problems/next-permutation/" target="_blank" rel="noopener">leetcode31</a></p>
@@ -553,6 +554,42 @@ console<span class="token punctuation">.</span><span class="token function">log<
         res<span class="token punctuation">[</span>left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> right<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
     <span class="token punctuation">}</span>   
 <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a>字符串解码</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/decode-string/" target="_blank" rel="noopener">leetcode394</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">示例 <span class="token number">1</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"3[a]2[bc]"</span>
+输出：<span class="token string">"aaabcbc"</span>
+
+示例 <span class="token number">2</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"3[a2[c]]"</span>
+输出：<span class="token string">"accaccacc"</span>
+
+示例 <span class="token number">3</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"2[abc]3[cd]ef"</span>
+输出：<span class="token string">"abcabccdcdcdef"</span>
+
+示例 <span class="token number">4</span>：
+输入：s <span class="token operator">=</span> <span class="token string">"abc3[cd]xyz"</span>
+输出：<span class="token string">"abccdcdcdxyz"</span>
+</code></pre>
+<ul>
+<li>采用正则表达式将<code>3[a]</code> 的格式转换成<code>aaa</code>即可</li>
+<li>匹配到<code>3[a]</code>之后，找到<code>[</code>的位置，前面为数字，后面为字符，按次数拼接</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> decodeString <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex">/\d+\[[a-z]+\]/g</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>reg<span class="token punctuation">,</span> item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> pos  <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'['</span><span class="token punctuation">)</span> <span class="token punctuation">,</span>number <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> pos<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> str <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> res <span class="token operator">=</span> <span class="token string">''</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> number<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> res <span class="token operator">+</span><span class="token operator">=</span> str
+            <span class="token keyword">return</span> res
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> s
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
                 
@@ -789,7 +826,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/12/整理-Vue组件通信的方式/">
+                <a href="/2020/11/12/Vue-Vue组件通信的方式/">
                     <div class="card-image">
                         
                         
@@ -830,7 +867,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/08/整理-服务端渲染与nuxt.js/">
+                <a href="/2020/11/08/SSR-服务端渲染与nuxt.js/">
                     <div class="card-image">
                         
                         
@@ -843,16 +880,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     <div class="summary block-with-text">
                         
                             
-服务端渲染基础
-传统服务端渲染
-SPA 单页应用
-同构应用
-如何实现同构渲染
-
-
-Nuxt.js 基础
-Nuxt.js 综合案例 
-
                         
                     </div>
                     <div class="publish-info">
@@ -1057,7 +1084,7 @@ Nuxt.js 综合案例
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -1066,7 +1093,7 @@ Nuxt.js 综合案例
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             

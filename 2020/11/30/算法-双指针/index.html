@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    468
+                    839
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -362,6 +362,8 @@
                 <ul>
 <li>盛水最多的容器</li>
 <li>删除链表的倒数第n个结点</li>
+<li>环形链表</li>
+<li>验证回文字符串</li>
 </ul>
 <h2 id="盛水最多的容器"><a href="#盛水最多的容器" class="headerlink" title="盛水最多的容器"></a>盛水最多的容器</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">leetcode11</a></li>
@@ -396,14 +398,13 @@
 <h2 id="删除链表的倒数第n个结点"><a href="#删除链表的倒数第n个结点" class="headerlink" title="删除链表的倒数第n个结点"></a>删除链表的倒数第n个结点</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode19</a></li>
 </ul>
-<pre><code>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
-
-示例：
-
-给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.
-
-当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.
-</code></pre><ul>
+<blockquote>
+<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
+<p>示例：</p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
+<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
+</blockquote>
+<ul>
 <li>思路：双指针，快的先走 n 步，然后两个一起走到最后，慢的就是倒数第 n 个，只遍历了一次</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> removeNthFromEnd <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -424,6 +425,63 @@
     <span class="token comment" spellcheck="true">// 删除</span>
     slow<span class="token punctuation">.</span>next <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
     <span class="token keyword">return</span> pre<span class="token punctuation">.</span>next
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/linked-list-cycle/" target="_blank" rel="noopener">leetcode141</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">示例 <span class="token number">1</span>：
+输入：head <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">1</span>
+输出：<span class="token boolean">true</span>
+解释：链表中有一个环，其尾部连接到第二个节点。
+
+示例 <span class="token number">2</span>：
+输入：head <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">0</span>
+输出：<span class="token boolean">true</span>
+解释：链表中有一个环，其尾部连接到第一个节点。
+</code></pre>
+<ul>
+<li>快慢指针法</li>
+<li>快、慢指针，从头节点出发</li>
+<li>慢指针每次走一步，快指针每次走两步，不断比较它们指向的节点的值</li>
+<li>如果节点值相同，说明有环。如果不同，继续循环。</li>
+</ul>
+<h2 id="验证回文字符串"><a href="#验证回文字符串" class="headerlink" title="验证回文字符串"></a>验证回文字符串</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/valid-palindrome/" target="_blank" rel="noopener">leetcode125</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+说明：本题中，我们将空字符串定义为有效的回文串。
+
+示例 <span class="token number">1</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token string">"A man, a plan, a canal: Panama"</span>
+输出<span class="token punctuation">:</span> <span class="token boolean">true</span>
+
+示例 <span class="token number">2</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token string">"race a car"</span>
+输出<span class="token punctuation">:</span> <span class="token boolean">false</span>
+</code></pre>
+<ul>
+<li><code>toUpperCase</code> 方法用于把字符串转换为大写</li>
+<li><code>toLowerCase</code> 方法用于把字符串转换为小写</li>
+<li><code>toLocaleLowerCase()</code> 和 <code>toLocaleUpperCase()</code>和上面的区别是根据地区语言来转换，一般用不到</li>
+<li>正则中<code>\w</code>是字符组<code>[0-9a-zA-Z_]</code>的简写形式</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> isPalindrome <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> s<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
+    s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">function</span> <span class="token function">isValid</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// const reg = /\w/ , 其中包含下划线，不正确</span>
+        <span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex">/[0-9a-zA-Z]/</span>
+        <span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">>=</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isValid</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> j<span class="token operator">--</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isValid</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> i<span class="token operator">++</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+        i<span class="token operator">++</span>
+        j<span class="token operator">--</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -657,18 +715,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/30/算法-双指针/">
+                <a href="/2020/12/17/算法-十大排序算法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="双指针">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="十大排序算法">
                         
-                        <span class="card-title">双指针</span>
+                        <span class="card-title">十大排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -678,9 +735,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -693,7 +750,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -921,7 +977,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -930,7 +986,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             

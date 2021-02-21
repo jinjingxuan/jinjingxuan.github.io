@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-04
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -364,6 +364,7 @@
 <li>旋转链表</li>
 <li>两两交换链表元素</li>
 <li>环形链表</li>
+<li>环形链表2</li>
 <li>删除链表的倒数第n个结点</li>
 <li>合并两个有序链表</li>
 <li>合并k个有序链表</li>
@@ -516,6 +517,40 @@
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                   
 <span class="token punctuation">}</span>
 </code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 如果对象中存在循环引用，则 JSON.stringify 报错</span>
+<span class="token keyword">var</span> hasCycle <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="环形链表2"><a href="#环形链表2" class="headerlink" title="环形链表2"></a>环形链表2</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">leetcode142</a></li>
+<li>相比上一题需要找到环形入口，具体可参考题解<a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/141ti-de-kuo-zhan-ru-guo-lian-biao-you-huan-ru-he-/" target="_blank" rel="noopener">「手画图解+公式推导」链表有环，如何求入环点？</a></li>
+<li>这种方法自己怎么可能想出来呀。。</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> detectCycle <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> slow <span class="token operator">=</span> head
+    <span class="token keyword">let</span> fast <span class="token operator">=</span> head
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>fast<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">null</span>
+      slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next      
+      fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next  
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>      
+        fast <span class="token operator">=</span> head          
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token keyword">return</span> slow
+          slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next
+          fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next    
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span>    
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <h2 id="删除链表的倒数第n个结点"><a href="#删除链表的倒数第n个结点" class="headerlink" title="删除链表的倒数第n个结点"></a>删除链表的倒数第n个结点</h2><ul>
 <li><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode19</a></li>
 </ul>
@@ -623,14 +658,15 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="链表反转"><a href="#链表反转" class="headerlink" title="链表反转"></a>链表反转</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Reverse</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> pre<span class="token operator">=</span><span class="token keyword">null</span>
-    <span class="token keyword">var</span> next<span class="token operator">=</span><span class="token keyword">null</span>
+    <span class="token keyword">let</span> pre<span class="token operator">=</span><span class="token keyword">null</span>
+    <span class="token keyword">let</span> next<span class="token operator">=</span><span class="token keyword">null</span>
     <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         next<span class="token operator">=</span>p<span class="token punctuation">.</span>next
         p<span class="token punctuation">.</span>next<span class="token operator">=</span>pre <span class="token comment" spellcheck="true">//反转指针</span>
         pre<span class="token operator">=</span>p      
         p<span class="token operator">=</span>next
     <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> pre
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="给一个链表，输出链表中倒数第k个结点"><a href="#给一个链表，输出链表中倒数第k个结点" class="headerlink" title="给一个链表，输出链表中倒数第k个结点"></a>给一个链表，输出链表中倒数第k个结点</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -916,7 +952,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/12/整理-Vue响应式原理详解/">
+                <a href="/2020/11/12/Vue-Vue响应式原理详解/">
                     <div class="card-image">
                         
                         
@@ -1133,7 +1169,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -1142,7 +1178,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             

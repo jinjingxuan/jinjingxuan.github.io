@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 Min
+                    20 Min
                 </div>
                 
 
@@ -361,15 +361,27 @@
             <div id="articleContent">
                 <ul>
 <li>爬楼梯</li>
+<li>零钱兑换</li>
 <li>最大子序列和</li>
+<li>最长递增子序列</li>
+<li>最长公共子序列</li>
 <li>最长回文子串</li>
 <li>不同路径</li>
 <li>最小路径和</li>
 <li>正则表达式匹配</li>
 <li>分割等和子集</li>
+<li>三角形的最小路径和</li>
+<li>买卖股票的最佳时机</li>
+<li>买卖股票的最佳时机（含冷冻期）</li>
+<li>打家劫舍</li>
 </ul>
 <blockquote>
 <p>动态规划的三个概念：最优子结构，边界，状态转移方程</p>
+</blockquote>
+<h2 id="动态规划与贪心的区别"><a href="#动态规划与贪心的区别" class="headerlink" title="动态规划与贪心的区别"></a>动态规划与贪心的区别</h2><blockquote>
+<p>贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。 贪心是求局部最优，以得到全局最优（不一定是正确的，需要证明）</p>
+<p>比如某国的钱币分为1元3元4元，如果要拿6元钱怎么拿？贪心的话先拿4再拿两个1，一共3张钱，而实际最优其实是两张3元（类似于背包问题，需要考虑物品个数）</p>
+<p>动态规划算法中，全局最优解中一定包含某个局部最优解，但不一定包含前一个局部最优解，因此需要记录之前的所有最优解 </p>
 </blockquote>
 <h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><pre class=" language-js"><code class="language-js">有一座高度是<span class="token number">10</span>级台阶的楼梯，从下往上走，每跨一步只能向上<span class="token number">1</span>级或者<span class="token number">2</span>级台阶。要求用程序来求出一共有多少种走法。
 </code></pre>
@@ -394,6 +406,41 @@
     <span class="token keyword">return</span> temp
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="零钱兑换"><a href="#零钱兑换" class="headerlink" title="零钱兑换"></a>零钱兑换</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">leetcode322</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 <span class="token operator">-</span><span class="token number">1</span>。
+
+你可以认为每种硬币的数量是无限的。
+
+示例 <span class="token number">1</span>：
+输入：coins <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> amount <span class="token operator">=</span> <span class="token number">11</span>
+输出：<span class="token number">3</span> 
+解释：<span class="token number">11</span> <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">1</span>
+
+示例 <span class="token number">2</span>：
+输入：coins <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> amount <span class="token operator">=</span> <span class="token number">3</span>
+输出：<span class="token operator">-</span><span class="token number">1</span>
+</code></pre>
+<ul>
+<li>设<code>dp[i]</code> 表示总金额为 i 的时候最优解法的硬币数</li>
+<li>若面值有1，2，5要凑够120元，此时可以拿一枚面值为1的，最优个数为 <code>dp[119] + 1</code>，拿一枚面试为2的，最优个数为<code>dp[118] + 1</code>，拿一枚面值为5的，最优个数为<code>dp[115] + 1</code>，取三种的最小值即可</li>
+<li>状态转移方程：<code>dp[i] = Math.min(dp[i - coin] + 1, dp[i - coin] + 1, ...)</code></li>
+<li>边界：<code>dp[0] = 0</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> coinChange <span class="token operator">=</span> <span class="token punctuation">(</span>coins<span class="token punctuation">,</span> amount<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span> amount <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span> <span class="token number">Infinity</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> amount<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> coin <span class="token keyword">of</span> coins<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> coin <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> coin<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">Infinity</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="最大子序列和"><a href="#最大子序列和" class="headerlink" title="最大子序列和"></a>最大子序列和</h2><pre class=" language-js"><code class="language-js">给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 
 示例<span class="token punctuation">:</span>
@@ -413,8 +460,8 @@
 <hr>
 <ul>
 <li>最优子结构：组合n只是在组合n-1的基础上每一个数组后面添加1个数字num，然后增加一个只有第n个数字的数组[num]，只需要比较前一个组合的最大值+num和num</li>
-<li>边界：dp[0] = nums[0] = -2</li>
-<li>状态转移方程：dp[i] = max(dp[i-1]+nums[i], nums[i])</li>
+<li>边界：<code>dp[0] = nums[0]</code></li>
+<li>状态转移方程：<code>dp[i] = max(dp[i-1] + nums[i], nums[i])</code></li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 组合3只是在组合2的基础上每一个数组后面添加第3个数字，也就是3，然后增加一个只有第三个数字的数组[3]</span>
 <span class="token comment" spellcheck="true">// 只需要比较前一个组合的最大值+num和num</span>
@@ -425,10 +472,73 @@
     <span class="token keyword">let</span> result <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
     dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> result<span class="token punctuation">)</span> result <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> result
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="最长递增子序列"><a href="#最长递增子序列" class="headerlink" title="最长递增子序列"></a>最长递增子序列</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">leetcode300</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">]</span>
+输出：<span class="token number">4</span>
+解释：最长递增子序列是 <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">]</span>，因此长度为 <span class="token number">4</span> 。
+</code></pre>
+<ul>
+<li><code>dp[i]</code>：以<code>nums[i]</code>结尾的最长子序列长度</li>
+<li>转移方程： 设<code>j∈[0,i)</code>，考虑每轮计算新 <code>dp[i]</code> 时，遍历 <code>[0,i)</code> 列表区间，做以下判断：<ul>
+<li>当 <code>nums[i] &gt; nums[j]</code> 时： <code>nums[i]</code>可以接在 <code>nums[j]</code>之后（此题要求严格递增），此情况下最长上升子序列长度为 <code>dp[j] + 1</code> ；</li>
+<li>当 <code>nums[i] &lt;= nums[j]</code> 时：<code>nums[i]</code> 无法接在 <code>nums[j]</code>之后，此情况上升子序列不成立，跳过。</li>
+<li>故转移方程：<code>dp[i] = max(dp[i], dp[j] + 1) for j in [0, i)</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> lengthOfLIS <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length
+    <span class="token keyword">const</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token operator">...</span>dp<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="最长公共子序列-LCS"><a href="#最长公共子序列-LCS" class="headerlink" title="最长公共子序列(LCS)"></a>最长公共子序列(LCS)</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">leetcode1143</a></li>
+<li><a href="https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-xiang-jin-zhu-shi-fu-qiu-jie-guo-/" target="_blank" rel="noopener">参考题解1</a>，<a href="https://leetcode-cn.com/problems/longest-common-subsequence/solution/1143-zui-chang-gong-gong-zi-xu-lie-dong-zde2v/" target="_blank" rel="noopener">参考题解2(填表)</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">示例 <span class="token number">1</span><span class="token punctuation">:</span>
+输入：text1 <span class="token operator">=</span> <span class="token string">"abcde"</span><span class="token punctuation">,</span> text2 <span class="token operator">=</span> <span class="token string">"ace"</span> 
+输出：<span class="token number">3</span>  
+解释：最长公共子序列是 <span class="token string">"ace"</span>，它的长度为 <span class="token number">3</span>。
+
+示例 <span class="token number">2</span><span class="token punctuation">:</span>
+输入：text1 <span class="token operator">=</span> <span class="token string">"abc"</span><span class="token punctuation">,</span> text2 <span class="token operator">=</span> <span class="token string">"abc"</span>
+输出：<span class="token number">3</span>
+解释：最长公共子序列是 <span class="token string">"abc"</span>，它的长度为 <span class="token number">3</span>
+</code></pre>
+<ul>
+<li><code>dp[i][j]：字符串 text1 和 text2 中对应的前i，前j个字符的LCS的长度</code></li>
+<li>当<code>text1[i] === text2[j]</code>时，说明 <code>text1[i]</code> 或者 <code>text2[j]</code>对应的字符是最长公共子序列的一部分，所以有 <code>dp[i][j] = 1 + dp[i-1][j-1]</code></li>
+<li>当<code>text1[i] !== text2[j]</code>时，此时我们要看两个字符串分别单独往回撤一个字符串的对比情况，获取两者的最大值即可，所以有<code>dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> longestCommonSubsequence <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>text1<span class="token punctuation">,</span> text2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> m <span class="token operator">=</span> text1<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> text2<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> dp <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token function">Array</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">Array</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>text1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">===</span> text2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><ul>
@@ -612,6 +722,175 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> dp<span class="token punctuation">[</span>len<span class="token punctuation">]</span><span class="token punctuation">[</span>midSum<span class="token punctuation">]</span> <span class="token operator">===</span> sum <span class="token operator">/</span> <span class="token number">2</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="三角形的最小路径和"><a href="#三角形的最小路径和" class="headerlink" title="三角形的最小路径和"></a>三角形的最小路径和</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">leetcode120</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">输入：triangle <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+输出：<span class="token number">11</span>
+解释：如下面简图所示：
+   <span class="token number">2</span>
+  <span class="token number">3</span> <span class="token number">4</span>
+ <span class="token number">6</span> <span class="token number">5</span> <span class="token number">7</span>
+<span class="token number">4</span> <span class="token number">1</span> <span class="token number">8</span> <span class="token number">3</span>
+自顶向下的最小路径和为 <span class="token number">11</span>（即，<span class="token number">2</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">11</span>）。
+</code></pre>
+<ul>
+<li><p><code>dp[i][j]</code>表示从三角形顶部走到位置 (i, j) 的最小路径和，因此要想走到位置 (i, j)，上一步就只能在位置 (i - 1, j - 1)或者位置 (i - 1, j)</p>
+</li>
+<li><p>状态转移方程：<code>dp[i][j] = min(dp[i-1][j-1], dp[i-1][j]) + triangle[i][j]</code></p>
+</li>
+<li><p>边界条件：<code>dp[0][0] = triangle[0][0]</code></p>
+</li>
+<li>三角形的两腰上的 dp 值是确定的<ul>
+<li><code>dp[i][0] = dp[i-1][0] + triangle[i][0]</code></li>
+<li><code>dp[i][i] = dp[i-1][i-1] + triangle[i][i]</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> minimumTotal <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>triangle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> triangle<span class="token punctuation">.</span>length
+    <span class="token keyword">let</span> dp <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> triangle<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> triangle<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> triangle<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> triangle<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token operator">...</span>dp<span class="token punctuation">[</span>len<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">leetcode121</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
+注意：你不能在买入股票前卖出股票。
+
+示例 <span class="token number">1</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token number">5</span>
+解释<span class="token punctuation">:</span> 在第 <span class="token number">2</span> 天（股票价格 <span class="token operator">=</span> <span class="token number">1</span>）的时候买入，在第 <span class="token number">5</span> 天（股票价格 <span class="token operator">=</span> <span class="token number">6</span>）的时候卖出，最大利润 <span class="token operator">=</span> <span class="token number">6</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">=</span> <span class="token number">5</span> 。
+     注意利润不能是 <span class="token number">7</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+
+示例 <span class="token number">2</span><span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token number">0</span>
+解释<span class="token punctuation">:</span> 在这种情况下<span class="token punctuation">,</span> 没有交易完成<span class="token punctuation">,</span> 所以最大利润为 <span class="token number">0</span>。
+</code></pre>
+<blockquote>
+<p>设 <code>dp[i]</code>为<code>i</code>支股票的最大利润，若已知前<code>i-1</code>支股票的最大利润为 <code>dp[i-1]</code>，怎么建立动态转移方程？</p>
+<p>如果记录了前<code>i-1</code>支股票的最小值 min，那么最大利润一定是第<code>i</code>支股票的价格减去min所得的值与<code>dp[i-1]</code>之间的最大值，所以只需计算一下 <code>price[i] - min</code> 与<code>dp[i]</code> 的最大值</p>
+</blockquote>
+<ul>
+<li>动态规划的三要素：最优子结构，边界，状态转移方程</li>
+<li><code>dp[i]</code> 的 最优子结构就是 <code>dp[i-1]</code></li>
+<li>边界：<code>dp[0] = 0</code></li>
+<li>状态转移方程：<code>dp[i] = Math.max(dp[i-1], prices[i] - min);</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> maxProfit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>prices<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> min <span class="token operator">=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> min<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">></span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            min <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>dp<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>代码优化之后（看了<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/121-mai-mai-gu-piao-de-zui-jia-shi-ji-by-leetcode-/" target="_blank" rel="noopener">官方题解</a>才领悟到不用 dp 也可直接写出如下）</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> maxProfit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> min <span class="token operator">=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        min <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> min<span class="token punctuation">)</span>
+        max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> min<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> max
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="买卖股票的最佳时机（含冷冻期）"><a href="#买卖股票的最佳时机（含冷冻期）" class="headerlink" title="买卖股票的最佳时机（含冷冻期）"></a>买卖股票的最佳时机（含冷冻期）</h2><pre class=" language-js"><code class="language-js">给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​
+
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）<span class="token punctuation">:</span>
+
+你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+卖出股票后，你无法在第二天买入股票 <span class="token punctuation">(</span>即冷冻期为 <span class="token number">1</span> 天<span class="token punctuation">)</span>。
+
+示例<span class="token punctuation">:</span>
+输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token number">3</span> 
+解释<span class="token punctuation">:</span> 对应的交易状态为<span class="token punctuation">:</span> <span class="token punctuation">[</span>买入<span class="token punctuation">,</span> 卖出<span class="token punctuation">,</span> 冷冻期<span class="token punctuation">,</span> 买入<span class="token punctuation">,</span> 卖出<span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>这道题自己没有想出来，看了很多题解，自己理解一下</li>
+<li>设 <code>dp[i]</code> 为 截止至第<code>i</code>天的最大收益</li>
+<li>对于每一天<code>i</code>都有两种状态<strong>持股</strong>和<strong>不持股</strong>，而不持股又分为<strong>当天卖出</strong>和<strong>本来就没有</strong><ul>
+<li>持股：设为<code>dp[i][1]</code></li>
+<li>不持股<ul>
+<li>当天卖出了股票所以没有，设为<code>dp[i][2]</code></li>
+<li>前一天就没有，今天也没有，设为<code>dp[i][0]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>状态确定好后，下面就是如何建立状态转移方程？<ul>
+<li>当天持股分为两种情况：<strong>当天买入</strong>和<strong>本来就有</strong>，找出效益最大值<ul>
+<li>当天买入，前一天一定没有并且前一天没有卖出（<code>dp[i-1][0]</code>）,此时效益为<code>dp[i-1][0]-p[i]</code></li>
+<li>前一天本来就有，此时的效益为<code>dp[i-1][1]</code></li>
+<li>状态转移方程：<code>dp[i][1] = max(dp[i-1][1],dp[i-1][0]-p[i])</code></li>
+</ul>
+</li>
+<li>不持股（当天卖出所以没有）<ul>
+<li>当天卖出，前一天一定持有，此时的最大效益就是前一天的效益 + 卖出的价格</li>
+<li>状态转移方程：<code>dp[i][2] = dp[i-1][1] + p[i]</code></li>
+</ul>
+</li>
+<li>不持股（本来就没有）<ul>
+<li>说明前一天也没有，最大效益就是前一天两种没有状态的最大值</li>
+<li>状态转移方程：<code>dp[i][0] = max(dp[i-1][0],dp[i-1][2])</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>截止最后一天的最大效益一定是不持有状态的</li>
+<li>边界：<code>dp[0][0] =  0</code>,<code>dp[0][2] = 0</code>,<code>dp[0][1] = -p[0]</code> </li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> maxProfit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>prices<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> prices<span class="token punctuation">.</span>length
+    <span class="token keyword">let</span> dp <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span>prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>len<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>len<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/house-robber/" target="_blank" rel="noopener">leetcode198</a></li>
+<li>由于不可以在相邻的房屋闯入，所以在当前位置 n 房屋可盗窃的最大值，要么就是 n-1 房屋可盗窃的最大值，要么就是 n-2 房屋可盗窃的最大值加上当前房屋的值，二者之间取最大值</li>
+<li>状态转移方程：<code>dp[n] = max( dp[n-1], dp[n-2] + num )</code></li>
+<li>举例来说：<code>[3,4,2]</code>，1 号房间可盗窃最大值为 3， 即为 <code>dp[1]=3</code>，2 号房间可盗窃最大值为 4， 即为 <code>dp[2]=4</code>，3 号房间自身的值为 2 即为 num=2，那么 <code>dp[3] = MAX( dp[2], dp[1] + num ) =  5</code>，3 号房间可盗窃最大值为 5</li>
+<li>时间复杂度：O(n)</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> rob <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -849,13 +1128,13 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/16/整理-移动端适配/">
+                <a href="/2020/11/22/CSS-flex布局/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="移动端适配">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="flex布局">
                         
-                        <span class="card-title">移动端适配</span>
+                        <span class="card-title">flex布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -866,14 +1145,14 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/移动端/" class="post-category">
-                                    移动端
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
                                 </a>
                             
                             
@@ -890,13 +1169,13 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/16/算法-数组操作/">
+                <a href="/2020/11/16/移动端-移动端适配/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="数组操作">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="移动端适配">
                         
-                        <span class="card-title">数组操作</span>
+                        <span class="card-title">移动端适配</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -913,8 +1192,8 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/移动端/" class="post-category">
+                                    移动端
                                 </a>
                             
                             
@@ -1107,7 +1386,7 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -1116,7 +1395,7 @@ dp<span class="token punctuation">[</span>i<span class="token punctuation">,</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             

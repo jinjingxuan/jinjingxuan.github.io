@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    928
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 Min
+                    8 Min
                 </div>
                 
 
@@ -363,6 +363,9 @@
 <li>贪心算法</li>
 <li>移掉 k 位数字</li>
 <li>非递增顺序的最小子序列</li>
+<li>柠檬水找零</li>
+<li>跳跃游戏</li>
+<li>加油站</li>
 </ul>
 <h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，算法得到的是在某种意义上的局部最优解 。</p>
 <p><strong>贪心算法一般按如下步骤进行： </strong></p>
@@ -425,6 +428,131 @@
             <span class="token keyword">return</span> ans
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>   
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="柠檬水找零"><a href="#柠檬水找零" class="headerlink" title="柠檬水找零"></a>柠檬水找零</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/lemonade-change/" target="_blank" rel="noopener">leetcode860</a></li>
+</ul>
+<blockquote>
+<p>在柠檬水摊上，每一杯柠檬水的售价为 5 美元。</p>
+<p>顾客排队购买你的产品，（按账单 bills 支付的顺序）一次购买一杯。</p>
+<p>每位顾客只买一杯柠檬水，然后向你付 5 美元、10 美元或 20 美元。你必须给每个顾客正确找零，也就是说净交易是每位顾客向你支付 5 美元。</p>
+<p>注意，一开始你手头没有任何零钱。</p>
+<p>如果你能给每位顾客正确找零，返回 true ，否则返回 false 。</p>
+<p>示例 1：</p>
+<p>输入：[5,5,5,10,20]<br>输出：true<br>解释：<br>前 3 位顾客那里，我们按顺序收取 3 张 5 美元的钞票。<br>第 4 位顾客那里，我们收取一张 10 美元的钞票，并返还 5 美元。<br>第 5 位顾客那里，我们找还一张 10 美元的钞票和一张 5 美元的钞票。<br>由于所有客户都得到了正确的找零，所以我们输出 true。</p>
+</blockquote>
+<ul>
+<li>贪心算法，每次找钱，总是先找大面额的</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> lemonadeChange <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> five <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ten <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> bill <span class="token keyword">of</span> bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>bill <span class="token operator">===</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            five<span class="token operator">++</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>bill <span class="token operator">===</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>five <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                five<span class="token operator">--</span>
+                ten<span class="token operator">++</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ten <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> five <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                ten<span class="token operator">--</span>
+                five<span class="token operator">--</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>five <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                five<span class="token operator">-</span><span class="token operator">=</span><span class="token number">3</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/jump-game/" target="_blank" rel="noopener">leetcode55</a></li>
+<li><a href="https://leetcode-cn.com/problems/jump-game/solution/tiao-yue-you-xi-by-leetcode-solution/" target="_blank" rel="noopener">题解</a></li>
+<li>思路：从前向后遍历，维护最远跳跃距离</li>
+</ul>
+<blockquote>
+<p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个位置。</p>
+<p>示例 1:</p>
+<p>输入: [2,3,1,1,4]<br>输出: true<br>解释: 我们可以先跳 1 步，从位置 0 到达 位置 1, 然后再从位置 1 跳 3 步到达最后一个位置。<br>示例 2:</p>
+<p>输入: [3,2,1,0,4]<br>输出: false<br>解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> canJump <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> distance <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> distance<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            distance <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>distance<span class="token punctuation">,</span> i <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>distance <span class="token operator">>=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="加油站"><a href="#加油站" class="headerlink" title="加油站"></a>加油站</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/gas-station/" target="_blank" rel="noopener">leetcode134</a></li>
+</ul>
+<blockquote>
+<p>输入:<br>gas  = [1,2,3,4,5]<br>cost = [3,4,5,1,2]</p>
+<p>输出: 3</p>
+<p>解释:<br>从 3 号加油站(索引为 3 处)出发，可获得 4 升汽油。此时油箱有 = 0 + 4 = 4 升汽油<br>开往 4 号加油站，此时油箱有 4 - 1 + 5 = 8 升汽油<br>开往 0 号加油站，此时油箱有 8 - 2 + 1 = 7 升汽油<br>开往 1 号加油站，此时油箱有 7 - 3 + 2 = 6 升汽油<br>开往 2 号加油站，此时油箱有 6 - 4 + 3 = 5 升汽油<br>开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。<br>因此，3 可为起始索引。</p>
+</blockquote>
+<h3 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h3><ul>
+<li>首先计算 gas 与 cost 的差值，例如 gas  = [1,2,3,4,5]，cost = [3,4,5,1,2]，sub为 [-2, -2, -2, 3, 3]</li>
+<li>其中 sub[i] &gt; 0  才能作为起始点</li>
+<li>题目就变为找出sub数组中的索引值 i，从 i 开始轮一圈判断剩余油量大于0直到循环一轮结束</li>
+<li>时间复杂度 O(n^2)</li>
+</ul>
+<pre class=" language-JS"><code class="language-JS">var canCompleteCircuit = function(gas, cost) {
+    let n = gas.length
+    for (let i = 0; i < n; i++) {
+        if (gas[i] - cost[i] >= 0) {
+            let count = gas[i] - cost[i]
+            let pos = (i + 1) % n
+            let flag = true
+            while (pos !== i) {
+                count += gas[pos] - cost[pos]
+                if (count < 0) {
+                    flag = false
+                    break
+                }
+                pos = (pos + 1) % n
+            }
+            if (!flag) continue
+            else return i
+        }
+    }
+    return -1
+};
+</code></pre>
+<h3 id="贪心解法"><a href="#贪心解法" class="headerlink" title="贪心解法"></a>贪心解法</h3><ul>
+<li>首先如果总油量减去总消耗大于等于零那么一定可以跑完一圈，则一定可以找到一个解（即索引i），至于为什么可以参考<a href="https://leetcode-cn.com/problems/gas-station/solution/shou-hua-tu-jie-liang-ge-guan-jian-jie-lun-de-jian/" target="_blank" rel="noopener">这篇题解</a>，如果小于零直接返回 -1</li>
+<li>同样的每个加油站的剩余量sub[i]为gas[i] - cost[i]。</li>
+<li>i从0开始累加sub[i]，和记为curSum，一旦curSum小于零，说明[0, i]区间都不能作为起始位置，因为小于0说明无法到达，这时起始位置从i+1算起，再从0计算curSum。</li>
+<li>那么为什么一旦[i，j] 区间和为负数，起始位置就可以是j+1呢，j+1后面就不会出现负数？因为如果出现更大的负数，就是更新j，那么起始位置又变成新的j+1了。</li>
+<li>时间复杂度 O(n)</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> canCompleteCircuit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>gas<span class="token punctuation">,</span> cost<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 总的剩余油料</span>
+  <span class="token keyword">let</span> sub <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 当前站点的剩余油料</span>
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 起始点</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> gas<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sub <span class="token operator">+</span><span class="token operator">=</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>sub <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      start <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      sub <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    total <span class="token operator">+</span><span class="token operator">=</span> gas<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> total <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">?</span> start<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -920,7 +1048,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2020</span>
+                <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">Breeze</a>
@@ -929,7 +1057,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.4k</span>&nbsp;字
+                class="white-color">173k</span>&nbsp;字
             
             
             
