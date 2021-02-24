@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.6k
                 </div>
                 
 
@@ -369,7 +369,7 @@
 <li>你都做过哪些Vue的性能优化</li>
 <li>npm install 原理</li>
 <li>Map,weakMap,Set,weakSet</li>
-<li>什么是尾递归</li>
+<li>什么是尾递归和尾调用</li>
 <li>link 与 @import 的区别</li>
 <li>数组 <code>map()</code> 和 <code>forEach()</code> 方法的区别？</li>
 <li>什么是静态网站</li>
@@ -473,7 +473,7 @@
 </ul>
 <h2 id="npm-install-原理"><a href="#npm-install-原理" class="headerlink" title="npm install 原理"></a>npm install 原理</h2><p><a href="https://cloud.tencent.com/developer/article/1555982" target="_blank" rel="noopener">npm install 原理分析</a></p>
 <h2 id="Map-weakMap-Set-weakSet"><a href="#Map-weakMap-Set-weakSet" class="headerlink" title="Map,weakMap,Set,weakSet"></a>Map,weakMap,Set,weakSet</h2><p><a href="https://juejin.cn/post/6854573210794082318" target="_blank" rel="noopener">JavaScript中的Map、WeakMap、Set和WeakSet介绍</a></p>
-<h2 id="什么是尾递归"><a href="#什么是尾递归" class="headerlink" title="什么是尾递归"></a>什么是尾递归</h2><p><strong>阶乘函数</strong></p>
+<h2 id="什么是尾递归和尾调用"><a href="#什么是尾递归和尾调用" class="headerlink" title="什么是尾递归和尾调用"></a>什么是尾递归和尾调用</h2><p><strong>阶乘函数</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">fact</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -508,6 +508,28 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>根本思想：避免了入栈出栈造成的时间空间损耗</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 尾调用</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> m <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">g</span><span class="token punctuation">(</span>m <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 等同于</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 等同于</span>
+<span class="token function">g</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>上面代码中，如果函数g不是尾调用，函数f就需要保存内部变量m和n的值、g的调用位置等信息。但由于调用g之后，函数f就结束了，所以执行到最后一步，完全可以删除 f() 的调用记录，只保留 g(3) 的调用记录。</p>
+<p>这就叫做”尾调用优化”（Tail call optimization），即只保留内层函数的调用记录。如果所有函数都是尾调用，那么完全可以做到每次执行时，调用记录只有一项，这将大大节省内存。这就是”尾调用优化”的意义。</p>
+</blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2015/04/tail-call.html" target="_blank" rel="noopener">尾调用优化</a></p>
 <h2 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与 @import 的区别"></a>link 与 @import 的区别</h2><ul>
 <li><code>link</code>功能较多，可以定义 RSS，定义 Rel 等作用，而<code>@import</code>只能用于加载 css</li>
 <li>当解析到<code>link</code>时，页面会同步加载所引的 css，而<code>@import</code>所引用的 css 会等到页面加载完才被加载</li>

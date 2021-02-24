@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
@@ -415,20 +415,24 @@ clip<span class="token operator">-</span>path<span class="token punctuation">:</
 </code></pre>
 <h2 id="说一下你对JS执行上下文栈和作用域链的理解"><a href="#说一下你对JS执行上下文栈和作用域链的理解" class="headerlink" title="说一下你对JS执行上下文栈和作用域链的理解"></a>说一下你对JS执行上下文栈和作用域链的理解</h2><p>js执行上下文</p>
 <blockquote>
-<p>执行上下文就是当前 JavaScript 代码被解析和执行时所在环境的抽象概念， JavaScript 中运行任何的代码都是在执行上下文中运行。</p>
-<p>执行上下文类型分为：<br>1.全局执行上下文<br>2.函数执行上下文</p>
+<p>执行上下文就是当前 JavaScript 代码被解析和执行时所在环境的抽象概念， JavaScript 中运行任何的代码都是在执行上下文中运行，上下文是在<strong>执行阶段</strong>才创建的</p>
+<p>执行上下文类型分为：</p>
+<p>全局执行上下文 / 函数执行上下文 / eval执行上下文</p>
 </blockquote>
 <p>作用域</p>
 <blockquote>
-<p>作用域:控制着变量与函数的可见性和生命周期。</p>
+<p>作用域:控制着变量与函数的可见性和生命周期，<strong>取决于代码定义的位置</strong>。</p>
 <p>作用域有两种工作模型：词法作用域和动态作用域，JS采用的是词法作用域工作模型，词法作用域意味着作用域是由书写代码时变量和函数声明的位置决定的。</p>
-<p>分为：<br>1.全局作用域<br>2.局部作用域</p>
-<p>局部作用域又分为：<br>1.函数作用域<br>2.块级作用域</p>
+<p>分为：</p>
+<p>按实际情况分：全局作用域 / 函数作用域 / 块级作用域  </p>
+<p>按工作模型分：词法作用域 / 动态作用域</p>
 </blockquote>
-<p>js执行上下文栈</p>
-<pre class=" language-js"><code class="language-js">首次运行JavaScript代码的时候<span class="token punctuation">,</span>会创建一个全局执行的上下文并Push到当前的执行栈中，每当发生函数调用，引擎都会为该函数创建一个新的函数执行上下文并Push当前执行栈的栈顶。
+<p>执行上下文栈</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+    首次运行JavaScript代码的时候,会创建一个全局执行的上下文并Push到当前的执行栈中，每当发生函数调用，引擎都会为该函数创建一个新的函数执行上下文并Push当前执行栈的栈顶。
 
 当栈顶的函数运行完成后，其对应的函数执行上下文将会从执行栈中Pop出，上下文的控制权将移动到当前执行栈的下一个执行上下文。
+*/</span>
 
 <span class="token keyword">function</span> <span class="token function">fun3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fun3'</span><span class="token punctuation">)</span>
@@ -440,24 +444,45 @@ clip<span class="token operator">-</span>path<span class="token punctuation">:</
     <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token function">fun1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-入栈：全局，f1<span class="token punctuation">,</span>f2<span class="token punctuation">,</span>f3
-出栈：f3<span class="token punctuation">,</span>f2<span class="token punctuation">,</span>f1
+
+<span class="token comment" spellcheck="true">// 入栈：全局，f1,f2,f3</span>
+<span class="token comment" spellcheck="true">// 出栈：f3,f2,f1</span>
 </code></pre>
 <p>作用域链</p>
-<pre class=" language-js"><code class="language-js">作用域链就是从当前作用域开始一层一层向上寻找某个变量，直到找到全局作用域还是没找到，就宣布放弃。这种一层一层的关系，就是作用域链。 
-
-<span class="token keyword">var</span> a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> b<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn2<span class="token punctuation">)</span>
-    <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        a<span class="token operator">=</span><span class="token number">20</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> fn2
+<blockquote>
+<p>作用域链就是从当前作用域开始一层一层向上寻找某个变量，直到找到全局作用域还是没找到，就宣布放弃。这种一层一层的关系，就是作用域链。 </p>
+</blockquote>
+<p>函数的阶段分为<strong>函数建立阶段</strong>和<strong>函数执行阶段</strong></p>
+<ul>
+<li><p>函数建立阶段：调用函数，还没有执行函数内部的代码</p>
+<ul>
+<li>创建执行上下文对象</li>
+</ul>
+<pre class=" language-js"><code class="language-js">fn<span class="token punctuation">.</span>ExecutionContext <span class="token operator">=</span> <span class="token punctuation">{</span>
+  variableObject<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// 函数中的 arguments，局部成员</span>
+  scopeChains<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// 作用域链</span>
+  <span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 当前函数内部的 this 指向</span>
 <span class="token punctuation">}</span>
-<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-fn2中没有a<span class="token punctuation">,</span>向上寻找，fn1中也没有，向上找，在全局作用域中找到了
+</code></pre>
+</li>
+<li><p>函数执行阶段：把变量对象转换为活动对象</p>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">fn<span class="token punctuation">.</span>ExecutionContext <span class="token operator">=</span> <span class="token punctuation">{</span>
+  activationObject<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// 函数中的 arguments，局部成员</span>
+  scopeChains<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// 作用域链</span>
+  <span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 当前函数内部的 this 指向</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>尝试调试以下函数</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">dir</span><span class="token punctuation">(</span>inner<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">dir</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+<span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="防抖函数，节流函数的作用与实现"><a href="#防抖函数，节流函数的作用与实现" class="headerlink" title="防抖函数，节流函数的作用与实现"></a>防抖函数，节流函数的作用与实现</h2><ul>
 <li><a href="https://www.jinjingxuan.com/2020/03/20/%E9%9D%A2%E8%AF%95-%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/" target="_blank" rel="noopener">手写代码整理</a></li>

@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-24
                 </div>
                 
 
@@ -609,18 +609,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span>
 
 <span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token function">compose</span><span class="token punctuation">(</span>toUpper<span class="token punctuation">,</span> first<span class="token punctuation">,</span> reverse<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">[</span>one<span class="token punctuation">,</span>two<span class="token punctuation">,</span>three<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//THREE</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// three</span>
 
-<span class="token keyword">function</span> compose <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> args<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>acc<span class="token punctuation">,</span> cur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token function">cur</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">compose</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> args<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> cur<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">cur</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre>
-<p><strong>简化</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> compose <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> value <span class="token operator">=</span><span class="token operator">></span> args<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span>fn<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">fn</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">,</span>value<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="Point-Free模式：函数组合去实现"><a href="#Point-Free模式：函数组合去实现" class="headerlink" title="Point Free模式：函数组合去实现"></a>Point Free模式：函数组合去实现</h2><ul>
 <li>不需要指明处理的数据</li>

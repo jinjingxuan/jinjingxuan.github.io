@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-02-24
                 </div>
                 
 
@@ -416,36 +416,49 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <span class="token punctuation">:</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="apply，call，bind"><a href="#apply，call，bind" class="headerlink" title="apply，call，bind"></a>apply，call，bind</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//apply</span>
-Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myApply <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span>rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  thisArg <span class="token operator">=</span> thisArg <span class="token operator">||</span> window
-  thisArg<span class="token punctuation">.</span>func <span class="token operator">=</span> <span class="token keyword">this</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-      <span class="token keyword">let</span> result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>rest<span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-  <span class="token keyword">delete</span> thisArg<span class="token punctuation">.</span>func
-  <span class="token keyword">return</span> result
+Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myApply <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    thisArg <span class="token operator">=</span> thisArg <span class="token operator">||</span> window
+    thisArg<span class="token punctuation">.</span>func <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">delete</span> thisArg<span class="token punctuation">.</span>func
+    <span class="token keyword">return</span> result
 <span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span>max<span class="token punctuation">.</span><span class="token function">myApply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//3</span>
 
 <span class="token comment" spellcheck="true">//call</span>
-Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myCall <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">let</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span>
-  thisArg <span class="token operator">=</span> thisArg <span class="token operator">||</span> window
-  thisArg<span class="token punctuation">.</span>func <span class="token operator">=</span> <span class="token keyword">this</span>
-  <span class="token keyword">let</span> result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
-  <span class="token keyword">delete</span> thisArg<span class="token punctuation">.</span>func
-  <span class="token keyword">return</span> result 
+Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myCall <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">,</span> <span class="token operator">...</span>params<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span>
+    thisArg <span class="token operator">=</span> thisArg <span class="token operator">||</span> window
+    thisArg<span class="token punctuation">.</span>func <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">let</span> result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">)</span>
+    <span class="token keyword">delete</span> thisArg<span class="token punctuation">.</span>func
+    <span class="token keyword">return</span> result
 <span class="token punctuation">}</span>
 
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span>max<span class="token punctuation">.</span><span class="token function">myCall</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 3</span>
+
 <span class="token comment" spellcheck="true">//bind</span>
-Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myBind <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">let</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span>
-  <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> that<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">,</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myBind <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">,</span> <span class="token operator">...</span>params<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span>
+    thisArg <span class="token operator">=</span> thisArg <span class="token operator">||</span> window
+    thisArg<span class="token punctuation">.</span>func <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> result <span class="token operator">=</span> thisArg<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">)</span>
+        <span class="token keyword">delete</span> thisArg<span class="token punctuation">.</span>func
+        <span class="token keyword">return</span> result
+    <span class="token punctuation">}</span>  
 <span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span>max<span class="token punctuation">.</span><span class="token function">myBind</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 4</span>
 </code></pre>
 <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><ul>
 <li>三种状态：pending，fulfilled，rejected</li>
