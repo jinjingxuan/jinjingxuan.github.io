@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题（四）, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 Min
+                    6 Min
                 </div>
                 
 
@@ -366,7 +366,6 @@
 <li>说一下你对JS执行上下文和作用域链的理解</li>
 <li>防抖函数，节流函数的作用与实现</li>
 <li>什么是闭包，闭包的作用是什么</li>
-<li>实现一个flattenDeep函数，把嵌套的数组扁平化</li>
 <li>关于reduce函数</li>
 <li>数组去重的方法</li>
 <li>时间复杂度和空间复杂度分别对应计算机什么资源</li>
@@ -520,42 +519,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="实现一个flattenDeep函数，把嵌套的数组扁平化"><a href="#实现一个flattenDeep函数，把嵌套的数组扁平化" class="headerlink" title="实现一个flattenDeep函数，把嵌套的数组扁平化"></a>实现一个flattenDeep函数，把嵌套的数组扁平化</h2><p><code>flattenDeep([1, [2, [3, [4]], 5]]); //[1, 2, 3, 4, 5]</code></p>
-<p>（1）ES6的flat方法</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//flat 方法，用于将嵌套的数组“拉平”，变成一维的数组。该方法返回一个新数组，对原数组没有影响。</span>
-<span class="token comment" spellcheck="true">//flat 默认只会 “拉平” 一层，如果想要 “拉平” 多层的嵌套数组，需要给 flat 传递一个整数，表示想要拉平的层数。</span>
-
-<span class="token keyword">function</span> <span class="token function">flattenDeep</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>deepLength<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span>deepLength<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//当传递的整数大于数组嵌套的层数时，会将数组拉平为一维数组</span>
-<span class="token keyword">function</span> <span class="token function">flattenDeep</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>（2）利用reduce和concat</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">flattenDeep</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token operator">?</span>acc<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token function">flattenDeep</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                     acc<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>（3）利用栈</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">flattenDeep</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">const</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>input<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//从stack中取值</span>
-        <span class="token keyword">const</span> next <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果取出的是数组，继续放到栈里</span>
-            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            res<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//如果不是数组了，直接放到结果</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="关于reduce函数"><a href="#关于reduce函数" class="headerlink" title="关于reduce函数"></a>关于reduce函数</h2><blockquote>
@@ -916,16 +879,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2018/02/19/面试-面试知识点清单/">
+                <a href="/2018/03/09/面试-面试题（四）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="面试知识点清单">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面试题（四）">
                         
-                        <span class="card-title">面试知识点清单</span>
+                        <span class="card-title">面试题（四）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -936,7 +899,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-03-09
                             </span>
                         <span class="publish-author">
                             
@@ -950,6 +913,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1145,7 +1109,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

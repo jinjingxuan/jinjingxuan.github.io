@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="算法-字符串操作, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-03-13
                 </div>
                 
 
@@ -472,7 +472,10 @@
 <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'abbcbca'</span>
 str1<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/(b)/g</span><span class="token punctuation">,</span>item <span class="token operator">=</span><span class="token operator">></span> item<span class="token operator">+</span><span class="token string">'*'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//ab*b*cb*ca</span>
 </code></pre>
-<h2 id="算法：最长公共前缀"><a href="#算法：最长公共前缀" class="headerlink" title="算法：最长公共前缀"></a>算法：最长公共前缀</h2><pre class=" language-js"><code class="language-js">编写一个函数来查找字符串数组中的最长公共前缀。
+<h2 id="算法：最长公共前缀4"><a href="#算法：最长公共前缀4" class="headerlink" title="算法：最长公共前缀4"></a>算法：最长公共前缀4</h2><ul>
+<li><a href="https://leetcode-cn.com/problems/longest-common-prefix/" target="_blank" rel="noopener">leetcode14</a></li>
+</ul>
+<pre class=" language-js"><code class="language-js">编写一个函数来查找字符串数组中的最长公共前缀。
 
 如果不存在公共前缀，返回空字符串 <span class="token string">""</span>。
 
@@ -493,12 +496,12 @@ str1<span class="token punctuation">.</span><span class="token function">replace
 <li>时间复杂度：O(s)，s 为所有字符串的长度之和</li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> longestCommonPrefix <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">""</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>strs<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">""</span>
     <span class="token keyword">let</span> ans <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>strs<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>ans<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!==</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                ans <span class="token operator">=</span> ans<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> strs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> ans<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!==</span> strs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                ans <span class="token operator">=</span> ans<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
@@ -1093,7 +1096,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题（三）, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 Min
+                    16 Min
                 </div>
                 
 
@@ -537,16 +537,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <h2 id="简述居中一个元素的方法"><a href="#简述居中一个元素的方法" class="headerlink" title="简述居中一个元素的方法"></a>简述居中一个元素的方法</h2><p>考虑：水平还是垂直，块还是行内，是否需要知道宽高，兼容性</p>
 <p>（1）水平：</p>
-<pre class=" language-js"><code class="language-js"><span class="token number">1</span><span class="token punctuation">.</span> 块元素：margin<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>auto
-<span class="token number">2</span><span class="token punctuation">.</span> 行内元素，行内块元素：text<span class="token operator">-</span>align<span class="token punctuation">:</span>center
+<pre class=" language-js"><code class="language-js"><span class="token number">1</span><span class="token punctuation">.</span> margin<span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 对于 block 生效</span>
+<span class="token number">2</span><span class="token punctuation">.</span> text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 对于 inline 和 inline-block 均生效</span>
 </code></pre>
 <p>（2）垂直：</p>
-<ol start="3">
-<li><p>行内元素：line-height：xxpx</p>
-</li>
-<li><p>行内块元素：line-height：xxpx；vertical-align：middle</p>
-</li>
-</ol>
+<pre class=" language-js"><code class="language-js"><span class="token number">3</span><span class="token punctuation">.</span> line<span class="token operator">-</span>height：xxpx
+<span class="token number">4</span><span class="token punctuation">.</span> vertical<span class="token operator">-</span>align：middle <span class="token comment" spellcheck="true">// 还有两个值text-top / text-bottom，常用于图片对齐文字</span>
+<span class="token number">5</span><span class="token punctuation">.</span> align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// flex布局的居中方法</span>
+</code></pre>
 <p>（3）水平竖直同时居中</p>
 <p> absolute方法：</p>
 <ol start="5">
@@ -647,7 +645,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ol>
 <p>浏览器缓存的位置：</p>
 <ol>
-<li>Service Worker： 它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的。</li>
+<li>Service Worker： 是运行在浏览器背后的独立线程，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的。</li>
 <li>Memory Cache： 内存缓存，读取内存中的数据肯定比磁盘快。但是内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。 一旦我们关闭 Tab 页面，内存中的缓存也就被释放了。</li>
 <li>Disk Cache: Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之 Memory Cache 胜在容量和存储时效性上。</li>
 </ol>
@@ -682,6 +680,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>max-age=xxx</p>
 <blockquote>
 <p>缓存的内容将在 xxx 秒后失效, 这个选项只在HTTP 1.1可用, 并如果和Last-Modified一起使用时, 优先级较高</p>
+</blockquote>
+<p>s-maxage=xxx</p>
+<blockquote>
+<p>同max-age作用一样，只在代理服务器中生效（比如CDN缓存）。比如当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。max-age用于普通缓存，而s-maxage用于代理缓存。<strong>s-maxage的优先级高于max-age</strong>。如果存在s-maxage，则会覆盖掉max-age和Expires header。</p>
 </blockquote>
 <h2 id="meta标签与视口"><a href="#meta标签与视口" class="headerlink" title="meta标签与视口"></a>meta标签与视口</h2><p>首先介绍3个视口的概念</p>
 <ul>
@@ -1281,7 +1283,7 @@ initial<span class="token operator">-</span>scale <span class="token operator">=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

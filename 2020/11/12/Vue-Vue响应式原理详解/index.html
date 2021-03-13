@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Vue响应式原理详解, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 Min
+                    18 Min
                 </div>
                 
 
@@ -407,37 +407,39 @@ created<span class="token punctuation">:</span> <span class="token keyword">func
     eventHub<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'add-todo'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>addTodo<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="模拟实现vue的自定义事件"><a href="#模拟实现vue的自定义事件" class="headerlink" title="模拟实现vue的自定义事件"></a>模拟实现vue的自定义事件</h4><pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// 类内部存储一个对象，包含事件名和对应的触发函数</span>
-    <span class="token comment" spellcheck="true">// { click: [fn1, fn2], change: fn }</span>
-    <span class="token keyword">class</span> <span class="token class-name">EventEmitter</span> <span class="token punctuation">{</span>
-      constructor <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subs <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-      <span class="token comment" spellcheck="true">// 注册事件</span>
-      $on <span class="token punctuation">(</span>eventType<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
+<h4 id="模拟实现vue的自定义事件"><a href="#模拟实现vue的自定义事件" class="headerlink" title="模拟实现vue的自定义事件"></a>模拟实现vue的自定义事件</h4><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 类内部存储一个对象，包含事件名和对应的触发函数</span>
+<span class="token comment" spellcheck="true">// { click: [fn1, fn2], change: fn }</span>
+<span class="token keyword">class</span> <span class="token class-name">EventEmitter</span> <span class="token punctuation">{</span>
+  constructor <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subs <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 注册事件</span>
+  $on <span class="token punctuation">(</span>eventType<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 
-      <span class="token comment" spellcheck="true">// 触发事件</span>
-      $emit <span class="token punctuation">(</span>eventType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">foreach</span><span class="token punctuation">(</span>handler <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token function">handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-          <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 触发事件</span>
+  $emit <span class="token punctuation">(</span>eventType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>handler <span class="token operator">=</span><span class="token operator">></span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
-    <span class="token comment" spellcheck="true">// 测试</span>
-    <span class="token keyword">let</span> em <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 信号中心</span>
-    em<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click1'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    em<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click2'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    em<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span>
+  <span class="token function">$off</span><span class="token punctuation">(</span>eventType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">[</span>eventType<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 测试</span>
+<span class="token keyword">let</span> em <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 信号中心</span>
+em<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+em<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click2'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+em<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span>
 </code></pre>
 <p><a href="https://juejin.cn/post/6844903589815517192" target="_blank" rel="noopener">Object.create(null) 和 {} 的区别</a></p>
 <h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><ul>
@@ -453,7 +455,7 @@ created<span class="token punctuation">:</span> <span class="token keyword">func
 </li>
 <li>没有事件中心</li>
 </ul>
-<pre class=" language-js"><code class="language-js"> <span class="token comment" spellcheck="true">// 发布者-目标</span>
+<pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// 发布者-目标</span>
     <span class="token keyword">class</span> <span class="token class-name">Dep</span> <span class="token punctuation">{</span>
       constructor <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 记录所有的订阅者</span>
@@ -467,11 +469,10 @@ created<span class="token punctuation">:</span> <span class="token keyword">func
       <span class="token punctuation">}</span>
       <span class="token comment" spellcheck="true">// 发布通知</span>
       notify <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>sub <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-          sub<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>sub <span class="token operator">=</span><span class="token operator">></span> sub<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
+
     <span class="token comment" spellcheck="true">// 订阅者-观察者</span>
     <span class="token keyword">class</span> <span class="token class-name">Watcher</span> <span class="token punctuation">{</span>
       update <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -484,7 +485,6 @@ created<span class="token punctuation">:</span> <span class="token keyword">func
     <span class="token keyword">let</span> watcher <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Watcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     dep<span class="token punctuation">.</span><span class="token function">addSub</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span>
-
     dep<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="Vue实例初始化过程"><a href="#Vue实例初始化过程" class="headerlink" title="Vue实例初始化过程"></a>Vue实例初始化过程</h3><p>在 Vue 实例初始化的时候会调用<code>_init</code>方法，<code>_init</code>方法中有很多初始化的过程，比如</p>
@@ -672,17 +672,76 @@ vm<span class="token punctuation">.</span>items<span class="token punctuation">.
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="组件渲染过程"><a href="#组件渲染过程" class="headerlink" title="组件渲染过程"></a>组件渲染过程</h3><p><strong>那么究竟是如何触发依赖实现响应式的呢，从组件渲染阶段开始说起</strong></p>
-<p>vue源码的 instance/init.js 中是初始化的入口，其中初始化中除了初始化的几个步骤以外，在最后有这样一段 代码：</p>
+<p>vue源码的 instance/init.js 中是初始化的入口，其中初始化中除了初始化的几个步骤以外，在最后有这样一段代码，<strong>要实现的功能是挂载到el上，要么是运行时有render直接挂载，要么将template/el编译一下再挂载</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   vm<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>el<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <ul>
-<li>一共有两个<code>$mount</code>,第一个定义在<code>entry-runtime-with-compiler.js</code>文件中,<code>$mount()</code>的核心作用是帮我们把模板编译成<code>render</code>函数，但它首先会判断一下当前是否传入了<code>render</code>选项，如果没有传入的话，它会去获取我们的<code>template</code>选项，如果<code>template</code>选项也没有的话，他会把<code>el</code>中的内容作为我们的模板，然后把模板编译成<code>render</code>函数，它是通过<code>compile</code>函数，帮我们把模板编译成<code>render</code>函数的,当把<code>render</code>函数编译好之后，它会把<code>render</code>函数存在我们的<code>options.render</code>中。（<a href="https://juejin.cn/post/6844904073238446093" target="_blank" rel="noopener">Vue 完整版和运行时版本的区别</a>）</li>
-<li>接着会调用<code>src/platforms/web/runtime/index.js</code>文件中的<code>$mount</code>方法,在这个中首先会重新获取<code>el</code>，因为如果是运行时版本的话，是不会走<code>entry-runtime-with-compiler.js</code>这个入口中获取el，我们会在runtime/index.js的$mount()中重新获取el。</li>
-<li>接下来调用<code>mountComponent()</code>,首先会判断<code>render</code>选项，如果没有<code>render</code>选项，但是我们传入了模板，会发送一个警告，,告诉我们如果是运行时版本不支持编译器。接下来会触发beforeMount这个生命周期中的钩子函数，也就是开始挂载之前。</li>
+<li>一共有两个<code>$mount</code>,第一个定义在<code>entry-runtime-with-compiler.js</code>文件中，这是<a href="https://juejin.cn/post/6844904073238446093" target="_blank" rel="noopener">完整构建版本的入口</a>，首先会判断一下当前是否传入了<code>render</code>选项，如果没有传入的话，它会去获取我们的<code>template</code>选项，如果<code>template</code>选项也没有的话，他会把<code>el</code>中的内容作为我们的模板，然后把模板编译成<code>render</code>函数，存在我们的<code>options.render</code>中，优先级<a href="https://blog.csdn.net/jiang7701037/article/details/83178630" target="_blank" rel="noopener"><code>render &gt; template &gt; el</code></a></li>
+<li>另一个<code>$mount</code>是<code>src/platforms/web/runtime/index.js</code>文件中的<code>$mount</code>方法<ul>
+<li>运行时版本的挂载入口，可以直接调用，因为运行时存在<code>render</code>，直接挂载到el上即可</li>
+<li>完整版本的<code>$mount</code>函数的最后调用，因为完整版本经过<code>template</code>编译之后，也有了<code>render</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$mount <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>
+    el<span class="token operator">?</span><span class="token punctuation">:</span> string <span class="token operator">|</span> Element<span class="token punctuation">,</span>
+    hydrating<span class="token operator">?</span><span class="token punctuation">:</span> boolean
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Component <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 判断el, 以及宿主环境, 然后通过工具函数query重写el。</span>
+    el <span class="token operator">=</span> el <span class="token operator">&amp;&amp;</span> inBrowser <span class="token operator">?</span> <span class="token function">query</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token punctuation">:</span> undefined
+    <span class="token comment" spellcheck="true">// 执行真正的挂载并返回</span>
+    <span class="token keyword">return</span> <span class="token function">mountComponent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> el<span class="token punctuation">,</span> hydrating<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>接下来调用<code>mountComponent()</code>，首先会判断<code>render</code>选项，如果没有<code>render</code>选项，会报出警告<ul>
+<li>如果我们传入了<code>template</code>或<code>el</code>，然后还没有<code>render</code>，会告诉我们如果是运行时版本不支持编译器。</li>
+<li>否则会警告<code>template or render function not defined</code></li>
+</ul>
+</li>
+<li>接下来会触发beforeMount这个生命周期中的钩子函数，也就是开始挂载之前。</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">mountComponent</span><span class="token punctuation">(</span>
+    vm<span class="token punctuation">:</span> Component<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 组件实例vm</span>
+    el<span class="token punctuation">:</span> <span class="token operator">?</span>Element<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 挂载点</span>
+    hydrating<span class="token operator">?</span><span class="token punctuation">:</span> boolean
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Component <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 在组件实例对象上添加$el属性</span>
+    <span class="token comment" spellcheck="true">// $el的值是组件模板根元素的引用</span>
+    vm<span class="token punctuation">.</span>$el <span class="token operator">=</span> el
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>render<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 渲染函数不存在, 这时将会创建一个空的vnode对象</span>
+        vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>render <span class="token operator">=</span> createEmptyVNode
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">"production"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/* istanbul ignore if */</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>
+                <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>template <span class="token operator">&amp;&amp;</span>
+                    vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>template<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token string">"#"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+                vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>el <span class="token operator">||</span>
+                el
+            <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">warn</span><span class="token punctuation">(</span>
+                    <span class="token string">"You are using the runtime-only build of Vue where the template "</span> <span class="token operator">+</span>
+                        <span class="token string">"compiler is not available. Either pre-compile the templates into "</span><span class="token operator">+</span>
+                        <span class="token string">"render functions, or use the compiler-included build."</span><span class="token punctuation">,</span>
+                    vm
+                <span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">warn</span><span class="token punctuation">(</span>
+                    <span class="token string">"Failed to mount component: template or render function not defined."</span><span class="token punctuation">,</span>
+                    vm
+                <span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 触发 beforeMount 生命周期钩子</span>
+    <span class="token function">callHook</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token string">"beforeMount"</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
 <li>然后定义了updateComponent()，在这个函数中，调用<code>vm._render</code>和<code>vm._update</code>，<code>vm._render</code>的作用是生成虚拟DOM，<code>vm._update</code>的作用是将虚拟<code>DOM</code>转换成真实<code>DOM</code>，并且挂载到页面上</li>
-<li>创建<code>Watcher</code>对象，在创建<code>Watcher</code>时，传递了<code>updateComponent</code>这个函数，这个函数最终是在<code>Watcher</code>内部调用的。在<code>Watcher</code>内部会用<code>get</code>方法，当Watcher创建完成之后,会触发生命周期中的<code>mounted</code>钩子函数,在get方法中，会调用<code>updateComponent()</code></li>
+<li>然后创建<code>Watcher</code>对象，在创建<code>Watcher</code>时，传递了<code>updateComponent</code>这个函数，这个函数最终是在<code>Watcher</code>内部调用的。在<code>Watcher</code>内部会用<code>get</code>方法，当Watcher创建完成之后,会触发生命周期中的<code>mounted</code>钩子函数,在get方法中，会调用<code>updateComponent()</code></li>
 </ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Watcher</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> updateComponent<span class="token punctuation">,</span> noop<span class="token punctuation">,</span> <span class="token punctuation">{</span>
     before <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -695,6 +754,9 @@ vm<span class="token punctuation">.</span>items<span class="token punctuation">.
 <span class="token comment" spellcheck="true">// vm ：与Wather对应的Vue Component实例，这种对应关系通过Wather去管理</span>
 <span class="token comment" spellcheck="true">// updateComponent：可以理解成Vue Component的更新函数，调用实例render和update两个方法，render作用是将Vue对象渲染成虚拟DOM,update是通过虚拟DOM创建或者更新真实DOM</span>
 </code></pre>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/110441137" target="_blank" rel="noopener">更多详细请看</a></li>
+</ul>
 <p>Watche 实例分为渲染 watcher (render watcher),计算属性 watcher (computed watcher),侦听器 watcher（user watcher）三种：</p>
 <ol>
 <li>initState 时,对 computed 属性初始化时,触发 computed watcher 依赖收集</li>
@@ -721,7 +783,7 @@ vm<span class="token punctuation">.</span>items<span class="token punctuation">.
   <span class="token punctuation">}</span>
 
   <span class="token keyword">get</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 触发取值操作，进而触发属性的getter</span>
-    <span class="token function">pushTarget</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Dep 中提到的：给 Dep.target 赋值</span>
+    <span class="token function">pushTarget</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Dep 中提到的：给 Dep.target 赋值 watcher</span>
     <span class="token keyword">let</span> value
     <span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>vm
     <span class="token keyword">try</span> <span class="token punctuation">{</span>
@@ -750,26 +812,12 @@ vm<span class="token punctuation">.</span>items<span class="token punctuation">.
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="响应式的整体流程"><a href="#响应式的整体流程" class="headerlink" title="响应式的整体流程"></a>响应式的整体流程</h3><p>总结一下响应式的整体流程：<br>假设有模版：</p>
-<pre class=" language-vue"><code class="language-vue"><div id="test">
-  {{str}}
-</div>
-</code></pre>
-<ol>
-<li>调用$mount()函数进入到挂载阶段</li>
-<li>检查是否有render()函数，根据上述模版创建render()函数</li>
-<li>调用了mountComponent()函数完成挂载，并在mountComponen()中定义并初始化updateComponent()</li>
-<li>为渲染函数添加观察者，在观察者中对渲染函数求值</li>
-<li>在求值的过程中触发数据对象str的get，在str的get中收集str的观察者到数据的dep中</li>
-<li>修改str的值时，触发str的set，在set中调用数据的dep的notify触发响应</li>
-<li>notify中对每一个观察者调用update方法更新视图</li>
-</ol>
-<hr>
-<p>总结下官方的描述,大概分为一下几点：</p>
+<h3 id="响应式的整体流程"><a href="#响应式的整体流程" class="headerlink" title="响应式的整体流程"></a>响应式的整体流程</h3><ul>
+<li>组件实例初始化过程中，data的每个属性都有自己的getter、setter方法，用于收集依赖和触发依赖</li>
+</ul>
 <ul>
-<li>组件实例有自己的watcher对象，用于记录数据依赖</li>
-<li>组件中的data的每个属性都有自己的getter、setter方法，用于收集依赖和触发依赖</li>
-<li>组件渲染过程中，调用data中的属性的getter方法，将依赖收集至watcher对象</li>
+<li>组件渲染过程中，在<code>mountComponent</code>中初始化组件自己的watcher对象，用于记录数据依赖</li>
+<li>watcher的内部有触发取值的操作，调用data中的属性的getter方法，收集依赖</li>
 <li>data中的属性变化，会调用setter中的方法，告诉watcher有依赖发生了变化</li>
 <li>watcher收到依赖变化的消息，重新渲染虚拟dom，实现页面响应</li>
 </ul>
@@ -1415,7 +1463,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

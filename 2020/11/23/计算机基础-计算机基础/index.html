@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="计算机基础, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 Min
+                    19 Min
                 </div>
                 
 
@@ -364,6 +364,8 @@
 <li>TCP与UDP的区别</li>
 <li>TCP三次握手，四次挥手</li>
 <li>什么是HTTP协议</li>
+<li>常见请求头字段</li>
+<li>响应头字段</li>
 <li>长连接与多路复用</li>
 <li>HTTPS</li>
 <li>进程与线程</li>
@@ -532,6 +534,156 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
 <p>证书，顾名思义，就是证明的文件。例如浏览器和 tlanyan.me 服务器通信，浏览器怎么知道对方就是 tlanyan.me 对应的服务器呢？在不可信的网络下通信，中立的第三方作用就显现出来了。权威的第三方中立机构（ Certificate Authority, CA）收到 tlanyan.me 持有者的证书请求并核验信息后，将持有者的名称、公钥与 CA 用私钥生成的数字签名等信息写成证书颁发给申请者。</p>
 <p>当你访问使用 HTTPS（连接安全）的网站时，该网站的服务器会使用证书向浏览器（如 Chrome）证明该网站的身份。任何人都可以创建证书，随意声称对应的网站是任意网站。</p>
 <p>为了确保您安全上网，Chrome 会要求网站使用来自受信任组织发放的证书。</p>
+</blockquote>
+<h2 id="常见请求头"><a href="#常见请求头" class="headerlink" title="常见请求头"></a>常见请求头</h2><p>HTTP 首部字段是由首部字段名和字段值构成的，中间用冒号“:” 分隔。</p>
+<blockquote>
+<p>首部字段名: 字段值</p>
+</blockquote>
+<p>另外，字段值对应单个 HTTP 首部字段可以有多个值，多个指令之间通过“,”分隔。如下所示。</p>
+<blockquote>
+<p>Keep-Alive: timeout=15, max=100</p>
+</blockquote>
+<p>若想要加优先级，则使用 q=来额外表示权重值 1 ，用分号（;）进行分隔。权重值 q 的范围是 0~1（可精确到小数点后 3位），且 1 为最大值。不指定权重 q 值时，默认权重为 q=1.0。</p>
+<blockquote>
+<p>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8</p>
+</blockquote>
+<h3 id="请求头字段"><a href="#请求头字段" class="headerlink" title="请求头字段"></a>请求头字段</h3><ul>
+<li>Accept</li>
+</ul>
+<blockquote>
+<p>Accept: image/webp,image/apng,image/<em>,</em>/*;q=0.8</p>
+<p>Accept 首部字段可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级。可使用type/subtype 这种形式，一次指定多种媒体类型。</p>
+</blockquote>
+<ul>
+<li>Accept-Encoding</li>
+</ul>
+<blockquote>
+<p>Accept-Encoding: gzip, deflate, br</p>
+<p>Accept-Encoding 首部字段用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序。可一次性指定多种内容编码。</p>
+</blockquote>
+<ul>
+<li>Accept-Language</li>
+</ul>
+<blockquote>
+<p>Accept-Language: zh-CN,zh;q=0.9,en;q=0.8</p>
+<p>首部字段 Accept-Language 用来告知服务器用户代理能够处理的自然语言集（指中文或英文等），以及自然语言集的相对优先级。可一次指定多种自然语言集。</p>
+</blockquote>
+<ul>
+<li>Cache-Control</li>
+</ul>
+<blockquote>
+<p>Cache-Control: no-cache，缓存</p>
+</blockquote>
+<ul>
+<li>Connection</li>
+</ul>
+<blockquote>
+<p>Connection: keep-alive</p>
+<p>HTTP/1.1 之前的 HTTP 版本的默认连接都是非持久连接。为此，如果想在旧版本的HTTP 协议上维持持续连接，则需要指定Connection 首部字段的值为 Keep-Alive。</p>
+</blockquote>
+<ul>
+<li>Cookie</li>
+</ul>
+<blockquote>
+<p>首部字段 Cookie 会告知服务器，当客户端想获得HTTP 状态管理支持时，就会在请求中包含从服务器接收到的 Cookie。</p>
+</blockquote>
+<ul>
+<li>Host</li>
+</ul>
+<blockquote>
+<p>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
+<p>首部字段 Host 会告知服务器，请求的资源所处的互联网主机名和端口号。Host 首部字段在HTTP/1.1 规范内是唯一一个必须被包含在请求内的首部字段。</p>
+</blockquote>
+<ul>
+<li>Referer</li>
+</ul>
+<blockquote>
+<p>首部字段 Referer 会告知服务器请求的原始资源的 URI。它记录了该 HTTP 请求的来源地址。</p>
+<p>如果黑客要对银行网站实施 CSRF 攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的 Referer 是指向黑客自己的网站。因此，要防御 CSRF 攻击，银行网站只需要对于每一个转账请求验证其 Referer 值 。</p>
+<p>然而，这种方法并非万无一失。Referer 的值是由浏览器提供的 ，目前已经有一些方法可以篡改 Referer 值 </p>
+<p>即便是使用最新的浏览器，黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，因此，用户自己可以设置浏览器使其在发送请求时不再提供 Referer。当他们正常访问银行网站时，网站会因为请求没有 Referer 值而认为是 CSRF 攻击，拒绝合法用户的访问。</p>
+</blockquote>
+<ul>
+<li>Origin</li>
+</ul>
+<blockquote>
+<p>用来说明请求从哪里发起的，包括，且仅仅包括<strong>协议和域名</strong>。<br>这个参数一般只存在于CORS跨域请求中，可以看到response有对应的header：<code>Access-Control-Allow-Origin</code>。</p>
+</blockquote>
+<ul>
+<li>User-Agent</li>
+</ul>
+<blockquote>
+<p>首部字段 User-Agent 会将创建请求的浏览器和用户代理名称等信息传达给服务器。</p>
+</blockquote>
+<ul>
+<li>Pragma</li>
+</ul>
+<blockquote>
+<p>Pragma: no-cache</p>
+<p>Pragma 是 HTTP/1.1 之前版本的历史遗留字段，仅作为与 HTTP/1.0 的向后兼容而定义。客户端会要求所有的中间服务器不返回缓存的资源。</p>
+</blockquote>
+<ul>
+<li>Content-Type</li>
+</ul>
+<blockquote>
+<p>Content-Type来表示具体请求中的媒体类型信息。</p>
+<p><strong>application/x-www-form-urlencoded</strong></p>
+<p>请求参数格式<code>key1=val1&amp;key2=val2</code>的方式进行拼接，并放到请求实体里面，如果是中文或特殊字符等会自动进行URL转码。一般用于表单提交</p>
+<p><strong>application/json</strong></p>
+<p>application/json 作为响应头比较常见，用来告诉服务端消息主体是序列化后的 JSON 字符串，其中一个好处就是JSON 格式支持比键值对复杂得多的结构化数据。由于 JSON 规范的流行，除了低版本 IE 之外的各大浏览器都原生支持JSON.stringify，服务端语言也都有处理 JSON 的函数，使用起来没有困难。</p>
+</blockquote>
+<h2 id="响应头字段"><a href="#响应头字段" class="headerlink" title="响应头字段"></a>响应头字段</h2><p><strong><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">预检请求</a>相关响应头</strong></p>
+<ul>
+<li><p>Access-Control-Allow-Origin：值为请求头中的origin值或*</p>
+</li>
+<li><p>Access-Control-Allow-Methods: 表明可被支持的请求方法</p>
+</li>
+<li><p>Access-Control-Allow-Headers: 表明可被支持的头信息字段</p>
+</li>
+<li><p>Access-Control-Allow-Credentials: 当请求要求携带证书信息（例如cookie,授权信息等）验证，服务器端是否允许携带</p>
+</li>
+<li><p>Access-Control-Max-Age: 本次预检请求的有效期，单位为秒</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Date</li>
+</ul>
+<blockquote>
+<p>服务端响应客户端的时间</p>
+</blockquote>
+<ul>
+<li>Server</li>
+</ul>
+<blockquote>
+<p>服务器名字</p>
+</blockquote>
+<ul>
+<li>Content-Type</li>
+</ul>
+<blockquote>
+<p>服务端发送的媒体类型</p>
+</blockquote>
+<ul>
+<li>Set-Cookie</li>
+</ul>
+<blockquote>
+<p>浏览器会在当前页面所在域名设置cookie，当浏览器再次发送请求时，浏览器默认会自动将cookie放在请求头中的Cookie项中发送给服务器。</p>
+</blockquote>
+<ul>
+<li><p><a href="https://juejin.cn/post/6844903763665240072" target="_blank" rel="noopener">Cache-Control、E-Tag 、 Last-Modified</a></p>
+</li>
+<li><p>Content-Encoding</p>
+</li>
+</ul>
+<blockquote>
+<p>文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。</p>
+</blockquote>
+<ul>
+<li>Connection</li>
+</ul>
+<blockquote>
+<p>Keep-alive 长连接</p>
 </blockquote>
 <h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><ul>
 <li>进程是CPU资源分配的最小单位（能拥有资源和独立运行的最小单位）</li>
@@ -780,13 +932,13 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/23/浏览器-浏览器渲染相关/">
+                <a href="/2020/11/26/CSS-盒子模型/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="浏览器渲染相关">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="盒子模型">
                         
-                        <span class="card-title">浏览器渲染相关</span>
+                        <span class="card-title">盒子模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -797,14 +949,14 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/浏览器/" class="post-category">
-                                    浏览器
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
                                 </a>
                             
                             
@@ -1047,7 +1199,7 @@ HTTP<span class="token operator">/</span><span class="token number">2</span> 对
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

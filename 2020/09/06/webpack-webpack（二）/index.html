@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="webpack（二）, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,7 +330,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-03-13
                 </div>
                 
 
@@ -673,9 +673,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p><em>+++ 非常快速, ++ 快速, + 比较快, o 中等, - 比较慢, – 慢</em></p>
 </blockquote>
 <ul>
-<li>eval：是否使用 eval 执行模块代码，通过 SourceURL 标注文件路径，并没有生成 SourceMap</li>
+<li>eval：打包后的模块都使用 <code>eval()</code> 执行，不产生独立的 map 文件</li>
 <li>cheap：Source map是否包含行信息</li>
-<li>module：是否能够得到 Loader 处理之前的源代码</li>
+<li>module：是否能够得到 Loader 处理之前的源代码，即手写的es6没有编译的源代码</li>
 <li>inline：使用 dataURL 把 SourceMap 嵌入 （不常用）</li>
 <li>hidden：控制台看不到SourceMap</li>
 <li>nosources：看不见源代码，生产环境保护源代码</li>
@@ -687,7 +687,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <li>cheap-module-eval-source-map：没有经过 loader 加工，真正的源代码（vue中常用）</li>
 </ul>
 <hr>
-<p>开发模式：cheap-eval-source-map</p>
+<p>开发模式：cheap-module-eval-source-map</p>
 <p>生产模式：none</p>
 
                 
@@ -1191,7 +1191,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

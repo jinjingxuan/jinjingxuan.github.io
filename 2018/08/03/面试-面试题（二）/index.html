@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题（二）, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,21 +330,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 Min
+                    14 Min
                 </div>
                 
 
@@ -427,13 +427,40 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>证书，顾名思义，就是证明的文件。例如浏览器和 tlanyan.me 服务器通信，浏览器怎么知道对方就是 tlanyan.me 对应的服务器呢？在不可信的网络下通信，中立的第三方作用就显现出来了。权威的第三方中立机构（ Certificate Authority, CA）收到 tlanyan.me 持有者的证书请求并核验信息后，将持有者的名称、公钥与 CA 用私钥生成的数字签名等信息写成证书颁发给申请者。</p>
 </blockquote>
 <h2 id="怎么解决跨域问题"><a href="#怎么解决跨域问题" class="headerlink" title="怎么解决跨域问题"></a>怎么解决跨域问题</h2><blockquote>
-<p>1、 通过jsonp跨域: 直接请求文件不行，请求JS可以，我们就把数据以JSON格式装进JS文件里</p>
-<p>客户端： 服务端的js文件：<br>function handleCallback(res) { handleCallback({<br>alert(JSON.stringify(res)); “status”: true, “user”: “admin”<br>} })</p>
-<p>其实jsonp是前后端共同约定的一种结果。</p>
+<p>1、 通过jsonp跨域: 直接请求文件不行，请求JS可以，我们就把数据以JSON格式装进JS文件里，其实jsonp是前后端共同约定的一种结果。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// jsonp原理(只支持get请求)</span>
+<span class="token comment" spellcheck="true">// 1. 创建一个动态script节点</span>
+<span class="token keyword">let</span> jsonp <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 2. 声明接收数据的回调函数</span>
+<span class="token keyword">function</span> <span class="token function">res</span><span class="token punctuation">(</span>ev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ev接收的就是服务端回复的数据</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ev<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 3. 为节点设置src属性, src属性为get请求, 后面拼接一个回调函数</span>
+jsonp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://www.ceshi.com/api/jsonp?callback=res'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 4. 将节点插入页面</span>
+<span class="token keyword">let</span> head <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'head'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>jsonp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 5. 获取完数据删除节点</span>
+head<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>jsonp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>接收到的服务端返回内容为:</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">res</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span><span class="token string">"JSONP请求测试成功"</span><span class="token punctuation">,</span><span class="token string">"data"</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>可以看的返回的内容, 是我们之前传入的参数res, res被作为一个函数调用了, 而传递的数据作为该回调函数的实参传递了进来, 在script标签执行的时候, 就相当于执行了res()这个函数, 括号内部的数据也就变成了参数, 可以直接被函数接收处理, 如此便实现了跨域获取数据。</p>
+<blockquote>
 <p>2、 document.domain + iframe跨域:<br>news.baidu.com和map.baidu.com的一级域名相同，故可以设置document.domain = “baidu.com”;就可以跨域</p>
-<p>3、 location.hash + iframe<br>4、 window.name + iframe跨域<br>5、 postMessage跨域<br>6、 跨域资源共享（CORS） Access-Control-Allow-Origin: *<br>主要通过后端来配置，CORS规范将请求分为两种类型，一种是简单请求，一种是带预检的非简单请求。<br>如果是简单请求，就先执行服务端程序，然后浏览器才会判断是否跨域；GET HEAD,POST<br>而对于非简单请求，浏览器会在发送实际请求之前先发送一个OPTIONS的HTTP请求来判断服务器是否能接受该跨域 请求；如果不能接受的话，浏览器会直接阻止接下来实际请求的发生。 服务端可以设置携带cooike</p>
-<p>7、 nginx代理跨域<br>正向代理：我们将请求发送给代理服务器，代理服务器去访问，然后将访问到的数据传递给我们。隐藏了客户端<br>反向代理：在服务器端，有很多服务器处理请求，nginx扮演的就是一个反向代理角色，隐藏了服务器。<br>启动nginx服务器把server_name设置成前端的域名，此时前端发起的请求相当于是localhost对localhost发 起，这样是不会引起跨域的。</p>
-<p>8、 nodejs中间件代理跨域 与nginx代理跨域类似<br>9、 WebSocket协议跨域<br>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯</p>
+<p>3、 location.hash + iframe</p>
+<p>4、 window.name + iframe跨域</p>
+<p>5、 postMessage跨域</p>
+<p>6、 跨域资源共享（CORS） Access-Control-Allow-Origin: *</p>
+<p>主要通过后端来配置，CORS规范将请求分为两种类型，一种是简单请求，一种是带预检的非简单请求。<br>如果是简单请求，就先执行服务端程序，然后浏览器才会判断是否跨域；GET HEAD,POST<br>而对于非简单请求，浏览器会在发送实际请求之前先发送一个OPTIONS的HTTP请求来判断服务器是否能接受该跨域 请求；如果不能接受的话，浏览器会直接阻止接下来实际请求的发生。 服务端可以设置携带cooike</p>
+<p>7、 nginx代理跨域</p>
+<p>正向代理：我们将请求发送给代理服务器，代理服务器去访问，然后将访问到的数据传递给我们。隐藏了客户端</p>
+<p>反向代理：在服务器端，有很多服务器处理请求，nginx扮演的就是一个反向代理角色，隐藏了服务器。<br>启动nginx服务器把server_name设置成前端的域名，此时前端发起的请求相当于是localhost对localhost发 起，这样是不会引起跨域的。</p>
+<p>8、 nodejs中间件代理跨域 与nginx代理跨域类似</p>
+<p>9、 WebSocket协议跨域<br>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯</p>
 <p>10、webpack的proxy，webpack的dev-server模块会启动一个服务器，这个服务器不止帮我们做了自动更新，同时也可以做到<strong>反向</strong>代理。就是我们把请求发送给webpack-dev-server, 然后webpack-dev-server再去请求后端服务器，服务之间的请求是没有跨域问题的</p>
 </blockquote>
 <p><a href="https://my.oschina.net/u/2401092/blog/4412558" target="_blank" rel="noopener">正向代理&amp;反向代理</a></p>
@@ -815,13 +842,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/03/面试-面试题（五）/">
+                <a href="/2018/08/03/面试-面试题（六）/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="面试题（五）">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="面试题（六）">
                         
-                        <span class="card-title">面试题（五）</span>
+                        <span class="card-title">面试题（六）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1041,7 +1068,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="JS数据类型, -Breeze&#39;s Blog">
-    <meta name="description" content="漫漫长路，伴你同行">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -112,7 +112,7 @@
         <div class="logo-name">-Breeze&#39;s Blog</div>
         <div class="logo-desc">
             
-            漫漫长路，伴你同行
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -330,14 +330,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-21
+                    2021-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -417,6 +417,22 @@ JS是动态类型语言，所以类型不同的时候进行运算会进行类型
 <p>如果为布尔值这种简单的数据类型，那么将会转换为number类型来进行运算得出结果。</p>
 <p>如果操作数为对象或者是数组这种复杂的数据类型，那么就将两个操作数都转换为字符串，进行拼接 </p>
 </blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token boolean">true</span> <span class="token operator">+</span> <span class="token boolean">false</span>   <span class="token comment" spellcheck="true">// 1</span>
+<span class="token keyword">null</span> <span class="token operator">+</span> <span class="token number">10</span>      <span class="token comment" spellcheck="true">// 10</span>
+<span class="token boolean">false</span> <span class="token operator">+</span> <span class="token number">20</span>     <span class="token comment" spellcheck="true">// 20</span>
+undefined <span class="token operator">+</span> <span class="token number">30</span> <span class="token comment" spellcheck="true">// NaN</span>
+<span class="token number">1</span> <span class="token operator">+</span> <span class="token string">'2'</span>        <span class="token comment" spellcheck="true">// "12"</span>
+<span class="token number">NaN</span> <span class="token operator">+</span> <span class="token string">''</span>       <span class="token comment" spellcheck="true">// "NaN"</span>
+undefined <span class="token operator">+</span> <span class="token string">''</span> <span class="token comment" spellcheck="true">// "undefined"</span>
+<span class="token keyword">null</span> <span class="token operator">+</span> <span class="token string">''</span>      <span class="token comment" spellcheck="true">// "null"</span>
+<span class="token string">''</span> <span class="token operator">-</span> <span class="token number">3</span>         <span class="token comment" spellcheck="true">// -3</span>
+
+<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">10</span>
+<span class="token comment" spellcheck="true">// 过程</span>
+<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// '20'</span>
+<span class="token function">Number</span><span class="token punctuation">(</span><span class="token string">'20'</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">// 20</span>
+<span class="token number">20</span> <span class="token operator">-</span> <span class="token number">10</span>          <span class="token comment" spellcheck="true">// 10</span>
+</code></pre>
 <h2 id="JS如何进行类型判断"><a href="#JS如何进行类型判断" class="headerlink" title="JS如何进行类型判断"></a>JS如何进行类型判断</h2><ul>
 <li>typeof关键字，存在问题</li>
 </ul>
@@ -817,13 +833,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/05/算法-二叉树相关/">
+                <a href="/2020/02/01/刷题小分队/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法-二叉树相关">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="刷题小分队">
                         
-                        <span class="card-title">算法-二叉树相关</span>
+                        <span class="card-title">刷题小分队</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -834,14 +850,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category">
-                                    算法
+                            <a href="/categories/刷题/" class="post-category">
+                                    刷题
                                 </a>
                             
                             
@@ -1043,7 +1059,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">177k</span>&nbsp;字
             
             
             
